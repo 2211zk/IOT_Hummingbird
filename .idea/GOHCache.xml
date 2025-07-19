@@ -23,7 +23,15 @@
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/api/enter.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiResponse">
+          <value>
+            <set>
+              <option value="file://$USER_HOME$/Desktop/1/main.go" />
             </set>
           </value>
         </entry>
@@ -277,6 +285,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_casbin.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="CategoryTemplate">
+          <value>
+            <set>
+              <option value="file://$USER_HOME$/Desktop/1/main.go" />
             </set>
           </value>
         </entry>
@@ -917,6 +932,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Product">
+          <value>
+            <set>
+              <option value="file://$USER_HOME$/Desktop/1/main.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Qiniu">
           <value>
             <set>
@@ -967,12 +989,20 @@
             </set>
           </value>
         </entry>
+        <entry key="ResponseData">
+          <value>
+            <set>
+              <option value="file://$USER_HOME$/Desktop/1/main.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="RouterGroup">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/router/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go" />
             </set>
           </value>
         </entry>
@@ -997,6 +1027,7 @@
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/service/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go" />
             </set>
           </value>
         </entry>
@@ -1422,6 +1453,41 @@
             </set>
           </value>
         </entry>
+        <entry key="WlProducts">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_products.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlProductsApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_products.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlProductsRouter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_products.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlProductsSearch">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_products.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlProductsService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_products.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Writer">
           <value>
             <set>
@@ -1726,10 +1792,24 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$USER_HOME$/Desktop/1/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896176283" />
+              <option name="schema">
+                <list>
+                  <option value="ApiResponse" />
+                  <option value="ResponseData" />
+                  <option value="CategoryTemplate" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752807226522" />
+              <option name="lastModified" value="1752896074475" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -1989,6 +2069,30 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1752807226528" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074474" />
+              <option name="schema">
+                <list>
+                  <option value="ApiGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_products.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074487" />
+              <option name="schema">
+                <list>
+                  <option value="WlProductsApi" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -2434,7 +2538,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752807226537" />
+              <option name="lastModified" value="1752896074478" />
             </ScannedPath>
           </value>
         </entry>
@@ -2600,7 +2704,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752807226540" />
+              <option name="lastModified" value="1752896074491" />
             </ScannedPath>
           </value>
         </entry>
@@ -3330,6 +3434,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_products.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074490" />
+              <option name="schema">
+                <list>
+                  <option value="WlProductsSearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_products.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074477" />
+              <option name="schema">
+                <list>
+                  <option value="WlProducts" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/api/enter.go">
           <value>
             <ScannedPath>
@@ -3636,7 +3764,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752807226560" />
+              <option name="lastModified" value="1752896074481" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -3861,10 +3989,34 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074474" />
+              <option name="schema">
+                <list>
+                  <option value="RouterGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_products.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074491" />
+              <option name="schema">
+                <list>
+                  <option value="WlProductsRouter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752807226563" />
+              <option name="lastModified" value="1752896074478" />
               <option name="schema">
                 <list>
                   <option value="ServiceGroup" />
@@ -4262,6 +4414,30 @@
               <option name="schema">
                 <list>
                   <option value="UserService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074480" />
+              <option name="schema">
+                <list>
+                  <option value="ServiceGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_products.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1752896074480" />
+              <option name="schema">
+                <list>
+                  <option value="WlProductsService" />
                 </list>
               </option>
             </ScannedPath>
@@ -5044,6 +5220,7 @@
         <entry key="aliyun_oss" value="AliyunOSS" />
         <entry key="api" value="api" />
         <entry key="api_group" value="ApiGroup" />
+        <entry key="api_response" value="ApiResponse" />
         <entry key="api_router" value="ApiRouter" />
         <entry key="api_service" value="ApiService" />
         <entry key="args" value="args" />
@@ -5088,6 +5265,7 @@
         <entry key="casbin_info" value="CasbinInfo" />
         <entry key="casbin_router" value="CasbinRouter" />
         <entry key="casbin_service" value="CasbinService" />
+        <entry key="category_template" value="CategoryTemplate" />
         <entry key="change_password_req" value="ChangePasswordReq" />
         <entry key="change_user_info" value="ChangeUserInfo" />
         <entry key="clear_db" value="ClearDB" />
@@ -5196,6 +5374,7 @@
         <entry key="plugin_initialize_router" value="PluginInitializeRouter" />
         <entry key="plugin_initialize_v2" value="PluginInitializeV2" />
         <entry key="policy_path_response" value="PolicyPathResponse" />
+        <entry key="product" value="Product" />
         <entry key="qiniu" value="Qiniu" />
         <entry key="ram" value="Ram" />
         <entry key="redis" value="Redis" />
@@ -5204,6 +5383,7 @@
         <entry key="reset_password" value="ResetPassword" />
         <entry key="response" value="Response" />
         <entry key="response_body_writer" value="responseBodyWriter" />
+        <entry key="response_data" value="ResponseData" />
         <entry key="router" value="router" />
         <entry key="router_group" value="RouterGroup" />
         <entry key="search_api_params" value="SearchApiParams" />
@@ -5273,11 +5453,16 @@
         <entry key="user_router" value="UserRouter" />
         <entry key="user_service" value="UserService" />
         <entry key="visitor" value="Visitor" />
+        <entry key="wl_products" value="WlProducts" />
+        <entry key="wl_products_api" value="WlProductsApi" />
+        <entry key="wl_products_router" value="WlProductsRouter" />
+        <entry key="wl_products_search" value="WlProductsSearch" />
+        <entry key="wl_products_service" value="WlProductsService" />
         <entry key="writer" value="Writer" />
         <entry key="zap" value="Zap" />
         <entry key="zap_core" value="ZapCore" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1752735760283" />
+    <option name="lastTimeChecked" value="1752849186042" />
   </component>
 </project>

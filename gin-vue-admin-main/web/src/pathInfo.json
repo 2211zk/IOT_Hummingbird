@@ -68,6 +68,8 @@
   "/src/view/systemTools/installPlugin/index.vue": "Index",
   "/src/view/systemTools/pubPlug/pubPlug.vue": "PubPlug",
   "/src/view/systemTools/system/system.vue": "Config",
+  "/src/view/wl_playform/wlProducts/wlProducts.vue": "WlProducts",
+  "/src/view/wl_playform/wlProducts/wlProductsForm.vue": "WlProductsForm",
   "/src/plugin/announcement/form/info.vue": "InfoForm",
   "/src/plugin/announcement/view/info.vue": "Info",
   "/src/plugin/email/view/index.vue": "Email"
