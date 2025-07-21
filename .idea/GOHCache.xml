@@ -1418,6 +1418,13 @@
             </set>
           </value>
         </entry>
+        <entry key="VerifyWlResourcesRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_resources.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Visitor">
           <value>
             <set>
@@ -2202,7 +2209,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_resources.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753082075850" />
+              <option name="lastModified" value="1753101596397" />
               <option name="schema">
                 <list>
                   <option value="WlResourcesApi" />
@@ -3617,10 +3624,11 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_resources.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753080854811" />
+              <option name="lastModified" value="1753101814753" />
               <option name="schema">
                 <list>
                   <option value="WlResourcesSearch" />
+                  <option value="VerifyWlResourcesRequest" />
                 </list>
               </option>
             </ScannedPath>
@@ -3641,7 +3649,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_engine_rules.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753016979538" />
+              <option name="lastModified" value="1753097425218" />
               <option name="schema">
                 <list>
                   <option value="WlEngineRules" />
@@ -4256,7 +4264,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_resources.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753082076884" />
+              <option name="lastModified" value="1753098025854" />
               <option name="schema">
                 <list>
                   <option value="WlResourcesRouter" />
@@ -4722,7 +4730,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_resources.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753080875224" />
+              <option name="lastModified" value="1753098013992" />
               <option name="schema">
                 <list>
                   <option value="WlResourcesService" />
@@ -4794,7 +4802,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752823638632" />
+              <option name="lastModified" value="1753098168339" />
               <option name="schema">
                 <list>
                   <option value="initCasbin" />
@@ -4842,7 +4850,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753017859977" />
+              <option name="lastModified" value="1753098188711" />
               <option name="schema">
                 <list>
                   <option value="initMenu" />
@@ -5748,6 +5756,7 @@
         <entry key="timer" value="timer" />
         <entry key="user_router" value="UserRouter" />
         <entry key="user_service" value="UserService" />
+        <entry key="verify_wl_resources_request" value="VerifyWlResourcesRequest" />
         <entry key="visitor" value="Visitor" />
         <entry key="wanlian_index" value="WanlianIndex" />
         <entry key="wanlian_mongo" value="wanlianMongo" />
@@ -5778,6 +5787,6 @@
         <entry key="zap_core" value="ZapCore" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1753015026981" />
+    <option name="lastTimeChecked" value="1753102293075" />
   </component>
 </project>
