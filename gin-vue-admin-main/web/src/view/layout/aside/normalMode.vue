@@ -15,7 +15,7 @@
         unique-opened
         @select="selectMenuItem"
       >
-        <template v-for="item in routerStore.asyncRouters[0]?.children || []">
+        <template v-for="item in processedMenuItems">
           <aside-component
             v-if="!item.hidden"
             :key="item.name"
@@ -64,6 +64,63 @@
       return config.value.layout_side_collapsed_width
     }
   })
+
+  // 处理菜单项，将特定菜单项移动到高级能力下
+  const processedMenuItems = computed(() => {
+    const originalItems = routerStore.asyncRouters[0]?.children || []
+    const processedItems = []
+    
+    // 调试：打印原始菜单数据
+    console.log('原始菜单数据:', originalItems.map(item => ({ name: item.name, title: item.meta?.title })))
+    
+    // 需要隐藏的菜单项名称
+    const hiddenMenuNames = ['wlScenes', 'wlEngineRules', 'wlResources']
+    
+    // 需要添加到高级能力下的子菜单
+    const advancedCapabilitiesSubMenus = []
+    
+    originalItems.forEach(item => {
+      if (hiddenMenuNames.includes(item.name)) {
+        // 隐藏这些菜单项，但保存它们作为高级能力的子菜单
+        advancedCapabilitiesSubMenus.push({
+          ...item,
+          hidden: false // 确保在子菜单中显示
+        })
+      } else {
+        // 其他菜单项正常显示
+        processedItems.push(item)
+      }
+    })
+    
+    // 如果找到了子菜单，创建高级能力菜单
+    if (advancedCapabilitiesSubMenus.length > 0) {
+      const advancedCapabilitiesMenu = {
+        name: 'advancedCapabilities',
+        path: 'advancedCapabilities',
+        component: 'view/routerHolder.vue',
+        meta: {
+          title: '高级能力',
+          icon: 'cloud'
+        },
+        hidden: false,
+        children: advancedCapabilitiesSubMenus
+      }
+      
+      // 将高级能力菜单插入到合适的位置
+      const insertIndex = Math.min(2, processedItems.length) // 插入到前3个位置
+      processedItems.splice(insertIndex, 0, advancedCapabilitiesMenu)
+    }
+    
+    // 调试：打印处理后的菜单数据
+    console.log('处理后的菜单数据:', processedItems.map(item => ({ 
+      name: item.name, 
+      title: item.meta?.title,
+      hasChildren: item.children && item.children.length > 0
+    })))
+    
+    return processedItems
+  })
+
   watchEffect(() => {
     if (route.name === 'Iframe') {
       active.value = decodeURIComponent(route.query.url)

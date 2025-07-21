@@ -1,3 +1,8 @@
 package wl_playform
 
-type ServiceGroup struct{ WlProductsService }
+type ServiceGroup struct {
+	WlProductsService
+	WlScenesService
+	WlEngineRulesService
+	WlResourcesService
+}

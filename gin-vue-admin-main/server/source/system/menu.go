@@ -51,6 +51,11 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 		return ctx, system.ErrMissingDBContext
 	}
 
+	// 清理现有的菜单数据，重新创建
+	if err = db.Exec("DELETE FROM sys_base_menus").Error; err != nil {
+		return ctx, errors.Wrap(err, "清理现有菜单数据失败!")
+	}
+
 	// 定义所有菜单
 	allMenus := []SysBaseMenu{
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "dashboard", Name: "dashboard", Component: "view/dashboard/index.vue", Sort: 1, Meta: Meta{Title: "仪表盘", Icon: "odometer"}},
@@ -62,6 +67,7 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "https://www.gin-vue-admin.com", Name: "https://www.gin-vue-admin.com", Component: "/", Sort: 0, Meta: Meta{Title: "官方网站", Icon: "customer-gva"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "state", Name: "state", Component: "view/system/state.vue", Sort: 8, Meta: Meta{Title: "服务器状态", Icon: "cloudy"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "plugin", Name: "plugin", Component: "view/routerHolder.vue", Sort: 6, Meta: Meta{Title: "插件系统", Icon: "cherry"}},
+		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "advancedCapabilities", Name: "advancedCapabilities", Component: "view/routerHolder.vue", Sort: 10, Meta: Meta{Title: "高级能力", Icon: "cloud"}},
 	}
 
 	// 先创建父级菜单（ParentId = 0 的菜单）
@@ -108,6 +114,11 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "pubPlug", Name: "pubPlug", Component: "view/systemTools/pubPlug/pubPlug.vue", Sort: 3, Meta: Meta{Title: "打包插件", Icon: "files"}},
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "plugin-email", Name: "plugin-email", Component: "plugin/email/view/index.vue", Sort: 4, Meta: Meta{Title: "邮件插件", Icon: "message"}},
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "anInfo", Name: "anInfo", Component: "plugin/announcement/view/info.vue", Sort: 5, Meta: Meta{Title: "公告管理[示例]", Icon: "scaleToOriginal"}},
+
+		// 高级能力子菜单
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["advancedCapabilities"], Path: "wlScenes", Name: "wlScenes", Component: "view/wl_playform/wlScenes/wlScenes.vue", Sort: 1, Meta: Meta{Title: "场景联动", Icon: "connection"}},
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["advancedCapabilities"], Path: "wlEngineRules", Name: "wlEngineRules", Component: "view/wl_playform/wlEngineRules/wlEngineRules.vue", Sort: 2, Meta: Meta{Title: "引擎规则", Icon: "document"}},
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["advancedCapabilities"], Path: "wlResources", Name: "wlResources", Component: "view/wl_playform/wlResources/wlResources.vue", Sort: 3, Meta: Meta{Title: "资源管理", Icon: "link"}},
 	}
 
 	// 创建子菜单
@@ -117,17 +128,82 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 
 	// 组合所有菜单作为返回结果
 	allEntities := append(allMenus, childMenus...)
+
+	// 为wlResources菜单添加按钮权限
+	var wlResourcesMenu SysBaseMenu
+	if err = db.Where("name = ?", "wlResources").First(&wlResourcesMenu).Error; err != nil {
+		return ctx, errors.Wrap(err, "查找wlResources菜单失败!")
+	}
+
+	// 定义wlResources菜单的按钮权限
+	wlResourcesBtns := []SysBaseMenuBtn{
+		{Name: "add", Desc: "新增", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "edit", Desc: "编辑", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "delete", Desc: "删除", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "info", Desc: "查看", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "batchDelete", Desc: "批量删除", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "exportTemplate", Desc: "导出模板", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "exportExcel", Desc: "导出Excel", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "importExcel", Desc: "导入Excel", SysBaseMenuID: wlResourcesMenu.ID},
+		{Name: "verify", Desc: "验证", SysBaseMenuID: wlResourcesMenu.ID},
+	}
+
+	// 创建wlResources菜单按钮权限
+	if err = db.Create(&wlResourcesBtns).Error; err != nil {
+		return ctx, errors.Wrap(err, "wlResources菜单按钮权限初始化失败!")
+	}
+
+	// 为wlEngineRules菜单添加按钮权限
+	var wlEngineRulesMenu SysBaseMenu
+	if err = db.Where("name = ?", "wlEngineRules").First(&wlEngineRulesMenu).Error; err != nil {
+		return ctx, errors.Wrap(err, "查找wlEngineRules菜单失败!")
+	}
+
+	// 定义wlEngineRules菜单的按钮权限
+	wlEngineRulesBtns := []SysBaseMenuBtn{
+		{Name: "add", Desc: "新增", SysBaseMenuID: wlEngineRulesMenu.ID},
+		{Name: "edit", Desc: "编辑", SysBaseMenuID: wlEngineRulesMenu.ID},
+		{Name: "delete", Desc: "删除", SysBaseMenuID: wlEngineRulesMenu.ID},
+		{Name: "info", Desc: "查看", SysBaseMenuID: wlEngineRulesMenu.ID},
+		{Name: "batchDelete", Desc: "批量删除", SysBaseMenuID: wlEngineRulesMenu.ID},
+		{Name: "exportTemplate", Desc: "导出模板", SysBaseMenuID: wlEngineRulesMenu.ID},
+		{Name: "exportExcel", Desc: "导出Excel", SysBaseMenuID: wlEngineRulesMenu.ID},
+		{Name: "importExcel", Desc: "导入Excel", SysBaseMenuID: wlEngineRulesMenu.ID},
+	}
+
+	// 创建wlEngineRules菜单按钮权限
+	if err = db.Create(&wlEngineRulesBtns).Error; err != nil {
+		return ctx, errors.Wrap(err, "wlEngineRules菜单按钮权限初始化失败!")
+	}
+
+	// 为wlScenes菜单添加按钮权限
+	var wlScenesMenu SysBaseMenu
+	if err = db.Where("name = ?", "wlScenes").First(&wlScenesMenu).Error; err != nil {
+		return ctx, errors.Wrap(err, "查找wlScenes菜单失败!")
+	}
+
+	// 定义wlScenes菜单的按钮权限
+	wlScenesBtns := []SysBaseMenuBtn{
+		{Name: "add", Desc: "新增", SysBaseMenuID: wlScenesMenu.ID},
+		{Name: "edit", Desc: "编辑", SysBaseMenuID: wlScenesMenu.ID},
+		{Name: "delete", Desc: "删除", SysBaseMenuID: wlScenesMenu.ID},
+		{Name: "info", Desc: "查看", SysBaseMenuID: wlScenesMenu.ID},
+		{Name: "batchDelete", Desc: "批量删除", SysBaseMenuID: wlScenesMenu.ID},
+		{Name: "exportTemplate", Desc: "导出模板", SysBaseMenuID: wlScenesMenu.ID},
+		{Name: "exportExcel", Desc: "导出Excel", SysBaseMenuID: wlScenesMenu.ID},
+		{Name: "importExcel", Desc: "导入Excel", SysBaseMenuID: wlScenesMenu.ID},
+	}
+
+	// 创建wlScenes菜单按钮权限
+	if err = db.Create(&wlScenesBtns).Error; err != nil {
+		return ctx, errors.Wrap(err, "wlScenes菜单按钮权限初始化失败!")
+	}
+
 	next = context.WithValue(ctx, i.InitializerName(), allEntities)
 	return next, nil
 }
 
 func (i *initMenu) DataInserted(ctx context.Context) bool {
-	db, ok := ctx.Value("db").(*gorm.DB)
-	if !ok {
-		return false
-	}
-	if errors.Is(db.Where("path = ?", "autoPkg").First(&SysBaseMenu{}).Error, gorm.ErrRecordNotFound) { // 判断是否存在数据
-		return false
-	}
-	return true
+	// 总是返回false，强制重新初始化菜单数据
+	return false
 }
