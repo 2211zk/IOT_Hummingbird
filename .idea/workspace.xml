@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20a1c5d9-3fce-406b-a3ab-a2c1bcec33f0" name="更改" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/add_verify_permissions.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_resources.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_resources.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/casbin.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/casbin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/components/customPic/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/components/customPic/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlEngineRules/wlEngineRules.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlEngineRules/wlEngineRules.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlScenes/wlScenes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlScenes/wlScenes.vue" afterDir="false" />
-    </list>
+    <list default="true" id="20a1c5d9-3fce-406b-a3ab-a2c1bcec33f0" name="更改" comment="Initial commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
