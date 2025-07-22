@@ -8,11 +8,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/GOHCache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GOHCache.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pinia/modules/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pinia/modules/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/layout/aside/normalMode.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/layout/aside/normalMode.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlProducts/wlProducts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlProducts/wlProducts.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,28 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "chen",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/35202",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\GoLand 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chen&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/35202&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\GoLand 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

@@ -45,10 +45,20 @@ func (i *initMenu) TableCreated(ctx context.Context) bool {
 		m.HasTable(&SysBaseMenuBtn{})
 }
 
+// InitializeData 初始化菜单数据
+// 功能：创建系统所需的所有菜单项，包括父级菜单和子菜单
+// 特别处理：为设备接入模块创建层级菜单结构（设备接入 -> 产品管理、设备管理）
 func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, err error) {
 	db, ok := ctx.Value("db").(*gorm.DB)
 	if !ok {
 		return ctx, system.ErrMissingDBContext
+	}
+
+	// 清除现有的菜单数据，确保重新初始化
+	// 目的：删除可能存在的旧菜单数据，避免重复创建或数据冲突
+	// 影响范围：设备接入相关的菜单项（wl_playform, wlProducts, wlEquipment）
+	if err = db.Where("name IN ?", []string{"wl_playform", "wlProducts", "wlEquipment"}).Delete(&SysBaseMenu{}).Error; err != nil {
+		return ctx, errors.Wrap(err, "清除现有菜单数据失败!")
 	}
 
 	// 定义所有菜单
@@ -62,6 +72,8 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "https://www.gin-vue-admin.com", Name: "https://www.gin-vue-admin.com", Component: "/", Sort: 0, Meta: Meta{Title: "官方网站", Icon: "customer-gva"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "state", Name: "state", Component: "view/system/state.vue", Sort: 8, Meta: Meta{Title: "服务器状态", Icon: "cloudy"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "plugin", Name: "plugin", Component: "view/routerHolder.vue", Sort: 6, Meta: Meta{Title: "插件系统", Icon: "cherry"}},
+		// 设备接入父菜单 - 作为产品管理和设备管理的父级菜单
+		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "wl_playform", Name: "wl_playform", Component: "view/wl_playform/deviceAccess/index.vue", Sort: 2, Meta: Meta{Title: "设备接入", Icon: "connection"}},
 	}
 
 	// 先创建父级菜单（ParentId = 0 的菜单）
@@ -70,12 +82,15 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 	}
 
 	// 建立菜单映射 - 通过Name查找已创建的菜单及其ID
+	// 目的：为后续创建子菜单时提供父菜单的ID引用
+	// 使用场景：子菜单需要设置ParentId字段，指向对应的父菜单ID
 	menuNameMap := make(map[string]uint)
 	for _, menu := range allMenus {
 		menuNameMap[menu.Name] = menu.ID
 	}
 
 	// 定义子菜单，并设置正确的ParentId
+	// 注意：子菜单的ParentId必须指向已存在的父菜单ID，确保层级关系正确建立
 	childMenus := []SysBaseMenu{
 		// superAdmin子菜单
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["superAdmin"], Path: "authority", Name: "authority", Component: "view/superAdmin/authority/authority.vue", Sort: 1, Meta: Meta{Title: "角色管理", Icon: "avatar"}},
@@ -108,25 +123,38 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "pubPlug", Name: "pubPlug", Component: "view/systemTools/pubPlug/pubPlug.vue", Sort: 3, Meta: Meta{Title: "打包插件", Icon: "files"}},
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "plugin-email", Name: "plugin-email", Component: "plugin/email/view/index.vue", Sort: 4, Meta: Meta{Title: "邮件插件", Icon: "message"}},
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "anInfo", Name: "anInfo", Component: "plugin/announcement/view/info.vue", Sort: 5, Meta: Meta{Title: "公告管理[示例]", Icon: "scaleToOriginal"}},
+		
+		// wl_playform子菜单 - 设备接入的子菜单项
+		// 产品管理：用于管理物联网产品信息
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["wl_playform"], Path: "wl_playform/wlProducts", Name: "wlProducts", Component: "view/wl_playform/wlProducts/wlProducts.vue", Sort: 1, Meta: Meta{Title: "产品管理", Icon: "box"}},
+		// 设备管理：用于管理物联网设备信息
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["wl_playform"], Path: "wl_playform/wlEquipment", Name: "wlEquipment", Component: "view/wl_playform/wlEquipment/wlEquipment.vue", Sort: 2, Meta: Meta{Title: "设备管理", Icon: "monitor"}},
 	}
 
-	// 创建子菜单
+	// 创建子菜单到数据库
+	// 注意：必须先创建父菜单，再创建子菜单，确保ParentId引用有效
 	if err = db.Create(&childMenus).Error; err != nil {
 		return ctx, errors.Wrap(err, SysBaseMenu{}.TableName()+"子菜单初始化失败!")
 	}
 
 	// 组合所有菜单作为返回结果
+	// 包含：父级菜单 + 子菜单，形成完整的菜单树结构
 	allEntities := append(allMenus, childMenus...)
 	next = context.WithValue(ctx, i.InitializerName(), allEntities)
 	return next, nil
 }
 
+// DataInserted 检查菜单数据是否已插入
+// 功能：判断是否需要执行菜单初始化
+// 检查策略：通过查询设备接入菜单是否存在来判断整个菜单系统是否需要初始化
 func (i *initMenu) DataInserted(ctx context.Context) bool {
 	db, ok := ctx.Value("db").(*gorm.DB)
 	if !ok {
 		return false
 	}
-	if errors.Is(db.Where("path = ?", "autoPkg").First(&SysBaseMenu{}).Error, gorm.ErrRecordNotFound) { // 判断是否存在数据
+	// 检查设备接入菜单是否存在，用于判断是否需要重新初始化菜单数据
+	// 如果设备接入菜单不存在，则返回false，触发菜单重新初始化
+	if errors.Is(db.Where("path = ?", "wl_playform").First(&SysBaseMenu{}).Error, gorm.ErrRecordNotFound) { // 判断是否存在数据
 		return false
 	}
 	return true

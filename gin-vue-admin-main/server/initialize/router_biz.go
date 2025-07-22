@@ -12,9 +12,12 @@ func holder(routers ...*gin.RouterGroup) {
 func initBizRouter(routers ...*gin.RouterGroup) {
 	privateGroup := routers[0]
 	publicGroup := routers[1]
-	holder(publicGroup, privateGroup) // 占位方法，保证文件可以正确加载，避免go空变量检测报错，请勿删除。
+	holder(publicGroup, privateGroup)
 	{
 		wl_playformRouter := router.RouterGroupApp.Wl_playform
 		wl_playformRouter.InitWlProductsRouter(privateGroup, publicGroup)
+		wl_playformRouter.InitWlEquipmentRouter(privateGroup, publicGroup)
+		wl_playformRouter.InitWlCategoryRouter(privateGroup, publicGroup) // 占位方法，保证文件可以正确加载，避免go空变量检测报错，请勿删除。
+		wl_playformRouter.InitWlCaFunctionRouter(privateGroup, publicGroup)
 	}
 }

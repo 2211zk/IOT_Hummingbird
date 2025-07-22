@@ -4130,6 +4130,13 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/standard_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753080984351" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_api.go">
           <value>
             <ScannedPath>
