@@ -5,26 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20a1c5d9-3fce-406b-a3ab-a2c1bcec33f0" name="更改" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/GOHCache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GOHCache.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/global/global.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/global/global.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/add_verify_permissions.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_resources.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_resources.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/casbin.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/casbin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/components/customPic/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/components/customPic/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/dashboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/dashboard/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/layout/aside/normalMode.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/layout/aside/normalMode.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlEngineRules/wlEngineRules.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlEngineRules/wlEngineRules.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlScenes/wlScenes.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlScenes/wlScenes.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
