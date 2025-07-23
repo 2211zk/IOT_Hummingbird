@@ -23,6 +23,7 @@
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/api/enter.go" />
             </set>
@@ -225,6 +226,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Bootstrap">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="CORS">
           <value>
             <set>
@@ -366,10 +374,39 @@
             </set>
           </value>
         </entry>
+        <entry key="Data">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/data/data.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="DataSource">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_auto_code.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Data_Mongodb">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Data_Mysql">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Data_Redis">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
             </set>
           </value>
         </entry>
@@ -520,6 +557,48 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Greeter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/biz/greeter.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="GreeterHTTPClientImpl">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter_http.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="GreeterService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/service/greeter.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="GreeterUsecase">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/biz/greeter.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="HelloReply">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="HelloRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter.pb.go" />
             </set>
           </value>
         </entry>
@@ -683,6 +762,20 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LoginReply">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="LoginRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go" />
             </set>
           </value>
         </entry>
@@ -954,6 +1047,20 @@
             </set>
           </value>
         </entry>
+        <entry key="RegisterReply">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RegisterRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ResetPassword">
           <value>
             <set>
@@ -972,8 +1079,10 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/router/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go" />
             </set>
           </value>
@@ -990,6 +1099,21 @@
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/config.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/server.go" />
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Server_GRPC">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Server_HTTP">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
             </set>
           </value>
         </entry>
@@ -999,6 +1123,7 @@
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/service/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go" />
             </set>
           </value>
@@ -1035,6 +1160,20 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_initdb_sqlite.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="StandardCategory">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/standard_category.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="StandardCategorySearch">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/standard_category.go" />
             </set>
           </value>
         </entry>
@@ -1404,6 +1543,27 @@
             </set>
           </value>
         </entry>
+        <entry key="UnimplementedGreeterServer">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter_grpc.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UnimplementedUserServer">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user_grpc.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserHTTPClientImpl">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user_http.pb.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="UserRouter">
           <value>
             <set>
@@ -1415,6 +1575,14 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_user.go" />
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/service/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserUsecase">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/biz/user.go" />
             </set>
           </value>
         </entry>
@@ -1453,6 +1621,111 @@
             </set>
           </value>
         </entry>
+        <entry key="WlCaFunction">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_ca_function.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCaFunctionApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_ca_function.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCaFunctionRouter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_ca_function.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCaFunctionSearch">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_ca_function.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCaFunctionService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_ca_function.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCategory">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_category.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCategoryApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_category.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCategoryRouter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_category.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCategorySearch">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_category.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlCategoryService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_category.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDrivers">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversRouter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversSearch">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/request/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="WlEngineRules">
           <value>
             <set>
@@ -1488,10 +1761,38 @@
             </set>
           </value>
         </entry>
+        <entry key="WlEquipment">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_equipment.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlEquipmentApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_equipment.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="WlEquipmentRouter">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_equipment.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlEquipmentSearch">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_equipment.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlEquipmentService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_equipment.go" />
             </set>
           </value>
         </entry>
@@ -1597,6 +1898,14 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_scenes.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlUser">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go" />
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/biz/user.go" />
             </set>
           </value>
         </entry>
@@ -1733,6 +2042,20 @@
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_gorm_test.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_router_test.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_v2_test.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="greeterClient">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter_grpc.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="greeterRepo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/data/greeter.go" />
             </set>
           </value>
         </entry>
@@ -1907,10 +2230,34 @@
             </set>
           </value>
         </entry>
+        <entry key="userClient">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user_grpc.pb.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="userRepo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/data/user.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="wanlianMongo">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/wanlian_mongo.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="x">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/error_reason.pb.go" />
+              <option value="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter.pb.go" />
+              <option value="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go" />
+              <option value="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go" />
             </set>
           </value>
         </entry>
@@ -2184,6 +2531,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449187" />
+              <option name="schema">
+                <list>
+                  <option value="ApiGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449188" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go">
           <value>
             <ScannedPath>
@@ -2196,6 +2567,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_ca_function.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449190" />
+              <option name="schema">
+                <list>
+                  <option value="WlCaFunctionApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449191" />
+              <option name="schema">
+                <list>
+                  <option value="WlCategoryApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_engine_rules.go">
           <value>
             <ScannedPath>
@@ -2203,6 +2598,18 @@
               <option name="schema">
                 <list>
                   <option value="WlEngineRulesApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449192" />
+              <option name="schema">
+                <list>
+                  <option value="WlEquipmentApi" />
                 </list>
               </option>
             </ScannedPath>
@@ -2852,7 +3259,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753242449196" />
+              <option name="lastModified" value="1753252946414" />
             </ScannedPath>
           </value>
         </entry>
@@ -3090,6 +3497,18 @@
                 <list>
                   <option value="CustomClaims" />
                   <option value="BaseClaims" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/standard_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449198" />
+              <option name="schema">
+                <list>
+                  <option value="StandardCategorySearch" />
                 </list>
               </option>
             </ScannedPath>
@@ -3394,6 +3813,18 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/standard_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449199" />
+              <option name="schema">
+                <list>
+                  <option value="StandardCategory" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_api.go">
           <value>
             <ScannedPath>
@@ -3611,6 +4042,54 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/request/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449201" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversSearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449202" />
+              <option name="schema">
+                <list>
+                  <option value="WlDrivers" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_ca_function.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449203" />
+              <option name="schema">
+                <list>
+                  <option value="WlCaFunctionSearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449204" />
+              <option name="schema">
+                <list>
+                  <option value="WlCategorySearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_engine_rules.go">
           <value>
             <ScannedPath>
@@ -3618,6 +4097,18 @@
               <option name="schema">
                 <list>
                   <option value="WlEngineRulesSearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449205" />
+              <option name="schema">
+                <list>
+                  <option value="WlEquipmentSearch" />
                 </list>
               </option>
             </ScannedPath>
@@ -3660,6 +4151,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_ca_function.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449205" />
+              <option name="schema">
+                <list>
+                  <option value="WlCaFunction" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449206" />
+              <option name="schema">
+                <list>
+                  <option value="WlCategory" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_engine_rules.go">
           <value>
             <ScannedPath>
@@ -3667,6 +4182,18 @@
               <option name="schema">
                 <list>
                   <option value="WlEngineRules" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449206" />
+              <option name="schema">
+                <list>
+                  <option value="WlEquipment" />
                 </list>
               </option>
             </ScannedPath>
@@ -4011,6 +4538,18 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449208" />
+              <option name="schema">
+                <list>
+                  <option value="RouterGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go">
           <value>
             <ScannedPath>
@@ -4239,6 +4778,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449209" />
+              <option name="schema">
+                <list>
+                  <option value="RouterGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449210" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversRouter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go">
           <value>
             <ScannedPath>
@@ -4246,6 +4809,30 @@
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_ca_function.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449212" />
+              <option name="schema">
+                <list>
+                  <option value="WlCaFunctionRouter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449213" />
+              <option name="schema">
+                <list>
+                  <option value="WlCategoryRouter" />
                 </list>
               </option>
             </ScannedPath>
@@ -4425,6 +5012,13 @@
                   <option value="JwtService" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/standard_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449215" />
             </ScannedPath>
           </value>
         </entry>
@@ -4717,6 +5311,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449216" />
+              <option name="schema">
+                <list>
+                  <option value="ServiceGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449217" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go">
           <value>
             <ScannedPath>
@@ -4729,6 +5347,30 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_ca_function.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449219" />
+              <option name="schema">
+                <list>
+                  <option value="WlCaFunctionService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_category.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449220" />
+              <option name="schema">
+                <list>
+                  <option value="WlCategoryService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_engine_rules.go">
           <value>
             <ScannedPath>
@@ -4736,6 +5378,18 @@
               <option name="schema">
                 <list>
                   <option value="WlEngineRulesService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449221" />
+              <option name="schema">
+                <list>
+                  <option value="WlEquipmentService" />
                 </list>
               </option>
             </ScannedPath>
@@ -4888,7 +5542,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753242449223" />
+              <option name="lastModified" value="1753252816573" />
               <option name="schema">
                 <list>
                   <option value="initMenu" />
@@ -5557,6 +6211,268 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/error_reason.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449274" />
+              <option name="schema">
+                <list>
+                  <option value="x" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449276" />
+              <option name="schema">
+                <list>
+                  <option value="HelloRequest" />
+                  <option value="HelloReply" />
+                  <option value="x" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter_grpc.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449277" />
+              <option name="schema">
+                <list>
+                  <option value="greeterClient" />
+                  <option value="UnimplementedGreeterServer" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/api/helloworld/v1/greeter_http.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449278" />
+              <option name="schema">
+                <list>
+                  <option value="GreeterHTTPClientImpl" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449280" />
+              <option name="schema">
+                <list>
+                  <option value="WlUser" />
+                  <option value="RegisterRequest" />
+                  <option value="RegisterReply" />
+                  <option value="LoginRequest" />
+                  <option value="LoginReply" />
+                  <option value="x" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/api/user/v1/user_grpc.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449281" />
+              <option name="schema">
+                <list>
+                  <option value="userClient" />
+                  <option value="UnimplementedUserServer" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/api/user/v1/user_http.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449282" />
+              <option name="schema">
+                <list>
+                  <option value="UserHTTPClientImpl" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449284" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/root.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449284" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/wire.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449285" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/wire_gen.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449286" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/biz.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449293" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/greeter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449294" />
+              <option name="schema">
+                <list>
+                  <option value="Greeter" />
+                  <option value="GreeterUsecase" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449294" />
+              <option name="schema">
+                <list>
+                  <option value="WlUser" />
+                  <option value="UserUsecase" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449296" />
+              <option name="schema">
+                <list>
+                  <option value="Bootstrap" />
+                  <option value="Server" />
+                  <option value="Data" />
+                  <option value="Server_HTTP" />
+                  <option value="Server_GRPC" />
+                  <option value="Data_Mysql" />
+                  <option value="Data_Redis" />
+                  <option value="Data_Mongodb" />
+                  <option value="x" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/data/data.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449299" />
+              <option name="schema">
+                <list>
+                  <option value="Data" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/data/greeter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449300" />
+              <option name="schema">
+                <list>
+                  <option value="greeterRepo" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/data/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449301" />
+              <option name="schema">
+                <list>
+                  <option value="userRepo" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/server/grpc.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449303" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/server/http.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449303" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/server/server.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449304" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/service/greeter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449306" />
+              <option name="schema">
+                <list>
+                  <option value="GreeterService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/service/service.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449307" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/kratos_end/internal/service/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753242449307" />
+              <option name="schema">
+                <list>
+                  <option value="UserService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="tableStructMapping">
@@ -5604,6 +6520,7 @@
         <entry key="base_claims" value="BaseClaims" />
         <entry key="base_menu_service" value="BaseMenuService" />
         <entry key="base_router" value="BaseRouter" />
+        <entry key="bootstrap" value="Bootstrap" />
         <entry key="captcha" value="Captcha" />
         <entry key="casbin_api" value="CasbinApi" />
         <entry key="casbin_in_receive" value="CasbinInReceive" />
@@ -5623,6 +6540,10 @@
         <entry key="current_time" value="CurrentTime" />
         <entry key="custom_claims" value="CustomClaims" />
         <entry key="cutter" value="Cutter" />
+        <entry key="data" value="Data" />
+        <entry key="data__mongodb" value="Data_Mongodb" />
+        <entry key="data__mysql" value="Data_Mysql" />
+        <entry key="data__redis" value="Data_Redis" />
         <entry key="data_source" value="DataSource" />
         <entry key="db" value="Db" />
         <entry key="db_api" value="DBApi" />
@@ -5648,7 +6569,15 @@
         <entry key="get_by_id" value="GetById" />
         <entry key="get_nickname" value="GetNickname" />
         <entry key="get_user_list" value="GetUserList" />
+        <entry key="greeter" value="Greeter" />
+        <entry key="greeter_client" value="greeterClient" />
+        <entry key="greeter_http_client_impl" value="GreeterHTTPClientImpl" />
+        <entry key="greeter_repo" value="greeterRepo" />
+        <entry key="greeter_service" value="GreeterService" />
+        <entry key="greeter_usecase" value="GreeterUsecase" />
         <entry key="gva_model" value="GVA_MODEL" />
+        <entry key="hello_reply" value="HelloReply" />
+        <entry key="hello_request" value="HelloRequest" />
         <entry key="hua_wei_obs" value="HuaWeiObs" />
         <entry key="ids_req" value="IdsReq" />
         <entry key="import" value="Import" />
@@ -5683,6 +6612,8 @@
         <entry key="logger" value="Logger" />
         <entry key="login" value="Login" />
         <entry key="login_auth" value="loginAuth" />
+        <entry key="login_reply" value="LoginReply" />
+        <entry key="login_request" value="LoginRequest" />
         <entry key="login_response" value="LoginResponse" />
         <entry key="mcp" value="MCP" />
         <entry key="menu_router" value="MenuRouter" />
@@ -5724,6 +6655,8 @@
         <entry key="redis" value="Redis" />
         <entry key="redis_store" value="RedisStore" />
         <entry key="register" value="Register" />
+        <entry key="register_reply" value="RegisterReply" />
+        <entry key="register_request" value="RegisterRequest" />
         <entry key="reset_password" value="ResetPassword" />
         <entry key="response" value="Response" />
         <entry key="response_body_writer" value="responseBodyWriter" />
@@ -5731,6 +6664,8 @@
         <entry key="router_group" value="RouterGroup" />
         <entry key="search_api_params" value="SearchApiParams" />
         <entry key="server" value="Server" />
+        <entry key="server_grpc" value="Server_GRPC" />
+        <entry key="server_http" value="Server_HTTP" />
         <entry key="service" value="service" />
         <entry key="service_group" value="ServiceGroup" />
         <entry key="set_user_auth" value="SetUserAuth" />
@@ -5738,6 +6673,8 @@
         <entry key="specialized_db" value="SpecializedDB" />
         <entry key="sqlite" value="Sqlite" />
         <entry key="sqlite_init_handler" value="SqliteInitHandler" />
+        <entry key="standard_category" value="StandardCategory" />
+        <entry key="standard_category_search" value="StandardCategorySearch" />
         <entry key="sys_api" value="SysApi" />
         <entry key="sys_api_list_response" value="SysAPIListResponse" />
         <entry key="sys_api_response" value="SysAPIResponse" />
@@ -5793,20 +6730,45 @@
         <entry key="task_manager" value="taskManager" />
         <entry key="tencent_cos" value="TencentCOS" />
         <entry key="timer" value="timer" />
+        <entry key="unimplemented_greeter_server" value="UnimplementedGreeterServer" />
+        <entry key="unimplemented_user_server" value="UnimplementedUserServer" />
+        <entry key="user_client" value="userClient" />
+        <entry key="user_http_client_impl" value="UserHTTPClientImpl" />
+        <entry key="user_repo" value="userRepo" />
         <entry key="user_router" value="UserRouter" />
         <entry key="user_service" value="UserService" />
+        <entry key="user_usecase" value="UserUsecase" />
         <entry key="verify_wl_resources_request" value="VerifyWlResourcesRequest" />
         <entry key="visitor" value="Visitor" />
         <entry key="wanlian_index" value="WanlianIndex" />
         <entry key="wanlian_mongo" value="wanlianMongo" />
         <entry key="wanlian_mongo_host" value="WanlianMongoHost" />
         <entry key="wanlian_resource_config" value="WanlianResourceConfig" />
+        <entry key="wl_ca_function" value="WlCaFunction" />
+        <entry key="wl_ca_function_api" value="WlCaFunctionApi" />
+        <entry key="wl_ca_function_router" value="WlCaFunctionRouter" />
+        <entry key="wl_ca_function_search" value="WlCaFunctionSearch" />
+        <entry key="wl_ca_function_service" value="WlCaFunctionService" />
+        <entry key="wl_category" value="WlCategory" />
+        <entry key="wl_category_api" value="WlCategoryApi" />
+        <entry key="wl_category_router" value="WlCategoryRouter" />
+        <entry key="wl_category_search" value="WlCategorySearch" />
+        <entry key="wl_category_service" value="WlCategoryService" />
+        <entry key="wl_drivers" value="WlDrivers" />
+        <entry key="wl_drivers_api" value="WlDriversApi" />
+        <entry key="wl_drivers_router" value="WlDriversRouter" />
+        <entry key="wl_drivers_search" value="WlDriversSearch" />
+        <entry key="wl_drivers_service" value="WlDriversService" />
         <entry key="wl_engine_rules" value="WlEngineRules" />
         <entry key="wl_engine_rules_api" value="WlEngineRulesApi" />
         <entry key="wl_engine_rules_router" value="WlEngineRulesRouter" />
         <entry key="wl_engine_rules_search" value="WlEngineRulesSearch" />
         <entry key="wl_engine_rules_service" value="WlEngineRulesService" />
+        <entry key="wl_equipment" value="WlEquipment" />
+        <entry key="wl_equipment_api" value="WlEquipmentApi" />
         <entry key="wl_equipment_router" value="WlEquipmentRouter" />
+        <entry key="wl_equipment_search" value="WlEquipmentSearch" />
+        <entry key="wl_equipment_service" value="WlEquipmentService" />
         <entry key="wl_products" value="WlProducts" />
         <entry key="wl_products_api" value="WlProductsApi" />
         <entry key="wl_products_router" value="WlProductsRouter" />
@@ -5822,7 +6784,9 @@
         <entry key="wl_scenes_router" value="WlScenesRouter" />
         <entry key="wl_scenes_search" value="WlScenesSearch" />
         <entry key="wl_scenes_service" value="WlScenesService" />
+        <entry key="wl_user" value="WlUser" />
         <entry key="writer" value="Writer" />
+        <entry key="x" value="x" />
         <entry key="zap" value="Zap" />
         <entry key="zap_core" value="ZapCore" />
       </map>
