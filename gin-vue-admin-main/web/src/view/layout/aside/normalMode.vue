@@ -6,6 +6,12 @@
       width: layoutSideWidth + 'px'
     }"
   >
+    <!-- 调试信息 - 用于开发时查看菜单数据结构，生产环境应设置为 false -->
+    <div v-if="false" style="background: red; color: white; padding: 10px; font-size: 12px;">
+      <div>菜单数量: {{ routerStore.asyncRouters[0]?.children?.length || 0 }}</div>
+      <div>菜单项: {{ routerStore.asyncRouters[0]?.children?.map(item => item.name).join(', ') }}</div>
+    </div>
+    
     <el-scrollbar>
       <el-menu
         :collapse="isCollapse"
@@ -15,6 +21,10 @@
         unique-opened
         @select="selectMenuItem"
       >
+<<<<<<< HEAD
+=======
+        <!-- 使用处理后的菜单项，实现自定义的菜单层级结构 -->
+>>>>>>> ae3240f93462583fbaf4769f0c2d15372eb41e0e
         <template v-for="item in processedMenuItems">
           <aside-component
             v-if="!item.hidden"
@@ -57,6 +67,80 @@
   const routerStore = useRouterStore()
   const isCollapse = ref(false)
   const active = ref('')
+
+  /**
+   * 处理菜单项，创建自定义的层级结构
+   * 目的：将"产品管理"和"设备管理"作为"设备接入"的子菜单显示
+   * 实现方式：动态创建"设备接入"父菜单，并将原有的两个菜单作为其子菜单
+   */
+  const processedMenuItems = computed(() => {
+    // 获取从后端接收到的原始菜单数据
+    const items = routerStore.asyncRouters[0]?.children || []
+    console.log('原始菜单项:', items)
+    
+    // 查找需要重新组织的菜单项
+    const productMenu = items.find(item => item.name === 'wlProducts')
+    const equipmentMenu = items.find(item => item.name === 'wlEquipment')
+    
+    console.log('找到的菜单:', { productMenu, equipmentMenu })
+    
+    // 如果找到了产品管理和设备管理菜单，则进行重组
+    if (productMenu && equipmentMenu) {
+      console.log('开始处理菜单层级结构')
+      
+      // 动态创建设备接入父菜单
+      const deviceAccessMenu = {
+        name: 'wl_playform',
+        path: 'wl_playform',
+        component: 'view/wl_playform/deviceAccess/index.vue',
+        meta: {
+          title: '设备接入',
+          icon: 'connection'
+        },
+        children: [
+          // 将产品管理作为设备接入的子菜单
+          {
+            ...productMenu,
+            hidden: false,
+            meta: { ...productMenu.meta, title: '产品管理', icon: 'box' }
+          },
+          // 将设备管理作为设备接入的子菜单
+          {
+            ...equipmentMenu,
+            hidden: false,
+            meta: { ...equipmentMenu.meta, title: '设备管理', icon: 'monitor' }
+          }
+        ]
+      }
+      
+      // 从原始菜单中移除产品管理和设备管理，避免重复显示
+      const filteredItems = items.filter(item => 
+        item.name !== 'wlProducts' && item.name !== 'wlEquipment'
+      )
+      
+      // 将设备接入菜单插入到合适的位置（在dashboard之后）
+      const dashboardIndex = filteredItems.findIndex(item => item.name === 'dashboard')
+      if (dashboardIndex !== -1) {
+        filteredItems.splice(dashboardIndex + 1, 0, deviceAccessMenu)
+      } else {
+        // 如果找不到dashboard，则将设备接入菜单放在最前面
+        filteredItems.unshift(deviceAccessMenu)
+      }
+      
+      console.log('处理后的菜单:', filteredItems)
+      return filteredItems
+    }
+    
+    // 如果没有找到需要重组的菜单，则返回原始菜单
+    // 但是需要确保设备分布菜单被包含
+    const deviceDistributionMenu = items.find(item => item.name === 'deviceDistribution')
+    if (deviceDistributionMenu) {
+      console.log('找到设备分布菜单:', deviceDistributionMenu)
+      return items
+    }
+    
+    return items
+  })
   const layoutSideWidth = computed(() => {
     if (!isCollapse.value) {
       return config.value.layout_side_width

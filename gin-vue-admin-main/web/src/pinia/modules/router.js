@@ -10,6 +10,69 @@ const notLayoutRouterArr = []
 const keepAliveRoutersArr = []
 const nameMap = {}
 
+/**
+ * 处理菜单结构，创建层级关系
+ * 注意：此函数目前未被使用，菜单处理逻辑已移至 normalMode.vue 中
+ * 保留此函数以备将来需要统一处理菜单结构时使用
+ */
+const processMenuStructure = (menus) => {
+  console.log('处理菜单结构:', menus)
+  if (!menus || !Array.isArray(menus)) return menus
+  
+  // 查找设备接入菜单
+  const deviceAccessMenu = menus.find(item => item.name === 'wl_playform')
+  const productMenu = menus.find(item => item.name === 'wlProducts')
+  const equipmentMenu = menus.find(item => item.name === 'wlEquipment')
+  
+  console.log('找到的菜单:', { deviceAccessMenu, productMenu, equipmentMenu })
+  
+  if (deviceAccessMenu && productMenu && equipmentMenu) {
+    console.log('开始处理菜单层级结构')
+    // 确保设备接入菜单有正确的图标和标题
+    deviceAccessMenu.meta = {
+      ...deviceAccessMenu.meta,
+      title: '设备接入',
+      icon: 'connection'
+    }
+    
+    // 创建设备接入的子菜单
+    deviceAccessMenu.children = [
+      {
+        ...productMenu,
+        hidden: false,
+        meta: { ...productMenu.meta, title: '产品管理', icon: 'box' }
+      },
+      {
+        ...equipmentMenu,
+        hidden: false,
+        meta: { ...equipmentMenu.meta, title: '设备管理', icon: 'monitor' }
+      },
+      // 设备地图已移至独立的设备分布菜单中，此处移除
+      // {
+      //   name: 'deviceMap',
+      //   path: 'deviceMap',
+      //   component: 'wl_playform/deviceMap/index',
+      //   meta: { 
+      //     title: '设备地图', 
+      //     icon: 'location',
+      //     keepAlive: true
+      //   },
+      //   hidden: false
+      // }
+    ]
+    
+    // 隐藏原来的产品管理和设备管理菜单
+    const filteredMenus = menus.filter(item => 
+      item.name !== 'wlProducts' && item.name !== 'wlEquipment'
+    )
+    
+    console.log('处理后的菜单:', filteredMenus)
+    return filteredMenus
+  }
+  
+  return menus
+}
+
 const formatRouter = (routes, routeMap, parent) => {
   routes &&
     routes.forEach((item) => {
@@ -113,7 +176,7 @@ export const useRouterStore = defineStore('router', () => {
     setLeftMenu(topActive)
   })
 
-  const routeMap = {}
+  const routeMap = ref({})
   // 从后台获取动态路由
   const SetAsyncRouter = async () => {
     asyncRouterFlag.value++
@@ -130,8 +193,44 @@ export const useRouterStore = defineStore('router', () => {
     ]
     const asyncRouterRes = await asyncMenu()
     const asyncRouter = asyncRouterRes.data.menus
-    asyncRouter &&
-      asyncRouter.push({
+    
+    // 处理菜单结构，创建层级关系
+    const processedAsyncRouter = processMenuStructure(asyncRouter)
+    
+    // 添加设备分布菜单到路由系统
+    const deviceDistributionMenu = {
+      name: 'deviceDistribution',
+      path: 'deviceDistribution',
+      component: 'view/wl_playform/deviceDistribution/index.vue',
+      meta: { 
+        title: '设备分布', 
+        icon: 'location',
+        keepAlive: true
+      },
+      hidden: false,
+      children: [
+        {
+          name: 'deviceMap',
+          path: 'deviceMap',
+          component: 'view/wl_playform/deviceMap/index.vue',
+          meta: { 
+            title: '设备地图', 
+            icon: 'location',
+            keepAlive: true
+          },
+          hidden: false
+        }
+      ]
+    }
+    
+    // 确保设备分布菜单被正确添加到路由系统
+    console.log('添加设备分布菜单到路由系统:', deviceDistributionMenu)
+    
+    // 将设备分布菜单添加到路由系统
+    processedAsyncRouter.push(deviceDistributionMenu)
+    
+    processedAsyncRouter &&
+      processedAsyncRouter.push({
         path: 'reload',
         name: 'Reload',
         hidden: true,
@@ -141,14 +240,17 @@ export const useRouterStore = defineStore('router', () => {
         },
         component: 'view/error/reload.vue'
       })
-    formatRouter(asyncRouter, routeMap)
-    baseRouter[0].children = asyncRouter
+    
+    // 格式化路由并填充routeMap
+    formatRouter(processedAsyncRouter, routeMap.value)
+    baseRouter[0].children = processedAsyncRouter
     if (notLayoutRouterArr.length !== 0) {
       baseRouter.push(...notLayoutRouterArr)
     }
     asyncRouterHandle(baseRouter)
-    KeepAliveFilter(asyncRouter)
+    KeepAliveFilter(processedAsyncRouter) // 使用processedAsyncRouter而不是asyncRouter
     asyncRouters.value = baseRouter
+    console.log('路由配置完成:', baseRouter)
     return true
   }
 

@@ -7,6 +7,9 @@ type ApiGroup struct {
 	WlScenesApi
 	WlEngineRulesApi
 	WlResourcesApi
+	WlEquipmentApi
+	WlCategoryApi
+	WlCaFunctionApi
 }
 
 var (
@@ -14,4 +17,7 @@ var (
 	wlScenesService      = service.ServiceGroupApp.Wl_playformServiceGroup.WlScenesService
 	wlEngineRulesService = service.ServiceGroupApp.Wl_playformServiceGroup.WlEngineRulesService
 	wlResourcesService   = service.ServiceGroupApp.Wl_playformServiceGroup.WlResourcesService
+	wlEquipmentService   = service.ServiceGroupApp.Wl_playformServiceGroup.WlEquipmentService
+	wlCategoryService    = service.ServiceGroupApp.Wl_playformServiceGroup.WlCategoryService
+	wlCaFunctionService  = service.ServiceGroupApp.Wl_playformServiceGroup.WlCaFunctionService
 )

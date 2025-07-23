@@ -7,6 +7,9 @@ type RouterGroup struct {
 	WlScenesRouter
 	WlEngineRulesRouter
 	WlResourcesRouter
+	WlEquipmentRouter
+	WlCategoryRouter
+	WlCaFunctionRouter
 }
 
 var (
@@ -14,4 +17,7 @@ var (
 	wlScenesApi      = api.ApiGroupApp.Wl_playformApiGroup.WlScenesApi
 	wlEngineRulesApi = api.ApiGroupApp.Wl_playformApiGroup.WlEngineRulesApi
 	wlResourcesApi   = api.ApiGroupApp.Wl_playformApiGroup.WlResourcesApi
+	wlEquipmentApi   = api.ApiGroupApp.Wl_playformApiGroup.WlEquipmentApi
+	wlCategoryApi    = api.ApiGroupApp.Wl_playformApiGroup.WlCategoryApi
+	wlCaFunctionApi  = api.ApiGroupApp.Wl_playformApiGroup.WlCaFunctionApi
 )

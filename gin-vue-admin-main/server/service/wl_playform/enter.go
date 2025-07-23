@@ -5,4 +5,7 @@ type ServiceGroup struct {
 	WlScenesService
 	WlEngineRulesService
 	WlResourcesService
+	WlEquipmentService
+	WlCategoryService
+	WlCaFunctionService
 }
