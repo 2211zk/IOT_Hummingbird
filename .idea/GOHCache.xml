@@ -3,6 +3,14 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="Action">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AddMenuAuthorityInfo">
           <value>
             <set>
@@ -23,7 +31,16 @@
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/api/enter.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ApiResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/main.go" />
+              <option value="file://$PROJECT_DIR$/1/simple_crawler.go" />
             </set>
           </value>
         </entry>
@@ -280,6 +297,23 @@
             </set>
           </value>
         </entry>
+        <entry key="CategoryInfo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="CategoryTemplate">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/database_import.go" />
+              <option value="file://$PROJECT_DIR$/1/main.go" />
+              <option value="file://$PROJECT_DIR$/1/simple_crawler.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ChangePasswordReq">
           <value>
             <set>
@@ -436,6 +470,13 @@
             </set>
           </value>
         </entry>
+        <entry key="DriverCard">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/crawler/driver_table_spider.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Email">
           <value>
             <set>
@@ -470,6 +511,14 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/request/common.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Event">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
             </set>
           </value>
         </entry>
@@ -812,6 +861,14 @@
             </set>
           </value>
         </entry>
+        <entry key="OutputParam">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="PackageEnter">
           <value>
             <set>
@@ -917,6 +974,14 @@
             </set>
           </value>
         </entry>
+        <entry key="Property">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Qiniu">
           <value>
             <set>
@@ -967,12 +1032,22 @@
             </set>
           </value>
         </entry>
+        <entry key="ResponseData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/main.go" />
+              <option value="file://$PROJECT_DIR$/1/simple_crawler.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="RouterGroup">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/router/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/enter.go" />
             </set>
           </value>
         </entry>
@@ -997,6 +1072,7 @@
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/service/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/enter.go" />
             </set>
           </value>
         </entry>
@@ -1401,6 +1477,30 @@
             </set>
           </value>
         </entry>
+        <entry key="ThingModelData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ThingModelResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="TypeSpec">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go" />
+              <option value="file://$PROJECT_DIR$/1/thingmodel_crawler.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="UserRouter">
           <value>
             <set>
@@ -1419,6 +1519,51 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_enter.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDrivers">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/model/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/model/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/api/v1/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/api/v1/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversRouter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/router/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/router/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversSearch">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/model/driver/request/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/model/driver/request/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/request/wl_drivers.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDriversService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/service/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/service/driver/wl_drivers.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/wl_drivers.go" />
             </set>
           </value>
         </entry>
@@ -1726,10 +1871,248 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/1/check_table.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232960493" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/complete_thingmodel_crawler.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753065612000" />
+              <option name="schema">
+                <list>
+                  <option value="ThingModelResponse" />
+                  <option value="ThingModelData" />
+                  <option value="Property" />
+                  <option value="Event" />
+                  <option value="Action" />
+                  <option value="TypeSpec" />
+                  <option value="OutputParam" />
+                  <option value="CategoryInfo" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/database_import.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232960562" />
+              <option name="schema">
+                <list>
+                  <option value="CategoryTemplate" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232959656" />
+              <option name="schema">
+                <list>
+                  <option value="ApiResponse" />
+                  <option value="ResponseData" />
+                  <option value="CategoryTemplate" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/simple_crawler.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232959920" />
+              <option name="schema">
+                <list>
+                  <option value="ApiResponse" />
+                  <option value="ResponseData" />
+                  <option value="CategoryTemplate" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/test_api.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232959969" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/test_thingmodel_api.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232959672" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/thingmodel_crawler.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232960624" />
+              <option name="schema">
+                <list>
+                  <option value="ThingModelResponse" />
+                  <option value="ThingModelData" />
+                  <option value="Property" />
+                  <option value="Event" />
+                  <option value="Action" />
+                  <option value="TypeSpec" />
+                  <option value="OutputParam" />
+                  <option value="CategoryInfo" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/1/update_category_data.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753232960042" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/crawler/driver_table_spider.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753167767523" />
+              <option name="schema">
+                <list>
+                  <option value="DriverCard" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/api/v1/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753082954553" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/model/driver/request/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753082954551" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversSearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/model/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753083130949" />
+              <option name="schema">
+                <list>
+                  <option value="WlDrivers" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/router/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753082954553" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversRouter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/772047900/server/service/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753082954552" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/api/v1/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753083666566" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/model/driver/request/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753083666566" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversSearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/model/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753083782150" />
+              <option name="schema">
+                <list>
+                  <option value="WlDrivers" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/router/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753083666569" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversRouter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/rm_file/8979600/server/service/driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753083666568" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803553" />
+              <option name="lastModified" value="1753150729457" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -1741,7 +2124,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/auto_code_history.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803582" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AutoCodeHistoryApi" />
@@ -1753,14 +2136,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/auto_code_mcp.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803586" />
+              <option name="lastModified" value="1753080725608" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/auto_code_package.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803589" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AutoCodePackageApi" />
@@ -1772,7 +2155,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/auto_code_plugin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803589" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AutoCodePluginApi" />
@@ -1784,7 +2167,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/auto_code_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803594" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AutoCodeTemplateApi" />
@@ -1796,7 +2179,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803599" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -1808,7 +2191,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803602" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="SystemApiApi" />
@@ -1820,7 +2203,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_authority.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803604" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AuthorityApi" />
@@ -1832,7 +2215,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_authority_btn.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803604" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AuthorityBtnApi" />
@@ -1844,7 +2227,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_auto_code.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803609" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AutoCodeApi" />
@@ -1856,7 +2239,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_captcha.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803615" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="BaseApi" />
@@ -1868,7 +2251,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803617" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="CasbinApi" />
@@ -1880,7 +2263,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_dictionary.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803620" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="DictionaryApi" />
@@ -1892,7 +2275,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_dictionary_detail.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803624" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="DictionaryDetailApi" />
@@ -1904,7 +2287,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_export_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803625" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="SysExportTemplateApi" />
@@ -1916,7 +2299,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_initdb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803631" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="DBApi" />
@@ -1928,7 +2311,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_jwt_blacklist.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803636" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="JwtApi" />
@@ -1940,7 +2323,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803636" />
+              <option name="lastModified" value="1753080725608" />
               <option name="schema">
                 <list>
                   <option value="AuthorityMenuApi" />
@@ -1952,7 +2335,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_operation_record.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803641" />
+              <option name="lastModified" value="1753080725614" />
               <option name="schema">
                 <list>
                   <option value="OperationRecordApi" />
@@ -1964,7 +2347,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_params.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803641" />
+              <option name="lastModified" value="1753080725614" />
               <option name="schema">
                 <list>
                   <option value="SysParamsApi" />
@@ -1976,7 +2359,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_system.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803646" />
+              <option name="lastModified" value="1753080725615" />
               <option name="schema">
                 <list>
                   <option value="SystemApi" />
@@ -1988,14 +2371,38 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/sys_user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803651" />
+              <option name="lastModified" value="1753080725615" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084412204" />
+              <option name="schema">
+                <list>
+                  <option value="ApiGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084412205" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversApi" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/auto_code.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803660" />
+              <option name="lastModified" value="1753080725615" />
               <option name="schema">
                 <list>
                   <option value="Autocode" />
@@ -2007,7 +2414,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/captcha.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803662" />
+              <option name="lastModified" value="1753080725617" />
               <option name="schema">
                 <list>
                   <option value="Captcha" />
@@ -2019,7 +2426,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/config.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803667" />
+              <option name="lastModified" value="1753080725617" />
               <option name="schema">
                 <list>
                   <option value="Server" />
@@ -2031,7 +2438,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/cors.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803672" />
+              <option name="lastModified" value="1753080725617" />
               <option name="schema">
                 <list>
                   <option value="CORS" />
@@ -2044,7 +2451,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/db_list.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803672" />
+              <option name="lastModified" value="1753080725617" />
               <option name="schema">
                 <list>
                   <option value="GeneralDB" />
@@ -2057,7 +2464,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/disk.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803677" />
+              <option name="lastModified" value="1753080725618" />
               <option name="schema">
                 <list>
                   <option value="Disk" />
@@ -2070,7 +2477,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803682" />
+              <option name="lastModified" value="1753080725618" />
               <option name="schema">
                 <list>
                   <option value="Email" />
@@ -2082,7 +2489,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/excel.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803687" />
+              <option name="lastModified" value="1753080725618" />
               <option name="schema">
                 <list>
                   <option value="Excel" />
@@ -2094,7 +2501,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/gorm_mssql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803687" />
+              <option name="lastModified" value="1753080725618" />
               <option name="schema">
                 <list>
                   <option value="Mssql" />
@@ -2106,7 +2513,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/gorm_mysql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803693" />
+              <option name="lastModified" value="1753080725618" />
               <option name="schema">
                 <list>
                   <option value="Mysql" />
@@ -2118,7 +2525,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/gorm_oracle.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803698" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Oracle" />
@@ -2130,7 +2537,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/gorm_pgsql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803698" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Pgsql" />
@@ -2142,7 +2549,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/gorm_sqlite.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803703" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Sqlite" />
@@ -2154,7 +2561,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/jwt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803703" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="JWT" />
@@ -2166,7 +2573,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/mcp.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803710" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="MCP" />
@@ -2178,7 +2585,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/mongo.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803713" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Mongo" />
@@ -2191,7 +2598,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_aliyun.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803713" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="AliyunOSS" />
@@ -2203,7 +2610,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_aws.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803719" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="AwsS3" />
@@ -2215,7 +2622,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_cloudflare.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803724" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="CloudflareR2" />
@@ -2227,7 +2634,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_huawei.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803729" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="HuaWeiObs" />
@@ -2239,7 +2646,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_local.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803729" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Local" />
@@ -2251,7 +2658,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_minio.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803734" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Minio" />
@@ -2263,7 +2670,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_qiniu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803734" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Qiniu" />
@@ -2275,7 +2682,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/oss_tencent.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803740" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="TencentCOS" />
@@ -2287,7 +2694,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/redis.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803745" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Redis" />
@@ -2299,7 +2706,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/system.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803745" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="System" />
@@ -2311,7 +2718,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/zap.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803750" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Zap" />
@@ -2323,14 +2730,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/core/internal/constant.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803781" />
+              <option name="lastModified" value="1753080725619" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/core/internal/cutter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803786" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="Cutter" />
@@ -2342,7 +2749,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/core/internal/zap_core.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803791" />
+              <option name="lastModified" value="1753080725619" />
               <option name="schema">
                 <list>
                   <option value="ZapCore" />
@@ -2354,49 +2761,49 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/core/server.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803760" />
+              <option name="lastModified" value="1753080725619" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/core/server_run.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803765" />
+              <option name="lastModified" value="1753080725619" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/core/viper.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803765" />
+              <option name="lastModified" value="1753080725624" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/core/zap.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803771" />
+              <option name="lastModified" value="1753080725624" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/docs/docs.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803802" />
+              <option name="lastModified" value="1753080725624" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/global/global.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803819" />
+              <option name="lastModified" value="1753080725627" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/global/model.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803823" />
+              <option name="lastModified" value="1753080725627" />
               <option name="schema">
                 <list>
                   <option value="GVA_MODEL" />
@@ -2408,14 +2815,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/db_list.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803828" />
+              <option name="lastModified" value="1753080725627" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/ensure_tables.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803833" />
+              <option name="lastModified" value="1753080725627" />
               <option name="schema">
                 <list>
                   <option value="ensureTables" />
@@ -2427,63 +2834,63 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803838" />
+              <option name="lastModified" value="1753080725627" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803838" />
+              <option name="lastModified" value="1753150729457" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_mssql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803844" />
+              <option name="lastModified" value="1753080725627" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_mysql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803849" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_oracle.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803849" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_pgsql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803857" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_sqlite.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803859" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803864" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/internal/gorm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803921" />
+              <option name="lastModified" value="1753080725629" />
               <option name="schema">
                 <list>
                   <option value="_gorm" />
@@ -2495,7 +2902,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/internal/gorm_logger_writer.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803925" />
+              <option name="lastModified" value="1753080725629" />
               <option name="schema">
                 <list>
                   <option value="Writer" />
@@ -2507,7 +2914,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/internal/mongo.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803927" />
+              <option name="lastModified" value="1753080725629" />
               <option name="schema">
                 <list>
                   <option value="mongo" />
@@ -2519,14 +2926,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/mcp.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803864" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/mongo.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803869" />
+              <option name="lastModified" value="1753080725629" />
               <option name="schema">
                 <list>
                   <option value="mongo" />
@@ -2539,56 +2946,56 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/other.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803875" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/plugin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803879" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/plugin_biz_v1.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803882" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/plugin_biz_v2.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803885" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/redis.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803888" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/register_init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803890" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/reload.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803895" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803901" />
+              <option name="lastModified" value="1753080725629" />
               <option name="schema">
                 <list>
                   <option value="justFilesFilesystem" />
@@ -2600,49 +3007,49 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803906" />
+              <option name="lastModified" value="1753150729458" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/timer.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803909" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/validator.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803911" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803543" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/client/client.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803949" />
+              <option name="lastModified" value="1753080725629" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/client/client_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803954" />
+              <option name="lastModified" value="1753080725634" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/current_time.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803937" />
+              <option name="lastModified" value="1753080725634" />
               <option name="schema">
                 <list>
                   <option value="CurrentTime" />
@@ -2654,14 +3061,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803937" />
+              <option name="lastModified" value="1753080725634" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/get_nickname.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803944" />
+              <option name="lastModified" value="1753080725634" />
               <option name="schema">
                 <list>
                   <option value="GetNickname" />
@@ -2673,42 +3080,42 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/casbin_rbac.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803962" />
+              <option name="lastModified" value="1753080725634" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/cors.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803962" />
+              <option name="lastModified" value="1753080725634" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803967" />
+              <option name="lastModified" value="1753080725634" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/error.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803972" />
+              <option name="lastModified" value="1753080725634" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/jwt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803977" />
+              <option name="lastModified" value="1753080725634" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/limit_ip.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803980" />
+              <option name="lastModified" value="1753080725636" />
               <option name="schema">
                 <list>
                   <option value="LimitConfig" />
@@ -2720,14 +3127,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/loadtls.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803982" />
+              <option name="lastModified" value="1753080725636" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/logger.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803987" />
+              <option name="lastModified" value="1753080725636" />
               <option name="schema">
                 <list>
                   <option value="LogLayout" />
@@ -2740,7 +3147,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/operation.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723803992" />
+              <option name="lastModified" value="1753080725636" />
               <option name="schema">
                 <list>
                   <option value="responseBodyWriter" />
@@ -2752,14 +3159,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/basetypes.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804003" />
+              <option name="lastModified" value="1753080725636" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/clearDB.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804008" />
+              <option name="lastModified" value="1753080725636" />
               <option name="schema">
                 <list>
                   <option value="ClearDB" />
@@ -2771,7 +3178,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/request/common.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804015" />
+              <option name="lastModified" value="1753080725636" />
               <option name="schema">
                 <list>
                   <option value="PageInfo" />
@@ -2787,7 +3194,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/response/common.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804023" />
+              <option name="lastModified" value="1753080725636" />
               <option name="schema">
                 <list>
                   <option value="PageResult" />
@@ -2799,7 +3206,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/response/response.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804028" />
+              <option name="lastModified" value="1753080725636" />
               <option name="schema">
                 <list>
                   <option value="Response" />
@@ -2811,7 +3218,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/jwt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804147" />
+              <option name="lastModified" value="1753080725639" />
               <option name="schema">
                 <list>
                   <option value="CustomClaims" />
@@ -2824,7 +3231,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804149" />
+              <option name="lastModified" value="1753080725639" />
               <option name="schema">
                 <list>
                   <option value="SearchApiParams" />
@@ -2836,7 +3243,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_authority_btn.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804154" />
+              <option name="lastModified" value="1753080725639" />
               <option name="schema">
                 <list>
                   <option value="SysAuthorityBtnReq" />
@@ -2848,7 +3255,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_auto_code.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804157" />
+              <option name="lastModified" value="1753080725639" />
               <option name="schema">
                 <list>
                   <option value="AutoCode" />
@@ -2866,7 +3273,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_auto_code_mcp.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804160" />
+              <option name="lastModified" value="1753080725639" />
               <option name="schema">
                 <list>
                   <option value="AutoMcpTool" />
@@ -2878,7 +3285,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_auto_code_package.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804165" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="SysAutoCodePackageCreate" />
@@ -2890,7 +3297,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_auto_history.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804170" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="SysAutoHistoryCreate" />
@@ -2903,7 +3310,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804175" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="CasbinInfo" />
@@ -2916,7 +3323,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_dictionary_detail.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804180" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="SysDictionaryDetailSearch" />
@@ -2928,7 +3335,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_export_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804183" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="SysExportTemplateSearch" />
@@ -2940,7 +3347,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804185" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="InitDB" />
@@ -2952,7 +3359,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804190" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="AddMenuAuthorityInfo" />
@@ -2964,7 +3371,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_operation_record.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804195" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="SysOperationRecordSearch" />
@@ -2976,7 +3383,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_params.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804195" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="SysParamsSearch" />
@@ -2988,7 +3395,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/request/sys_user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804201" />
+              <option name="lastModified" value="1753080725640" />
               <option name="schema">
                 <list>
                   <option value="Register" />
@@ -3007,7 +3414,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804211" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysAPIResponse" />
@@ -3021,7 +3428,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_authority.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804211" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysAuthorityResponse" />
@@ -3034,7 +3441,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_authority_btn.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804218" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysAuthorityBtnRes" />
@@ -3046,7 +3453,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_auto_code.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804221" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="Db" />
@@ -3060,7 +3467,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_captcha.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804227" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysCaptchaResponse" />
@@ -3072,7 +3479,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804232" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="PolicyPathResponse" />
@@ -3084,7 +3491,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804232" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysMenusResponse" />
@@ -3098,7 +3505,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_system.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804237" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysConfigResponse" />
@@ -3110,7 +3517,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/response/sys_user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804242" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysUserResponse" />
@@ -3123,7 +3530,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804079" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysApi" />
@@ -3136,7 +3543,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_authority.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804081" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysAuthority" />
@@ -3148,7 +3555,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_authority_btn.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804087" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysAuthorityBtn" />
@@ -3160,7 +3567,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_authority_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804087" />
+              <option name="lastModified" value="1753080725642" />
               <option name="schema">
                 <list>
                   <option value="SysMenu" />
@@ -3173,7 +3580,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_auto_code_history.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804092" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysAutoCodeHistory" />
@@ -3185,7 +3592,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_auto_code_package.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804097" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysAutoCodePackage" />
@@ -3197,7 +3604,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_base_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804102" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysBaseMenu" />
@@ -3211,7 +3618,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_dictionary.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804108" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysDictionary" />
@@ -3223,7 +3630,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_dictionary_detail.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804108" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysDictionaryDetail" />
@@ -3235,7 +3642,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_export_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804115" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysExportTemplate" />
@@ -3249,7 +3656,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_jwt_blacklist.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804118" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="JwtBlacklist" />
@@ -3261,7 +3668,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_menu_btn.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804123" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysBaseMenuBtn" />
@@ -3273,7 +3680,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_operation_record.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804123" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysOperationRecord" />
@@ -3285,7 +3692,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_params.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804128" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysParams" />
@@ -3297,7 +3704,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_system.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804133" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="System" />
@@ -3309,7 +3716,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804133" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysUser" />
@@ -3321,7 +3728,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_user_authority.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804140" />
+              <option name="lastModified" value="1753080725644" />
               <option name="schema">
                 <list>
                   <option value="SysUserAuthority" />
@@ -3330,10 +3737,34 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/request/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084412204" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversSearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084616670" />
+              <option name="schema">
+                <list>
+                  <option value="WlDrivers" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/api/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804264" />
+              <option name="lastModified" value="1753080725646" />
               <option name="schema">
                 <list>
                   <option value="api" />
@@ -3345,7 +3776,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/api/info.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804271" />
+              <option name="lastModified" value="1753080725646" />
               <option name="schema">
                 <list>
                   <option value="info" />
@@ -3357,7 +3788,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/config/config.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804281" />
+              <option name="lastModified" value="1753080725646" />
               <option name="schema">
                 <list>
                   <option value="Config" />
@@ -3369,49 +3800,49 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/gen/gen.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804289" />
+              <option name="lastModified" value="1753080725647" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/initialize/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804308" />
+              <option name="lastModified" value="1753080725647" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/initialize/gorm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804314" />
+              <option name="lastModified" value="1753080725647" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/initialize/menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804320" />
+              <option name="lastModified" value="1753080725647" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/initialize/router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804324" />
+              <option name="lastModified" value="1753080725647" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/initialize/viper.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804329" />
+              <option name="lastModified" value="1753080725647" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/model/info.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804342" />
+              <option name="lastModified" value="1753080725647" />
               <option name="schema">
                 <list>
                   <option value="Info" />
@@ -3423,7 +3854,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/model/request/info.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804350" />
+              <option name="lastModified" value="1753080725647" />
               <option name="schema">
                 <list>
                   <option value="InfoSearch" />
@@ -3435,7 +3866,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/plugin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804256" />
+              <option name="lastModified" value="1753080725649" />
               <option name="schema">
                 <list>
                   <option value="plugin" />
@@ -3447,14 +3878,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/plugin/plugin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804360" />
+              <option name="lastModified" value="1753080725649" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/router/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804368" />
+              <option name="lastModified" value="1753080725649" />
               <option name="schema">
                 <list>
                   <option value="router" />
@@ -3466,7 +3897,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/router/info.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804372" />
+              <option name="lastModified" value="1753080725649" />
               <option name="schema">
                 <list>
                   <option value="info" />
@@ -3478,7 +3909,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/service/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804381" />
+              <option name="lastModified" value="1753080725649" />
               <option name="schema">
                 <list>
                   <option value="service" />
@@ -3490,7 +3921,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/announcement/service/info.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804386" />
+              <option name="lastModified" value="1753080725649" />
               <option name="schema">
                 <list>
                   <option value="info" />
@@ -3502,7 +3933,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/api/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804411" />
+              <option name="lastModified" value="1753080725651" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -3514,7 +3945,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/api/sys_email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804411" />
+              <option name="lastModified" value="1753080725651" />
               <option name="schema">
                 <list>
                   <option value="EmailApi" />
@@ -3526,7 +3957,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/config/email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804421" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="Email" />
@@ -3538,14 +3969,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/global/gloabl.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804433" />
+              <option name="lastModified" value="1753080725652" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804401" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="emailPlugin" />
@@ -3557,7 +3988,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/model/response/email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804447" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="Email" />
@@ -3569,7 +4000,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/router/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804457" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -3581,7 +4012,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/router/sys_email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804462" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="EmailRouter" />
@@ -3593,7 +4024,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/service/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804468" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="ServiceGroup" />
@@ -3605,7 +4036,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/service/sys_email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804473" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="EmailService" />
@@ -3617,7 +4048,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/email/utils/email.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804483" />
+              <option name="lastModified" value="1753080725652" />
               <option name="schema">
                 <list>
                   <option value="loginAuth" />
@@ -3629,14 +4060,26 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/plugin/plugin-tool/utils/check.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804498" />
+              <option name="lastModified" value="1753080725652" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084139008" />
+              <option name="schema">
+                <list>
+                  <option value="RouterGroup" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804802" />
+              <option name="lastModified" value="1753150729458" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -3648,7 +4091,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804831" />
+              <option name="lastModified" value="1753080725664" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -3660,7 +4103,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804836" />
+              <option name="lastModified" value="1753080725664" />
               <option name="schema">
                 <list>
                   <option value="ApiRouter" />
@@ -3672,7 +4115,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_authority.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804841" />
+              <option name="lastModified" value="1753080725664" />
               <option name="schema">
                 <list>
                   <option value="AuthorityRouter" />
@@ -3684,7 +4127,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_authority_btn.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804847" />
+              <option name="lastModified" value="1753080725664" />
               <option name="schema">
                 <list>
                   <option value="AuthorityBtnRouter" />
@@ -3696,7 +4139,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_auto_code.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804849" />
+              <option name="lastModified" value="1753080725664" />
               <option name="schema">
                 <list>
                   <option value="AutoCodeRouter" />
@@ -3708,7 +4151,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_auto_code_history.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804852" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="AutoCodeHistoryRouter" />
@@ -3720,7 +4163,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_base.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804861" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="BaseRouter" />
@@ -3732,7 +4175,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804864" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="CasbinRouter" />
@@ -3744,7 +4187,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_dictionary.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804869" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="DictionaryRouter" />
@@ -3756,7 +4199,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_dictionary_detail.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804873" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="DictionaryDetailRouter" />
@@ -3768,7 +4211,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_export_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804877" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="SysExportTemplateRouter" />
@@ -3780,7 +4223,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_initdb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804882" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="InitRouter" />
@@ -3792,7 +4235,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_jwt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804887" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="JwtRouter" />
@@ -3804,7 +4247,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804893" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="MenuRouter" />
@@ -3816,7 +4259,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_operation_record.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804893" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="OperationRecordRouter" />
@@ -3828,7 +4271,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_params.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804898" />
+              <option name="lastModified" value="1753080725665" />
               <option name="schema">
                 <list>
                   <option value="SysParamsRouter" />
@@ -3840,7 +4283,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_system.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804903" />
+              <option name="lastModified" value="1753080725667" />
               <option name="schema">
                 <list>
                   <option value="SysRouter" />
@@ -3852,7 +4295,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/sys_user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804908" />
+              <option name="lastModified" value="1753080725667" />
               <option name="schema">
                 <list>
                   <option value="UserRouter" />
@@ -3861,10 +4304,34 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084412207" />
+              <option name="schema">
+                <list>
+                  <option value="RouterGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084412206" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversRouter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804916" />
+              <option name="lastModified" value="1753150729458" />
               <option name="schema">
                 <list>
                   <option value="ServiceGroup" />
@@ -3876,7 +4343,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/auto_code_history.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804944" />
+              <option name="lastModified" value="1753080725669" />
               <option name="schema">
                 <list>
                   <option value="autoCodeHistory" />
@@ -3888,14 +4355,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/auto_code_mcp.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804951" />
+              <option name="lastModified" value="1753080725669" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/auto_code_package.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804954" />
+              <option name="lastModified" value="1753080725669" />
               <option name="schema">
                 <list>
                   <option value="autoCodePackage" />
@@ -3907,7 +4374,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/auto_code_package_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804959" />
+              <option name="lastModified" value="1753080725669" />
               <option name="schema">
                 <list>
                   <option value="args" />
@@ -3920,7 +4387,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/auto_code_plugin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804964" />
+              <option name="lastModified" value="1753080725669" />
               <option name="schema">
                 <list>
                   <option value="autoCodePlugin" />
@@ -3932,7 +4399,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/auto_code_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804964" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="autoCodeTemplate" />
@@ -3944,7 +4411,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/auto_code_template_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804969" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="args" />
@@ -3957,7 +4424,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804975" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="ServiceGroup" />
@@ -3969,7 +4436,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/jwt_black_list.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804979" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="JwtService" />
@@ -3981,7 +4448,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804981" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="ApiService" />
@@ -3993,7 +4460,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_authority.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804985" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="AuthorityService" />
@@ -4005,7 +4472,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_authority_btn.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804990" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="AuthorityBtnService" />
@@ -4017,7 +4484,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_auto_code_interface.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804995" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="AutoCodeService" />
@@ -4029,7 +4496,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_auto_code_mssql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723804998" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="autoCodeMssql" />
@@ -4041,7 +4508,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_auto_code_mysql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805004" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="autoCodeMysql" />
@@ -4053,7 +4520,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_auto_code_oracle.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805005" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="autoCodeOracle" />
@@ -4065,7 +4532,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_auto_code_pgsql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805011" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="autoCodePgsql" />
@@ -4077,7 +4544,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_auto_code_sqlite.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805013" />
+              <option name="lastModified" value="1753080725670" />
               <option name="schema">
                 <list>
                   <option value="autoCodeSqlite" />
@@ -4089,7 +4556,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_base_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805016" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="BaseMenuService" />
@@ -4101,7 +4568,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805023" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="CasbinService" />
@@ -4113,7 +4580,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_dictionary.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805027" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="DictionaryService" />
@@ -4125,7 +4592,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_dictionary_detail.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805027" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="DictionaryDetailService" />
@@ -4137,7 +4604,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_export_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805034" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="SysExportTemplateService" />
@@ -4149,7 +4616,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_initdb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805039" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="orderedInitializer" />
@@ -4162,7 +4629,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_initdb_mssql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805042" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="MssqlInitHandler" />
@@ -4174,7 +4641,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_initdb_mysql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805047" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="MysqlInitHandler" />
@@ -4186,7 +4653,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_initdb_pgsql.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805052" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="PgsqlInitHandler" />
@@ -4198,7 +4665,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_initdb_sqlite.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805052" />
+              <option name="lastModified" value="1753080725672" />
               <option name="schema">
                 <list>
                   <option value="SqliteInitHandler" />
@@ -4210,7 +4677,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805058" />
+              <option name="lastModified" value="1753080725674" />
               <option name="schema">
                 <list>
                   <option value="MenuService" />
@@ -4222,7 +4689,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_operation_record.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805063" />
+              <option name="lastModified" value="1753080725674" />
               <option name="schema">
                 <list>
                   <option value="OperationRecordService" />
@@ -4234,7 +4701,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_params.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805065" />
+              <option name="lastModified" value="1753080725674" />
               <option name="schema">
                 <list>
                   <option value="SysParamsService" />
@@ -4246,7 +4713,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_system.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805068" />
+              <option name="lastModified" value="1753080725674" />
               <option name="schema">
                 <list>
                   <option value="SystemConfigService" />
@@ -4258,7 +4725,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805074" />
+              <option name="lastModified" value="1753080725674" />
               <option name="schema">
                 <list>
                   <option value="UserService" />
@@ -4267,10 +4734,34 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084412207" />
+              <option name="schema">
+                <list>
+                  <option value="ServiceGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/wl_drivers.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753084412206" />
+              <option name="schema">
+                <list>
+                  <option value="WlDriversService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/api.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805095" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initApi" />
@@ -4282,7 +4773,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/api_ignore.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805100" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initApiIgnore" />
@@ -4294,7 +4785,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/authorities_menus.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805105" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initMenuAuthority" />
@@ -4306,7 +4797,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/authority.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805105" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initAuthority" />
@@ -4318,7 +4809,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805110" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initCasbin" />
@@ -4330,7 +4821,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/dictionary.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805116" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initDict" />
@@ -4342,7 +4833,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/dictionary_detail.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805121" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initDictDetail" />
@@ -4354,7 +4845,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/excel_template.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805121" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initExcelTemplate" />
@@ -4366,7 +4857,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805127" />
+              <option name="lastModified" value="1753148996824" />
               <option name="schema">
                 <list>
                   <option value="initMenu" />
@@ -4378,7 +4869,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805131" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="initUser" />
@@ -4390,28 +4881,28 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/task/clearTable.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805141" />
+              <option name="lastModified" value="1753080725675" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805219" />
+              <option name="lastModified" value="1753080725675" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_auto_enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805223" />
+              <option name="lastModified" value="1753080725675" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805226" />
+              <option name="lastModified" value="1753080725675" />
               <option name="schema">
                 <list>
                   <option value="Visitor" />
@@ -4423,49 +4914,49 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_gorm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805228" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_init_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805233" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_rollback.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805239" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805241" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805244" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/ast_type.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805249" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/import.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805254" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="Import" />
@@ -4477,14 +4968,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/interfaces.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805259" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/interfaces_base.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805259" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="Base" />
@@ -4496,7 +4987,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805265" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PackageEnter" />
@@ -4508,7 +4999,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_enter_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805269" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4521,7 +5012,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_initialize_gorm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805274" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PackageInitializeGorm" />
@@ -4533,7 +5024,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_initialize_gorm_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805279" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4546,7 +5037,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_initialize_router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805279" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PackageInitializeRouter" />
@@ -4558,7 +5049,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_initialize_router_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805284" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4571,7 +5062,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_module_enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805289" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PackageModuleEnter" />
@@ -4583,7 +5074,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/package_module_enter_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805294" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4596,7 +5087,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805299" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PluginEnter" />
@@ -4608,7 +5099,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_enter_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805299" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4621,7 +5112,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_gen.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805304" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PluginGen" />
@@ -4633,7 +5124,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_gen_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805309" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4646,7 +5137,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_gorm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805314" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PluginInitializeGorm" />
@@ -4658,7 +5149,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_gorm_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805319" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4671,7 +5162,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805324" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PluginInitializeRouter" />
@@ -4683,7 +5174,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_router_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805324" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4696,7 +5187,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_v2.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805332" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="PluginInitializeV2" />
@@ -4708,7 +5199,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/ast/plugin_initialize_v2_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805335" />
+              <option name="lastModified" value="1753080725679" />
               <option name="schema">
                 <list>
                   <option value="fields" />
@@ -4721,21 +5212,21 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/autocode/template_funcs.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805345" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/breakpoint_continue.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805146" />
+              <option name="lastModified" value="1753080725679" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/captcha/redis.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805355" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="RedisStore" />
@@ -4747,49 +5238,49 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/casbin_util.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805151" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/claims.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805157" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/directory.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805157" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/fmt_plus.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805162" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/hash.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805168" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/human_duration.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805168" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/human_duration_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805173" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="args" />
@@ -4801,21 +5292,21 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/json.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805178" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/json_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805183" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/jwt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805189" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="JWT" />
@@ -4827,28 +5318,28 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/plugin/plugin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805363" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/plugin/v2/plugin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805370" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/request/http.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805380" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/server.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805191" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="Server" />
@@ -4864,7 +5355,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/system_events.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805194" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="SystemEvents" />
@@ -4876,7 +5367,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/timer/timed_task.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805391" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="task" />
@@ -4890,7 +5381,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/timer/timed_task_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805396" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="mockJob" />
@@ -4902,7 +5393,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/aliyun_oss.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805401" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="AliyunOSS" />
@@ -4914,7 +5405,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/aws_s3.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805408" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="AwsS3" />
@@ -4926,7 +5417,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/cloudflare_r2.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805414" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="CloudflareR2" />
@@ -4938,7 +5429,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/local.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805417" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="Local" />
@@ -4950,7 +5441,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/minio_oss.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805422" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="Minio" />
@@ -4962,7 +5453,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/obs.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805422" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="Obs" />
@@ -4974,7 +5465,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/qiniu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805427" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="Qiniu" />
@@ -4986,7 +5477,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/tencent_cos.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805433" />
+              <option name="lastModified" value="1753080725684" />
               <option name="schema">
                 <list>
                   <option value="TencentCOS" />
@@ -4998,21 +5489,21 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/upload/upload.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805438" />
+              <option name="lastModified" value="1753080725684" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/validator.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805199" />
+              <option name="lastModified" value="1753080725689" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/validator_test.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805203" />
+              <option name="lastModified" value="1753080725689" />
               <option name="schema">
                 <list>
                   <option value="PageInfoTest" />
@@ -5024,14 +5515,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/verify.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805208" />
+              <option name="lastModified" value="1753080725689" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/zip.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1752723805208" />
+              <option name="lastModified" value="1753080725689" />
             </ScannedPath>
           </value>
         </entry>
@@ -5040,10 +5531,12 @@
     <option name="tableStructMapping">
       <map>
         <entry key="_gorm" value="_gorm" />
+        <entry key="action" value="Action" />
         <entry key="add_menu_authority_info" value="AddMenuAuthorityInfo" />
         <entry key="aliyun_oss" value="AliyunOSS" />
         <entry key="api" value="api" />
         <entry key="api_group" value="ApiGroup" />
+        <entry key="api_response" value="ApiResponse" />
         <entry key="api_router" value="ApiRouter" />
         <entry key="api_service" value="ApiService" />
         <entry key="args" value="args" />
@@ -5088,6 +5581,8 @@
         <entry key="casbin_info" value="CasbinInfo" />
         <entry key="casbin_router" value="CasbinRouter" />
         <entry key="casbin_service" value="CasbinService" />
+        <entry key="category_info" value="CategoryInfo" />
+        <entry key="category_template" value="CategoryTemplate" />
         <entry key="change_password_req" value="ChangePasswordReq" />
         <entry key="change_user_info" value="ChangeUserInfo" />
         <entry key="clear_db" value="ClearDB" />
@@ -5112,6 +5607,7 @@
         <entry key="dictionary_service" value="DictionaryService" />
         <entry key="disk" value="Disk" />
         <entry key="disk_list" value="DiskList" />
+        <entry key="driver_card" value="DriverCard" />
         <entry key="email" value="Email" />
         <entry key="email_api" value="EmailApi" />
         <entry key="email_plugin" value="emailPlugin" />
@@ -5119,6 +5615,7 @@
         <entry key="email_service" value="EmailService" />
         <entry key="empty" value="Empty" />
         <entry key="ensure_tables" value="ensureTables" />
+        <entry key="event" value="Event" />
         <entry key="excel" value="Excel" />
         <entry key="fields" value="fields" />
         <entry key="general_db" value="GeneralDB" />
@@ -5180,6 +5677,7 @@
         <entry key="oracle" value="Oracle" />
         <entry key="ordered_initializer" value="orderedInitializer" />
         <entry key="os" value="Os" />
+        <entry key="output_param" value="OutputParam" />
         <entry key="package_enter" value="PackageEnter" />
         <entry key="package_initialize_gorm" value="PackageInitializeGorm" />
         <entry key="package_initialize_router" value="PackageInitializeRouter" />
@@ -5196,6 +5694,7 @@
         <entry key="plugin_initialize_router" value="PluginInitializeRouter" />
         <entry key="plugin_initialize_v2" value="PluginInitializeV2" />
         <entry key="policy_path_response" value="PolicyPathResponse" />
+        <entry key="property" value="Property" />
         <entry key="qiniu" value="Qiniu" />
         <entry key="ram" value="Ram" />
         <entry key="redis" value="Redis" />
@@ -5204,6 +5703,7 @@
         <entry key="reset_password" value="ResetPassword" />
         <entry key="response" value="Response" />
         <entry key="response_body_writer" value="responseBodyWriter" />
+        <entry key="response_data" value="ResponseData" />
         <entry key="router" value="router" />
         <entry key="router_group" value="RouterGroup" />
         <entry key="search_api_params" value="SearchApiParams" />
@@ -5269,15 +5769,23 @@
         <entry key="task" value="task" />
         <entry key="task_manager" value="taskManager" />
         <entry key="tencent_cos" value="TencentCOS" />
+        <entry key="thing_model_data" value="ThingModelData" />
+        <entry key="thing_model_response" value="ThingModelResponse" />
         <entry key="timer" value="timer" />
+        <entry key="type_spec" value="TypeSpec" />
         <entry key="user_router" value="UserRouter" />
         <entry key="user_service" value="UserService" />
         <entry key="visitor" value="Visitor" />
+        <entry key="wl_drivers" value="WlDrivers" />
+        <entry key="wl_drivers_api" value="WlDriversApi" />
+        <entry key="wl_drivers_router" value="WlDriversRouter" />
+        <entry key="wl_drivers_search" value="WlDriversSearch" />
+        <entry key="wl_drivers_service" value="WlDriversService" />
         <entry key="writer" value="Writer" />
         <entry key="zap" value="Zap" />
         <entry key="zap_core" value="ZapCore" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1752723838691" />
+    <option name="lastTimeChecked" value="1753232080331" />
   </component>
 </project>

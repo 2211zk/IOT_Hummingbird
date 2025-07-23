@@ -99,15 +99,18 @@ captcha:
 # mysql connect configuration
 # 未初始化之前请勿手动修改数据库信息！！！如果一定要手动初始化请看（https://gin-vue-admin.com/docs/first_master）
 mysql:
-    path: ""
-    port: ""
-    config: ""
-    db-name: ""
-    username: ""
-    password: ""
+    prefix: ""
+    port: "3306"
+    config: charset=utf8mb4&parseTime=True&loc=Local
+    db-name: wl_playform
+    username: root
+    password: 82AF916059F13E331E633AC0B8A8191B
+    path: 14.103.143.229
+    engine: ""
+    log-mode: error
     max-idle-conns: 10
     max-open-conns: 100
-    log-mode: ""
+    singular: false
     log-zap: false
 
 # pgsql connect configuration
