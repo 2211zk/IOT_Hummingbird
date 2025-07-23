@@ -238,18 +238,34 @@ func (wlResourcesService *WlResourcesService) GetWlResourcesInfoList(info reques
 
 // VerifyWlResources 验证资源
 func (wlResourcesService *WlResourcesService) VerifyWlResources(wlResources *wl_playform.WlResources) (err error) {
-	// 模拟验证过程
-	// 这里可以根据不同的资源类型进行不同的验证逻辑
+	// 执行验证逻辑
+	err = wlResourcesService.verifyDefaultResource(wlResources)
 
-	// 更新验证状态为成功
+	if err != nil {
+		// 验证失败，更新状态
+		status := "验证失败"
+		wlResources.VerificationStatus = &status
+		global.GVA_DB.Save(wlResources)
+		return err
+	}
+
+	// 验证成功，更新状态
 	status := "验证成功"
 	wlResources.VerificationStatus = &status
-
-	// 保存到数据库
 	err = global.GVA_DB.Save(wlResources).Error
 	if err != nil {
 		return errors.Wrap(err, "更新验证状态失败")
 	}
 
+	return nil
+}
+
+// verifyDefaultResource 默认验证逻辑
+func (wlResourcesService *WlResourcesService) verifyDefaultResource(wlResources *wl_playform.WlResources) error {
+	// 默认验证逻辑，暂时返回成功
+	// 这里可以添加实际的验证逻辑，比如：
+	// 1. 检查资源配置是否完整
+	// 2. 测试连接是否可用
+	// 3. 验证权限是否正确
 	return nil
 }

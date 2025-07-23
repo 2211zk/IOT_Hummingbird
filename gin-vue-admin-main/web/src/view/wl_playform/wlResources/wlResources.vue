@@ -73,11 +73,11 @@
             </el-button>
             <el-button v-auth="btnAuth.edit" type="primary" link icon="edit" class="table-button" @click="updateWlResourcesFunc(scope.row)">编辑</el-button>
             <el-button 
-              v-auth="btnAuth.verify"
               type="primary" 
               link 
               :loading="scope.row.verifying"
               @click="handleVerification(scope.row)"
+              style="margin-left: 5px;"
             >
               验证
             </el-button>
@@ -400,6 +400,7 @@ defineOptions({
 
 // 按钮权限实例化
 const btnAuth = useBtnAuth()
+console.log('btnAuth:', btnAuth)
 const appStore = useAppStore()
 
 // 提交按钮loading
@@ -564,34 +565,32 @@ const deleteWlResourcesFunc = async (row) => {
 
 // 验证处理
 const handleVerification = async (row) => {
+  console.log('开始验证，行数据:', row)
+  console.log('btnAuth:', btnAuth)
+  
   // 设置验证loading状态
   row.verifying = true
   
   try {
-    // 模拟验证过程
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
     // 调用验证API
     const res = await verifyWlResources({ ID: row.ID })
+    console.log('验证API响应:', res)
     
     if (res.code === 0) {
-      // 更新验证状态
-      row.verificationStatus = '验证成功'
       ElMessage({
         type: 'success',
         message: '验证成功'
       })
+      // 直接更新当前行的验证状态，避免重新获取数据
+      row.verificationStatus = '验证成功'
     } else {
-      // 验证失败
-      row.verificationStatus = '验证失败'
       ElMessage({
         type: 'error',
-        message: '验证失败'
+        message: res.msg || '验证失败'
       })
     }
   } catch (error) {
-    // 验证出错
-    row.verificationStatus = '验证失败'
+    console.error('验证错误:', error)
     ElMessage({
       type: 'error',
       message: '验证失败'

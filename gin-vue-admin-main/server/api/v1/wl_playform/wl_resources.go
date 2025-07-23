@@ -195,11 +195,48 @@ func (wlResourcesApi *WlResourcesApi) FindWlResources(c *gin.Context) {
 // @Router /wlResources/getWlResourcesList [get]
 func (wlResourcesApi *WlResourcesApi) GetWlResourcesList(c *gin.Context) {
 	var pageInfo request.WlResourcesSearch
-	err := c.ShouldBindQuery(&pageInfo)
-	if err != nil {
-		response.FailWithMessage(err.Error(), c)
-		return
+
+	// 手动绑定查询参数，避免验证错误
+	if pageStr := c.Query("page"); pageStr != "" {
+		if page, err := strconv.Atoi(pageStr); err == nil {
+			pageInfo.Page = page
+		} else {
+			pageInfo.Page = 1
+		}
+	} else {
+		pageInfo.Page = 1
 	}
+
+	if pageSizeStr := c.Query("pageSize"); pageSizeStr != "" {
+		if pageSize, err := strconv.Atoi(pageSizeStr); err == nil {
+			pageInfo.PageSize = pageSize
+		} else {
+			pageInfo.PageSize = 10
+		}
+	} else {
+		pageInfo.PageSize = 10
+	}
+
+	// 处理搜索参数
+	if instanceName := c.Query("instanceName"); instanceName != "" {
+		pageInfo.InstanceName = &instanceName
+	}
+	if timeoutMs := c.Query("timeoutMs"); timeoutMs != "" {
+		pageInfo.TimeoutMs = &timeoutMs
+	}
+	if verificationStatus := c.Query("verificationStatus"); verificationStatus != "" {
+		pageInfo.VerificationStatus = &verificationStatus
+	}
+	if resourcesKey := c.Query("resourcesKey"); resourcesKey != "" {
+		pageInfo.ResourcesKey = &resourcesKey
+	}
+	if startCreatedAt := c.Query("startCreatedAt"); startCreatedAt != "" {
+		pageInfo.StartCreatedAt = &startCreatedAt
+	}
+	if endCreatedAt := c.Query("endCreatedAt"); endCreatedAt != "" {
+		pageInfo.EndCreatedAt = &endCreatedAt
+	}
+
 	list, total, err := wlResourcesService.GetWlResourcesInfoList(pageInfo)
 	if err != nil {
 		global.GVA_LOG.Error("获取失败!", zap.Error(err))

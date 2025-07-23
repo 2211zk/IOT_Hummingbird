@@ -2,11 +2,13 @@ package request
 
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/wl_playform"
 )
 
 type WlResourcesSearch struct {
-	wl_playform.WlResources
+	InstanceName       *string `json:"instanceName" form:"instanceName"`             // 实例名称
+	TimeoutMs          *string `json:"timeoutMs" form:"timeoutMs"`                   // 超时时间
+	VerificationStatus *string `json:"verificationStatus" form:"verificationStatus"` // 验证状态
+	ResourcesKey       *string `json:"resourcesKey" form:"resourcesKey"`             // MongoDB资源key
 	request.PageInfo
 	StartCreatedAt *string `json:"startCreatedAt" form:"startCreatedAt"`
 	EndCreatedAt   *string `json:"endCreatedAt" form:"endCreatedAt"`

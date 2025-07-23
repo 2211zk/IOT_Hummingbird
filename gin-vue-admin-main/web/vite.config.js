@@ -13,11 +13,27 @@ import { AddSecret } from './vitePlugin/secret'
 export default ({ mode }) => {
   AddSecret('')
   const NODE_ENV = mode || 'development'
+  
+  // 设置默认环境变量
+  process.env.VITE_CLI_PORT = process.env.VITE_CLI_PORT || '8080'
+  process.env.VITE_SERVER_PORT = process.env.VITE_SERVER_PORT || '8888'
+  process.env.VITE_BASE_API = process.env.VITE_BASE_API || '/api'
+  process.env.VITE_FILE_API = process.env.VITE_FILE_API || ''  // 文件API不使用前缀
+  process.env.VITE_BASE_PATH = process.env.VITE_BASE_PATH || 'http://localhost'
+  process.env.VITE_EDITOR = process.env.VITE_EDITOR || 'code'
+  process.env.VITE_POSITION = process.env.VITE_POSITION || 'open'
+  
+  // 尝试读取环境变量文件，如果不存在则使用默认值
   const envFiles = [`.env.${NODE_ENV}`]
   for (const file of envFiles) {
-    const envConfig = dotenv.parse(fs.readFileSync(file))
-    for (const k in envConfig) {
-      process.env[k] = envConfig[k]
+    try {
+      const envConfig = dotenv.parse(fs.readFileSync(file))
+      for (const k in envConfig) {
+        process.env[k] = envConfig[k]
+      }
+    } catch (error) {
+      // 文件不存在，使用默认值
+      console.log(`Environment file ${file} not found, using default values`)
     }
   }
 
