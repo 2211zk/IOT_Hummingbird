@@ -48,4 +48,6 @@ func initializeSystem() {
 	if global.GVA_DB != nil {
 		initialize.RegisterTables() // 初始化表
 	}
+	// 初始化Wanlian_resource MongoDB数据源
+	initialize.WanlianResourceInit()
 }
