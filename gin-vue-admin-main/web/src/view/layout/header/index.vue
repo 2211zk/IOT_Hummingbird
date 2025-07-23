@@ -35,6 +35,7 @@
         v-show="!isMobile"
         v-if="config.side_mode !== 'head' && config.side_mode !== 'combination'"
         class="ml-4"
+        style="display: none;"
       >
         <el-breadcrumb-item
           v-for="item in matched.slice(1, matched.length)"

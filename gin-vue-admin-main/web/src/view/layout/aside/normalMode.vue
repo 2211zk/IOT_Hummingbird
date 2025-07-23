@@ -21,10 +21,7 @@
         unique-opened
         @select="selectMenuItem"
       >
-<<<<<<< HEAD
-=======
         <!-- 使用处理后的菜单项，实现自定义的菜单层级结构 -->
->>>>>>> ae3240f93462583fbaf4769f0c2d15372eb41e0e
         <template v-for="item in processedMenuItems">
           <aside-component
             v-if="!item.hidden"
@@ -78,11 +75,74 @@
     const items = routerStore.asyncRouters[0]?.children || []
     console.log('原始菜单项:', items)
     
-    // 查找需要重新组织的菜单项
-    const productMenu = items.find(item => item.name === 'wlProducts')
-    const equipmentMenu = items.find(item => item.name === 'wlEquipment')
+    // 确保所有菜单都有正确的标题
+    const processedItems = items.map(item => {
+      // 确保每个菜单项都有正确的meta信息
+      if (!item.meta) {
+        item.meta = {}
+      }
+      
+      // 为特定菜单设置正确的标题
+      if (item.name === 'wlResources') {
+        item.meta.title = '资源管理'
+      } else if (item.name === 'wlProducts') {
+        item.meta.title = '产品管理'
+      } else if (item.name === 'wlEquipment') {
+        item.meta.title = '设备管理'
+      } else if (item.name === 'wlScenes') {
+        item.meta.title = '场景联动'
+      } else if (item.name === 'wlEngineRules') {
+        item.meta.title = '引擎规则'
+      }
+      
+      return item
+    })
     
-    console.log('找到的菜单:', { productMenu, equipmentMenu })
+    // 查找需要重新组织的菜单项
+    const productMenu = processedItems.find(item => item.name === 'wlProducts')
+    const equipmentMenu = processedItems.find(item => item.name === 'wlEquipment')
+    const resourcesMenu = processedItems.find(item => item.name === 'wlResources')
+    const scenesMenu = processedItems.find(item => item.name === 'wlScenes')
+    const engineRulesMenu = processedItems.find(item => item.name === 'wlEngineRules')
+    
+    console.log('找到的菜单:', { productMenu, equipmentMenu, resourcesMenu, scenesMenu, engineRulesMenu })
+    
+    // 创建高级能力父菜单
+    const advancedCapabilitiesMenu = {
+      name: 'advancedCapabilities',
+      path: 'advancedCapabilities',
+      component: 'view/routerHolder.vue',
+      meta: {
+        title: '高级能力',
+        icon: 'magic-stick'
+      },
+      children: []
+    }
+    
+    // 将资源管理、场景联动、引擎规则添加到高级能力子菜单
+    if (resourcesMenu) {
+      advancedCapabilitiesMenu.children.push({
+        ...resourcesMenu,
+        hidden: false,
+        meta: { ...resourcesMenu.meta, title: '资源管理', icon: 'link' }
+      })
+    }
+    
+    if (scenesMenu) {
+      advancedCapabilitiesMenu.children.push({
+        ...scenesMenu,
+        hidden: false,
+        meta: { ...scenesMenu.meta, title: '场景联动', icon: 'connection' }
+      })
+    }
+    
+    if (engineRulesMenu) {
+      advancedCapabilitiesMenu.children.push({
+        ...engineRulesMenu,
+        hidden: false,
+        meta: { ...engineRulesMenu.meta, title: '引擎规则', icon: 'document' }
+      })
+    }
     
     // 如果找到了产品管理和设备管理菜单，则进行重组
     if (productMenu && equipmentMenu) {
@@ -113,9 +173,13 @@
         ]
       }
       
-      // 从原始菜单中移除产品管理和设备管理，避免重复显示
-      const filteredItems = items.filter(item => 
-        item.name !== 'wlProducts' && item.name !== 'wlEquipment'
+      // 从原始菜单中移除产品管理、设备管理、资源管理、场景联动、引擎规则，避免重复显示
+      const filteredItems = processedItems.filter(item => 
+        item.name !== 'wlProducts' && 
+        item.name !== 'wlEquipment' && 
+        item.name !== 'wlResources' && 
+        item.name !== 'wlScenes' && 
+        item.name !== 'wlEngineRules'
       )
       
       // 将设备接入菜单插入到合适的位置（在dashboard之后）
@@ -127,19 +191,16 @@
         filteredItems.unshift(deviceAccessMenu)
       }
       
+      // 将高级能力菜单插入到合适的位置
+      const insertIndex = Math.min(2, filteredItems.length) // 插入到前3个位置
+      filteredItems.splice(insertIndex, 0, advancedCapabilitiesMenu)
+      
       console.log('处理后的菜单:', filteredItems)
       return filteredItems
     }
     
-    // 如果没有找到需要重组的菜单，则返回原始菜单
-    // 但是需要确保设备分布菜单被包含
-    const deviceDistributionMenu = items.find(item => item.name === 'deviceDistribution')
-    if (deviceDistributionMenu) {
-      console.log('找到设备分布菜单:', deviceDistributionMenu)
-      return items
-    }
-    
-    return items
+    // 如果没有找到需要重组的菜单，则返回处理后的菜单
+    return processedItems
   })
   const layoutSideWidth = computed(() => {
     if (!isCollapse.value) {
@@ -147,62 +208,6 @@
     } else {
       return config.value.layout_side_collapsed_width
     }
-  })
-
-  // 处理菜单项，将特定菜单项移动到高级能力下
-  const processedMenuItems = computed(() => {
-    const originalItems = routerStore.asyncRouters[0]?.children || []
-    const processedItems = []
-    
-    // 调试：打印原始菜单数据
-    console.log('原始菜单数据:', originalItems.map(item => ({ name: item.name, title: item.meta?.title })))
-    
-    // 需要隐藏的菜单项名称
-    const hiddenMenuNames = ['wlScenes', 'wlEngineRules', 'wlResources']
-    
-    // 需要添加到高级能力下的子菜单
-    const advancedCapabilitiesSubMenus = []
-    
-    originalItems.forEach(item => {
-      if (hiddenMenuNames.includes(item.name)) {
-        // 隐藏这些菜单项，但保存它们作为高级能力的子菜单
-        advancedCapabilitiesSubMenus.push({
-          ...item,
-          hidden: false // 确保在子菜单中显示
-        })
-      } else {
-        // 其他菜单项正常显示
-        processedItems.push(item)
-      }
-    })
-    
-    // 如果找到了子菜单，创建高级能力菜单
-    if (advancedCapabilitiesSubMenus.length > 0) {
-      const advancedCapabilitiesMenu = {
-        name: 'advancedCapabilities',
-        path: 'advancedCapabilities',
-        component: 'view/routerHolder.vue',
-        meta: {
-          title: '高级能力',
-          icon: 'cloud'
-        },
-        hidden: false,
-        children: advancedCapabilitiesSubMenus
-      }
-      
-      // 将高级能力菜单插入到合适的位置
-      const insertIndex = Math.min(2, processedItems.length) // 插入到前3个位置
-      processedItems.splice(insertIndex, 0, advancedCapabilitiesMenu)
-    }
-    
-    // 调试：打印处理后的菜单数据
-    console.log('处理后的菜单数据:', processedItems.map(item => ({ 
-      name: item.name, 
-      title: item.meta?.title,
-      hasChildren: item.children && item.children.length > 0
-    })))
-    
-    return processedItems
   })
 
   watchEffect(() => {
