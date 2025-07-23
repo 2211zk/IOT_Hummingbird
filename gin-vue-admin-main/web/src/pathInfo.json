@@ -16,6 +16,7 @@
   "/src/view/example/breakpoint/breakpoint.vue": "BreakPoint",
   "/src/view/example/customer/customer.vue": "Customer",
   "/src/view/example/index.vue": "Example",
+  "/src/view/example/standardCategorySelector/index.vue": "Index",
   "/src/view/example/upload/scanUpload.vue": "scanUpload",
   "/src/view/example/upload/upload.vue": "Upload",
   "/src/view/init/index.vue": "Init",
@@ -69,6 +70,15 @@
   "/src/view/systemTools/pubPlug/pubPlug.vue": "PubPlug",
   "/src/view/systemTools/system/system.vue": "Config",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  "/src/view/wl_playform/deviceAccess/index.vue": "DeviceAccess",
+  "/src/view/wl_playform/deviceDistribution/index.vue": "DeviceDistribution",
+  "/src/view/wl_playform/deviceMap/index.vue": "DeviceMap",
+  "/src/view/wl_playform/wlEquipment/wlEquipment.vue": "WlEquipment",
+  "/src/view/wl_playform/wlEquipment/wlEquipmentForm.vue": "WlEquipmentForm",
+  "/src/view/wl_playform/wlProducts/components/StandardFunctionDialog.vue": "StandardFunctionDialog",
+>>>>>>> 717deede99bc60a4fe5fe0ba32cfc805709b802a
   "/src/view/wl_playform/wlProducts/wlProducts.vue": "WlProducts",
   "/src/view/wl_playform/wlProducts/wlProductsForm.vue": "WlProductsForm",
 =======

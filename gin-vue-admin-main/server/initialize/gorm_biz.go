@@ -7,7 +7,7 @@ import (
 
 func bizModel() error {
 	db := global.GVA_DB
-	err := db.AutoMigrate(wl_playform.WlProducts{})
+	err := db.AutoMigrate(wl_playform.WlProducts{}, wl_playform.WlEquipment{}, wl_playform.WlCategory{}, wl_playform.WlCaFunction{})
 	if err != nil {
 		return err
 	}
