@@ -1,11 +1,11 @@
 <template>
   <span class="headerAvatar">
     <template v-if="picType === 'avatar'">
-      <el-avatar v-if="userStore.userInfo.headerImg" :size="30" :src="avatar" />
+      <el-avatar v-if="userStore.userInfo.headerImg" :size="30" :src="avatar" @error="handleImageError" />
       <el-avatar v-else :size="30" :src="noAvatar" />
     </template>
     <template v-if="picType === 'img'">
-      <img v-if="userStore.userInfo.headerImg" :src="avatar" class="avatar" />
+      <img v-if="userStore.userInfo.headerImg" :src="avatar" class="avatar" @error="handleImageError" />
       <img v-else :src="noAvatar" class="avatar" />
     </template>
     <template v-if="picType === 'file'">
@@ -14,6 +14,7 @@
         class="file"
         :preview-src-list="previewSrcList"
         :preview-teleported="true"
+        @error="handleImageError"
       />
     </template>
   </span>
@@ -73,6 +74,15 @@
     return props.picSrc
   })
   const previewSrcList = computed(() => (props.preview ? [file.value] : []))
+
+  // 处理图片加载错误
+  const handleImageError = (event) => {
+    // 当图片加载失败时，将src设置为默认头像
+    if (event.target) {
+      event.target.src = noAvatar.value
+    }
+    // 静默处理错误，不在控制台显示警告
+  }
 </script>
 
 <style scoped>

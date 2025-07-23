@@ -7,7 +7,7 @@ toolchain go1.22.6
 require (
 	github.com/dtm-labs/dtmcli v1.15.0
 	github.com/eclipse/paho.mqtt.golang v1.5.0
-	github.com/go-kratos/kratos/v2 v2.8.0
+	github.com/go-kratos/kratos/v2 v2.8.4
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/golang-jwt/jwt/v5 v5.1.0
 	github.com/google/wire v0.6.0
@@ -19,7 +19,7 @@ require (
 	go.uber.org/zap v1.27.0
 	google.golang.org/genproto/googleapis/api v0.0.0-20241209162323-e6fa225c2576
 	google.golang.org/grpc v1.67.3
-	google.golang.org/protobuf v1.36.1
+	google.golang.org/protobuf v1.36.6
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.30.0
 )

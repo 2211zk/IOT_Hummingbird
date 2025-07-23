@@ -94,6 +94,10 @@ export default class ImageCompress {
 const path = import.meta.env.VITE_FILE_API
 export const getUrl = (url) => {
   if (url && url.slice(0, 4) !== 'http') {
+    // 对于上传的文件，直接使用相对路径，不添加API前缀
+    if (url.includes('uploads/')) {
+      return url
+    }
     if (path === '/') {
       return url
     }
