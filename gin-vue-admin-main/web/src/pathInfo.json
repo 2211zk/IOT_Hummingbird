@@ -69,23 +69,17 @@
   "/src/view/systemTools/installPlugin/index.vue": "Index",
   "/src/view/systemTools/pubPlug/pubPlug.vue": "PubPlug",
   "/src/view/systemTools/system/system.vue": "Config",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+  "/src/view/wl_driver/wlDrivers/Image.vue": "Image",
+  "/src/view/wl_driver/wlDrivers/Mine.vue": "Mine",
+  "/src/view/wl_driver/wlDrivers/Overview.vue": "Overview",
   "/src/view/wl_playform/deviceAccess/index.vue": "DeviceAccess",
   "/src/view/wl_playform/deviceDistribution/index.vue": "DeviceDistribution",
   "/src/view/wl_playform/deviceMap/index.vue": "DeviceMap",
   "/src/view/wl_playform/wlEquipment/wlEquipment.vue": "WlEquipment",
   "/src/view/wl_playform/wlEquipment/wlEquipmentForm.vue": "WlEquipmentForm",
   "/src/view/wl_playform/wlProducts/components/StandardFunctionDialog.vue": "StandardFunctionDialog",
->>>>>>> 717deede99bc60a4fe5fe0ba32cfc805709b802a
   "/src/view/wl_playform/wlProducts/wlProducts.vue": "WlProducts",
   "/src/view/wl_playform/wlProducts/wlProductsForm.vue": "WlProductsForm",
-=======
-  "/src/view/wl_driver/wlDrivers/Image.vue": "Image",
-  "/src/view/wl_driver/wlDrivers/Mine.vue": "Mine",
-  "/src/view/wl_driver/wlDrivers/Overview.vue": "Overview",
->>>>>>> zk
   "/src/plugin/announcement/form/info.vue": "InfoForm",
   "/src/plugin/announcement/view/info.vue": "Info",
   "/src/plugin/email/view/index.vue": "Email"
