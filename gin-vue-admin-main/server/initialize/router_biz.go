@@ -22,9 +22,7 @@ func initBizRouter(routers ...*gin.RouterGroup) {
 	}
 	{
 		wl_driverRouter := router.RouterGroupApp.Wl_driver
-		wl_driverRouter.WlDriversRouter.InitWlDriversRouter(privateGroup, publicGroup)
-		wl_driverRouter.WlProtocolsRouter.InitWlProtocolsRouter(privateGroup, publicGroup)
-		wl_driverRouter.WlDriverMarketRouter.InitWlDriverMarketRouter(privateGroup, publicGroup)
-		wl_driverRouter.WlSystemMoniorRouter.InitWlSystemMoniorRouter(privateGroup, publicGroup)
+		wl_driverRouter.DriverCardsRouter.InitDriverCardsRouter(privateGroup, publicGroup)
+		wl_driverRouter.InitWlDriversRouter(privateGroup, publicGroup)
 	}
 }
