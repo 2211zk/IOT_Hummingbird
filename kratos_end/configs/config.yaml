@@ -32,3 +32,5 @@ data:
     namespace_id: "public"
     username: ""
     password: ""
+  dtm:
+    server: "http://localhost:36789/api/dtmsvr"

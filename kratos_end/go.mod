@@ -16,6 +16,8 @@ require (
 	google.golang.org/protobuf v1.34.1
 )
 
+require github.com/vicnoah/dtmdriver-ego v0.1.7 // indirect
+
 require (
 	dario.cat/mergo v1.0.0 // indirect
 	github.com/BurntSushi/toml v1.2.0 // indirect
@@ -33,7 +35,9 @@ require (
 	github.com/denisenkom/go-mssqldb v0.12.3 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dtm-labs/client v1.18.7 // indirect
-	github.com/dtm-labs/dtm v1.19.0 // indirect
+	github.com/dtm-labs/driver-kratos v0.0.9
+	github.com/dtm-labs/dtm v1.16.3 // indirect
+	github.com/dtm-labs/dtmcli v1.15.0 // indirect
 	github.com/dtm-labs/dtmdriver v0.0.6 // indirect
 	github.com/dtm-labs/dtmdriver-dapr v0.0.1 // indirect
 	github.com/dtm-labs/dtmdriver-ego v0.1.8 // indirect
@@ -67,6 +71,8 @@ require (
 	github.com/go-sql-driver/mysql v1.7.0 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
+	github.com/golang-jwt/jwt/v4 v4.5.2 // indirect
+	github.com/golang-jwt/jwt/v5 v5.1.0 // indirect
 	github.com/golang-sql/civil v0.0.0-20190719163853-cb61b32ac6fe // indirect
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
 	github.com/golang/mock v1.6.0 // indirect

@@ -3,42 +3,21 @@
 
 openapi: 3.0.3
 info:
-    title: Dashboard API
-    description: 首页仪表盘服务
+    title: Greeter API
+    description: The greeting service definition.
     version: 0.0.1
 paths:
-    /api/dashboard/alarm-stat:
+    /helloworld/{name}:
         get:
             tags:
-                - Dashboard
-            description: 告警统计
-            operationId: Dashboard_AlarmStat
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/AlarmStatReply'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /api/dashboard/device-message-count:
-        get:
-            tags:
-                - Dashboard
-            description: 设备消息统计
-            operationId: Dashboard_DeviceMessageCount
+                - Greeter
+                - subgroup
+            description: Sends a greeting
+            operationId: Greeter_SayHello
             parameters:
-                - name: startTime
-                  in: query
-                  schema:
-                    type: string
-                - name: endTime
-                  in: query
+                - name: name
+                  in: path
+                  required: true
                   schema:
                     type: string
             responses:
@@ -47,142 +26,14 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/DeviceMessageCountReply'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /api/dashboard/overview:
-        get:
-            tags:
-                - Dashboard
-            description: 平台概述
-            operationId: Dashboard_Overview
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/OverviewReply'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
-    /api/dashboard/resource:
-        get:
-            tags:
-                - Dashboard
-            description: 资源状态
-            operationId: Dashboard_Resource
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/ResourceReply'
-                default:
-                    description: Default error response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Status'
+                                $ref: '#/components/schemas/helloworld.v1.HelloReply'
 components:
     schemas:
-        AlarmStatReply:
+        helloworld.v1.HelloReply:
             type: object
             properties:
-                alarmTotal:
-                    type: integer
-                    format: int32
-                alarmHandled:
-                    type: integer
-                    format: int32
-                alarmUnhandled:
-                    type: integer
-                    format: int32
-        DeviceMessageCountReply:
-            type: object
-            properties:
-                count:
-                    type: integer
-                    format: int32
-        GoogleProtobufAny:
-            type: object
-            properties:
-                '@type':
-                    type: string
-                    description: The type of the serialized message.
-            additionalProperties: true
-            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
-        OverviewReply:
-            type: object
-            properties:
-                productTotal:
-                    type: integer
-                    format: int32
-                productPublished:
-                    type: integer
-                    format: int32
-                productUnpublished:
-                    type: integer
-                    format: int32
-                deviceTotal:
-                    type: integer
-                    format: int32
-                deviceOnline:
-                    type: integer
-                    format: int32
-                deviceOffline:
-                    type: integer
-                    format: int32
-                driverTotal:
-                    type: integer
-                    format: int32
-                driverRunning:
-                    type: integer
-                    format: int32
-                driverStopped:
-                    type: integer
-                    format: int32
-                alarmTotal:
-                    type: integer
-                    format: int32
-        ResourceReply:
-            type: object
-            properties:
-                cpu:
-                    type: number
-                    format: double
-                memory:
-                    type: number
-                    format: double
-                load:
-                    type: number
-                    format: double
-                disk:
-                    type: number
-                    format: double
-        Status:
-            type: object
-            properties:
-                code:
-                    type: integer
-                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
-                    format: int32
                 message:
                     type: string
-                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
-                details:
-                    type: array
-                    items:
-                        $ref: '#/components/schemas/GoogleProtobufAny'
-                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
-            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+            description: The response message containing the greetings
 tags:
-    - name: Dashboard
+    - name: Greeter

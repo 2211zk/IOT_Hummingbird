@@ -5,8 +5,7 @@ import (
 
 	userpb "kratos/api/user/v1"
 	"kratos/internal/biz"
-
-	"github.com/dtm-labs/client/dtmcli/barrier"
+	"kratos/internal/pkg"
 )
 
 type UserService struct {
@@ -21,45 +20,27 @@ func NewUserService(repo biz.UserRepo, dtmServer string) *UserService {
 
 // 用户注册（Saga事务分支）
 func (s *UserService) Register(ctx context.Context, req *userpb.RegisterRequest) (*userpb.RegisterReply, error) {
-	bar, err := barrier.BarrierFromGrpc(ctx)
+	id, err := s.repo.Register(&biz.User{
+		UserName:     req.UserName,
+		UserNickname: req.UserNickname,
+		Department:   req.Department,
+		Mobile:       req.Mobile,
+		Email:        req.Email,
+		Password:     req.Password,
+		Gender:       req.Gender,
+		Role:         req.Role,
+		Comment:      req.Comment,
+	}, "")
 	if err != nil {
 		return nil, err
 	}
-	var userId int32
-	err = bar.CallWithDB(ctx, nil, func(tx barrier.SqlConn) error {
-		user := &biz.User{
-			UserName:     req.UserName,
-			UserNickname: req.UserNickname,
-			Department:   req.Department,
-			Mobile:       req.Mobile,
-			Email:        req.Email,
-			Password:     req.Password,
-			Gender:       req.Gender,
-			Role:         req.Role,
-			Comment:      req.Comment,
-		}
-		id, err := s.repo.Register(user, req.DtmGid)
-		if err != nil {
-			return err
-		}
-		userId = id
-		return nil
-	})
-	if err != nil {
-		return nil, err
-	}
-	return &userpb.RegisterReply{Id: userId}, nil
+	return &userpb.RegisterReply{Id: id}, nil
 }
 
 // 用户注册补偿（Saga事务分支补偿）
 func (s *UserService) RegisterCompensate(ctx context.Context, req *userpb.RegisterCompensateRequest) (*userpb.RegisterCompensateReply, error) {
-	bar, err := barrier.BarrierFromGrpc(ctx)
-	if err != nil {
-		return nil, err
-	}
-	err = bar.CallWithDB(ctx, nil, func(tx barrier.SqlConn) error {
-		return s.repo.RegisterCompensate(req.Id, req.DtmGid)
-	})
+	// 直接删除用户
+	err := s.repo.RegisterCompensate(req.Id, req.DtmGid)
 	if err != nil {
 		return &userpb.RegisterCompensateReply{Success: false}, err
 	}
@@ -72,8 +53,10 @@ func (s *UserService) Login(ctx context.Context, req *userpb.LoginRequest) (*use
 	if err != nil {
 		return nil, err
 	}
-	// 这里可生成token，示例用空字符串
-	token := ""
+	token, err := pkg.GenerateToken(user.Id, user.UserName)
+	if err != nil {
+		return nil, err
+	}
 	return &userpb.LoginReply{
 		Id:       user.Id,
 		UserName: user.UserName,
