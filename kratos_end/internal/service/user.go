@@ -1,67 +1,147 @@
 package service
 
 import (
-	v1 "IOT_Hummingbird_back_end/api/user/v1"
-	"IOT_Hummingbird_back_end/internal/biz"
-	"IOT_Hummingbird_back_end/internal/data"
-	context "context"
+	"context"
+
+	userpb "kratos/api/user/v1"
+	"kratos/internal/biz"
+
+	"github.com/dtm-labs/client/dtmcli/barrier"
 )
 
 type UserService struct {
-	v1.UnimplementedUserServer
-	uc *biz.UserUsecase
+	userpb.UnimplementedUserServiceServer
+	repo      biz.UserRepo
+	dtmServer string // DTM服务地址
 }
 
-func NewUserService(uc *biz.UserUsecase) *UserService {
-	return &UserService{uc: uc}
+func NewUserService(repo biz.UserRepo, dtmServer string) *UserService {
+	return &UserService{repo: repo, dtmServer: dtmServer}
 }
 
-func (s *UserService) Register(ctx context.Context, req *v1.RegisterRequest) (*v1.RegisterReply, error) {
-	user := &biz.WlUser{
-		UserName: req.UserName,
-		Password: req.Password,
-		Mobile:   req.Mobile,
-		Email:    req.Email,
-	}
-	newUser, err := s.uc.Register(ctx, user)
+// 用户注册（Saga事务分支）
+func (s *UserService) Register(ctx context.Context, req *userpb.RegisterRequest) (*userpb.RegisterReply, error) {
+	bar, err := barrier.BarrierFromGrpc(ctx)
 	if err != nil {
-		return &v1.RegisterReply{Code: 1, Message: err.Error()}, nil
+		return nil, err
 	}
-	return &v1.RegisterReply{Code: 0, Message: "success", User: &v1.WlUser{
-		Id:           newUser.Id,
-		UserName:     newUser.UserName,
-		UserNickname: newUser.UserNickname,
-		Department:   newUser.Department,
-		Mobile:       newUser.Mobile,
-		Email:        newUser.Email,
-		Password:     newUser.Password,
-		Gender:       newUser.Gender,
-		Role:         newUser.Role,
-		UserStatus:   newUser.UserStatus,
-		Comment:      newUser.Comment,
-	}}, nil
+	var userId int32
+	err = bar.CallWithDB(ctx, nil, func(tx barrier.SqlConn) error {
+		user := &biz.User{
+			UserName:     req.UserName,
+			UserNickname: req.UserNickname,
+			Department:   req.Department,
+			Mobile:       req.Mobile,
+			Email:        req.Email,
+			Password:     req.Password,
+			Gender:       req.Gender,
+			Role:         req.Role,
+			Comment:      req.Comment,
+		}
+		id, err := s.repo.Register(user, req.DtmGid)
+		if err != nil {
+			return err
+		}
+		userId = id
+		return nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	return &userpb.RegisterReply{Id: userId}, nil
 }
 
-func (s *UserService) Login(ctx context.Context, req *v1.LoginRequest) (*v1.LoginReply, error) {
-	user, err := s.uc.Login(ctx, req.UserName, req.Password)
+// 用户注册补偿（Saga事务分支补偿）
+func (s *UserService) RegisterCompensate(ctx context.Context, req *userpb.RegisterCompensateRequest) (*userpb.RegisterCompensateReply, error) {
+	bar, err := barrier.BarrierFromGrpc(ctx)
 	if err != nil {
-		return &v1.LoginReply{Code: 1, Message: err.Error()}, nil
+		return nil, err
 	}
-	token, err := data.GenerateJWT(user.Id, user.UserName)
+	err = bar.CallWithDB(ctx, nil, func(tx barrier.SqlConn) error {
+		return s.repo.RegisterCompensate(req.Id, req.DtmGid)
+	})
 	if err != nil {
-		return &v1.LoginReply{Code: 2, Message: "生成Token失败"}, nil
+		return &userpb.RegisterCompensateReply{Success: false}, err
 	}
-	return &v1.LoginReply{Code: 0, Message: "success", Token: token, User: &v1.WlUser{
-		Id:           user.Id,
-		UserName:     user.UserName,
-		UserNickname: user.UserNickname,
-		Department:   user.Department,
-		Mobile:       user.Mobile,
-		Email:        user.Email,
-		Password:     user.Password,
-		Gender:       user.Gender,
-		Role:         user.Role,
-		UserStatus:   user.UserStatus,
-		Comment:      user.Comment,
-	}}, nil
+	return &userpb.RegisterCompensateReply{Success: true}, nil
+}
+
+// 用户登录
+func (s *UserService) Login(ctx context.Context, req *userpb.LoginRequest) (*userpb.LoginReply, error) {
+	user, err := s.repo.Login(req.UserName, req.Password)
+	if err != nil {
+		return nil, err
+	}
+	// 这里可生成token，示例用空字符串
+	token := ""
+	return &userpb.LoginReply{
+		Id:       user.Id,
+		UserName: user.UserName,
+		Token:    token,
+	}, nil
+}
+
+// 查询单个用户
+func (s *UserService) GetUser(ctx context.Context, req *userpb.GetUserRequest) (*userpb.GetUserReply, error) {
+	user, err := s.repo.GetUser(req.Id)
+	if err != nil {
+		return nil, err
+	}
+	return &userpb.GetUserReply{User: toProtoUser(user)}, nil
+}
+
+// 用户列表
+func (s *UserService) ListUser(ctx context.Context, req *userpb.ListUserRequest) (*userpb.ListUserReply, error) {
+	users, total, err := s.repo.ListUser(req.Page, req.PageSize)
+	if err != nil {
+		return nil, err
+	}
+	var pbUsers []*userpb.User
+	for _, u := range users {
+		pbUsers = append(pbUsers, toProtoUser(u))
+	}
+	return &userpb.ListUserReply{Users: pbUsers, Total: total}, nil
+}
+
+// 用户更新
+func (s *UserService) UpdateUser(ctx context.Context, req *userpb.UpdateUserRequest) (*userpb.UpdateUserReply, error) {
+	user := &biz.User{
+		Id:           req.Id,
+		UserNickname: req.UserNickname,
+		Department:   req.Department,
+		Mobile:       req.Mobile,
+		Email:        req.Email,
+		Gender:       req.Gender,
+		Role:         req.Role,
+		UserStatus:   req.UserStatus,
+		Comment:      req.Comment,
+	}
+	err := s.repo.UpdateUser(user)
+	return &userpb.UpdateUserReply{Success: err == nil}, err
+}
+
+// 用户删除
+func (s *UserService) DeleteUser(ctx context.Context, req *userpb.DeleteUserRequest) (*userpb.DeleteUserReply, error) {
+	err := s.repo.DeleteUser(req.Id)
+	return &userpb.DeleteUserReply{Success: err == nil}, err
+}
+
+// 工具函数
+func toProtoUser(u *biz.User) *userpb.User {
+	if u == nil {
+		return nil
+	}
+	return &userpb.User{
+		Id:           u.Id,
+		UserName:     u.UserName,
+		UserNickname: u.UserNickname,
+		Department:   u.Department,
+		Mobile:       u.Mobile,
+		Email:        u.Email,
+		Password:     "", // 不返回密码
+		Gender:       u.Gender,
+		Role:         u.Role,
+		UserStatus:   u.UserStatus,
+		Comment:      u.Comment,
+	}
 }

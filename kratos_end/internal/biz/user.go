@@ -1,10 +1,6 @@
 package biz
 
-import (
-	"context"
-)
-
-type WlUser struct {
+type User struct {
 	Id           int32
 	UserName     string
 	UserNickname string
@@ -18,23 +14,14 @@ type WlUser struct {
 	Comment      string
 }
 
+// 用户注册业务接口（支持DTM分布式事务）
 type UserRepo interface {
-	Register(ctx context.Context, user *WlUser) (*WlUser, error)
-	Login(ctx context.Context, userName, password string) (*WlUser, error)
-}
-
-type UserUsecase struct {
-	repo UserRepo
-}
-
-func NewUserUsecase(repo UserRepo) *UserUsecase {
-	return &UserUsecase{repo: repo}
-}
-
-func (uc *UserUsecase) Register(ctx context.Context, user *WlUser) (*WlUser, error) {
-	return uc.repo.Register(ctx, user)
-}
-
-func (uc *UserUsecase) Login(ctx context.Context, userName, password string) (*WlUser, error) {
-	return uc.repo.Login(ctx, userName, password)
+	Register(user *User, dtmGid string) (int32, error)
+	RegisterCompensate(id int32, dtmGid string) error
+	// 其它常规接口
+	Login(userName, password string) (*User, error)
+	GetUser(id int32) (*User, error)
+	ListUser(page, pageSize int32) ([]*User, int32, error)
+	UpdateUser(user *User) error
+	DeleteUser(id int32) error
 }

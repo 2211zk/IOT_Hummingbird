@@ -6,18 +6,19 @@
 package main
 
 import (
-	"IOT_Hummingbird_back_end/internal/biz"
-	"IOT_Hummingbird_back_end/internal/conf"
-	"IOT_Hummingbird_back_end/internal/data"
-	"IOT_Hummingbird_back_end/internal/server"
-	"IOT_Hummingbird_back_end/internal/service"
+	"kratos/internal/biz"
+	"kratos/internal/conf"
+	"kratos/internal/data"
+	"kratos/internal/server"
+	"kratos/internal/service"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/google/wire"
 )
 
 // wireApp init kratos application.
-func wireApp(*conf.Server, *conf.Data, log.Logger) (*kratos.App, func(), error) {
+func wireApp(*conf.Server, *conf.Data, log.Logger, registry.Registrar) (*kratos.App, func(), error) {
 	panic(wire.Build(server.ProviderSet, data.ProviderSet, biz.ProviderSet, service.ProviderSet, newApp))
 }

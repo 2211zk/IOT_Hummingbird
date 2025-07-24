@@ -3,8 +3,8 @@ package service
 import (
 	"context"
 
-	v1 "IOT_Hummingbird_back_end/api/helloworld/v1"
-	"IOT_Hummingbird_back_end/internal/biz"
+	v1 "kratos/api/helloworld/v1"
+	"kratos/internal/biz"
 )
 
 // GreeterService is a greeter service.
