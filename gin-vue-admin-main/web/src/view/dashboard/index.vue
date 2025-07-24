@@ -1,8 +1,8 @@
 <template>
-  <div class="dashboard-container">
+  <div class="dashboard-container" style="background-color: #0f172a !important; min-height: 100vh; padding: 15px;">
     <!-- 平台概述 -->
     <div class="overview-section">
-      <div class="overview-card">
+      <div class="overview-card" style="background-color: #0f172a !important; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border: 1px solid #334155; color: white;">
         <h3>平台概述</h3>
         <div class="overview-grid">
           <div class="overview-item">
@@ -39,40 +39,41 @@
         </div>
       </div>
       
-      <div class="quick-entry-card">
+      <div class="quick-entry-card" style="background-color: #0f172a !important; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border: 1px solid #334155; color: white;">
         <h3>快捷入口</h3>
         <div class="quick-entry-grid">
-          <div class="quick-entry-item" @click="handleQuickEntry('addProduct')">
+          <div class="quick-entry-item" @click="handleQuickEntry('addProduct')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
             <div class="quick-entry-icon">📦</div>
             <div class="quick-entry-label">添加产品</div>
           </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('addDevice')">
+          <div class="quick-entry-item" @click="handleQuickEntry('addDevice')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
             <div class="quick-entry-icon">📱</div>
             <div class="quick-entry-label">添加设备</div>
           </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('serviceMonitor')">
+          <div class="quick-entry-item" @click="handleQuickEntry('serviceMonitor')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
             <div class="quick-entry-icon">🖥️</div>
             <div class="quick-entry-label">服务监控</div>
           </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('ruleEngine')">
+          <div class="quick-entry-item" @click="handleQuickEntry('ruleEngine')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
             <div class="quick-entry-icon">⚙️</div>
             <div class="quick-entry-label">规则引擎</div>
           </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('alarmCenter')">
+          <div class="quick-entry-item" @click="handleQuickEntry('alarmCenter')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
             <div class="quick-entry-icon">🔔</div>
             <div class="quick-entry-label">告警中心</div>
           </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('dataCenter')">
+          <div class="quick-entry-item" @click="handleQuickEntry('dataCenter')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
             <div class="quick-entry-icon">💾</div>
             <div class="quick-entry-label">数据中心</div>
           </div>
+
         </div>
       </div>
     </div>
 
     <!-- 状态监控 -->
     <div class="status-section">
-      <div class="status-card">
+      <div class="status-card" style="background-color: #0f172a !important; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border: 1px solid #334155; color: white;">
         <h3>状态</h3>
         <div class="status-grid">
           <div class="status-item" @click="handleStatusItemClick('cpu')">
@@ -110,7 +111,7 @@
         </div>
       </div>
       
-      <div class="alarm-card">
+      <div class="alarm-card" style="background-color: #0f172a !important; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border: 1px solid #334155; color: white;">
         <h3>告警相关</h3>
         <div ref="alarmChart" class="alarm-chart-container"></div>
         <div class="alarm-legend">
@@ -137,7 +138,7 @@
 
     <!-- 设备消息总数 -->
     <div class="message-section">
-      <div class="message-card">
+      <div class="message-card" style="background-color: #0f172a !important; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border: 1px solid #334155; color: white;">
         <div class="message-header">
           <h3>设备消息总数</h3>
           <div class="time-selector">
@@ -164,7 +165,9 @@
 
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
 import * as echarts from 'echarts'
+import { getDashboardData } from '@/api/dashboard/dashboard'
 
 defineOptions({
   name: 'Dashboard'
@@ -172,39 +175,39 @@ defineOptions({
 
 // 平台概述数据
 const platformData = reactive({
-  productCount: 97,
-  publishedProducts: 40,
-  unpublishedProducts: 57,
-  deviceCount: 57,
-  onlineDevices: 5,
-  offlineDevices: 52,
-  driverCount: 8,
+  productCount: 0,
+  publishedProducts: 0,
+  unpublishedProducts: 0,
+  deviceCount: 0,
+  onlineDevices: 0,
+  offlineDevices: 0,
+  driverCount: 0,
   runningDrivers: 0,
-  stoppedDrivers: 8,
+  stoppedDrivers: 0,
   alarmCount: 0
 })
 
 // 系统状态数据
 const systemStatus = reactive({
   cpu: {
-    usage: 0.00,
+    usage: 0,
     used: 0,
     total: 2,
     status: '运行流畅'
   },
   memory: {
-    usage: 83.97,
-    used: 1.64,
+    usage: 0,
+    used: 0,
     total: 1.95,
     status: '内存使用率较高'
   },
   load: {
-    usage: 2.00,
+    usage: 0,
     status: '运行流畅'
   },
   disk: {
-    usage: 36.56,
-    used: 17.18,
+    usage: 0,
+    used: 0,
     total: 49.09,
     status: '磁盘空间充足'
   }
@@ -238,6 +241,9 @@ const diskChart = ref(null)
 const alarmChart = ref(null)
 const messageChart = ref(null)
 
+// 获取路由实例
+const router = useRouter()
+
 // 图表实例
 let cpuChartInstance = null
 let memoryChartInstance = null
@@ -249,7 +255,100 @@ let messageChartInstance = null
 // 快捷入口处理
 const handleQuickEntry = (type) => {
   console.log('快捷入口点击:', type)
-  // 这里可以添加路由跳转逻辑
+  console.log('当前路由:', router.currentRoute.value)
+  
+  switch (type) {
+    case 'addProduct':
+      // 跳转到产品管理页面
+      console.log('尝试跳转到产品管理页面')
+      try {
+        router.push('/layout/wlProducts')
+      } catch (error) {
+        console.error('跳转失败，尝试跳转到设备接入页面:', error)
+        router.push('/layout/deviceAccess')
+      }
+      break
+    case 'addDevice':
+      // 跳转到设备管理页面
+      console.log('尝试跳转到设备管理页面')
+      try {
+        router.push('/layout/wlEquipment')
+      } catch (error) {
+        console.error('跳转失败，尝试跳转到设备接入页面:', error)
+        router.push('/layout/deviceAccess')
+      }
+      break
+    case 'serviceMonitor':
+      // 跳转到服务监控页面
+      console.log('尝试跳转到服务监控页面')
+      try {
+        router.push('/layout/state')
+      } catch (error) {
+        console.error('跳转失败，尝试跳转到服务器状态页面:', error)
+        router.push('/layout/state')
+      }
+      break
+    case 'ruleEngine':
+      // 跳转到引擎规则页面
+      console.log('尝试跳转到引擎规则页面')
+      try {
+        router.push('/layout/wlEngineRules')
+      } catch (error) {
+        console.error('跳转失败，尝试跳转到设备接入页面:', error)
+        router.push('/layout/deviceAccess')
+      }
+      break
+    case 'alarmCenter':
+      // 跳转到告警中心页面
+      console.log('尝试跳转到告警中心页面')
+      try {
+        router.push('/layout/wlResources')
+      } catch (error) {
+        console.error('跳转失败，尝试跳转到资源管理页面:', error)
+        router.push('/layout/wlResources')
+      }
+      break
+    case 'dataCenter':
+      // 跳转到数据中心页面
+      console.log('尝试跳转到数据中心页面')
+      try {
+        router.push('/layout/state')
+      } catch (error) {
+        console.error('跳转失败，尝试跳转到服务器状态页面:', error)
+        router.push('/layout/state')
+      }
+      break
+    default:
+      console.log('未知的快捷入口类型:', type)
+  }
+}
+
+
+
+// 获取仪表盘数据
+const fetchDashboardData = async () => {
+  try {
+    const res = await getDashboardData()
+    if (res.code === 0) {
+      const data = res.data
+      
+      // 更新平台数据
+      Object.assign(platformData, data.platformData)
+      
+      // 更新系统状态数据
+      Object.assign(systemStatus, data.systemStatus)
+      
+      // 更新告警数据
+      Object.assign(alarmData, data.alarmData)
+      
+      // 更新图表
+      nextTick(() => {
+        updateCharts()
+      })
+    }
+  } catch (error) {
+    console.error('获取仪表盘数据失败:', error)
+  }
 }
 
 // 时间范围选择
@@ -568,6 +667,9 @@ const initCharts = async () => {
 
 // 组件挂载后初始化
 onMounted(() => {
+  // 初始化时获取数据
+  fetchDashboardData()
+  
   initCharts()
   
   // 添加悬停效果
@@ -591,28 +693,46 @@ onMounted(() => {
   }, 3000) // 每3秒更新一次
 })
 
-// 模拟从后端获取数据的方法
-const fetchDashboardData = async () => {
-  try {
-    // 这里调用后端API获取数据
-    // const response = await api.getDashboardData()
-    // platformData = response.data.platform
-    // systemStatus = response.data.system
-    // alarmData = response.data.alarm
-    
-    console.log('获取仪表盘数据')
-  } catch (error) {
-    console.error('获取仪表盘数据失败:', error)
-  }
-}
-
 // 定期刷新数据
 setInterval(() => {
   fetchDashboardData()
 }, 30000) // 每30秒刷新一次
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+/* 强制覆盖所有白色背景 */
+.dashboard-container * {
+  background-color: inherit !important;
+}
+
+.dashboard-container .overview-card,
+.dashboard-container .quick-entry-card,
+.dashboard-container .status-card,
+.dashboard-container .alarm-card,
+.dashboard-container .message-card {
+  background-color: #0f172a !important;
+  color: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid #334155 !important;
+}
+
+.dashboard-container .quick-entry-item {
+  background-color: #1890ff !important;
+  color: white !important;
+  border: 1px solid #1890ff !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.dashboard-container .quick-entry-item:hover {
+  background-color: #40a9ff !important;
+  border-color: #40a9ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3) !important;
+}
+
 .status-item {
   display: flex;
   align-items: center;
@@ -698,13 +818,13 @@ setInterval(() => {
 
 .overview-label {
   font-size: 12px;
-  color: #666;
+  color: #ccc;
   margin-bottom: 6px;
 }
 
 .overview-details {
   font-size: 10px;
-  color: #999;
+  color: #ccc;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -712,7 +832,7 @@ setInterval(() => {
 
 .quick-entry-label {
   font-size: 10px;
-  color: #666;
+  color: #ccc;
 }
 
 .alarm-legend-item {
@@ -720,6 +840,7 @@ setInterval(() => {
   align-items: center;
   gap: 6px;
   font-size: 10px;
+  color: #ccc;
 }
 
 .legend-color {
@@ -735,7 +856,7 @@ setInterval(() => {
 
 .alarm-note {
   font-size: 10px;
-  color: #999;
+  color: #ccc;
   text-align: center;
 }
 
@@ -744,10 +865,12 @@ setInterval(() => {
 }
 
 .message-card {
-  background: white;
+  background: #0f172a !important;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid #334155;
+  color: white;
 }
 
 .message-header {
@@ -772,12 +895,13 @@ setInterval(() => {
 
 .time-btn {
   padding: 4px 8px;
-  border: 1px solid #ddd;
-  background: white;
+  border: 1px solid #555;
+  background: #3d3d3d !important;
   border-radius: 4px;
   cursor: pointer;
   font-size: 10px;
   transition: all 0.3s;
+  color: white;
 }
 
 .time-btn.active {
@@ -791,7 +915,7 @@ setInterval(() => {
   align-items: center;
   gap: 6px;
   font-size: 10px;
-  color: #666;
+  color: #ccc;
 }
 
 .message-chart-container {
@@ -799,10 +923,12 @@ setInterval(() => {
 }
 
 .overview-card, .quick-entry-card, .status-card, .alarm-card, .message-card {
-  background: white;
+  background: #0f172a !important;
   border-radius: 8px;
   padding: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid #334155;
+  color: white;
 }
 
 .overview-section {
@@ -823,15 +949,19 @@ setInterval(() => {
   flex-direction: column;
   align-items: center;
   padding: 12px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #555;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s;
+  background-color: #3d3d3d !important;
+  color: white;
 }
 
 .quick-entry-item:hover {
   border-color: #409EFF;
-  background-color: #f0f8ff;
+  background-color: #40a9ff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
 }
 
 .quick-entry-icon {
@@ -853,7 +983,7 @@ setInterval(() => {
 
 .dashboard-container {
   padding: 15px;
-  background-color: #f5f5f5;
+  background-color: #d0d0d0 !important;
   min-height: 100vh;
 }
 
