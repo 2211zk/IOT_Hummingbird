@@ -6,9 +6,20 @@
         <el-form-item label="驱动名称">
           <el-input v-model="searchForm.name" placeholder="请输入驱动名称" clearable />
         </el-form-item>
+        <el-form-item label="驱动类型">
+          <el-select v-model="searchForm.driverType" placeholder="请选择驱动类型" clearable>
+            <el-option
+              v-for="item in driverTypeOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="handleSearch">查询</el-button>
           <el-button @click="handleReset">重置</el-button>
+          <el-button type="success" @click="handleAdd">新增驱动</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -22,13 +33,13 @@
         class="driver-table"
         style="width: 100%"
       >
-        <el-table-column prop="id" label="驱动编号" width="110" align="center" />
-        <el-table-column prop="name" label="驱动名称" min-width="180" />
+        <el-table-column prop="driverId" label="驱动编号" width="110" align="center" />
+        <el-table-column prop="driverName" label="驱动名称" min-width="180" />
         <el-table-column prop="version" label="版本" width="90" align="center" />
-        <el-table-column prop="type" label="驱动类型" width="100" align="center">
+        <el-table-column prop="driverType" label="驱动类型" width="100" align="center">
           <template #default="scope">
-            <el-tag :type="scope.row.type === '官方' ? 'success' : 'info'" effect="light">
-              {{ scope.row.type }}
+            <el-tag :type="getDriverTypeTagType(scope.row.driverType)" effect="light">
+              {{ getDriverTypeLabel(scope.row.driverType) }}
             </el-tag>
           </template>
         </el-table-column>
@@ -40,14 +51,16 @@
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="createdAt" label="创建时间" min-width="170" align="center" />
-        <el-table-column label="操作" width="180" align="center">
+        <el-table-column prop="createdTime" label="创建时间" min-width="170" align="center" />
+        <el-table-column label="操作" width="200" align="center">
           <template #default="scope">
-            <el-link type="primary" @click="handleOperate(scope.row)">操作 √</el-link>
+            <el-link type="primary" @click="handleEdit(scope.row)">编辑</el-link>
+            <span style="color:#dcdcdc;"> / </span>
+            <el-link type="primary" @click="handleOperate(scope.row)">操作</el-link>
             <span style="color:#dcdcdc;"> / </span>
             <el-link type="primary" @click="handleLog(scope.row)">日志</el-link>
             <span style="color:#dcdcdc;"> / </span>
-            <el-link type="primary" @click="handleDelete(scope.row)">删除</el-link>
+            <el-link type="danger" @click="handleDelete(scope.row)">删除</el-link>
           </template>
         </el-table-column>
       </el-table>
@@ -65,57 +78,153 @@
         />
       </div>
     </el-card>
+
+    <!-- 驱动表单对话框 -->
+    <DriverForm
+      v-model:visible="formVisible"
+      :form-type="formType"
+      :driver-data="currentDriver"
+      @success="handleFormSuccess"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { getWlDriversList, deleteWlDrivers } from '@/api/wl_driver/wlDrivers'
+import { getDict } from '@/utils/dictionary'
+import DriverForm from './DriverForm.vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
 
 // 搜索表单
 const searchForm = ref({
-  name: ''
+  name: '',
+  driverType: ''
 })
 
-// 表格数据（可替换为接口数据）
-const tableData = ref([
-  { id: '31747985', name: 'GB281协议驱动-31747985', version: '2.7', type: '官方', status: '停止', createdAt: '2025-07-22 10:22:40' },
-  { id: '98017279', name: 'MQTT协议驱动-98017279', version: '2.7', type: '官方', status: '运行中', createdAt: '2025-07-22 10:22:40' },
-  { id: '48654311', name: 'mqtt-ca-48654311', version: '2.0-ca', type: '自定义', status: '停止', createdAt: '2025-07-22 10:22:40' },
-  { id: '30593142', name: 'mqtt试驱动2.7版本-30593142', version: '2.7', type: '自定义', status: '停止', createdAt: '2025-07-22 10:22:40' },
-  { id: '53703706', name: 'TCP协议驱动-53703706', version: '2.7', type: '官方', status: '停止', createdAt: '2025-07-22 10:22:40' },
-  { id: '96475139', name: 'HTTP协议驱动-96475139', version: '2.7', type: '官方', status: '停止', createdAt: '2025-07-22 10:22:40' },
-  { id: '82218226', name: 'MODBUS TCP协议驱动-82218226', version: '2.7', type: '官方', status: '停止', createdAt: '2025-07-22 10:22:40' },
-  { id: '48849713', name: 'rtu驱动-48849713', version: '2.0', type: '自定义', status: '停止', createdAt: '2025-07-22 10:22:40' },
-])
+// 字典选项
+const driverTypeOptions = ref([])
 
-// 分页相关
-const total = ref(8)
+// 表格数据
+const tableData = ref([])
+const total = ref(0)
 const pageSize = ref(10)
 const currentPage = ref(1)
 
-const handleSearch = () => {
-  // TODO: 搜索逻辑
+// 表单相关
+const formVisible = ref(false)
+const formType = ref('add')
+const currentDriver = ref({})
+
+// 获取字典数据
+const loadDictionaries = async () => {
+  try {
+    const driverTypeDict = await getDict('driver_type')
+    driverTypeOptions.value = driverTypeDict || []
+  } catch (error) {
+    console.error('加载字典数据失败:', error)
+  }
 }
+
+// 获取驱动类型标签
+const getDriverTypeLabel = (value) => {
+  const option = driverTypeOptions.value.find(item => item.value === value)
+  return option ? option.label : value
+}
+
+// 获取驱动类型标签样式
+const getDriverTypeTagType = (value) => {
+  return value === 'official' ? 'success' : 'info'
+}
+
+const getTableData = async () => {
+  const params = {
+    page: currentPage.value,
+    pageSize: pageSize.value,
+    driverName: searchForm.value.name,
+    driverType: searchForm.value.driverType
+  }
+  const res = await getWlDriversList(params)
+  if (res.code === 0) {
+    tableData.value = res.data.list
+    total.value = res.data.total
+  }
+}
+
+onMounted(async () => {
+  await loadDictionaries()
+  getTableData()
+})
+
+const handleSearch = () => {
+  currentPage.value = 1
+  getTableData()
+}
+
 const handleReset = () => {
   searchForm.value.name = ''
-  // TODO: 重置逻辑
+  searchForm.value.driverType = ''
+  currentPage.value = 1
+  getTableData()
 }
+
+// 新增驱动
+const handleAdd = () => {
+  formType.value = 'add'
+  currentDriver.value = {}
+  formVisible.value = true
+}
+
+// 编辑驱动
+const handleEdit = (row) => {
+  formType.value = 'edit'
+  currentDriver.value = { ...row }
+  formVisible.value = true
+}
+
+// 表单提交成功
+const handleFormSuccess = () => {
+  getTableData()
+}
+
 const handleOperate = (row) => {
   // TODO: 操作逻辑
 }
+
 const handleLog = (row) => {
   // TODO: 日志逻辑
 }
-const handleDelete = (row) => {
-  // TODO: 删除逻辑
+
+const handleDelete = async (row) => {
+  try {
+    await ElMessageBox.confirm('确定要删除这个驱动吗？', '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    })
+    
+    const res = await deleteWlDrivers({ ID: row.id })
+    if (res.code === 0) {
+      ElMessage.success('删除成功')
+      getTableData()
+    } else {
+      ElMessage.error(res.msg || '删除失败')
+    }
+  } catch (error) {
+    if (error !== 'cancel') {
+      ElMessage.error('删除失败')
+    }
+  }
 }
+
 const handleSizeChange = (size) => {
   pageSize.value = size
-  // TODO: 分页逻辑
+  getTableData()
 }
+
 const handlePageChange = (page) => {
   currentPage.value = page
-  // TODO: 分页逻辑
+  getTableData()
 }
 </script>
 

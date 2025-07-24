@@ -28,32 +28,21 @@
 
           <!-- 功能定义表格 -->
       <el-table :data="functionList" style="width: 100%" v-loading="loading">
-        <el-table-column prop="functionType" label="功能类型" width="120">
+        <el-table-column prop="functionType" label="功能类型" min-width="150">
           <template #default="scope">
             <el-tag type="primary" size="small">{{ scope.row.functionType || scope.row.function_type }}</el-tag>
             <el-tag type="info" size="small" style="margin-left: 4px;">系统</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="functionName" label="功能名称" width="200">
+        <el-table-column prop="functionName" label="功能名称" min-width="200">
           <template #default="scope">
             {{ scope.row.functionName || scope.row.function_name }}
           </template>
         </el-table-column>
-        <el-table-column prop="identifier" label="标识符" width="120" />
-        <el-table-column prop="dataType" label="数据类型" width="100">
+        <el-table-column prop="identifier" label="标识符" min-width="180" />
+        <el-table-column prop="dataType" label="数据类型" min-width="120">
           <template #default="scope">
             {{ scope.row.dataType || scope.row.data_type }}
-          </template>
-        </el-table-column>
-        <el-table-column label="描述" min-width="200">
-          <template #default="scope">
-            {{ getFunctionDescription(scope.row) }}
-          </template>
-        </el-table-column>
-        <el-table-column label="操作" width="150" fixed="right">
-          <template #default="scope">
-            <el-button type="primary" link @click="selectFunction(scope.row)">选择</el-button>
-            <el-button type="primary" link @click="viewDetail(scope.row)">详情</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -112,7 +101,6 @@ const page = ref(1)
 const pageSize = ref(10)
 const total = ref(0)
 const functionList = ref([])
-const selectedFunction = ref(null)
 
 // 搜索条件
 const searchInfo = reactive({
@@ -226,51 +214,19 @@ const handleSizeChange = (val) => {
   loadFunctionList()
 }
 
-// 获取功能描述
-const getFunctionDescription = (row) => {
-  const functionName = row.functionName || row.function_name
-  const functionType = row.functionType || row.function_type
-  const dataType = row.dataType || row.data_type
-  
-  if (functionType === '属性') {
-    return `${functionName}的${dataType}类型数据`
-  } else if (functionType === '事件') {
-    return `${functionName}事件，数据类型为${dataType}`
-  } else if (functionType === '服务') {
-    return `${functionName}服务，支持${dataType}类型参数`
-  }
-  
-  return `${functionName}功能定义`
-}
 
-// 选择功能
-const selectFunction = (row) => {
-  selectedFunction.value = row
-  const functionName = row.functionName || row.function_name
-  ElMessage.success(`已选择功能: ${functionName}`)
-}
 
-// 查看详情
-const viewDetail = (row) => {
-  const functionName = row.functionName || row.function_name
-  ElMessage.info(`查看功能详情: ${functionName}`)
-  // 这里可以打开详情弹窗或跳转到详情页面
-}
+
 
 // 确认选择
 const confirmSelection = () => {
-  if (selectedFunction.value) {
-    emit('select', selectedFunction.value)
-    handleClose()
-  } else {
-    ElMessage.warning('请先选择一个功能')
-  }
+  // 由于移除了操作列，这里可以关闭对话框
+  handleClose()
 }
 
 // 关闭对话框
 const handleClose = () => {
   visible.value = false
-  selectedFunction.value = null
   searchInfo.functionName = ''
   searchInfo.functionType = ''
   page.value = 1
@@ -278,9 +234,213 @@ const handleClose = () => {
 </script>
 
 <style scoped>
+/* 对话框整体样式 */
+:deep(.el-dialog) {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+:deep(.el-dialog__header) {
+  background: transparent;
+  color: #ecf0f1;
+  border-radius: 12px 12px 0 0;
+  padding: 20px 24px;
+  border-bottom: none;
+}
+
+:deep(.el-dialog__title) {
+  color: #ecf0f1;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+:deep(.el-dialog__body) {
+  padding: 24px;
+  background: #34495e;
+}
+
+:deep(.el-dialog__footer) {
+  background: #2c3e50;
+  border-radius: 0 0 12px 12px;
+  padding: 16px 24px;
+}
+
+/* 搜索区域样式 */
+.mb-4 {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #465c71;
+}
+
+/* 表格样式 */
+:deep(.el-table) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  background: #34495e;
+}
+
+:deep(.el-table__header) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+:deep(.el-table__header th) {
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  border-bottom: none;
+}
+
+:deep(.el-table__body tr:hover) {
+  background: linear-gradient(135deg, #465c71 0%, #34495e 100%);
+}
+
+:deep(.el-table__body td) {
+  border-bottom: 1px solid #465c71;
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+:deep(.el-table__body tr) {
+  background: #34495e;
+  color: #ecf0f1;
+}
+
+/* 标签样式 */
+:deep(.el-tag--primary) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+
+:deep(.el-tag--info) {
+  background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+
+/* 按钮样式 */
+:deep(.el-button--primary) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+:deep(.el-button--primary:hover) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+:deep(.el-button) {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+:deep(.el-button:hover) {
+  transform: translateY(-1px);
+}
+
+/* 输入框样式 */
+:deep(.el-input__wrapper) {
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  background: #2c3e50;
+  border: 1px solid #465c71;
+}
+
+:deep(.el-input__wrapper:hover) {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-color: #667eea;
+}
+
+:deep(.el-input__wrapper.is-focus) {
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
+  border-color: #667eea;
+}
+
+:deep(.el-input__inner) {
+  color: #ecf0f1;
+  background: transparent;
+}
+
+:deep(.el-input__inner::placeholder) {
+  color: #95a5a6;
+}
+
+/* 分页样式 */
+:deep(.el-pagination) {
+  margin-top: 20px;
+  text-align: center;
+  color: #ecf0f1;
+}
+
+:deep(.el-pagination .el-pager li) {
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  background: #2c3e50;
+  color: #ecf0f1;
+  border: 1px solid #465c71;
+}
+
+:deep(.el-pagination .el-pager li:hover) {
+  background: #465c71;
+  color: #ecf0f1;
+}
+
+:deep(.el-pagination .el-pager li.is-active) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+:deep(.el-pagination .btn-prev),
+:deep(.el-pagination .btn-next) {
+  background: #2c3e50;
+  color: #ecf0f1;
+  border: 1px solid #465c71;
+}
+
+:deep(.el-pagination .btn-prev:hover),
+:deep(.el-pagination .btn-next:hover) {
+  background: #465c71;
+  color: #ecf0f1;
+}
+
+/* 对话框底部样式 */
 .dialog-footer {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 12px;
+}
+
+/* 加载状态样式 */
+:deep(.el-loading-mask) {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  :deep(.el-dialog) {
+    width: 95% !important;
+    margin: 5vh auto;
+  }
+  
+  .mb-4 {
+    padding: 16px;
+  }
+  
+  :deep(.el-dialog__body) {
+    padding: 16px;
+  }
 }
 </style> 

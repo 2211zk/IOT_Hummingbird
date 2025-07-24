@@ -11,7 +11,7 @@ type WlEquipment struct {
   EqName  *string `json:"eqName" form:"eqName" gorm:"comment:设备名称;column:eq_name;size:20;" binding:"required"`  //设备名称
   EqLogotype  *string `json:"eqLogotype" form:"eqLogotype" gorm:"comment:设备唯一标识;column:eq_logotype;size:50;"`  //设备唯一标识
   ProductsId  *int `json:"productsId" form:"productsId" gorm:"comment:所属产品;column:products_id;size:10;" binding:"required"`  //所属产品
-  DriveId  *int `json:"driveId" form:"driveId" gorm:"comment:驱动id;column:drive_id;size:10;"`  //驱动id
+  DriveId  *uint `json:"driveId" form:"driveId" gorm:"comment:驱动id;column:drive_id;size:10;"`  //驱动id
   EqCoordinate  *string `json:"eqCoordinate" form:"eqCoordinate" gorm:"comment:设备坐标;column:eq_coordinate;size:50;"`  //设备坐标
   EqAddress  *string `json:"eqAddress" form:"eqAddress" gorm:"comment:设备详细地址;column:eq_address;size:100;"`  //设备详细地址
   EqInfo  *string `json:"eqInfo" form:"eqInfo" gorm:"comment:设备描述;column:eq_info;size:150;"`  //设备描述

@@ -11,8 +11,8 @@
       <span>
         <a
           class="font-bold text-active"
-          href="https://github.com/flipped-aurora/gin-vue-admin"
-          >Gin-Vue-Admin</a
+          href="#"
+          >万联智控</a
         >
       </span>
     </div>
@@ -22,8 +22,8 @@
       <span>
         <a
           class="font-bold text-active"
-          href="https://github.com/flipped-aurora"
-          >flipped-aurora团队</a
+          href="#"
+          >万联智控团队</a
         >
       </span>
     </div>

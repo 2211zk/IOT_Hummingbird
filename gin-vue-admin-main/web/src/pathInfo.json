@@ -72,6 +72,7 @@
   "/src/view/systemTools/installPlugin/index.vue": "Index",
   "/src/view/systemTools/pubPlug/pubPlug.vue": "PubPlug",
   "/src/view/systemTools/system/system.vue": "Config",
+  "/src/view/wl_driver/wlDrivers/DriverForm.vue": "DriverForm",
   "/src/view/wl_driver/wlDrivers/Image.vue": "Image",
   "/src/view/wl_driver/wlDrivers/Mine.vue": "Mine",
   "/src/view/wl_driver/wlDrivers/Overview.vue": "Overview",

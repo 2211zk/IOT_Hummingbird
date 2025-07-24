@@ -136,25 +136,25 @@ let heatmap = null
 // 初始化地图
 const initMap = () => {
   // 检查百度地图API是否已加载
-  if (typeof BMap !== 'undefined') {
+  if (typeof window.BMap !== 'undefined') {
     try {
       // 创建地图实例
-      map = new BMap.Map('baidu-map')
+      map = new window.BMap.Map('baidu-map')
       
       // 设置地图中心点（中国中心）
-      const point = new BMap.Point(116.404, 39.915)
+      const point = new window.BMap.Point(116.404, 39.915)
       map.centerAndZoom(point, 5)
       
       // 添加地图控件
-      map.addControl(new BMap.NavigationControl({
-        type: BMAP_NAVIGATION_CONTROL_LARGE
+      map.addControl(new window.BMap.NavigationControl({
+        type: window.BMAP_NAVIGATION_CONTROL_LARGE
       }))
-      map.addControl(new BMap.ScaleControl())
-      map.addControl(new BMap.OverviewMapControl({
+      map.addControl(new window.BMap.ScaleControl())
+      map.addControl(new window.BMap.OverviewMapControl({
         isOpen: false
       }))
-      map.addControl(new BMap.MapTypeControl({
-        type: BMAP_MAPTYPE_CONTROL_HORIZONTAL
+      map.addControl(new window.BMap.MapTypeControl({
+        type: window.BMAP_MAPTYPE_CONTROL_HORIZONTAL
       }))
       
       // 启用滚轮缩放
@@ -276,7 +276,7 @@ const showDevicesOnMap = () => {
       const coordinates = parseCoordinates(device.eqCoordinate)
       if (coordinates) {
         addDeviceMarker(device, coordinates.lng, coordinates.lat)
-        validPoints.push(new BMap.Point(coordinates.lng, coordinates.lat))
+        validPoints.push(new window.BMap.Point(coordinates.lng, coordinates.lat))
       }
     }
   })
@@ -291,7 +291,7 @@ const showDevicesOnMap = () => {
     } catch (error) {
       console.warn('调整地图视图失败，使用默认视图:', error)
       // 使用默认中心点
-      const point = new BMap.Point(116.404, 39.915)
+      const point = new window.BMap.Point(116.404, 39.915)
       map.centerAndZoom(point, 5)
     }
     
@@ -377,21 +377,21 @@ const parseCoordinates = (coordinateStr) => {
 const addDeviceMarker = (device, lng, lat) => {
   if (!map) return
   
-  const point = new BMap.Point(lng, lat)
+  const point = new window.BMap.Point(lng, lat)
   
   // 使用简单的默认标记，避免自定义图标问题
-  const marker = new BMap.Marker(point, {
-    icon: new BMap.Icon(
+  const marker = new window.BMap.Marker(point, {
+    icon: new window.BMap.Icon(
       'data:image/svg+xml;base64,' + btoa(`
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="10" cy="10" r="8" fill="${device.status === 'online' ? '#67c23a' : '#f56c6c'}" stroke="white" stroke-width="2"/>
           <circle cx="10" cy="10" r="4" fill="white"/>
         </svg>
       `),
-      new BMap.Size(20, 20),
+      new window.BMap.Size(20, 20),
       {
-        imageOffset: new BMap.Size(0, 0),
-        anchor: new BMap.Size(10, 10)
+        imageOffset: new window.BMap.Size(0, 0),
+        anchor: new window.BMap.Size(10, 10)
       }
     )
   })
@@ -411,7 +411,7 @@ const showInfoWindow = (device, point) => {
   const statusText = device.status === 'online' ? '在线' : '离线'
   const statusColor = device.status === 'online' ? '#67c23a' : '#f56c6c'
   
-  const infoWindow = new BMap.InfoWindow(`
+  const infoWindow = new window.BMap.InfoWindow(`
     <div style="padding: 15px; min-width: 200px;">
       <div style="display: flex; align-items: center; margin-bottom: 10px;">
         <div style="width: 8px; height: 8px; border-radius: 50%; background-color: ${statusColor}; margin-right: 8px;"></div>
@@ -520,7 +520,7 @@ const toggleHeatmap = () => {
         .filter(device => device.eqCoordinate)
         .map(device => {
           const coordinates = parseCoordinates(device.eqCoordinate)
-          return coordinates ? new BMap.Point(coordinates.lng, coordinates.lat) : null
+          return coordinates ? new window.BMap.Point(coordinates.lng, coordinates.lat) : null
         })
         .filter(point => point !== null)
       
