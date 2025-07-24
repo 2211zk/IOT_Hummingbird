@@ -11,7 +11,7 @@ import (
 type UserService struct {
 	userpb.UnimplementedUserServiceServer
 	repo      biz.UserRepo
-	dtmServer string // DTM服务地址
+	dtmServer string // DTM服务地址1
 }
 
 func NewUserService(repo biz.UserRepo, dtmServer string) *UserService {
