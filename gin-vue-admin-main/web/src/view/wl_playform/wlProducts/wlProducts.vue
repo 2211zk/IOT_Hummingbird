@@ -31,13 +31,13 @@
     </div>
 
     <!-- 表格区域 -->
-    <div class="gva-table">
-      <el-table :data="tableData" @selection-change="handleSelectionChange" row-key="ID">
+    <div class="gva-table" style="width: 100%;">
+      <el-table :data="tableData" @selection-change="handleSelectionChange" row-key="ID" style="width: 100%;">
         <el-table-column type="selection" width="55" />
         <el-table-column label="产品ID" prop="ID" width="120" />
-        <el-table-column label="产品名称" prop="prName" width="150" />
+        <el-table-column label="产品名称" prop="prName" min-width="150" />
         <!-- 产品编号列 - 显示格式化的产品编号并提供复制功能 -->
-        <el-table-column label="产品编号" prop="ID" width="150">
+        <el-table-column label="产品编号" prop="ID" min-width="150">
           <template #default="scope">
             <div class="flex items-center">
               <span>{{ generateProductNumber(scope.row.ID) }}</span>
@@ -45,29 +45,29 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column label="产品协议" prop="accessProtocol" width="120">
+        <el-table-column label="产品协议" prop="accessProtocol" min-width="120">
           <template #default="scope">
             {{ formatProtocol(scope.row.accessProtocol) }}
           </template>
         </el-table-column>
-        <el-table-column label="类型" prop="nodeType" width="120">
+        <el-table-column label="类型" prop="nodeType" min-width="120">
           <template #default="scope">
             {{ formatNodeType(scope.row.nodeType) }}
           </template>
         </el-table-column>
-        <el-table-column label="创建时间" prop="CreatedAt" width="180">
+        <el-table-column label="创建时间" prop="CreatedAt" min-width="180">
           <template #default="scope">
             {{ formatDate(scope.row.CreatedAt) }}
           </template>
         </el-table-column>
-        <el-table-column label="状态" prop="status" width="100">
+        <el-table-column label="状态" prop="status" min-width="100">
           <template #default="scope">
             <el-tag :type="scope.row.status === '已发布' ? 'success' : 'warning'">
               {{ scope.row.status || '未发布' }}
             </el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="300">
+        <el-table-column label="操作" min-width="300" fixed="right">
           <template #default="scope">
             <el-button type="primary" link icon="view" @click="openDetail(scope.row)">详情</el-button>
             <el-button type="primary" link icon="edit" @click="updateWlProductsFunc(scope.row)">编辑</el-button>

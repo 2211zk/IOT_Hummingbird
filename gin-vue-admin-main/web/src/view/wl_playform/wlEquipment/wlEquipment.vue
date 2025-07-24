@@ -187,7 +187,7 @@
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="driveId">
             <el-select v-model="formData.driveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
-              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="driver.name" :value="driver.ID" />
+              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="`${driver.driverId || driver.ID} - ${driver.driverName}`" :value="driver.ID" />
             </el-select>
           </el-form-item>
           
@@ -225,7 +225,7 @@
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="batchDriveId" required>
             <el-select v-model="formData.batchDriveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
-              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="driver.name" :value="driver.ID" />
+              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="`${driver.driverId || driver.ID} - ${driver.driverName}`" :value="driver.ID" />
             </el-select>
           </el-form-item>
           
@@ -356,6 +356,8 @@ import {
 
 // 导入产品API
 import { getWlProductsList } from '@/api/wl_playform/wlProducts'
+// 导入驱动API
+import { getWlDriversList } from '@/api/wl_driver/wlDrivers'
 
 // 全量引入格式化工具 请按需保留
 import { getDictFunc, formatDate, formatBoolean, filterDict ,filterDataSource, returnArrImg, onDownloadFile } from '@/utils/format'
@@ -600,10 +602,10 @@ const getProductName = (productId) => {
 }
 
 // 获取驱动名称 - 根据驱动ID查找对应的驱动名称
-// 功能：在表格中显示驱动名称而不是驱动ID，提升用户体验
+// 功能：在表格中显示驱动ID和名称，提升用户体验
 const getDriverName = (driverId) => {
   const driver = driverOptions.value.find(d => d.ID === driverId)
-  return driver ? driver.name : '-'
+  return driver ? `${driver.driverId || driver.ID} - ${driver.driverName}` : '-'
 }
 
 // 批量驱动绑定 - 为选中的设备批量绑定驱动
@@ -652,13 +654,41 @@ const getProductOptions = async () => {
   }
 }
 
+// 获取驱动选项 - 从后端API获取所有驱动列表
+// 功能：为设备创建/编辑表单中的驱动下拉选择框提供选项数据
+const getDriverOptions = async () => {
+  try {
+    const res = await getWlDriversList({ page: 1, pageSize: 1000 }) // 获取所有驱动
+    if (res.code === 0) {
+      // 过滤掉异常的驱动ID（大于1000的ID）
+      const validDrivers = res.data.list.filter(driver => driver.ID <= 1000)
+      driverOptions.value = validDrivers
+      console.log('获取到的驱动列表:', driverOptions.value)
+      
+      // 检查驱动ID是否合理
+      driverOptions.value.forEach(driver => {
+        if (driver.ID > 1000) {
+          console.warn('发现异常的驱动ID:', driver.ID, '驱动名称:', driver.driverName)
+        }
+      })
+      
+      if (validDrivers.length < res.data.list.length) {
+        console.warn(`过滤掉了 ${res.data.list.length - validDrivers.length} 个异常的驱动ID`)
+      }
+    }
+  } catch (error) {
+    console.error('获取驱动列表失败:', error)
+    ElMessage.error('获取驱动列表失败')
+  }
+}
+
 // 获取需要的字典 - 初始化页面所需的选项数据
 // 功能：在页面加载时获取产品列表、驱动列表等选项数据
 const setOptions = async () =>{
     // 获取所有产品列表
     await getProductOptions()
-    // 这里可以添加获取驱动选项的逻辑
-    // driverOptions.value = await getDriverList()
+    // 获取所有驱动列表
+    await getDriverOptions()
 }
 
 // 初始化产品选项
@@ -725,8 +755,9 @@ const updateWlEquipmentFunc = async(row) => {
     if (res.code === 0) {
         formData.value = res.data
         dialogFormVisible.value = true
-        // 刷新产品列表
+        // 刷新产品列表和驱动列表
         getProductOptions()
+        getDriverOptions()
     }
 }
 
@@ -754,8 +785,9 @@ const openDialog = () => {
     dialogFormVisible.value = true
     // 自动生成UUID
     generateUUID()
-    // 刷新产品列表
+    // 刷新产品列表和驱动列表
     getProductOptions()
+    getDriverOptions()
 }
 
 // 关闭弹窗
@@ -790,18 +822,42 @@ const enterDialog = async () => {
      elFormRef.value?.validate( async (valid) => {
              if (!valid) return btnLoading.value = false
               
+             // 确保driveId是数字类型
+             const submitData = { ...formData.value }
+             
+             // 调试信息
+             console.log('原始formData:', formData.value)
+             console.log('driveId类型:', typeof formData.value.driveId)
+             console.log('driveId值:', formData.value.driveId)
+             
+             if (submitData.driveId && typeof submitData.driveId === 'string') {
+               submitData.driveId = parseInt(submitData.driveId)
+             }
+             if (submitData.productsId && typeof submitData.productsId === 'string') {
+               submitData.productsId = parseInt(submitData.productsId)
+             }
+             
+             // 验证driveId是否在合理范围内
+             if (submitData.driveId && submitData.driveId > 1000) {
+               ElMessage.error('选择的驱动ID异常，请重新选择驱动')
+               btnLoading.value = false
+               return
+             }
+             
+             console.log('转换后的submitData:', submitData)
+              
              if (formData.value.addMethod === 'single') {
                // 单个设备添加
                let res
                switch (type.value) {
                  case 'create':
-                   res = await createWlEquipment(formData.value)
+                   res = await createWlEquipment(submitData)
                    break
                  case 'update':
-                   res = await updateWlEquipment(formData.value)
+                   res = await updateWlEquipment(submitData)
                    break
                  default:
-                   res = await createWlEquipment(formData.value)
+                   res = await createWlEquipment(submitData)
                    break
                }
                btnLoading.value = false
@@ -885,8 +941,12 @@ const openMapDialog = () => {
 const closeMapDialog = () => {
   mapDialogVisible.value = false
   // 清理地图实例
-  if (mapInstance.value) {
-    mapInstance.value.destroy()
+  if (mapInstance.value && typeof mapInstance.value.destroy === 'function') {
+    try {
+      mapInstance.value.destroy()
+    } catch (error) {
+      console.warn('地图销毁失败:', error)
+    }
     mapInstance.value = null
   }
   mapMarker.value = null
@@ -931,30 +991,35 @@ const initMap = async () => {
         // 清空容器
         mapContainer.innerHTML = ''
         
-        // 创建百度地图实例
-        const map = new window.BMap.Map(mapContainer)
-        mapInstance.value = map
-        
-        // 设置地图中心点（北京）
-        const point = new window.BMap.Point(116.397428, 39.90923)
-        map.centerAndZoom(point, 15)
-        
-        // 添加地图控件
-        map.addControl(new window.BMap.NavigationControl())
-        map.addControl(new window.BMap.ScaleControl())
-        map.addControl(new window.BMap.OverviewMapControl())
-        map.addControl(new window.BMap.MapTypeControl())
-        
-        // 添加点击事件
-        map.addEventListener('click', handleBaiduMapClick)
-        
-        // 设置默认坐标
-        selectedLongitude.value = '116.397428'
-        selectedLatitude.value = '39.90923'
-        selectedAddress.value = '北京市东城区王府井大街'
-        
-        // 显示默认标记
-        showBaiduMapMarker(point, '北京市东城区王府井大街')
+        try {
+          // 创建百度地图实例
+          const map = new window.BMap.Map(mapContainer)
+          mapInstance.value = map
+          
+          // 设置地图中心点（北京）
+          const point = new window.BMap.Point(116.397428, 39.90923)
+          map.centerAndZoom(point, 15)
+          
+          // 添加地图控件
+          map.addControl(new window.BMap.NavigationControl())
+          map.addControl(new window.BMap.ScaleControl())
+          map.addControl(new window.BMap.OverviewMapControl())
+          map.addControl(new window.BMap.MapTypeControl())
+          
+          // 添加点击事件
+          map.addEventListener('click', handleBaiduMapClick)
+          
+          // 设置默认坐标
+          selectedLongitude.value = '116.397428'
+          selectedLatitude.value = '39.90923'
+          selectedAddress.value = '北京市东城区王府井大街'
+          
+          // 显示默认标记
+          showBaiduMapMarker(point, '北京市东城区王府井大街')
+        } catch (mapError) {
+          console.error('百度地图初始化失败:', mapError)
+          initSimulatedMap()
+        }
         
       } else {
         console.error('地图容器未找到或百度地图API未加载')
@@ -971,50 +1036,66 @@ const initMap = async () => {
 
 // 处理百度地图点击
 const handleBaiduMapClick = (event) => {
-  const point = event.point
-  const lng = point.lng
-  const lat = point.lat
-  
-  selectedLongitude.value = lng.toString()
-  selectedLatitude.value = lat.toString()
-  
-  // 根据坐标获取地址
-  const geoc = new window.BMap.Geocoder()
-  geoc.getLocation(point, (result) => {
-    if (result) {
-      selectedAddress.value = result.address
-      showBaiduMapMarker(point, result.address)
-    } else {
-      selectedAddress.value = `北京市 (${lng}, ${lat})`
-      showBaiduMapMarker(point, `北京市 (${lng}, ${lat})`)
-    }
-  })
+  try {
+    const point = event.point
+    const lng = point.lng
+    const lat = point.lat
+    
+    selectedLongitude.value = lng.toString()
+    selectedLatitude.value = lat.toString()
+    
+    // 根据坐标获取地址
+    const geoc = new window.BMap.Geocoder()
+    geoc.getLocation(point, (result) => {
+      if (result) {
+        selectedAddress.value = result.address
+        showBaiduMapMarker(point, result.address)
+      } else {
+        selectedAddress.value = `北京市 (${lng}, ${lat})`
+        showBaiduMapMarker(point, `北京市 (${lng}, ${lat})`)
+      }
+    })
+  } catch (error) {
+    console.error('百度地图点击处理失败:', error)
+    // 使用模拟坐标
+    selectedLongitude.value = '116.397428'
+    selectedLatitude.value = '39.90923'
+    selectedAddress.value = '北京市东城区王府井大街'
+  }
 }
 
 // 显示百度地图标记
 const showBaiduMapMarker = (point, address) => {
-  const map = mapInstance.value
-  if (!map) return
-  
-  // 清除之前的标记
-  if (mapMarker.value) {
-    map.removeOverlay(mapMarker.value)
+  try {
+    const map = mapInstance.value
+    if (!map) return
+    
+    // 清除之前的标记
+    if (mapMarker.value) {
+      try {
+        map.removeOverlay(mapMarker.value)
+      } catch (error) {
+        console.warn('清除地图标记失败:', error)
+      }
+    }
+    
+    // 创建新标记
+    const marker = new window.BMap.Marker(point)
+    map.addOverlay(marker)
+    mapMarker.value = marker
+    
+    // 添加信息窗口
+    const infoWindow = new window.BMap.InfoWindow(address, {
+      width: 200,
+      height: 100,
+      title: '选择的位置'
+    })
+    marker.addEventListener('click', () => {
+      map.openInfoWindow(infoWindow, point)
+    })
+  } catch (error) {
+    console.error('显示百度地图标记失败:', error)
   }
-  
-  // 创建新标记
-  const marker = new window.BMap.Marker(point)
-  map.addOverlay(marker)
-  mapMarker.value = marker
-  
-  // 添加信息窗口
-  const infoWindow = new window.BMap.InfoWindow(address, {
-    width: 200,
-    height: 100,
-    title: '选择的位置'
-  })
-  marker.addEventListener('click', () => {
-    map.openInfoWindow(infoWindow, point)
-  })
 }
 
 // 搜索位置（百度地图）
@@ -1030,32 +1111,42 @@ const searchLocation = async () => {
     return
   }
   
-  // 使用百度地图搜索
-  const local = new window.BMap.LocalSearch(map, {
-    onSearchComplete: (results) => {
-      if (local.getStatus() === window.BMAP_STATUS_SUCCESS) {
-        const result = results.getPoi(0)
-        if (result) {
-          const point = result.point
-          selectedLongitude.value = point.lng.toString()
-          selectedLatitude.value = point.lat.toString()
-          selectedAddress.value = result.address
-          showBaiduMapMarker(point, result.address)
-          
-          // 将地图中心移动到搜索结果
-          map.panTo(point)
-          
-          ElMessage.success(`找到: ${result.title}`)
-        } else {
-          ElMessage.warning('未找到相关位置')
+  try {
+    // 使用百度地图搜索
+    const local = new window.BMap.LocalSearch(map, {
+      onSearchComplete: (results) => {
+        try {
+          if (local.getStatus() === window.BMAP_STATUS_SUCCESS) {
+            const result = results.getPoi(0)
+            if (result) {
+              const point = result.point
+              selectedLongitude.value = point.lng.toString()
+              selectedLatitude.value = point.lat.toString()
+              selectedAddress.value = result.address
+              showBaiduMapMarker(point, result.address)
+              
+              // 将地图中心移动到搜索结果
+              map.panTo(point)
+              
+              ElMessage.success(`找到: ${result.title}`)
+            } else {
+              ElMessage.warning('未找到相关位置')
+            }
+          } else {
+            ElMessage.error('搜索失败')
+          }
+        } catch (error) {
+          console.error('搜索回调处理失败:', error)
+          ElMessage.error('搜索处理失败')
         }
-      } else {
-        ElMessage.error('搜索失败')
       }
-    }
-  })
-  
-  local.search(mapSearchKeyword.value)
+    })
+    
+    local.search(mapSearchKeyword.value)
+  } catch (error) {
+    console.error('百度地图搜索失败:', error)
+    ElMessage.error('搜索功能暂时不可用')
+  }
 }
 
 // 模拟地图初始化（备选方案）
@@ -1063,59 +1154,76 @@ const initSimulatedMap = () => {
   console.log('使用模拟地图')
   const mapContainer = document.getElementById('map-container')
   if (mapContainer) {
-    mapContainer.addEventListener('click', handleMapClick)
-    
-    // 设置默认坐标
-    selectedLongitude.value = '116.397428'
-    selectedLatitude.value = '39.90923'
-    selectedAddress.value = '北京市东城区王府井大街'
-    
-    // 显示默认标记
-    showMapMarker(50, 50)
+    try {
+      mapContainer.addEventListener('click', handleMapClick)
+      
+      // 设置默认坐标
+      selectedLongitude.value = '116.397428'
+      selectedLatitude.value = '39.90923'
+      selectedAddress.value = '北京市东城区王府井大街'
+      
+      // 显示默认标记
+      showMapMarker(50, 50)
+    } catch (error) {
+      console.error('模拟地图初始化失败:', error)
+    }
   }
 }
 
 // 处理模拟地图点击
 const handleMapClick = (event) => {
-  // 获取点击位置相对于地图容器的坐标
-  const mapContainer = document.getElementById('map-container')
-  const rect = mapContainer.getBoundingClientRect()
-  const x = event.clientX - rect.left
-  const y = event.clientY - rect.top
-  
-  // 计算点击位置在地图中的百分比
-  const percentX = (x / rect.width * 100).toFixed(2)
-  const percentY = (y / rect.height * 100).toFixed(2)
-  
-  // 模拟坐标计算
-  const lng = (116.3 + (x / rect.width) * 0.2).toFixed(6)
-  const lat = (39.8 + (y / rect.height) * 0.2).toFixed(6)
-  
-  selectedLongitude.value = lng
-  selectedLatitude.value = lat
-  selectedAddress.value = `北京市 (${lng}, ${lat})`
-  
-  // 显示标记
-  showMapMarker(percentX, percentY)
+  try {
+    // 获取点击位置相对于地图容器的坐标
+    const mapContainer = document.getElementById('map-container')
+    if (!mapContainer) return
+    
+    const rect = mapContainer.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    
+    // 计算点击位置在地图中的百分比
+    const percentX = (x / rect.width * 100).toFixed(2)
+    const percentY = (y / rect.height * 100).toFixed(2)
+    
+    // 模拟坐标计算
+    const lng = (116.3 + (x / rect.width) * 0.2).toFixed(6)
+    const lat = (39.8 + (y / rect.height) * 0.2).toFixed(6)
+    
+    selectedLongitude.value = lng
+    selectedLatitude.value = lat
+    selectedAddress.value = `北京市 (${lng}, ${lat})`
+    
+    // 显示标记
+    showMapMarker(percentX, percentY)
+  } catch (error) {
+    console.error('模拟地图点击处理失败:', error)
+  }
 }
 
 // 显示模拟地图标记
 const showMapMarker = (x, y) => {
-  console.log(`显示标记: ${x}%, ${y}%`)
-  
-  // 获取或创建标记元素
-  let marker = document.getElementById('map-marker')
-  if (!marker) {
-    marker = document.createElement('div')
-    marker.id = 'map-marker'
-    marker.className = 'map-marker'
-    document.getElementById('map-container').appendChild(marker)
+  try {
+    console.log(`显示标记: ${x}%, ${y}%`)
+    
+    // 获取或创建标记元素
+    let marker = document.getElementById('map-marker')
+    if (!marker) {
+      const mapContainer = document.getElementById('map-container')
+      if (!mapContainer) return
+      
+      marker = document.createElement('div')
+      marker.id = 'map-marker'
+      marker.className = 'map-marker'
+      mapContainer.appendChild(marker)
+    }
+    
+    // 设置标记位置
+    marker.style.left = x + '%'
+    marker.style.top = y + '%'
+    marker.style.display = 'block'
+  } catch (error) {
+    console.error('显示模拟地图标记失败:', error)
   }
-  
-  // 设置标记位置
-  marker.style.left = x + '%'
-  marker.style.top = y + '%'
-  marker.style.display = 'block'
 }
 
 // 确认地图选择

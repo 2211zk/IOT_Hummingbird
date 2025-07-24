@@ -1,10 +1,9 @@
 package server
 
 import (
-	v1 "IOT_Hummingbird_back_end/api/helloworld/v1"
-	uv1 "IOT_Hummingbird_back_end/api/user/v1"
-	"IOT_Hummingbird_back_end/internal/conf"
-	"IOT_Hummingbird_back_end/internal/service"
+	v1 "kratos/api/helloworld/v1"
+	"kratos/internal/conf"
+	"kratos/internal/service"
 
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
@@ -12,7 +11,7 @@ import (
 )
 
 // NewGRPCServer new a gRPC server.
-func NewGRPCServer(c *conf.Server, greeter *service.GreeterService, user *service.UserService, logger log.Logger) *grpc.Server {
+func NewGRPCServer(c *conf.Server, greeter *service.GreeterService, logger log.Logger) *grpc.Server {
 	var opts = []grpc.ServerOption{
 		grpc.Middleware(
 			recovery.Recovery(),
@@ -29,6 +28,5 @@ func NewGRPCServer(c *conf.Server, greeter *service.GreeterService, user *servic
 	}
 	srv := grpc.NewServer(opts...)
 	v1.RegisterGreeterServer(srv, greeter)
-	uv1.RegisterUserServer(srv, user)
 	return srv
 }
