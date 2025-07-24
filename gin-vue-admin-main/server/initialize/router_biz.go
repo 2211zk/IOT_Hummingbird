@@ -24,6 +24,10 @@ func initBizRouter(routers ...*gin.RouterGroup) {
 		wl_playformRouter.InitWlCaFunctionRouter(privateGroup, publicGroup)
 	}
 	{
+		dashboardRouter := router.RouterGroupApp.Dashboard
+		dashboardRouter.InitDashboardRouter(privateGroup)
+	}
+	{
 		wl_driverRouter := router.RouterGroupApp.Wl_driver
 		wl_driverRouter.WlDriversRouter.InitWlDriversRouter(privateGroup, publicGroup)
 		wl_driverRouter.WlProtocolsRouter.InitWlProtocolsRouter(privateGroup, publicGroup)
