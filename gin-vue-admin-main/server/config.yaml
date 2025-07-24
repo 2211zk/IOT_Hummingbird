@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 363c4cdc7fb0d5be7774ddfc33d234490786a724
 
+>>>>>>> 1bfb013cc2f0ff3b6d09b93a987dd55b5d3d80ea
 # github.com/flipped-aurora/gin-vue-admin/server Global Configuration
 
-# jwt configuration
 jwt:
     signing-key: qmPlus
     expires-time: 7d
@@ -204,6 +210,10 @@ autocode:
     server: server
     module: 'github.com/flipped-aurora/gin-vue-admin/server'
     ai-path: ""
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1bfb013cc2f0ff3b6d09b93a987dd55b5d3d80ea
 
 # qiniu configuration (请自行七牛申请对应的 公钥 私钥 bucket 和 域名地址)
 qiniu:
@@ -217,17 +227,26 @@ qiniu:
 
 # minio oss configuration
 minio:
-  endpoint: yourEndpoint
-  access-key-id: yourAccessKeyId
-  access-key-secret: yourAccessKeySecret
-  bucket-name: yourBucketName
-  use-ssl: false
-  base-path: ""
-  bucket-url: "http://host:9000/yourBucketName"
+    endpoint: yourEndpoint
+    access-key-id: yourAccessKeyId
+    access-key-secret: yourAccessKeySecret
+    bucket-name: yourBucketName
+    use-ssl: false
+    base-path: ""
+    bucket-url: "http://host:9000/yourBucketName"
+
 
 
 # aliyun oss configuration
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> fa4062421831de9ece7d3a02c64b244a0f166276
+>>>>>>> 1bfb013cc2f0ff3b6d09b93a987dd55b5d3d80ea
+>>>>>>> 363c4cdc7fb0d5be7774ddfc33d234490786a724
 aliyun-oss:
     endpoint: yourEndpoint
     access-key-id: yourAccessKeyId

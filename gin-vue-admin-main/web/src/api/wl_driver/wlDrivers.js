@@ -79,14 +79,7 @@ export const findWlDrivers = (params) => {
   })
 }
 
-// @Tags WlDrivers
-// @Summary 分页获取wlDrivers表列表
-// @Security ApiKeyAuth
-// @Accept application/json
-// @Produce application/json
-// @Param data query request.PageInfo true "分页获取wlDrivers表列表"
-// @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
-// @Router /wlDrivers/getWlDriversList [get]
+// 获取设备列表（分页）
 export const getWlDriversList = (params) => {
   return service({
     url: '/wlDrivers/getWlDriversList',

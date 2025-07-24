@@ -8,17 +8,17 @@ server:
 data:
   mysql:
     user: root
-    password: badb6fe15b05b84863ff1e2b249deab2
-    host: 14.103.243.15
+    password: 82AF916059F13E331E633AC0B8A8191B
+    host: 14.103.143.229
     port: 3306
-    database: hummingbird
+    database: wl_playform
   redis:
-    addr: 14.103.243.15:6379
-    password: badb6fe15b05b84863ff1e2b249deab2
+    addr: 14.103.143.229:6379
+    password: 82AF916059F13E331E633AC0B8A8191B
     db: 0
   mongodb:
     user: mongo_CAFJCH
     password: mongo_KSrmMC
-    host: 14.103.243.15
+    host: 14.103.143.229
     port: 27107
     database: hummingbird

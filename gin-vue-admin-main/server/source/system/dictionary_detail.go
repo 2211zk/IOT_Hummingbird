@@ -3,6 +3,7 @@ package system
 import (
 	"context"
 	"fmt"
+
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
 	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
 	"github.com/pkg/errors"
@@ -98,6 +99,11 @@ func (i *initDictDetail) InitializeData(ctx context.Context) (context.Context, e
 		{Label: "tinyint", Value: "1", Extend: "mysql", Status: &True},
 		{Label: "bool", Value: "2", Extend: "pgsql", Status: &True},
 	}
+
+	dicts[6].SysDictionaryDetails = []sysModel.SysDictionaryDetail{
+		{Label: "官方", Value: "official", Status: &True, Sort: 1},
+		{Label: "自定义", Value: "custom", Status: &True, Sort: 2},
+	}
 	for _, dict := range dicts {
 		if err := db.Model(&dict).Association("SysDictionaryDetails").
 			Replace(dict.SysDictionaryDetails); err != nil {
@@ -114,8 +120,8 @@ func (i *initDictDetail) DataInserted(ctx context.Context) bool {
 	}
 	var dict sysModel.SysDictionary
 	if err := db.Preload("SysDictionaryDetails").
-		First(&dict, &sysModel.SysDictionary{Name: "数据库bool类型"}).Error; err != nil {
+		First(&dict, &sysModel.SysDictionary{Name: "驱动类型"}).Error; err != nil {
 		return false
 	}
-	return len(dict.SysDictionaryDetails) > 0 && dict.SysDictionaryDetails[0].Label == "tinyint"
+	return len(dict.SysDictionaryDetails) > 0 && dict.SysDictionaryDetails[0].Label == "官方"
 }
