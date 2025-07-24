@@ -2,11 +2,12 @@ package system
 
 import (
 	"errors"
+	"strconv"
+
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
 	"gorm.io/gorm"
-	"strconv"
 )
 
 //@author: [piexlmax](https://github.com/piexlmax)
@@ -64,6 +65,21 @@ func (menuService *MenuService) getMenuTreeMap(authorityId uint) (treeMap map[ui
 	}
 	for _, v := range allMenus {
 		v.Btns = btnMap[v.SysBaseMenu.ID]
+
+		// 特殊处理：为wlResources菜单确保所有按钮权限都存在
+		if v.Name == "wlResources" {
+			if v.Btns == nil {
+				v.Btns = make(map[string]uint)
+			}
+			// 确保所有必要的按钮权限都存在
+			requiredBtns := []string{"add", "edit", "delete", "info", "batchDelete", "exportTemplate", "exportExcel", "importExcel", "verify"}
+			for _, btnName := range requiredBtns {
+				if _, exists := v.Btns[btnName]; !exists {
+					v.Btns[btnName] = authorityId
+				}
+			}
+		}
+
 		treeMap[v.ParentId] = append(treeMap[v.ParentId], v)
 	}
 	return treeMap, err

@@ -274,6 +274,76 @@ func (i *initCasbin) InitializeData(ctx context.Context) (context.Context, error
 		{Ptype: "p", V0: "9528", V1: "/customer/customerList", V2: "GET"},
 		{Ptype: "p", V0: "9528", V1: "/autoCode/createTemp", V2: "POST"},
 		{Ptype: "p", V0: "9528", V1: "/user/getUserInfo", V2: "GET"},
+		{Ptype: "p", V0: "9528", V1: "/wlResources/createWithTransaction", V2: "POST"},
+		{Ptype: "p", V0: "9528", V1: "/wlResources/verifyWlResources", V2: "POST"},
+
+		// wlResources权限配置 - 角色888
+		{Ptype: "p", V0: "888", V1: "/wlResources/createWlResources", V2: "POST"},
+		{Ptype: "p", V0: "888", V1: "/wlResources/deleteWlResources", V2: "DELETE"},
+		{Ptype: "p", V0: "888", V1: "/wlResources/deleteWlResourcesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "888", V1: "/wlResources/updateWlResources", V2: "PUT"},
+		{Ptype: "p", V0: "888", V1: "/wlResources/findWlResources", V2: "GET"},
+		{Ptype: "p", V0: "888", V1: "/wlResources/getWlResourcesList", V2: "POST"},
+		{Ptype: "p", V0: "888", V1: "/wlResources/createWithTransaction", V2: "POST"},
+		{Ptype: "p", V0: "888", V1: "/wlResources/verifyWlResources", V2: "POST"},
+
+		// wlResources权限配置 - 角色8881
+		{Ptype: "p", V0: "8881", V1: "/wlResources/createWlResources", V2: "POST"},
+		{Ptype: "p", V0: "8881", V1: "/wlResources/deleteWlResources", V2: "DELETE"},
+		{Ptype: "p", V0: "8881", V1: "/wlResources/deleteWlResourcesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "8881", V1: "/wlResources/updateWlResources", V2: "PUT"},
+		{Ptype: "p", V0: "8881", V1: "/wlResources/findWlResources", V2: "GET"},
+		{Ptype: "p", V0: "8881", V1: "/wlResources/getWlResourcesList", V2: "POST"},
+		{Ptype: "p", V0: "8881", V1: "/wlResources/createWithTransaction", V2: "POST"},
+		{Ptype: "p", V0: "8881", V1: "/wlResources/verifyWlResources", V2: "POST"},
+
+		// wlEngineRules权限配置 - 角色888
+		{Ptype: "p", V0: "888", V1: "/wlEngineRules/createWlEngineRules", V2: "POST"},
+		{Ptype: "p", V0: "888", V1: "/wlEngineRules/deleteWlEngineRules", V2: "DELETE"},
+		{Ptype: "p", V0: "888", V1: "/wlEngineRules/deleteWlEngineRulesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "888", V1: "/wlEngineRules/updateWlEngineRules", V2: "PUT"},
+		{Ptype: "p", V0: "888", V1: "/wlEngineRules/findWlEngineRules", V2: "GET"},
+		{Ptype: "p", V0: "888", V1: "/wlEngineRules/getWlEngineRulesList", V2: "POST"},
+
+		// wlEngineRules权限配置 - 角色8881
+		{Ptype: "p", V0: "8881", V1: "/wlEngineRules/createWlEngineRules", V2: "POST"},
+		{Ptype: "p", V0: "8881", V1: "/wlEngineRules/deleteWlEngineRules", V2: "DELETE"},
+		{Ptype: "p", V0: "8881", V1: "/wlEngineRules/deleteWlEngineRulesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "8881", V1: "/wlEngineRules/updateWlEngineRules", V2: "PUT"},
+		{Ptype: "p", V0: "8881", V1: "/wlEngineRules/findWlEngineRules", V2: "GET"},
+		{Ptype: "p", V0: "8881", V1: "/wlEngineRules/getWlEngineRulesList", V2: "POST"},
+
+		// wlEngineRules权限配置 - 角色9528
+		{Ptype: "p", V0: "9528", V1: "/wlEngineRules/createWlEngineRules", V2: "POST"},
+		{Ptype: "p", V0: "9528", V1: "/wlEngineRules/deleteWlEngineRules", V2: "DELETE"},
+		{Ptype: "p", V0: "9528", V1: "/wlEngineRules/deleteWlEngineRulesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "9528", V1: "/wlEngineRules/updateWlEngineRules", V2: "PUT"},
+		{Ptype: "p", V0: "9528", V1: "/wlEngineRules/findWlEngineRules", V2: "GET"},
+		{Ptype: "p", V0: "9528", V1: "/wlEngineRules/getWlEngineRulesList", V2: "POST"},
+
+		// wlScenes权限配置 - 角色888
+		{Ptype: "p", V0: "888", V1: "/wlScenes/createWlScenes", V2: "POST"},
+		{Ptype: "p", V0: "888", V1: "/wlScenes/deleteWlScenes", V2: "DELETE"},
+		{Ptype: "p", V0: "888", V1: "/wlScenes/deleteWlScenesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "888", V1: "/wlScenes/updateWlScenes", V2: "PUT"},
+		{Ptype: "p", V0: "888", V1: "/wlScenes/findWlScenes", V2: "GET"},
+		{Ptype: "p", V0: "888", V1: "/wlScenes/getWlScenesList", V2: "POST"},
+
+		// wlScenes权限配置 - 角色8881
+		{Ptype: "p", V0: "8881", V1: "/wlScenes/createWlScenes", V2: "POST"},
+		{Ptype: "p", V0: "8881", V1: "/wlScenes/deleteWlScenes", V2: "DELETE"},
+		{Ptype: "p", V0: "8881", V1: "/wlScenes/deleteWlScenesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "8881", V1: "/wlScenes/updateWlScenes", V2: "PUT"},
+		{Ptype: "p", V0: "8881", V1: "/wlScenes/findWlScenes", V2: "GET"},
+		{Ptype: "p", V0: "8881", V1: "/wlScenes/getWlScenesList", V2: "POST"},
+
+		// wlScenes权限配置 - 角色9528
+		{Ptype: "p", V0: "9528", V1: "/wlScenes/createWlScenes", V2: "POST"},
+		{Ptype: "p", V0: "9528", V1: "/wlScenes/deleteWlScenes", V2: "DELETE"},
+		{Ptype: "p", V0: "9528", V1: "/wlScenes/deleteWlScenesByIds", V2: "DELETE"},
+		{Ptype: "p", V0: "9528", V1: "/wlScenes/updateWlScenes", V2: "PUT"},
+		{Ptype: "p", V0: "9528", V1: "/wlScenes/findWlScenes", V2: "GET"},
+		{Ptype: "p", V0: "9528", V1: "/wlScenes/getWlScenesList", V2: "POST"},
 	}
 	if err := db.Create(&entities).Error; err != nil {
 		return ctx, errors.Wrap(err, "Casbin 表 ("+i.InitializerName()+") 数据初始化失败!")

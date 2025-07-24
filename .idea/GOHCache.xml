@@ -2216,6 +2216,13 @@
             </set>
           </value>
         </entry>
+        <entry key="initDriverTestData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/driver_test_data.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="initExcelTemplate">
           <value>
             <set>
@@ -4133,7 +4140,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/request/wl_drivers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753241119191" />
+              <option name="lastModified" value="1753320469260" />
               <option name="schema">
                 <list>
                   <option value="WlDriversSearch" />
@@ -4193,7 +4200,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/wl_drivers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753241119191" />
+              <option name="lastModified" value="1753320469261" />
               <option name="schema">
                 <list>
                   <option value="WlDrivers" />
@@ -5437,7 +5444,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/wl_drivers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753241119231" />
+              <option name="lastModified" value="1753320469264" />
               <option name="schema">
                 <list>
                   <option value="WlDriversService" />
@@ -5593,7 +5600,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/dictionary.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753241119232" />
+              <option name="lastModified" value="1753320469265" />
               <option name="schema">
                 <list>
                   <option value="initDict" />
@@ -5605,10 +5612,22 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/dictionary_detail.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753241119232" />
+              <option name="lastModified" value="1753320469265" />
               <option name="schema">
                 <list>
                   <option value="initDictDetail" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/driver_test_data.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753320469266" />
+              <option name="schema">
+                <list>
+                  <option value="initDriverTestData" />
                 </list>
               </option>
             </ScannedPath>
@@ -6876,6 +6895,7 @@
         <entry key="init_db_service" value="InitDBService" />
         <entry key="init_dict" value="initDict" />
         <entry key="init_dict_detail" value="initDictDetail" />
+        <entry key="init_driver_test_data" value="initDriverTestData" />
         <entry key="init_excel_template" value="initExcelTemplate" />
         <entry key="init_menu" value="InitMenu" />
         <entry key="init_menu_authority" value="initMenuAuthority" />

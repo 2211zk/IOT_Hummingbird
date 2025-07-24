@@ -85,14 +85,14 @@ func (i *initMenuAuthority) InitializeData(ctx context.Context) (next context.Co
 		}
 	}
 
-	// 添加部分子菜单 - 系统工具、示例文件等模块的子菜单
+	// 添加部分子菜单 - 系统工具、示例文件、wl_playform等模块的子菜单
 	for _, menu := range allMenus {
 		parentName := ""
 		if menu.ParentId > 0 && menuMap[menu.ParentId].Name != "" {
 			parentName = menuMap[menu.ParentId].Name
 		}
 
-		if menu.ParentId > 0 && (parentName == "systemTools" || parentName == "example") {
+		if menu.ParentId > 0 && (parentName == "systemTools" || parentName == "example" || parentName == "advancedCapabilities") {
 			menu9528 = append(menu9528, menu)
 		}
 	}
