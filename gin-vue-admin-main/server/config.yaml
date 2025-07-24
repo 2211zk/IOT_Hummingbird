@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 # github.com/flipped-aurora/gin-vue-admin/server Global Configuration
 
@@ -229,8 +228,6 @@ minio:
 
 # aliyun oss configuration
 
-=======
->>>>>>> fa4062421831de9ece7d3a02c64b244a0f166276
 aliyun-oss:
     endpoint: yourEndpoint
     access-key-id: yourAccessKeyId
