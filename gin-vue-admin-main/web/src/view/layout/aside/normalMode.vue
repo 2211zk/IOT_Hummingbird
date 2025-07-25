@@ -104,6 +104,8 @@
     const resourcesMenu = processedItems.find(item => item.name === 'wlResources')
     const scenesMenu = processedItems.find(item => item.name === 'wlScenes')
     const engineRulesMenu = processedItems.find(item => item.name === 'wlEngineRules')
+    const monitorMenu = processedItems.find(item => item.name === 'wlMonitor')
+    const alarmMenu = processedItems.find(item => item.name === 'wlAlarm')
     
     console.log('找到的菜单:', { productMenu, equipmentMenu, resourcesMenu, scenesMenu, engineRulesMenu })
     
@@ -173,22 +175,52 @@
         ]
       }
       
-      // 从原始菜单中移除产品管理、设备管理、资源管理、场景联动、引擎规则，避免重复显示
+      // 创建运维监控父菜单
+      const opsMonitorMenu = {
+        name: 'opsMonitor',
+        path: 'opsMonitor',
+        component: 'view/routerHolder.vue',
+        meta: {
+          title: '运维监控',
+          icon: 'data-board'
+        },
+        children: []
+      }
+      if (monitorMenu) {
+        opsMonitorMenu.children.push({
+          ...monitorMenu,
+          hidden: false,
+          meta: { ...monitorMenu.meta, title: '系统监控', icon: 'monitor' }
+        })
+      }
+      if (alarmMenu) {
+        opsMonitorMenu.children.push({
+          ...alarmMenu,
+          hidden: false,
+          meta: { ...alarmMenu.meta, title: '告警中心', icon: 'bell' }
+        })
+      }
+
+      // 在filteredItems中移除wlMonitor和wlAlarm，插入opsMonitorMenu
       const filteredItems = processedItems.filter(item => 
         item.name !== 'wlProducts' && 
         item.name !== 'wlEquipment' && 
         item.name !== 'wlResources' && 
         item.name !== 'wlScenes' && 
-        item.name !== 'wlEngineRules'
+        item.name !== 'wlEngineRules' &&
+        item.name !== 'wlMonitor' &&
+        item.name !== 'wlAlarm'
       )
       
       // 将设备接入菜单插入到合适的位置（在dashboard之后）
       const dashboardIndex = filteredItems.findIndex(item => item.name === 'dashboard')
       if (dashboardIndex !== -1) {
         filteredItems.splice(dashboardIndex + 1, 0, deviceAccessMenu)
+        filteredItems.splice(dashboardIndex + 2, 0, opsMonitorMenu)
       } else {
         // 如果找不到dashboard，则将设备接入菜单放在最前面
         filteredItems.unshift(deviceAccessMenu)
+        filteredItems.splice(1, 0, opsMonitorMenu)
       }
       
       // 将高级能力菜单插入到合适的位置
