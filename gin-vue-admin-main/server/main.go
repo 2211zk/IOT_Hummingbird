@@ -47,6 +47,7 @@ func initializeSystem() {
 	initialize.SetupHandlers() // 注册全局函数
 	if global.GVA_DB != nil {
 		initialize.RegisterTables() // 初始化表
+		// initialize.InitLoginLogMenu() // 初始化登录日志菜单 - 暂时禁用，使用手动SQL脚本
 	}
 	// 初始化Wanlian_resource MongoDB数据源
 	initialize.WanlianResourceInit()
