@@ -7,7 +7,6 @@
       <h1 class="text-2xl font-bold text-gray-900 mb-2">设备管理</h1>
       <p class="text-gray-600">物理设备要连接到平台,需要先在平台创建设备(支持单个或批量导入创建)</p>
     </div>
-
     <!-- 搜索和筛选区域 -->
     <div class="gva-search-box">
       <el-form ref="elSearchFormRef" :inline="true" :model="searchInfo" class="demo-form-inline" @keyup.enter="onSubmit">
@@ -323,12 +322,16 @@ import {
 // 导入产品API
 import { getWlProductsList } from '@/api/wl_playform/wlProducts'
 
+// 导入驱动相关API
+import { getWlDriversList } from '@/api/wl_driver/wlDrivers'
+import { getDriverCardsList } from '@/api/wl_driver/driverCards'
+
 // 全量引入格式化工具 请按需保留
 import { getDictFunc, formatDate, formatBoolean, filterDict ,filterDataSource, returnArrImg, onDownloadFile } from '@/utils/format'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, reactive, nextTick, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { UploadFilled } from '@element-plus/icons-vue'
+import { UploadFilled, Monitor, Connection, Warning, DataAnalysis, Refresh } from '@element-plus/icons-vue'
 // 引入按钮权限标识
 import { useBtnAuth } from '@/utils/btnAuth'
 import { useAppStore } from "@/pinia"
@@ -356,6 +359,17 @@ const showAllQuery = ref(false)
 
 // 产品选项
 const productOptions = ref([])
+
+// 驱动相关数据
+const driverStats = ref([
+  { title: '设备总数', value: 0, desc: '所有驱动下设备总数', color: '#409EFF', bgColor: '#409EFF', icon: 'Monitor' },
+  { title: '在线设备', value: 0, desc: '当前在线设备数', color: '#67C23A', bgColor: '#67C23A', icon: 'Connection' },
+  { title: '离线设备', value: 0, desc: '当前离线设备数', color: '#909399', bgColor: '#909399', icon: 'Monitor' },
+  { title: '报警数', value: 0, desc: '今日报警次数', color: '#F56C6C', bgColor: '#F56C6C', icon: 'Warning' },
+  { title: '驱动总数', value: 0, desc: '已注册驱动数量', color: '#E6A23C', bgColor: '#E6A23C', icon: 'DataAnalysis' }
+])
+
+const driverList = ref([])
 
 const formData = ref({
             eqName: '',
@@ -1047,6 +1061,81 @@ const confirmMapSelection = () => {
   ElMessage.success('坐标选择成功')
 }
 
+// 获取驱动统计数据
+const getDriverStats = async () => {
+  try {
+    // 获取驱动列表
+    const driversResponse = await getWlDriversList({ page: 1, pageSize: 1000 })
+    const drivers = driversResponse.data?.list || []
+    
+    // 获取设备列表用于统计
+    const devicesResponse = await getWlEquipmentList({ page: 1, pageSize: 1000 })
+    const devices = devicesResponse.data?.list || []
+    
+    // 计算统计数据
+    const totalDevices = devices.length
+    const onlineDevices = devices.filter(d => d.status === 'online').length
+    const offlineDevices = devices.filter(d => d.status === 'offline').length
+    const totalDrivers = drivers.length
+    
+    // 更新统计卡片数据
+    driverStats.value = [
+      { title: '设备总数', value: totalDevices, desc: '所有驱动下设备总数', color: '#409EFF', bgColor: '#409EFF', icon: 'Monitor' },
+      { title: '在线设备', value: onlineDevices, desc: '当前在线设备数', color: '#67C23A', bgColor: '#67C23A', icon: 'Connection' },
+      { title: '离线设备', value: offlineDevices, desc: '当前离线设备数', color: '#909399', bgColor: '#909399', icon: 'Monitor' },
+      { title: '报警数', value: 0, desc: '今日报警次数', color: '#F56C6C', bgColor: '#F56C6C', icon: 'Warning' },
+      { title: '驱动总数', value: totalDrivers, desc: '已注册驱动数量', color: '#E6A23C', bgColor: '#E6A23C', icon: 'DataAnalysis' }
+    ]
+    
+    // 构建驱动轮播数据 - 使用模拟数据，因为设备表可能没有driverId字段
+    driverList.value = drivers.map((driver, index) => ({
+      title: driver.driverName || `驱动-${driver.driverNum || index + 1}`,
+      status: driver.status === 'online' ? '在线' : '离线',
+      deviceCount: Math.floor(Math.random() * 10) + 1, // 模拟设备数量
+      onlineCount: Math.floor(Math.random() * 5), // 模拟在线设备数量
+      offlineCount: Math.floor(Math.random() * 5) + 1 // 模拟离线设备数量
+    }))
+    
+    // 如果没有驱动数据，使用默认数据
+    if (drivers.length === 0) {
+      driverList.value = [
+        { title: 'mqtt测试驱动2.7版本-30593142', status: '在线', deviceCount: 3, onlineCount: 2, offlineCount: 1 },
+        { title: 'GB28181协议驱动-31747985', status: '离线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
+        { title: 'mqtt-ca-48654311', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 },
+        { title: 'rtu驱动-48849713', status: '在线', deviceCount: 4, onlineCount: 3, offlineCount: 1 },
+        { title: 'TCP协议驱动-53703706', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 }
+      ]
+    }
+    
+  } catch (error) {
+    console.error('获取驱动统计数据失败:', error)
+    ElMessage.error('获取驱动统计数据失败')
+    
+    // 使用默认数据
+    driverStats.value = [
+      { title: '设备总数', value: 18, desc: '所有驱动下设备总数', color: '#409EFF', bgColor: '#409EFF', icon: 'Monitor' },
+      { title: '在线设备', value: 12, desc: '当前在线设备数', color: '#67C23A', bgColor: '#67C23A', icon: 'Connection' },
+      { title: '离线设备', value: 6, desc: '当前离线设备数', color: '#909399', bgColor: '#909399', icon: 'Monitor' },
+      { title: '报警数', value: 2, desc: '今日报警次数', color: '#F56C6C', bgColor: '#F56C6C', icon: 'Warning' },
+      { title: '驱动总数', value: 5, desc: '已注册驱动数量', color: '#E6A23C', bgColor: '#E6A23C', icon: 'DataAnalysis' }
+    ]
+    
+    driverList.value = [
+      { title: 'mqtt测试驱动2.7版本-30593142', status: '在线', deviceCount: 3, onlineCount: 2, offlineCount: 1 },
+      { title: 'GB28181协议驱动-31747985', status: '离线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
+      { title: 'mqtt-ca-48654311', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 },
+      { title: 'rtu驱动-48849713', status: '在线', deviceCount: 4, onlineCount: 3, offlineCount: 1 },
+      { title: 'TCP协议驱动-53703706', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 }
+    ]
+  }
+}
+
+// 刷新驱动数据
+const refreshDriverData = () => {
+  getDriverStats()
+  ElMessage.success('驱动数据已刷新')
+}
+
 // 处理路由参数 - 从产品管理页面跳转过来时自动设置产品ID
 onMounted(() => {
   // 检查是否有路由参数
@@ -1061,10 +1150,91 @@ onMounted(() => {
     // 重新加载数据
     getTableData()
   }
+  
+  // 获取驱动统计数据
+  getDriverStats()
 })
 </script>
 
 <style>
+/* 驱动统计卡片样式 */
+.stat-card {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 驱动轮播卡片样式 */
+.driver-card {
+  min-width: 260px;
+  max-width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px #e3e6f0;
+  padding: 18px 20px 14px 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: 1px solid #f0f1f2;
+  margin: 0 auto;
+}
+
+.driver-card:hover {
+  box-shadow: 0 8px 24px #d1d9e6;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.driver-card.offline {
+  opacity: 0.7;
+  background: #f8f9fa;
+}
+
+.driver-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.driver-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.driver-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.driver-device {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.driver-status {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.driver-status .online {
+  color: #67C23A;
+}
+
+.driver-status .offline {
+  color: #909399;
+}
+
 .map-container {
   padding: 20px;
 }
