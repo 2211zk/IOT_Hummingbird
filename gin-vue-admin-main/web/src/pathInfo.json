@@ -72,18 +72,18 @@
   "/src/view/systemTools/installPlugin/index.vue": "Index",
   "/src/view/systemTools/pubPlug/pubPlug.vue": "PubPlug",
   "/src/view/systemTools/system/system.vue": "Config",
-<<<<<<< HEAD
+
   "/src/view/wl_driver/wlDrivers/DriverForm.vue": "DriverForm",
   "/src/view/wl_driver/wlDrivers/Image.vue": "Image",
   "/src/view/wl_driver/wlDrivers/Mine.vue": "Mine",
   "/src/view/wl_driver/wlDrivers/Overview.vue": "Overview",
-=======
+
   "/src/view/wl_driver/driverCards/driverCards.vue": "DriverCards",
   "/src/view/wl_driver/driverCards/driverCardsForm.vue": "DriverCardsForm",
   "/src/view/wl_driver/wlDrivers/wlDrivers.vue": "WlDrivers",
   "/src/view/wl_driver/wlDrivers/wlDriversForm.vue": "WlDriversForm",
   "/src/view/wl_driver/wlOverview/overview.vue": "Overview",
->>>>>>> kai
+
   "/src/view/wl_playform/deviceAccess/index.vue": "DeviceAccess",
   "/src/view/wl_playform/deviceDistribution/index.vue": "DeviceDistribution",
   "/src/view/wl_playform/deviceMap/index.vue": "DeviceMap",
