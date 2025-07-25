@@ -31,6 +31,11 @@ func (wlDriversApi *WlDriversApi) CreateWlDrivers(c *gin.Context) {
 		response.FailWithMessage(err.Error(), c)
 		return
 	}
+	// 新增必填校验
+	if err := utils.Verify(wlDrivers, utils.WlDriversVerify); err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
 	userID := int(utils.GetUserID(c))
 	wlDrivers.CreatedBy = &userID
 	err = wlDriversService.CreateWlDrivers(ctx, &wlDrivers)
