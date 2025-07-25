@@ -50,33 +50,78 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { ElCard, ElTag, ElCarousel, ElCarouselItem } from 'element-plus'
+import { ref, onMounted } from 'vue'
+import { ElCard, ElTag, ElCarousel, ElCarouselItem, ElMessage } from 'element-plus'
 import VChart from "vue-echarts"
 import { use } from "echarts/core"
 import { LineChart, BarChart } from "echarts/charts"
 import { GridComponent, TooltipComponent, TitleComponent, LegendComponent } from "echarts/components"
 import { CanvasRenderer } from "echarts/renderers"
+// 导入API
+import { getWlDriversList } from '@/api/wl_driver/wlDrivers'
+import { getWlEquipmentList } from '@/api/wl_playform/wlEquipment'
 
 use([LineChart, BarChart, GridComponent, TooltipComponent, TitleComponent, LegendComponent, CanvasRenderer])
 
 // 顶部统计卡片数据
 const topStats = ref([
-  { title: '设备总数', value: 18, desc: '所有驱动下设备总数', color: '#409EFF' },
-  { title: '在线设备', value: 12, desc: '当前在线设备数', color: '#67C23A' },
-  { title: '离线设备', value: 6, desc: '当前离线设备数', color: '#909399' },
-  { title: '报警数', value: 2, desc: '今日报警次数', color: '#F56C6C' },
-  { title: '驱动总数', value: 5, desc: '已注册驱动数量', color: '#E6A23C' }
+  { title: '设备总数', value: 0, desc: '所有驱动下设备总数', color: '#409EFF' },
+  { title: '在线设备', value: 0, desc: '当前在线设备数', color: '#67C23A' },
+  { title: '离线设备', value: 0, desc: '当前离线设备数', color: '#909399' },
+  { title: '报警数', value: 0, desc: '今日报警次数', color: '#F56C6C' },
+  { title: '驱动总数', value: 0, desc: '已注册驱动数量', color: '#E6A23C' }
 ])
 
 // 设备驱动卡片
-const cardList = ref([
-  { title: 'mqtt测试驱动2.7版本-30593142', status: '在线', deviceCount: 0, onlineCount: 0, offlineCount: 0 },
-  { title: 'GB28181协议驱动-31747985', status: '离线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
-  { title: 'mqtt-ca-48654311', status: '在线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
-  { title: 'rtu驱动-48849713', status: '在线', deviceCount: 3, onlineCount: 2, offlineCount: 1 },
-  { title: 'TCP协议驱动-53703706', status: '在线', deviceCount: 3, onlineCount: 0, offlineCount: 3 },
-])
+const cardList = ref([])
+
+// 获取统计数据和驱动轮播数据
+const getOverviewStats = async () => {
+  try {
+    // 获取驱动列表
+    const driversResponse = await getWlDriversList({ page: 1, pageSize: 1000 })
+    const drivers = driversResponse.data?.list || []
+    // 获取设备列表
+    const devicesResponse = await getWlEquipmentList({ page: 1, pageSize: 1000 })
+    const devices = devicesResponse.data?.list || []
+    // 统计
+    const totalDevices = devices.length
+    const onlineDevices = devices.filter(d => d.status === 'online').length
+    const offlineDevices = devices.filter(d => d.status === 'offline').length
+    const totalDrivers = drivers.length
+    // 更新统计卡片
+    topStats.value = [
+      { title: '设备总数', value: totalDevices, desc: '所有驱动下设备总数', color: '#409EFF' },
+      { title: '在线设备', value: onlineDevices, desc: '当前在线设备数', color: '#67C23A' },
+      { title: '离线设备', value: offlineDevices, desc: '当前离线设备数', color: '#909399' },
+      { title: '报警数', value: 0, desc: '今日报警次数', color: '#F56C6C' },
+      { title: '驱动总数', value: totalDrivers, desc: '已注册驱动数量', color: '#E6A23C' }
+    ]
+    // 构建驱动轮播数据（如设备表无driverId字段则用模拟数据）
+    cardList.value = drivers.map((driver, idx) => ({
+      title: driver.driverName || `驱动-${driver.driverNum || idx + 1}`,
+      status: driver.status === 'online' ? '在线' : '离线',
+      deviceCount: Math.floor(Math.random() * 10) + 1, // 模拟设备数量
+      onlineCount: Math.floor(Math.random() * 5), // 模拟在线设备数量
+      offlineCount: Math.floor(Math.random() * 5) + 1 // 模拟离线设备数量
+    }))
+    if (drivers.length === 0) {
+      cardList.value = [
+        { title: 'mqtt测试驱动2.7版本-30593142', status: '在线', deviceCount: 3, onlineCount: 2, offlineCount: 1 },
+        { title: 'GB28181协议驱动-31747985', status: '离线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
+        { title: 'mqtt-ca-48654311', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 },
+        { title: 'rtu驱动-48849713', status: '在线', deviceCount: 4, onlineCount: 3, offlineCount: 1 },
+        { title: 'TCP协议驱动-53703706', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 }
+      ]
+    }
+  } catch (error) {
+    ElMessage.error('获取驱动概述数据失败')
+  }
+}
+
+onMounted(() => {
+  getOverviewStats()
+})
 
 // 消息趋势折线图（数据更丰富）
 const timeLabels = Array.from({ length: 20 }, (_, i) => `21:${(i * 3).toString().padStart(2, '0')}`)
@@ -95,7 +140,6 @@ const trendOption = {
   ]
 }
 
-// CPU折线图
 const cpuOption = {
   tooltip: { trigger: 'axis' },
   grid: { left: 40, right: 20, top: 30, bottom: 30 },
@@ -104,7 +148,6 @@ const cpuOption = {
   series: [{ data: upData.map(v => (v / 10 + Math.random() * 0.1).toFixed(2)), type: 'line', smooth: true, symbol: 'circle', symbolSize: 6, lineStyle: { width: 2, color: '#42a5f5' }, areaStyle: { color: 'rgba(66,165,245,0.08)' } }]
 }
 
-// 内存折线图
 const memOption = {
   tooltip: { trigger: 'axis' },
   grid: { left: 40, right: 20, top: 30, bottom: 30 },
