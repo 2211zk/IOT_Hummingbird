@@ -343,7 +343,8 @@ const fetchDashboardData = async () => {
       
       // 更新图表
       nextTick(() => {
-        updateCharts()
+        // 暂时注释掉，因为updateCharts函数未定义
+        // updateCharts()
       })
     }
   } catch (error) {

@@ -167,7 +167,7 @@
             </el-select>
           </el-form-item>
           
-<<<<<<< HEAD
+
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="driveId">
             <el-select v-model="formData.driveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
@@ -175,8 +175,7 @@
             </el-select>
           </el-form-item>
           
-=======
->>>>>>> kai
+
           <!-- 设备坐标 -->
           <el-form-item label="设备坐标" prop="eqCoordinate">
             <el-input 
@@ -208,16 +207,14 @@
             </el-select>
           </el-form-item>
           
-<<<<<<< HEAD
+
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="batchDriveId" required>
             <el-select v-model="formData.batchDriveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
               <el-option v-for="driver in driverOptions" :key="driver.ID" :label="`${driver.driverId || driver.ID} - ${driver.driverName}`" :value="driver.ID" />
             </el-select>
           </el-form-item>
-          
-=======
->>>>>>> kai
+
           <!-- 上传设备表 -->
           <el-form-item label="上传设备表" prop="batchFile" required>
             <el-upload
@@ -378,6 +375,8 @@ const showAllQuery = ref(false)
 
 // 产品选项
 const productOptions = ref([])
+// 驱动选项
+const driverOptions = ref([])
 
 const formData = ref({
             eqName: '',
@@ -577,7 +576,6 @@ const getProductName = (productId) => {
   return product ? product.prName : '-'
 }
 
-<<<<<<< HEAD
 // 获取驱动名称 - 根据驱动ID查找对应的驱动名称
 // 功能：在表格中显示驱动ID和名称，提升用户体验
 const getDriverName = (driverId) => {
@@ -617,8 +615,6 @@ const batchUnbindDriver = () => {
   })
 }
 
-=======
->>>>>>> kai
 // 获取产品选项 - 从后端API获取所有产品列表
 // 功能：为设备创建/编辑表单中的产品下拉选择框提供选项数据
 const getProductOptions = async () => {
@@ -666,11 +662,10 @@ const getDriverOptions = async () => {
 const setOptions = async () =>{
     // 获取所有产品列表
     await getProductOptions()
-<<<<<<< HEAD
+
     // 获取所有驱动列表
     await getDriverOptions()
-=======
->>>>>>> kai
+
 }
 
 // 初始化产品选项
