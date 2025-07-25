@@ -27,14 +27,6 @@
           </el-select>
         </el-form-item>
         
-        <el-form-item label="驱动" prop="driver">
-          <el-select v-model="searchInfo.driver" placeholder="驱动(全部)" style="width: 150px">
-            <el-option label="全部" value="" />
-            <el-option label="已绑定" value="bound" />
-            <el-option label="未绑定" value="unbound" />
-          </el-select>
-        </el-form-item>
-        
         <el-form-item label="状态" prop="status">
           <el-select v-model="searchInfo.status" placeholder="状态(全部)" style="width: 150px">
             <el-option label="全部" value="" />
@@ -58,9 +50,6 @@
     <div class="gva-table-box">
       <div class="gva-btn-list">
         <el-button v-auth="btnAuth.add" type="primary" icon="plus" @click="openDialog()">+ 添加设备</el-button>
-        <el-button icon="link" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="batchBindDriver">批量驱动绑定</el-button>
-        <el-button icon="unlink" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="batchUnbindDriver">批量驱动解绑</el-button>
-        <el-button v-auth="btnAuth.batchDelete" icon="delete" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="onDelete">批量删除</el-button>
         <el-button icon="refresh" style="margin-left: 10px;" @click="getTableData">刷新</el-button>
         <ExportTemplate v-auth="btnAuth.exportTemplate" template-id="wl_playform_WlEquipment" />
         <ExportExcel v-auth="btnAuth.exportExcel" template-id="wl_playform_WlEquipment" filterDeleted/>
@@ -96,12 +85,6 @@
                 {{ scope.row.status === 'online' ? '在线' : '离线' }}
               </span>
             </div>
-          </template>
-        </el-table-column>
-
-        <el-table-column align="left" label="关联驱动" prop="driveId" width="150">
-          <template #default="scope">
-            {{ getDriverName(scope.row.driveId) || '-' }}
           </template>
         </el-table-column>
 
@@ -184,6 +167,7 @@
             </el-select>
           </el-form-item>
           
+<<<<<<< HEAD
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="driveId">
             <el-select v-model="formData.driveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
@@ -191,6 +175,8 @@
             </el-select>
           </el-form-item>
           
+=======
+>>>>>>> kai
           <!-- 设备坐标 -->
           <el-form-item label="设备坐标" prop="eqCoordinate">
             <el-input 
@@ -222,6 +208,7 @@
             </el-select>
           </el-form-item>
           
+<<<<<<< HEAD
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="batchDriveId" required>
             <el-select v-model="formData.batchDriveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
@@ -229,6 +216,8 @@
             </el-select>
           </el-form-item>
           
+=======
+>>>>>>> kai
           <!-- 上传设备表 -->
           <el-form-item label="上传设备表" prop="batchFile" required>
             <el-upload
@@ -278,9 +267,6 @@
               {{ detailFrom.status === 'online' ? '在线' : '离线' }}
             </span>
           </div>
-        </el-descriptions-item>
-        <el-descriptions-item label="关联驱动">
-          {{ getDriverName(detailFrom.driveId) || '-' }}
         </el-descriptions-item>
         <el-descriptions-item label="设备坐标">
           {{ getCoordinateName(detailFrom.eqCoordinate) || '-' }}
@@ -390,15 +376,13 @@ const route = useRoute()
 // 控制更多查询条件显示/隐藏状态
 const showAllQuery = ref(false)
 
-// 产品选项和驱动选项
+// 产品选项
 const productOptions = ref([])
-const driverOptions = ref([])
 
 const formData = ref({
             eqName: '',
             eqLogotype: '',
             productsId: undefined,
-            driveId: undefined,
             eqCoordinate: '',
             eqAddress: '',
             eqInfo: '',
@@ -407,7 +391,6 @@ const formData = ref({
             addMethod: 'single',
             // 批量添加字段
             batchProductsId: undefined,
-            batchDriveId: undefined,
             batchFile: null,
         })
 
@@ -517,11 +500,6 @@ const rule = reactive({
                    message: '请选择所属产品',
                    trigger: ['change'],
                }],
-               batchDriveId : [{
-                   required: true,
-                   message: '请选择关联驱动',
-                   trigger: ['change'],
-               }],
                batchFile : [{
                    required: true,
                    message: '请上传设备表文件',
@@ -540,7 +518,6 @@ const tableData = ref([])
 const searchInfo = ref({
     productScope: '',
     productType: '',
-    driver: '',
     status: '',
     eqName: '',
 })
@@ -550,7 +527,6 @@ const onReset = () => {
   searchInfo.value = {
     productScope: '',
     productType: '',
-    driver: '',
     status: '',
     eqName: '',
   }
@@ -601,6 +577,7 @@ const getProductName = (productId) => {
   return product ? product.prName : '-'
 }
 
+<<<<<<< HEAD
 // 获取驱动名称 - 根据驱动ID查找对应的驱动名称
 // 功能：在表格中显示驱动ID和名称，提升用户体验
 const getDriverName = (driverId) => {
@@ -640,6 +617,8 @@ const batchUnbindDriver = () => {
   })
 }
 
+=======
+>>>>>>> kai
 // 获取产品选项 - 从后端API获取所有产品列表
 // 功能：为设备创建/编辑表单中的产品下拉选择框提供选项数据
 const getProductOptions = async () => {
@@ -683,12 +662,15 @@ const getDriverOptions = async () => {
 }
 
 // 获取需要的字典 - 初始化页面所需的选项数据
-// 功能：在页面加载时获取产品列表、驱动列表等选项数据
+// 功能：在页面加载时获取产品列表等选项数据
 const setOptions = async () =>{
     // 获取所有产品列表
     await getProductOptions()
+<<<<<<< HEAD
     // 获取所有驱动列表
     await getDriverOptions()
+=======
+>>>>>>> kai
 }
 
 // 初始化产品选项
@@ -797,7 +779,6 @@ const closeDialog = () => {
         eqName: '',
         eqLogotype: '',
         productsId: undefined,
-        driveId: undefined,
         eqCoordinate: '',
         eqAddress: '',
         eqInfo: '',
@@ -806,7 +787,6 @@ const closeDialog = () => {
         addMethod: 'single',
         // 批量添加字段
         batchProductsId: undefined,
-        batchDriveId: undefined,
         batchFile: null,
         }
     // 清空文件列表

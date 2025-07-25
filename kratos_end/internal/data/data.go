@@ -1,19 +1,20 @@
 package data
 
 import (
-	"IOT_Hummingbird_back_end/internal/conf"
+	"kratos/internal/conf"
 
 	"context"
 	"fmt"
 
 	"github.com/go-kratos/kratos/v2/log"
-	"github.com/go-redis/redis/v8"
 	"github.com/google/wire"
-	"github.com/spf13/viper"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
+
+	"database/sql"
+	"kratos/internal/biz"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 // ProviderSet is data providers.
@@ -21,65 +22,107 @@ var ProviderSet = wire.NewSet(NewData, NewGreeterRepo, NewUserRepo)
 
 // Data .
 type Data struct {
-	MySQL *gorm.DB
-	Redis *redis.Client
-	Mongo *mongo.Client
+	// TODO wrapped database client
+	MongoClient *mongo.Client
+	MySQLClient *sql.DB
 }
 
 // NewData .
 func NewData(c *conf.Data, logger log.Logger) (*Data, func(), error) {
-	helper := log.NewHelper(logger)
-	// 1. 使用 viper 解析 config.yaml
-	v := viper.New()
-	v.SetConfigName("config")
-	v.SetConfigType("yaml")
-	v.AddConfigPath("./configs")
-	if err := v.ReadInConfig(); err != nil {
-		helper.Errorf("读取配置文件失败: %v", err)
-		return nil, nil, err
-	}
-	// 2. 解析 MySQL 配置
-	mysqlCfg := c.GetMysql()
-	mysqlDsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?parseTime=True&loc=Local", mysqlCfg.User, mysqlCfg.Password, mysqlCfg.Host, mysqlCfg.Port, mysqlCfg.Database)
-	mysqlDB, err := gorm.Open(mysql.Open(mysqlDsn), &gorm.Config{})
+	// 构建MongoDB连接URI
+	uri := fmt.Sprintf("mongodb://%s:%s@%s:%d/%s",
+		c.Mongodb.User,
+		c.Mongodb.Password,
+		c.Mongodb.Host,
+		c.Mongodb.Port,
+		c.Mongodb.Database,
+	)
+	clientOpts := options.Client().ApplyURI(uri)
+	mongoClient, err := mongo.Connect(context.Background(), clientOpts)
 	if err != nil {
-		helper.Errorf("MySQL 连接失败: %v", err)
 		return nil, nil, err
-	} else {
-		helper.Infof("MySQL 连接成功")
 	}
-	// 3. 解析 Redis 配置
-	redisCfg := c.GetRedis()
-	redisClient := redis.NewClient(&redis.Options{
-		Addr:     redisCfg.Addr,
-		Password: redisCfg.Password,
-		DB:       int(redisCfg.Db),
-	})
-	if err := redisClient.Ping(context.Background()).Err(); err != nil {
-		helper.Errorf("Redis 连接失败: %v", err)
-		return nil, nil, err
-	} else {
-		helper.Infof("Redis 连接成功，地址: %s", redisCfg.Addr)
-	}
-	// 4. 解析 MongoDB 配置
-	mongoCfg := c.GetMongodb()
-	mongoUri := fmt.Sprintf("mongodb://%s:%s@%s:%d/%s", mongoCfg.User, mongoCfg.Password, mongoCfg.Host, mongoCfg.Port, mongoCfg.Database)
-	mongoClient, err := mongo.Connect(context.Background(), options.Client().ApplyURI(mongoUri))
+	// 初始化MySQL
+	mysqlDB, err := sql.Open("mysql", c.Database.Source)
 	if err != nil {
-		helper.Errorf("MongoDB 连接失败: %v", err)
 		return nil, nil, err
-	} else {
-		helper.Infof("MongoDB 连接成功，地址: %s:%d", mongoCfg.Host, mongoCfg.Port)
 	}
 	cleanup := func() {
-		helper.Info("closing the data resources")
+		log.NewHelper(logger).Info("closing the data resources")
 		_ = mongoClient.Disconnect(context.Background())
-		_ = redisClient.Close()
-		// gorm 无需手动关闭
+		_ = mysqlDB.Close()
 	}
-	return &Data{
-		MySQL: mysqlDB,
-		Redis: redisClient,
-		Mongo: mongoClient,
-	}, cleanup, nil
+	return &Data{MongoClient: mongoClient, MySQLClient: mysqlDB}, cleanup, nil
+}
+
+// UserRepo实现
+type userRepo struct {
+	data *Data
+	log  *log.Helper
+}
+
+func NewUserRepo(data *Data, logger log.Logger) biz.UserRepo {
+	return &userRepo{
+		data: data,
+		log:  log.NewHelper(logger),
+	}
+}
+
+func (r *userRepo) Register(user *biz.User, dtmGid string) (int32, error) {
+	res, err := r.data.MySQLClient.Exec(`INSERT INTO wl_user (user_name, user_nickname, department, mobile, email, password, gender, role, user_status, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+		user.UserName, user.UserNickname, user.Department, user.Mobile, user.Email, user.Password, user.Gender, user.Role, user.UserStatus, user.Comment)
+	if err != nil {
+		return 0, err
+	}
+	id, err := res.LastInsertId()
+	return int32(id), err
+}
+func (r *userRepo) RegisterCompensate(id int32, dtmGid string) error {
+	_, err := r.data.MySQLClient.Exec(`DELETE FROM wl_user WHERE id = ?`, id)
+	return err
+}
+func (r *userRepo) Login(userName, password string) (*biz.User, error) {
+	row := r.data.MySQLClient.QueryRow(`SELECT id, user_name, user_nickname, department, mobile, email, password, gender, role, user_status, comment FROM wl_user WHERE user_name = ? AND password = ?`, userName, password)
+	var user biz.User
+	if err := row.Scan(&user.Id, &user.UserName, &user.UserNickname, &user.Department, &user.Mobile, &user.Email, &user.Password, &user.Gender, &user.Role, &user.UserStatus, &user.Comment); err != nil {
+		return nil, err
+	}
+	return &user, nil
+}
+func (r *userRepo) GetUser(id int32) (*biz.User, error) {
+	row := r.data.MySQLClient.QueryRow(`SELECT id, user_name, user_nickname, department, mobile, email, password, gender, role, user_status, comment FROM wl_user WHERE id = ?`, id)
+	var user biz.User
+	if err := row.Scan(&user.Id, &user.UserName, &user.UserNickname, &user.Department, &user.Mobile, &user.Email, &user.Password, &user.Gender, &user.Role, &user.UserStatus, &user.Comment); err != nil {
+		return nil, err
+	}
+	return &user, nil
+}
+func (r *userRepo) ListUser(page, pageSize int32) ([]*biz.User, int32, error) {
+	offset := (page - 1) * pageSize
+	rows, err := r.data.MySQLClient.Query(`SELECT id, user_name, user_nickname, department, mobile, email, password, gender, role, user_status, comment FROM wl_user LIMIT ? OFFSET ?`, pageSize, offset)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer rows.Close()
+	var users []*biz.User
+	for rows.Next() {
+		var user biz.User
+		if err := rows.Scan(&user.Id, &user.UserName, &user.UserNickname, &user.Department, &user.Mobile, &user.Email, &user.Password, &user.Gender, &user.Role, &user.UserStatus, &user.Comment); err != nil {
+			return nil, 0, err
+		}
+		users = append(users, &user)
+	}
+	var total int32
+	row := r.data.MySQLClient.QueryRow(`SELECT COUNT(*) FROM wl_user`)
+	_ = row.Scan(&total)
+	return users, total, nil
+}
+func (r *userRepo) UpdateUser(user *biz.User) error {
+	_, err := r.data.MySQLClient.Exec(`UPDATE wl_user SET user_nickname=?, department=?, mobile=?, email=?, gender=?, role=?, user_status=?, comment=? WHERE id=?`,
+		user.UserNickname, user.Department, user.Mobile, user.Email, user.Gender, user.Role, user.UserStatus, user.Comment, user.Id)
+	return err
+}
+func (r *userRepo) DeleteUser(id int32) error {
+	_, err := r.data.MySQLClient.Exec(`DELETE FROM wl_user WHERE id = ?`, id)
+	return err
 }

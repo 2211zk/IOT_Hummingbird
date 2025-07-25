@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.31.1
-// source: internal/conf/conf.proto
+// source: conf/conf.proto
 
 package conf
 
@@ -32,7 +32,7 @@ type Bootstrap struct {
 
 func (x *Bootstrap) Reset() {
 	*x = Bootstrap{}
-	mi := &file_internal_conf_conf_proto_msgTypes[0]
+	mi := &file_conf_conf_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *Bootstrap) String() string {
 func (*Bootstrap) ProtoMessage() {}
 
 func (x *Bootstrap) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[0]
+	mi := &file_conf_conf_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *Bootstrap) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Bootstrap.ProtoReflect.Descriptor instead.
 func (*Bootstrap) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{0}
+	return file_conf_conf_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Bootstrap) GetServer() *Server {
@@ -84,7 +84,7 @@ type Server struct {
 
 func (x *Server) Reset() {
 	*x = Server{}
-	mi := &file_internal_conf_conf_proto_msgTypes[1]
+	mi := &file_conf_conf_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -96,7 +96,7 @@ func (x *Server) String() string {
 func (*Server) ProtoMessage() {}
 
 func (x *Server) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[1]
+	mi := &file_conf_conf_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -109,7 +109,7 @@ func (x *Server) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Server.ProtoReflect.Descriptor instead.
 func (*Server) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{1}
+	return file_conf_conf_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Server) GetHttp() *Server_HTTP {
@@ -128,16 +128,19 @@ func (x *Server) GetGrpc() *Server_GRPC {
 
 type Data struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Mysql         *Data_Mysql            `protobuf:"bytes,1,opt,name=mysql,proto3" json:"mysql,omitempty"`
+	Database      *Data_Database         `protobuf:"bytes,1,opt,name=database,proto3" json:"database,omitempty"`
 	Redis         *Data_Redis            `protobuf:"bytes,2,opt,name=redis,proto3" json:"redis,omitempty"`
-	Mongodb       *Data_Mongodb          `protobuf:"bytes,3,opt,name=mongodb,proto3" json:"mongodb,omitempty"`
+	Mongodb       *Data_MongoDB          `protobuf:"bytes,3,opt,name=mongodb,proto3" json:"mongodb,omitempty"`
+	Etcd          *Data_Etcd             `protobuf:"bytes,4,opt,name=etcd,proto3" json:"etcd,omitempty"`
+	Nacos         *Data_Nacos            `protobuf:"bytes,5,opt,name=nacos,proto3" json:"nacos,omitempty"`
+	Dtm           *Data_Dtm              `protobuf:"bytes,6,opt,name=dtm,proto3" json:"dtm,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Data) Reset() {
 	*x = Data{}
-	mi := &file_internal_conf_conf_proto_msgTypes[2]
+	mi := &file_conf_conf_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -149,7 +152,7 @@ func (x *Data) String() string {
 func (*Data) ProtoMessage() {}
 
 func (x *Data) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[2]
+	mi := &file_conf_conf_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,12 +165,12 @@ func (x *Data) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Data.ProtoReflect.Descriptor instead.
 func (*Data) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{2}
+	return file_conf_conf_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *Data) GetMysql() *Data_Mysql {
+func (x *Data) GetDatabase() *Data_Database {
 	if x != nil {
-		return x.Mysql
+		return x.Database
 	}
 	return nil
 }
@@ -179,9 +182,30 @@ func (x *Data) GetRedis() *Data_Redis {
 	return nil
 }
 
-func (x *Data) GetMongodb() *Data_Mongodb {
+func (x *Data) GetMongodb() *Data_MongoDB {
 	if x != nil {
 		return x.Mongodb
+	}
+	return nil
+}
+
+func (x *Data) GetEtcd() *Data_Etcd {
+	if x != nil {
+		return x.Etcd
+	}
+	return nil
+}
+
+func (x *Data) GetNacos() *Data_Nacos {
+	if x != nil {
+		return x.Nacos
+	}
+	return nil
+}
+
+func (x *Data) GetDtm() *Data_Dtm {
+	if x != nil {
+		return x.Dtm
 	}
 	return nil
 }
@@ -197,7 +221,7 @@ type Server_HTTP struct {
 
 func (x *Server_HTTP) Reset() {
 	*x = Server_HTTP{}
-	mi := &file_internal_conf_conf_proto_msgTypes[3]
+	mi := &file_conf_conf_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -209,7 +233,7 @@ func (x *Server_HTTP) String() string {
 func (*Server_HTTP) ProtoMessage() {}
 
 func (x *Server_HTTP) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[3]
+	mi := &file_conf_conf_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -222,7 +246,7 @@ func (x *Server_HTTP) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Server_HTTP.ProtoReflect.Descriptor instead.
 func (*Server_HTTP) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{1, 0}
+	return file_conf_conf_proto_rawDescGZIP(), []int{1, 0}
 }
 
 func (x *Server_HTTP) GetNetwork() string {
@@ -257,7 +281,7 @@ type Server_GRPC struct {
 
 func (x *Server_GRPC) Reset() {
 	*x = Server_GRPC{}
-	mi := &file_internal_conf_conf_proto_msgTypes[4]
+	mi := &file_conf_conf_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -269,7 +293,7 @@ func (x *Server_GRPC) String() string {
 func (*Server_GRPC) ProtoMessage() {}
 
 func (x *Server_GRPC) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[4]
+	mi := &file_conf_conf_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -282,7 +306,7 @@ func (x *Server_GRPC) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Server_GRPC.ProtoReflect.Descriptor instead.
 func (*Server_GRPC) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{1, 1}
+	return file_conf_conf_proto_rawDescGZIP(), []int{1, 1}
 }
 
 func (x *Server_GRPC) GetNetwork() string {
@@ -306,32 +330,29 @@ func (x *Server_GRPC) GetTimeout() *durationpb.Duration {
 	return nil
 }
 
-type Data_Mysql struct {
+type Data_Database struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	User          string                 `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	Host          string                 `protobuf:"bytes,3,opt,name=host,proto3" json:"host,omitempty"`
-	Port          int32                  `protobuf:"varint,4,opt,name=port,proto3" json:"port,omitempty"`
-	Database      string                 `protobuf:"bytes,5,opt,name=database,proto3" json:"database,omitempty"`
+	Driver        string                 `protobuf:"bytes,1,opt,name=driver,proto3" json:"driver,omitempty"`
+	Source        string                 `protobuf:"bytes,2,opt,name=source,proto3" json:"source,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Data_Mysql) Reset() {
-	*x = Data_Mysql{}
-	mi := &file_internal_conf_conf_proto_msgTypes[5]
+func (x *Data_Database) Reset() {
+	*x = Data_Database{}
+	mi := &file_conf_conf_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Data_Mysql) String() string {
+func (x *Data_Database) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Data_Mysql) ProtoMessage() {}
+func (*Data_Database) ProtoMessage() {}
 
-func (x *Data_Mysql) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[5]
+func (x *Data_Database) ProtoReflect() protoreflect.Message {
+	mi := &file_conf_conf_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -342,58 +363,38 @@ func (x *Data_Mysql) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Data_Mysql.ProtoReflect.Descriptor instead.
-func (*Data_Mysql) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{2, 0}
+// Deprecated: Use Data_Database.ProtoReflect.Descriptor instead.
+func (*Data_Database) Descriptor() ([]byte, []int) {
+	return file_conf_conf_proto_rawDescGZIP(), []int{2, 0}
 }
 
-func (x *Data_Mysql) GetUser() string {
+func (x *Data_Database) GetDriver() string {
 	if x != nil {
-		return x.User
+		return x.Driver
 	}
 	return ""
 }
 
-func (x *Data_Mysql) GetPassword() string {
+func (x *Data_Database) GetSource() string {
 	if x != nil {
-		return x.Password
-	}
-	return ""
-}
-
-func (x *Data_Mysql) GetHost() string {
-	if x != nil {
-		return x.Host
-	}
-	return ""
-}
-
-func (x *Data_Mysql) GetPort() int32 {
-	if x != nil {
-		return x.Port
-	}
-	return 0
-}
-
-func (x *Data_Mysql) GetDatabase() string {
-	if x != nil {
-		return x.Database
+		return x.Source
 	}
 	return ""
 }
 
 type Data_Redis struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Addr          string                 `protobuf:"bytes,1,opt,name=addr,proto3" json:"addr,omitempty"`
-	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
-	Db            int32                  `protobuf:"varint,3,opt,name=db,proto3" json:"db,omitempty"`
+	Network       string                 `protobuf:"bytes,1,opt,name=network,proto3" json:"network,omitempty"`
+	Addr          string                 `protobuf:"bytes,2,opt,name=addr,proto3" json:"addr,omitempty"`
+	ReadTimeout   *durationpb.Duration   `protobuf:"bytes,3,opt,name=read_timeout,json=readTimeout,proto3" json:"read_timeout,omitempty"`
+	WriteTimeout  *durationpb.Duration   `protobuf:"bytes,4,opt,name=write_timeout,json=writeTimeout,proto3" json:"write_timeout,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Data_Redis) Reset() {
 	*x = Data_Redis{}
-	mi := &file_internal_conf_conf_proto_msgTypes[6]
+	mi := &file_conf_conf_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -405,7 +406,7 @@ func (x *Data_Redis) String() string {
 func (*Data_Redis) ProtoMessage() {}
 
 func (x *Data_Redis) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[6]
+	mi := &file_conf_conf_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -418,7 +419,14 @@ func (x *Data_Redis) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Data_Redis.ProtoReflect.Descriptor instead.
 func (*Data_Redis) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{2, 1}
+	return file_conf_conf_proto_rawDescGZIP(), []int{2, 1}
+}
+
+func (x *Data_Redis) GetNetwork() string {
+	if x != nil {
+		return x.Network
+	}
+	return ""
 }
 
 func (x *Data_Redis) GetAddr() string {
@@ -428,21 +436,21 @@ func (x *Data_Redis) GetAddr() string {
 	return ""
 }
 
-func (x *Data_Redis) GetPassword() string {
+func (x *Data_Redis) GetReadTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.Password
+		return x.ReadTimeout
 	}
-	return ""
+	return nil
 }
 
-func (x *Data_Redis) GetDb() int32 {
+func (x *Data_Redis) GetWriteTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.Db
+		return x.WriteTimeout
 	}
-	return 0
+	return nil
 }
 
-type Data_Mongodb struct {
+type Data_MongoDB struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	User          string                 `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
@@ -453,21 +461,21 @@ type Data_Mongodb struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Data_Mongodb) Reset() {
-	*x = Data_Mongodb{}
-	mi := &file_internal_conf_conf_proto_msgTypes[7]
+func (x *Data_MongoDB) Reset() {
+	*x = Data_MongoDB{}
+	mi := &file_conf_conf_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Data_Mongodb) String() string {
+func (x *Data_MongoDB) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Data_Mongodb) ProtoMessage() {}
+func (*Data_MongoDB) ProtoMessage() {}
 
-func (x *Data_Mongodb) ProtoReflect() protoreflect.Message {
-	mi := &file_internal_conf_conf_proto_msgTypes[7]
+func (x *Data_MongoDB) ProtoReflect() protoreflect.Message {
+	mi := &file_conf_conf_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -478,51 +486,231 @@ func (x *Data_Mongodb) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Data_Mongodb.ProtoReflect.Descriptor instead.
-func (*Data_Mongodb) Descriptor() ([]byte, []int) {
-	return file_internal_conf_conf_proto_rawDescGZIP(), []int{2, 2}
+// Deprecated: Use Data_MongoDB.ProtoReflect.Descriptor instead.
+func (*Data_MongoDB) Descriptor() ([]byte, []int) {
+	return file_conf_conf_proto_rawDescGZIP(), []int{2, 2}
 }
 
-func (x *Data_Mongodb) GetUser() string {
+func (x *Data_MongoDB) GetUser() string {
 	if x != nil {
 		return x.User
 	}
 	return ""
 }
 
-func (x *Data_Mongodb) GetPassword() string {
+func (x *Data_MongoDB) GetPassword() string {
 	if x != nil {
 		return x.Password
 	}
 	return ""
 }
 
-func (x *Data_Mongodb) GetHost() string {
+func (x *Data_MongoDB) GetHost() string {
 	if x != nil {
 		return x.Host
 	}
 	return ""
 }
 
-func (x *Data_Mongodb) GetPort() int32 {
+func (x *Data_MongoDB) GetPort() int32 {
 	if x != nil {
 		return x.Port
 	}
 	return 0
 }
 
-func (x *Data_Mongodb) GetDatabase() string {
+func (x *Data_MongoDB) GetDatabase() string {
 	if x != nil {
 		return x.Database
 	}
 	return ""
 }
 
-var File_internal_conf_conf_proto protoreflect.FileDescriptor
+type Data_Etcd struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Endpoints     []string               `protobuf:"bytes,1,rep,name=endpoints,proto3" json:"endpoints,omitempty"`
+	Username      string                 `protobuf:"bytes,2,opt,name=username,proto3" json:"username,omitempty"`
+	Password      string                 `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
 
-const file_internal_conf_conf_proto_rawDesc = "" +
+func (x *Data_Etcd) Reset() {
+	*x = Data_Etcd{}
+	mi := &file_conf_conf_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Data_Etcd) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Data_Etcd) ProtoMessage() {}
+
+func (x *Data_Etcd) ProtoReflect() protoreflect.Message {
+	mi := &file_conf_conf_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Data_Etcd.ProtoReflect.Descriptor instead.
+func (*Data_Etcd) Descriptor() ([]byte, []int) {
+	return file_conf_conf_proto_rawDescGZIP(), []int{2, 3}
+}
+
+func (x *Data_Etcd) GetEndpoints() []string {
+	if x != nil {
+		return x.Endpoints
+	}
+	return nil
+}
+
+func (x *Data_Etcd) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *Data_Etcd) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type Data_Nacos struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Addr          string                 `protobuf:"bytes,1,opt,name=addr,proto3" json:"addr,omitempty"`
+	Port          uint64                 `protobuf:"varint,2,opt,name=port,proto3" json:"port,omitempty"`
+	NamespaceId   string                 `protobuf:"bytes,3,opt,name=namespace_id,json=namespaceId,proto3" json:"namespace_id,omitempty"`
+	Username      string                 `protobuf:"bytes,4,opt,name=username,proto3" json:"username,omitempty"`
+	Password      string                 `protobuf:"bytes,5,opt,name=password,proto3" json:"password,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Data_Nacos) Reset() {
+	*x = Data_Nacos{}
+	mi := &file_conf_conf_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Data_Nacos) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Data_Nacos) ProtoMessage() {}
+
+func (x *Data_Nacos) ProtoReflect() protoreflect.Message {
+	mi := &file_conf_conf_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Data_Nacos.ProtoReflect.Descriptor instead.
+func (*Data_Nacos) Descriptor() ([]byte, []int) {
+	return file_conf_conf_proto_rawDescGZIP(), []int{2, 4}
+}
+
+func (x *Data_Nacos) GetAddr() string {
+	if x != nil {
+		return x.Addr
+	}
+	return ""
+}
+
+func (x *Data_Nacos) GetPort() uint64 {
+	if x != nil {
+		return x.Port
+	}
+	return 0
+}
+
+func (x *Data_Nacos) GetNamespaceId() string {
+	if x != nil {
+		return x.NamespaceId
+	}
+	return ""
+}
+
+func (x *Data_Nacos) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *Data_Nacos) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type Data_Dtm struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Server        string                 `protobuf:"bytes,1,opt,name=server,proto3" json:"server,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Data_Dtm) Reset() {
+	*x = Data_Dtm{}
+	mi := &file_conf_conf_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Data_Dtm) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Data_Dtm) ProtoMessage() {}
+
+func (x *Data_Dtm) ProtoReflect() protoreflect.Message {
+	mi := &file_conf_conf_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Data_Dtm.ProtoReflect.Descriptor instead.
+func (*Data_Dtm) Descriptor() ([]byte, []int) {
+	return file_conf_conf_proto_rawDescGZIP(), []int{2, 5}
+}
+
+func (x *Data_Dtm) GetServer() string {
+	if x != nil {
+		return x.Server
+	}
+	return ""
+}
+
+var File_conf_conf_proto protoreflect.FileDescriptor
+
+const file_conf_conf_proto_rawDesc = "" +
 	"\n" +
-	"\x18internal/conf/conf.proto\x12\n" +
+	"\x0fconf/conf.proto\x12\n" +
 	"kratos.api\x1a\x1egoogle/protobuf/duration.proto\"]\n" +
 	"\tBootstrap\x12*\n" +
 	"\x06server\x18\x01 \x01(\v2\x12.kratos.api.ServerR\x06server\x12$\n" +
@@ -537,89 +725,110 @@ const file_internal_conf_conf_proto_rawDesc = "" +
 	"\x04GRPC\x12\x18\n" +
 	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
 	"\x04addr\x18\x02 \x01(\tR\x04addr\x123\n" +
-	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\xdb\x03\n" +
-	"\x04Data\x12,\n" +
-	"\x05mysql\x18\x01 \x01(\v2\x16.kratos.api.Data.MysqlR\x05mysql\x12,\n" +
+	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\x9b\a\n" +
+	"\x04Data\x125\n" +
+	"\bdatabase\x18\x01 \x01(\v2\x19.kratos.api.Data.DatabaseR\bdatabase\x12,\n" +
 	"\x05redis\x18\x02 \x01(\v2\x16.kratos.api.Data.RedisR\x05redis\x122\n" +
-	"\amongodb\x18\x03 \x01(\v2\x18.kratos.api.Data.MongodbR\amongodb\x1a{\n" +
-	"\x05Mysql\x12\x12\n" +
+	"\amongodb\x18\x03 \x01(\v2\x18.kratos.api.Data.MongoDBR\amongodb\x12)\n" +
+	"\x04etcd\x18\x04 \x01(\v2\x15.kratos.api.Data.EtcdR\x04etcd\x12,\n" +
+	"\x05nacos\x18\x05 \x01(\v2\x16.kratos.api.Data.NacosR\x05nacos\x12&\n" +
+	"\x03dtm\x18\x06 \x01(\v2\x14.kratos.api.Data.DtmR\x03dtm\x1a:\n" +
+	"\bDatabase\x12\x16\n" +
+	"\x06driver\x18\x01 \x01(\tR\x06driver\x12\x16\n" +
+	"\x06source\x18\x02 \x01(\tR\x06source\x1a\xb3\x01\n" +
+	"\x05Redis\x12\x18\n" +
+	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
+	"\x04addr\x18\x02 \x01(\tR\x04addr\x12<\n" +
+	"\fread_timeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\vreadTimeout\x12>\n" +
+	"\rwrite_timeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\fwriteTimeout\x1a}\n" +
+	"\aMongoDB\x12\x12\n" +
 	"\x04user\x18\x01 \x01(\tR\x04user\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x12\n" +
 	"\x04host\x18\x03 \x01(\tR\x04host\x12\x12\n" +
 	"\x04port\x18\x04 \x01(\x05R\x04port\x12\x1a\n" +
-	"\bdatabase\x18\x05 \x01(\tR\bdatabase\x1aG\n" +
-	"\x05Redis\x12\x12\n" +
-	"\x04addr\x18\x01 \x01(\tR\x04addr\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x0e\n" +
-	"\x02db\x18\x03 \x01(\x05R\x02db\x1a}\n" +
-	"\aMongodb\x12\x12\n" +
-	"\x04user\x18\x01 \x01(\tR\x04user\x12\x1a\n" +
-	"\bpassword\x18\x02 \x01(\tR\bpassword\x12\x12\n" +
-	"\x04host\x18\x03 \x01(\tR\x04host\x12\x12\n" +
-	"\x04port\x18\x04 \x01(\x05R\x04port\x12\x1a\n" +
-	"\bdatabase\x18\x05 \x01(\tR\bdatabaseB-Z+IOT_Hummingbird_back_end/internal/conf;confb\x06proto3"
+	"\bdatabase\x18\x05 \x01(\tR\bdatabase\x1a\\\n" +
+	"\x04Etcd\x12\x1c\n" +
+	"\tendpoints\x18\x01 \x03(\tR\tendpoints\x12\x1a\n" +
+	"\busername\x18\x02 \x01(\tR\busername\x12\x1a\n" +
+	"\bpassword\x18\x03 \x01(\tR\bpassword\x1a\x8a\x01\n" +
+	"\x05Nacos\x12\x12\n" +
+	"\x04addr\x18\x01 \x01(\tR\x04addr\x12\x12\n" +
+	"\x04port\x18\x02 \x01(\x04R\x04port\x12!\n" +
+	"\fnamespace_id\x18\x03 \x01(\tR\vnamespaceId\x12\x1a\n" +
+	"\busername\x18\x04 \x01(\tR\busername\x12\x1a\n" +
+	"\bpassword\x18\x05 \x01(\tR\bpassword\x1a\x1d\n" +
+	"\x03Dtm\x12\x16\n" +
+	"\x06server\x18\x01 \x01(\tR\x06serverB\x1bZ\x19kratos/internal/conf;confb\x06proto3"
 
 var (
-	file_internal_conf_conf_proto_rawDescOnce sync.Once
-	file_internal_conf_conf_proto_rawDescData []byte
+	file_conf_conf_proto_rawDescOnce sync.Once
+	file_conf_conf_proto_rawDescData []byte
 )
 
-func file_internal_conf_conf_proto_rawDescGZIP() []byte {
-	file_internal_conf_conf_proto_rawDescOnce.Do(func() {
-		file_internal_conf_conf_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_internal_conf_conf_proto_rawDesc), len(file_internal_conf_conf_proto_rawDesc)))
+func file_conf_conf_proto_rawDescGZIP() []byte {
+	file_conf_conf_proto_rawDescOnce.Do(func() {
+		file_conf_conf_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_conf_conf_proto_rawDesc), len(file_conf_conf_proto_rawDesc)))
 	})
-	return file_internal_conf_conf_proto_rawDescData
+	return file_conf_conf_proto_rawDescData
 }
 
-var file_internal_conf_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_internal_conf_conf_proto_goTypes = []any{
+var file_conf_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_conf_conf_proto_goTypes = []any{
 	(*Bootstrap)(nil),           // 0: kratos.api.Bootstrap
 	(*Server)(nil),              // 1: kratos.api.Server
 	(*Data)(nil),                // 2: kratos.api.Data
 	(*Server_HTTP)(nil),         // 3: kratos.api.Server.HTTP
 	(*Server_GRPC)(nil),         // 4: kratos.api.Server.GRPC
-	(*Data_Mysql)(nil),          // 5: kratos.api.Data.Mysql
+	(*Data_Database)(nil),       // 5: kratos.api.Data.Database
 	(*Data_Redis)(nil),          // 6: kratos.api.Data.Redis
-	(*Data_Mongodb)(nil),        // 7: kratos.api.Data.Mongodb
-	(*durationpb.Duration)(nil), // 8: google.protobuf.Duration
+	(*Data_MongoDB)(nil),        // 7: kratos.api.Data.MongoDB
+	(*Data_Etcd)(nil),           // 8: kratos.api.Data.Etcd
+	(*Data_Nacos)(nil),          // 9: kratos.api.Data.Nacos
+	(*Data_Dtm)(nil),            // 10: kratos.api.Data.Dtm
+	(*durationpb.Duration)(nil), // 11: google.protobuf.Duration
 }
-var file_internal_conf_conf_proto_depIdxs = []int32{
-	1, // 0: kratos.api.Bootstrap.server:type_name -> kratos.api.Server
-	2, // 1: kratos.api.Bootstrap.data:type_name -> kratos.api.Data
-	3, // 2: kratos.api.Server.http:type_name -> kratos.api.Server.HTTP
-	4, // 3: kratos.api.Server.grpc:type_name -> kratos.api.Server.GRPC
-	5, // 4: kratos.api.Data.mysql:type_name -> kratos.api.Data.Mysql
-	6, // 5: kratos.api.Data.redis:type_name -> kratos.api.Data.Redis
-	7, // 6: kratos.api.Data.mongodb:type_name -> kratos.api.Data.Mongodb
-	8, // 7: kratos.api.Server.HTTP.timeout:type_name -> google.protobuf.Duration
-	8, // 8: kratos.api.Server.GRPC.timeout:type_name -> google.protobuf.Duration
-	9, // [9:9] is the sub-list for method output_type
-	9, // [9:9] is the sub-list for method input_type
-	9, // [9:9] is the sub-list for extension type_name
-	9, // [9:9] is the sub-list for extension extendee
-	0, // [0:9] is the sub-list for field type_name
+var file_conf_conf_proto_depIdxs = []int32{
+	1,  // 0: kratos.api.Bootstrap.server:type_name -> kratos.api.Server
+	2,  // 1: kratos.api.Bootstrap.data:type_name -> kratos.api.Data
+	3,  // 2: kratos.api.Server.http:type_name -> kratos.api.Server.HTTP
+	4,  // 3: kratos.api.Server.grpc:type_name -> kratos.api.Server.GRPC
+	5,  // 4: kratos.api.Data.database:type_name -> kratos.api.Data.Database
+	6,  // 5: kratos.api.Data.redis:type_name -> kratos.api.Data.Redis
+	7,  // 6: kratos.api.Data.mongodb:type_name -> kratos.api.Data.MongoDB
+	8,  // 7: kratos.api.Data.etcd:type_name -> kratos.api.Data.Etcd
+	9,  // 8: kratos.api.Data.nacos:type_name -> kratos.api.Data.Nacos
+	10, // 9: kratos.api.Data.dtm:type_name -> kratos.api.Data.Dtm
+	11, // 10: kratos.api.Server.HTTP.timeout:type_name -> google.protobuf.Duration
+	11, // 11: kratos.api.Server.GRPC.timeout:type_name -> google.protobuf.Duration
+	11, // 12: kratos.api.Data.Redis.read_timeout:type_name -> google.protobuf.Duration
+	11, // 13: kratos.api.Data.Redis.write_timeout:type_name -> google.protobuf.Duration
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
-func init() { file_internal_conf_conf_proto_init() }
-func file_internal_conf_conf_proto_init() {
-	if File_internal_conf_conf_proto != nil {
+func init() { file_conf_conf_proto_init() }
+func file_conf_conf_proto_init() {
+	if File_conf_conf_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_internal_conf_conf_proto_rawDesc), len(file_internal_conf_conf_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_conf_conf_proto_rawDesc), len(file_conf_conf_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_internal_conf_conf_proto_goTypes,
-		DependencyIndexes: file_internal_conf_conf_proto_depIdxs,
-		MessageInfos:      file_internal_conf_conf_proto_msgTypes,
+		GoTypes:           file_conf_conf_proto_goTypes,
+		DependencyIndexes: file_conf_conf_proto_depIdxs,
+		MessageInfos:      file_conf_conf_proto_msgTypes,
 	}.Build()
-	File_internal_conf_conf_proto = out.File
-	file_internal_conf_conf_proto_goTypes = nil
-	file_internal_conf_conf_proto_depIdxs = nil
+	File_conf_conf_proto = out.File
+	file_conf_conf_proto_goTypes = nil
+	file_conf_conf_proto_depIdxs = nil
 }
