@@ -1,0 +1,36 @@
+server:
+  http:
+    addr: 0.0.0.0:8080
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:50051
+    timeout: 1s
+data:
+  database:
+    driver: mysql
+    source: root:82AF916059F13E331E633AC0B8A8191B@tcp(14.103.143.229:3306)/wl_playform?parseTime=True&loc=Local
+  redis:
+    addr: 14.103.143.229:6379
+    password: 82AF916059F13E331E633AC0B8A8191B
+    db: 0
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+  mongodb:
+    user: zhangkai
+    password: Zhangkai123
+    host: 14.103.143.229
+    port: 27107
+    database: Wanlian_resource
+  etcd:
+    endpoints:
+      - 127.0.0.1:2379
+    username: ""
+    password: ""
+  nacos:
+    addr: 127.0.0.1
+    port: 8848
+    namespace_id: "public"
+    username: ""
+    password: ""
+  dtm:
+    server: "http://localhost:36789/api/dtmsvr"

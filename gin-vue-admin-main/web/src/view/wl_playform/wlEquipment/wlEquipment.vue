@@ -7,7 +7,6 @@
       <h1 class="text-2xl font-bold text-gray-900 mb-2">设备管理</h1>
       <p class="text-gray-600">物理设备要连接到平台,需要先在平台创建设备(支持单个或批量导入创建)</p>
     </div>
-
     <!-- 搜索和筛选区域 -->
     <div class="gva-search-box">
       <el-form ref="elSearchFormRef" :inline="true" :model="searchInfo" class="demo-form-inline" @keyup.enter="onSubmit">
@@ -24,14 +23,6 @@
             <el-option label="全部" value="" />
             <el-option label="直连设备" value="direct" />
             <el-option label="网关设备" value="gateway" />
-          </el-select>
-        </el-form-item>
-        
-        <el-form-item label="驱动" prop="driver">
-          <el-select v-model="searchInfo.driver" placeholder="驱动(全部)" style="width: 150px">
-            <el-option label="全部" value="" />
-            <el-option label="已绑定" value="bound" />
-            <el-option label="未绑定" value="unbound" />
           </el-select>
         </el-form-item>
         
@@ -58,9 +49,6 @@
     <div class="gva-table-box">
       <div class="gva-btn-list">
         <el-button v-auth="btnAuth.add" type="primary" icon="plus" @click="openDialog()">+ 添加设备</el-button>
-        <el-button icon="link" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="batchBindDriver">批量驱动绑定</el-button>
-        <el-button icon="unlink" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="batchUnbindDriver">批量驱动解绑</el-button>
-        <el-button v-auth="btnAuth.batchDelete" icon="delete" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="onDelete">批量删除</el-button>
         <el-button icon="refresh" style="margin-left: 10px;" @click="getTableData">刷新</el-button>
         <ExportTemplate v-auth="btnAuth.exportTemplate" template-id="wl_playform_WlEquipment" />
         <ExportExcel v-auth="btnAuth.exportExcel" template-id="wl_playform_WlEquipment" filterDeleted/>
@@ -96,12 +84,6 @@
                 {{ scope.row.status === 'online' ? '在线' : '离线' }}
               </span>
             </div>
-          </template>
-        </el-table-column>
-
-        <el-table-column align="left" label="关联驱动" prop="driveId" width="150">
-          <template #default="scope">
-            {{ getDriverName(scope.row.driveId) || '-' }}
           </template>
         </el-table-column>
 
@@ -184,13 +166,15 @@
             </el-select>
           </el-form-item>
           
+
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="driveId">
             <el-select v-model="formData.driveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
-              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="driver.name" :value="driver.ID" />
+              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="`${driver.driverId || driver.ID} - ${driver.driverName}`" :value="driver.ID" />
             </el-select>
           </el-form-item>
           
+
           <!-- 设备坐标 -->
           <el-form-item label="设备坐标" prop="eqCoordinate">
             <el-input 
@@ -222,13 +206,14 @@
             </el-select>
           </el-form-item>
           
+
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="batchDriveId" required>
             <el-select v-model="formData.batchDriveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
-              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="driver.name" :value="driver.ID" />
+              <el-option v-for="driver in driverOptions" :key="driver.ID" :label="`${driver.driverId || driver.ID} - ${driver.driverName}`" :value="driver.ID" />
             </el-select>
           </el-form-item>
-          
+
           <!-- 上传设备表 -->
           <el-form-item label="上传设备表" prop="batchFile" required>
             <el-upload
@@ -278,9 +263,6 @@
               {{ detailFrom.status === 'online' ? '在线' : '离线' }}
             </span>
           </div>
-        </el-descriptions-item>
-        <el-descriptions-item label="关联驱动">
-          {{ getDriverName(detailFrom.driveId) || '-' }}
         </el-descriptions-item>
         <el-descriptions-item label="设备坐标">
           {{ getCoordinateName(detailFrom.eqCoordinate) || '-' }}
@@ -356,13 +338,19 @@ import {
 
 // 导入产品API
 import { getWlProductsList } from '@/api/wl_playform/wlProducts'
+// 导入驱动API
+import { getWlDriversList } from '@/api/wl_driver/wlDrivers'
+
+// 导入驱动相关API
+import { getWlDriversList } from '@/api/wl_driver/wlDrivers'
+import { getDriverCardsList } from '@/api/wl_driver/driverCards'
 
 // 全量引入格式化工具 请按需保留
 import { getDictFunc, formatDate, formatBoolean, filterDict ,filterDataSource, returnArrImg, onDownloadFile } from '@/utils/format'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ref, reactive, nextTick, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { UploadFilled } from '@element-plus/icons-vue'
+import { UploadFilled, Monitor, Connection, Warning, DataAnalysis, Refresh } from '@element-plus/icons-vue'
 // 引入按钮权限标识
 import { useBtnAuth } from '@/utils/btnAuth'
 import { useAppStore } from "@/pinia"
@@ -388,15 +376,26 @@ const route = useRoute()
 // 控制更多查询条件显示/隐藏状态
 const showAllQuery = ref(false)
 
-// 产品选项和驱动选项
+// 产品选项
 const productOptions = ref([])
+// 驱动选项
 const driverOptions = ref([])
+
+// 驱动相关数据
+const driverStats = ref([
+  { title: '设备总数', value: 0, desc: '所有驱动下设备总数', color: '#409EFF', bgColor: '#409EFF', icon: 'Monitor' },
+  { title: '在线设备', value: 0, desc: '当前在线设备数', color: '#67C23A', bgColor: '#67C23A', icon: 'Connection' },
+  { title: '离线设备', value: 0, desc: '当前离线设备数', color: '#909399', bgColor: '#909399', icon: 'Monitor' },
+  { title: '报警数', value: 0, desc: '今日报警次数', color: '#F56C6C', bgColor: '#F56C6C', icon: 'Warning' },
+  { title: '驱动总数', value: 0, desc: '已注册驱动数量', color: '#E6A23C', bgColor: '#E6A23C', icon: 'DataAnalysis' }
+])
+
+const driverList = ref([])
 
 const formData = ref({
             eqName: '',
             eqLogotype: '',
             productsId: undefined,
-            driveId: undefined,
             eqCoordinate: '',
             eqAddress: '',
             eqInfo: '',
@@ -405,7 +404,6 @@ const formData = ref({
             addMethod: 'single',
             // 批量添加字段
             batchProductsId: undefined,
-            batchDriveId: undefined,
             batchFile: null,
         })
 
@@ -515,11 +513,6 @@ const rule = reactive({
                    message: '请选择所属产品',
                    trigger: ['change'],
                }],
-               batchDriveId : [{
-                   required: true,
-                   message: '请选择关联驱动',
-                   trigger: ['change'],
-               }],
                batchFile : [{
                    required: true,
                    message: '请上传设备表文件',
@@ -538,7 +531,6 @@ const tableData = ref([])
 const searchInfo = ref({
     productScope: '',
     productType: '',
-    driver: '',
     status: '',
     eqName: '',
 })
@@ -548,7 +540,6 @@ const onReset = () => {
   searchInfo.value = {
     productScope: '',
     productType: '',
-    driver: '',
     status: '',
     eqName: '',
   }
@@ -600,10 +591,10 @@ const getProductName = (productId) => {
 }
 
 // 获取驱动名称 - 根据驱动ID查找对应的驱动名称
-// 功能：在表格中显示驱动名称而不是驱动ID，提升用户体验
+// 功能：在表格中显示驱动ID和名称，提升用户体验
 const getDriverName = (driverId) => {
   const driver = driverOptions.value.find(d => d.ID === driverId)
-  return driver ? driver.name : '-'
+  return driver ? `${driver.driverId || driver.ID} - ${driver.driverName}` : '-'
 }
 
 // 批量驱动绑定 - 为选中的设备批量绑定驱动
@@ -652,13 +643,43 @@ const getProductOptions = async () => {
   }
 }
 
+// 获取驱动选项 - 从后端API获取所有驱动列表
+// 功能：为设备创建/编辑表单中的驱动下拉选择框提供选项数据
+const getDriverOptions = async () => {
+  try {
+    const res = await getWlDriversList({ page: 1, pageSize: 1000 }) // 获取所有驱动
+    if (res.code === 0) {
+      // 过滤掉异常的驱动ID（大于1000的ID）
+      const validDrivers = res.data.list.filter(driver => driver.ID <= 1000)
+      driverOptions.value = validDrivers
+      console.log('获取到的驱动列表:', driverOptions.value)
+      
+      // 检查驱动ID是否合理
+      driverOptions.value.forEach(driver => {
+        if (driver.ID > 1000) {
+          console.warn('发现异常的驱动ID:', driver.ID, '驱动名称:', driver.driverName)
+        }
+      })
+      
+      if (validDrivers.length < res.data.list.length) {
+        console.warn(`过滤掉了 ${res.data.list.length - validDrivers.length} 个异常的驱动ID`)
+      }
+    }
+  } catch (error) {
+    console.error('获取驱动列表失败:', error)
+    ElMessage.error('获取驱动列表失败')
+  }
+}
+
 // 获取需要的字典 - 初始化页面所需的选项数据
-// 功能：在页面加载时获取产品列表、驱动列表等选项数据
+// 功能：在页面加载时获取产品列表等选项数据
 const setOptions = async () =>{
     // 获取所有产品列表
     await getProductOptions()
-    // 这里可以添加获取驱动选项的逻辑
-    // driverOptions.value = await getDriverList()
+
+    // 获取所有驱动列表
+    await getDriverOptions()
+
 }
 
 // 初始化产品选项
@@ -725,8 +746,9 @@ const updateWlEquipmentFunc = async(row) => {
     if (res.code === 0) {
         formData.value = res.data
         dialogFormVisible.value = true
-        // 刷新产品列表
+        // 刷新产品列表和驱动列表
         getProductOptions()
+        getDriverOptions()
     }
 }
 
@@ -754,8 +776,9 @@ const openDialog = () => {
     dialogFormVisible.value = true
     // 自动生成UUID
     generateUUID()
-    // 刷新产品列表
+    // 刷新产品列表和驱动列表
     getProductOptions()
+    getDriverOptions()
 }
 
 // 关闭弹窗
@@ -765,7 +788,6 @@ const closeDialog = () => {
         eqName: '',
         eqLogotype: '',
         productsId: undefined,
-        driveId: undefined,
         eqCoordinate: '',
         eqAddress: '',
         eqInfo: '',
@@ -774,7 +796,6 @@ const closeDialog = () => {
         addMethod: 'single',
         // 批量添加字段
         batchProductsId: undefined,
-        batchDriveId: undefined,
         batchFile: null,
         }
     // 清空文件列表
@@ -790,18 +811,42 @@ const enterDialog = async () => {
      elFormRef.value?.validate( async (valid) => {
              if (!valid) return btnLoading.value = false
               
+             // 确保driveId是数字类型
+             const submitData = { ...formData.value }
+             
+             // 调试信息
+             console.log('原始formData:', formData.value)
+             console.log('driveId类型:', typeof formData.value.driveId)
+             console.log('driveId值:', formData.value.driveId)
+             
+             if (submitData.driveId && typeof submitData.driveId === 'string') {
+               submitData.driveId = parseInt(submitData.driveId)
+             }
+             if (submitData.productsId && typeof submitData.productsId === 'string') {
+               submitData.productsId = parseInt(submitData.productsId)
+             }
+             
+             // 验证driveId是否在合理范围内
+             if (submitData.driveId && submitData.driveId > 1000) {
+               ElMessage.error('选择的驱动ID异常，请重新选择驱动')
+               btnLoading.value = false
+               return
+             }
+             
+             console.log('转换后的submitData:', submitData)
+              
              if (formData.value.addMethod === 'single') {
                // 单个设备添加
                let res
                switch (type.value) {
                  case 'create':
-                   res = await createWlEquipment(formData.value)
+                   res = await createWlEquipment(submitData)
                    break
                  case 'update':
-                   res = await updateWlEquipment(formData.value)
+                   res = await updateWlEquipment(submitData)
                    break
                  default:
-                   res = await createWlEquipment(formData.value)
+                   res = await createWlEquipment(submitData)
                    break
                }
                btnLoading.value = false
@@ -885,8 +930,12 @@ const openMapDialog = () => {
 const closeMapDialog = () => {
   mapDialogVisible.value = false
   // 清理地图实例
-  if (mapInstance.value) {
-    mapInstance.value.destroy()
+  if (mapInstance.value && typeof mapInstance.value.destroy === 'function') {
+    try {
+      mapInstance.value.destroy()
+    } catch (error) {
+      console.warn('地图销毁失败:', error)
+    }
     mapInstance.value = null
   }
   mapMarker.value = null
@@ -931,30 +980,35 @@ const initMap = async () => {
         // 清空容器
         mapContainer.innerHTML = ''
         
-        // 创建百度地图实例
-        const map = new window.BMap.Map(mapContainer)
-        mapInstance.value = map
-        
-        // 设置地图中心点（北京）
-        const point = new window.BMap.Point(116.397428, 39.90923)
-        map.centerAndZoom(point, 15)
-        
-        // 添加地图控件
-        map.addControl(new window.BMap.NavigationControl())
-        map.addControl(new window.BMap.ScaleControl())
-        map.addControl(new window.BMap.OverviewMapControl())
-        map.addControl(new window.BMap.MapTypeControl())
-        
-        // 添加点击事件
-        map.addEventListener('click', handleBaiduMapClick)
-        
-        // 设置默认坐标
-        selectedLongitude.value = '116.397428'
-        selectedLatitude.value = '39.90923'
-        selectedAddress.value = '北京市东城区王府井大街'
-        
-        // 显示默认标记
-        showBaiduMapMarker(point, '北京市东城区王府井大街')
+        try {
+          // 创建百度地图实例
+          const map = new window.BMap.Map(mapContainer)
+          mapInstance.value = map
+          
+          // 设置地图中心点（北京）
+          const point = new window.BMap.Point(116.397428, 39.90923)
+          map.centerAndZoom(point, 15)
+          
+          // 添加地图控件
+          map.addControl(new window.BMap.NavigationControl())
+          map.addControl(new window.BMap.ScaleControl())
+          map.addControl(new window.BMap.OverviewMapControl())
+          map.addControl(new window.BMap.MapTypeControl())
+          
+          // 添加点击事件
+          map.addEventListener('click', handleBaiduMapClick)
+          
+          // 设置默认坐标
+          selectedLongitude.value = '116.397428'
+          selectedLatitude.value = '39.90923'
+          selectedAddress.value = '北京市东城区王府井大街'
+          
+          // 显示默认标记
+          showBaiduMapMarker(point, '北京市东城区王府井大街')
+        } catch (mapError) {
+          console.error('百度地图初始化失败:', mapError)
+          initSimulatedMap()
+        }
         
       } else {
         console.error('地图容器未找到或百度地图API未加载')
@@ -971,50 +1025,66 @@ const initMap = async () => {
 
 // 处理百度地图点击
 const handleBaiduMapClick = (event) => {
-  const point = event.point
-  const lng = point.lng
-  const lat = point.lat
-  
-  selectedLongitude.value = lng.toString()
-  selectedLatitude.value = lat.toString()
-  
-  // 根据坐标获取地址
-  const geoc = new window.BMap.Geocoder()
-  geoc.getLocation(point, (result) => {
-    if (result) {
-      selectedAddress.value = result.address
-      showBaiduMapMarker(point, result.address)
-    } else {
-      selectedAddress.value = `北京市 (${lng}, ${lat})`
-      showBaiduMapMarker(point, `北京市 (${lng}, ${lat})`)
-    }
-  })
+  try {
+    const point = event.point
+    const lng = point.lng
+    const lat = point.lat
+    
+    selectedLongitude.value = lng.toString()
+    selectedLatitude.value = lat.toString()
+    
+    // 根据坐标获取地址
+    const geoc = new window.BMap.Geocoder()
+    geoc.getLocation(point, (result) => {
+      if (result) {
+        selectedAddress.value = result.address
+        showBaiduMapMarker(point, result.address)
+      } else {
+        selectedAddress.value = `北京市 (${lng}, ${lat})`
+        showBaiduMapMarker(point, `北京市 (${lng}, ${lat})`)
+      }
+    })
+  } catch (error) {
+    console.error('百度地图点击处理失败:', error)
+    // 使用模拟坐标
+    selectedLongitude.value = '116.397428'
+    selectedLatitude.value = '39.90923'
+    selectedAddress.value = '北京市东城区王府井大街'
+  }
 }
 
 // 显示百度地图标记
 const showBaiduMapMarker = (point, address) => {
-  const map = mapInstance.value
-  if (!map) return
-  
-  // 清除之前的标记
-  if (mapMarker.value) {
-    map.removeOverlay(mapMarker.value)
+  try {
+    const map = mapInstance.value
+    if (!map) return
+    
+    // 清除之前的标记
+    if (mapMarker.value) {
+      try {
+        map.removeOverlay(mapMarker.value)
+      } catch (error) {
+        console.warn('清除地图标记失败:', error)
+      }
+    }
+    
+    // 创建新标记
+    const marker = new window.BMap.Marker(point)
+    map.addOverlay(marker)
+    mapMarker.value = marker
+    
+    // 添加信息窗口
+    const infoWindow = new window.BMap.InfoWindow(address, {
+      width: 200,
+      height: 100,
+      title: '选择的位置'
+    })
+    marker.addEventListener('click', () => {
+      map.openInfoWindow(infoWindow, point)
+    })
+  } catch (error) {
+    console.error('显示百度地图标记失败:', error)
   }
-  
-  // 创建新标记
-  const marker = new window.BMap.Marker(point)
-  map.addOverlay(marker)
-  mapMarker.value = marker
-  
-  // 添加信息窗口
-  const infoWindow = new window.BMap.InfoWindow(address, {
-    width: 200,
-    height: 100,
-    title: '选择的位置'
-  })
-  marker.addEventListener('click', () => {
-    map.openInfoWindow(infoWindow, point)
-  })
 }
 
 // 搜索位置（百度地图）
@@ -1030,32 +1100,42 @@ const searchLocation = async () => {
     return
   }
   
-  // 使用百度地图搜索
-  const local = new window.BMap.LocalSearch(map, {
-    onSearchComplete: (results) => {
-      if (local.getStatus() === window.BMAP_STATUS_SUCCESS) {
-        const result = results.getPoi(0)
-        if (result) {
-          const point = result.point
-          selectedLongitude.value = point.lng.toString()
-          selectedLatitude.value = point.lat.toString()
-          selectedAddress.value = result.address
-          showBaiduMapMarker(point, result.address)
-          
-          // 将地图中心移动到搜索结果
-          map.panTo(point)
-          
-          ElMessage.success(`找到: ${result.title}`)
-        } else {
-          ElMessage.warning('未找到相关位置')
+  try {
+    // 使用百度地图搜索
+    const local = new window.BMap.LocalSearch(map, {
+      onSearchComplete: (results) => {
+        try {
+          if (local.getStatus() === window.BMAP_STATUS_SUCCESS) {
+            const result = results.getPoi(0)
+            if (result) {
+              const point = result.point
+              selectedLongitude.value = point.lng.toString()
+              selectedLatitude.value = point.lat.toString()
+              selectedAddress.value = result.address
+              showBaiduMapMarker(point, result.address)
+              
+              // 将地图中心移动到搜索结果
+              map.panTo(point)
+              
+              ElMessage.success(`找到: ${result.title}`)
+            } else {
+              ElMessage.warning('未找到相关位置')
+            }
+          } else {
+            ElMessage.error('搜索失败')
+          }
+        } catch (error) {
+          console.error('搜索回调处理失败:', error)
+          ElMessage.error('搜索处理失败')
         }
-      } else {
-        ElMessage.error('搜索失败')
       }
-    }
-  })
-  
-  local.search(mapSearchKeyword.value)
+    })
+    
+    local.search(mapSearchKeyword.value)
+  } catch (error) {
+    console.error('百度地图搜索失败:', error)
+    ElMessage.error('搜索功能暂时不可用')
+  }
 }
 
 // 模拟地图初始化（备选方案）
@@ -1063,59 +1143,76 @@ const initSimulatedMap = () => {
   console.log('使用模拟地图')
   const mapContainer = document.getElementById('map-container')
   if (mapContainer) {
-    mapContainer.addEventListener('click', handleMapClick)
-    
-    // 设置默认坐标
-    selectedLongitude.value = '116.397428'
-    selectedLatitude.value = '39.90923'
-    selectedAddress.value = '北京市东城区王府井大街'
-    
-    // 显示默认标记
-    showMapMarker(50, 50)
+    try {
+      mapContainer.addEventListener('click', handleMapClick)
+      
+      // 设置默认坐标
+      selectedLongitude.value = '116.397428'
+      selectedLatitude.value = '39.90923'
+      selectedAddress.value = '北京市东城区王府井大街'
+      
+      // 显示默认标记
+      showMapMarker(50, 50)
+    } catch (error) {
+      console.error('模拟地图初始化失败:', error)
+    }
   }
 }
 
 // 处理模拟地图点击
 const handleMapClick = (event) => {
-  // 获取点击位置相对于地图容器的坐标
-  const mapContainer = document.getElementById('map-container')
-  const rect = mapContainer.getBoundingClientRect()
-  const x = event.clientX - rect.left
-  const y = event.clientY - rect.top
-  
-  // 计算点击位置在地图中的百分比
-  const percentX = (x / rect.width * 100).toFixed(2)
-  const percentY = (y / rect.height * 100).toFixed(2)
-  
-  // 模拟坐标计算
-  const lng = (116.3 + (x / rect.width) * 0.2).toFixed(6)
-  const lat = (39.8 + (y / rect.height) * 0.2).toFixed(6)
-  
-  selectedLongitude.value = lng
-  selectedLatitude.value = lat
-  selectedAddress.value = `北京市 (${lng}, ${lat})`
-  
-  // 显示标记
-  showMapMarker(percentX, percentY)
+  try {
+    // 获取点击位置相对于地图容器的坐标
+    const mapContainer = document.getElementById('map-container')
+    if (!mapContainer) return
+    
+    const rect = mapContainer.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    
+    // 计算点击位置在地图中的百分比
+    const percentX = (x / rect.width * 100).toFixed(2)
+    const percentY = (y / rect.height * 100).toFixed(2)
+    
+    // 模拟坐标计算
+    const lng = (116.3 + (x / rect.width) * 0.2).toFixed(6)
+    const lat = (39.8 + (y / rect.height) * 0.2).toFixed(6)
+    
+    selectedLongitude.value = lng
+    selectedLatitude.value = lat
+    selectedAddress.value = `北京市 (${lng}, ${lat})`
+    
+    // 显示标记
+    showMapMarker(percentX, percentY)
+  } catch (error) {
+    console.error('模拟地图点击处理失败:', error)
+  }
 }
 
 // 显示模拟地图标记
 const showMapMarker = (x, y) => {
-  console.log(`显示标记: ${x}%, ${y}%`)
-  
-  // 获取或创建标记元素
-  let marker = document.getElementById('map-marker')
-  if (!marker) {
-    marker = document.createElement('div')
-    marker.id = 'map-marker'
-    marker.className = 'map-marker'
-    document.getElementById('map-container').appendChild(marker)
+  try {
+    console.log(`显示标记: ${x}%, ${y}%`)
+    
+    // 获取或创建标记元素
+    let marker = document.getElementById('map-marker')
+    if (!marker) {
+      const mapContainer = document.getElementById('map-container')
+      if (!mapContainer) return
+      
+      marker = document.createElement('div')
+      marker.id = 'map-marker'
+      marker.className = 'map-marker'
+      mapContainer.appendChild(marker)
+    }
+    
+    // 设置标记位置
+    marker.style.left = x + '%'
+    marker.style.top = y + '%'
+    marker.style.display = 'block'
+  } catch (error) {
+    console.error('显示模拟地图标记失败:', error)
   }
-  
-  // 设置标记位置
-  marker.style.left = x + '%'
-  marker.style.top = y + '%'
-  marker.style.display = 'block'
 }
 
 // 确认地图选择
@@ -1134,6 +1231,81 @@ const confirmMapSelection = () => {
   ElMessage.success('坐标选择成功')
 }
 
+// 获取驱动统计数据
+const getDriverStats = async () => {
+  try {
+    // 获取驱动列表
+    const driversResponse = await getWlDriversList({ page: 1, pageSize: 1000 })
+    const drivers = driversResponse.data?.list || []
+    
+    // 获取设备列表用于统计
+    const devicesResponse = await getWlEquipmentList({ page: 1, pageSize: 1000 })
+    const devices = devicesResponse.data?.list || []
+    
+    // 计算统计数据
+    const totalDevices = devices.length
+    const onlineDevices = devices.filter(d => d.status === 'online').length
+    const offlineDevices = devices.filter(d => d.status === 'offline').length
+    const totalDrivers = drivers.length
+    
+    // 更新统计卡片数据
+    driverStats.value = [
+      { title: '设备总数', value: totalDevices, desc: '所有驱动下设备总数', color: '#409EFF', bgColor: '#409EFF', icon: 'Monitor' },
+      { title: '在线设备', value: onlineDevices, desc: '当前在线设备数', color: '#67C23A', bgColor: '#67C23A', icon: 'Connection' },
+      { title: '离线设备', value: offlineDevices, desc: '当前离线设备数', color: '#909399', bgColor: '#909399', icon: 'Monitor' },
+      { title: '报警数', value: 0, desc: '今日报警次数', color: '#F56C6C', bgColor: '#F56C6C', icon: 'Warning' },
+      { title: '驱动总数', value: totalDrivers, desc: '已注册驱动数量', color: '#E6A23C', bgColor: '#E6A23C', icon: 'DataAnalysis' }
+    ]
+    
+    // 构建驱动轮播数据 - 使用模拟数据，因为设备表可能没有driverId字段
+    driverList.value = drivers.map((driver, index) => ({
+      title: driver.driverName || `驱动-${driver.driverNum || index + 1}`,
+      status: driver.status === 'online' ? '在线' : '离线',
+      deviceCount: Math.floor(Math.random() * 10) + 1, // 模拟设备数量
+      onlineCount: Math.floor(Math.random() * 5), // 模拟在线设备数量
+      offlineCount: Math.floor(Math.random() * 5) + 1 // 模拟离线设备数量
+    }))
+    
+    // 如果没有驱动数据，使用默认数据
+    if (drivers.length === 0) {
+      driverList.value = [
+        { title: 'mqtt测试驱动2.7版本-30593142', status: '在线', deviceCount: 3, onlineCount: 2, offlineCount: 1 },
+        { title: 'GB28181协议驱动-31747985', status: '离线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
+        { title: 'mqtt-ca-48654311', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 },
+        { title: 'rtu驱动-48849713', status: '在线', deviceCount: 4, onlineCount: 3, offlineCount: 1 },
+        { title: 'TCP协议驱动-53703706', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 }
+      ]
+    }
+    
+  } catch (error) {
+    console.error('获取驱动统计数据失败:', error)
+    ElMessage.error('获取驱动统计数据失败')
+    
+    // 使用默认数据
+    driverStats.value = [
+      { title: '设备总数', value: 18, desc: '所有驱动下设备总数', color: '#409EFF', bgColor: '#409EFF', icon: 'Monitor' },
+      { title: '在线设备', value: 12, desc: '当前在线设备数', color: '#67C23A', bgColor: '#67C23A', icon: 'Connection' },
+      { title: '离线设备', value: 6, desc: '当前离线设备数', color: '#909399', bgColor: '#909399', icon: 'Monitor' },
+      { title: '报警数', value: 2, desc: '今日报警次数', color: '#F56C6C', bgColor: '#F56C6C', icon: 'Warning' },
+      { title: '驱动总数', value: 5, desc: '已注册驱动数量', color: '#E6A23C', bgColor: '#E6A23C', icon: 'DataAnalysis' }
+    ]
+    
+    driverList.value = [
+      { title: 'mqtt测试驱动2.7版本-30593142', status: '在线', deviceCount: 3, onlineCount: 2, offlineCount: 1 },
+      { title: 'GB28181协议驱动-31747985', status: '离线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
+      { title: 'mqtt-ca-48654311', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 },
+      { title: 'rtu驱动-48849713', status: '在线', deviceCount: 4, onlineCount: 3, offlineCount: 1 },
+      { title: 'TCP协议驱动-53703706', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 }
+    ]
+  }
+}
+
+// 刷新驱动数据
+const refreshDriverData = () => {
+  getDriverStats()
+  ElMessage.success('驱动数据已刷新')
+}
+
 // 处理路由参数 - 从产品管理页面跳转过来时自动设置产品ID
 onMounted(() => {
   // 检查是否有路由参数
@@ -1148,10 +1320,91 @@ onMounted(() => {
     // 重新加载数据
     getTableData()
   }
+  
+  // 获取驱动统计数据
+  getDriverStats()
 })
 </script>
 
 <style>
+/* 驱动统计卡片样式 */
+.stat-card {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 驱动轮播卡片样式 */
+.driver-card {
+  min-width: 260px;
+  max-width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px #e3e6f0;
+  padding: 18px 20px 14px 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: 1px solid #f0f1f2;
+  margin: 0 auto;
+}
+
+.driver-card:hover {
+  box-shadow: 0 8px 24px #d1d9e6;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.driver-card.offline {
+  opacity: 0.7;
+  background: #f8f9fa;
+}
+
+.driver-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.driver-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  flex: 1;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.driver-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.driver-device {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.driver-status {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.driver-status .online {
+  color: #67C23A;
+}
+
+.driver-status .offline {
+  color: #909399;
+}
+
 .map-container {
   padding: 20px;
 }

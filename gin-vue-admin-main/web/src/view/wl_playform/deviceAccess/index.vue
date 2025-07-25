@@ -222,12 +222,6 @@ const deviceStats = ref({
   offline: 0
 })
 
-const driverStats = ref({
-  total: 0,
-  bound: 0,
-  unbound: 0
-})
-
 // 最近活动
 const recentActivities = ref([])
 
@@ -252,13 +246,6 @@ const goToDevices = () => {
   router.push('/wl_playform/wlEquipment')
 }
 
-const goToDrivers = () => {
-  ElMessage({
-    type: 'info',
-    message: '驱动管理功能待实现'
-  })
-}
-
 // 快速操作函数 - 处理页面底部快速操作按钮的点击事件
 const createProduct = () => {
   router.push('/wl_playform/wlProducts')
@@ -274,20 +261,6 @@ const viewProducts = () => {
 
 const viewDevices = () => {
   router.push('/wl_playform/wlEquipment')
-}
-
-const createDriver = () => {
-  ElMessage({
-    type: 'info',
-    message: '创建驱动功能待实现'
-  })
-}
-
-const viewDrivers = () => {
-  ElMessage({
-    type: 'info',
-    message: '查看驱动功能待实现'
-  })
 }
 
 const batchImport = () => {
@@ -317,11 +290,7 @@ const getStats = async () => {
     offline: 67
   }
   
-  driverStats.value = {
-    total: 25,
-    bound: 18,
-    unbound: 7
-  }
+  // 移除 driverStats 相关内容
 }
 
 // 获取最近活动 - 模拟从后端API获取设备接入模块的最近活动记录

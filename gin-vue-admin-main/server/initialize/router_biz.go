@@ -20,7 +20,16 @@ func initBizRouter(routers ...*gin.RouterGroup) {
 		wl_playformRouter.InitWlEngineRulesRouter(privateGroup, publicGroup) // 占位方法，保证文件可以正确加载，避免go空变量检测报错，请勿删除。
 		wl_playformRouter.InitWlResourcesRouter(privateGroup, publicGroup)
 		wl_playformRouter.InitWlEquipmentRouter(privateGroup, publicGroup)
-		wl_playformRouter.InitWlCategoryRouter(privateGroup, publicGroup) // 占位方法，保证文件可以正确加载，避免go空变量检测报错，请勿删除。
+		wl_playformRouter.InitWlCategoryRouter(privateGroup, publicGroup)
 		wl_playformRouter.InitWlCaFunctionRouter(privateGroup, publicGroup)
+	}
+	{
+		dashboardRouter := router.RouterGroupApp.Dashboard
+		dashboardRouter.InitDashboardRouter(privateGroup)
+	}
+	{
+		wl_driverRouter := router.RouterGroupApp.Wl_driver
+		wl_driverRouter.DriverCardsRouter.InitDriverCardsRouter(privateGroup, publicGroup)
+		wl_driverRouter.InitWlDriversRouter(privateGroup, publicGroup)
 	}
 }

@@ -1,0 +1,17 @@
+database:
+  driver: sqlite3
+  dsn: ./script-center.db
+
+server:
+  host: localhost
+  port: 8080
+
+security:
+  jwt_secret: "change-this-secret-in-production"
+  password_salt: "change-this-salt-in-production"
+  max_executions: 10
+
+logging:
+  level: info
+  format: json
+  file: ""

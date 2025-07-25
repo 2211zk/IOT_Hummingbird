@@ -4,8 +4,8 @@
 const greenText = (text) => `\x1b[32m${text}\x1b[0m`
 
 const config = {
-  appName: 'Gin-Vue-Admin',
-  appLogo: 'logo.png',
+  appName: '万联智控',
+  appLogo: 'logo_login.png',
   showViteLogo: true,
   logs: []
 }
@@ -14,17 +14,16 @@ export const viteLogo = (env) => {
   if (config.showViteLogo) {
     console.log(
       greenText(
-        `> 欢迎使用Gin-Vue-Admin，开源地址：https://github.com/flipped-aurora/gin-vue-admin`
+        `> 欢迎使用万联智控智能设备管理平台`
       )
     )
-    console.log(greenText(`> 当前版本:v2.8.2`))
-    console.log(greenText(`> 加群方式:微信：shouzi_1994 QQ群：470239250`))
+    console.log(greenText(`> 当前版本:v1.0.0`))
+    console.log(greenText(`> 技术支持：万联智控团队`))
     console.log(
-      greenText(`> 项目地址：https://github.com/flipped-aurora/gin-vue-admin`)
-    )
-    console.log(greenText(`> 插件市场:https://plugin.gin-vue-admin.com`))
+      greenText(`> 项目地址：https://github.com/wanlian-iot`))
+    console.log(greenText(`> 插件市场:https://plugin.wanlian-iot.com`))
     console.log(
-      greenText(`> GVA讨论社区:https://support.qq.com/products/371961`)
+      greenText(`> 技术支持社区:https://support.wanlian-iot.com`)
     )
     console.log(
       greenText(
@@ -39,11 +38,11 @@ export const viteLogo = (env) => {
         `--------------------------------------版权声明--------------------------------------`
       )
     )
-    console.log(greenText(`** 版权所有方：flipped-aurora开源团队 **`))
-    console.log(greenText(`** 版权持有公司：北京翻转极光科技有限责任公司 **`))
+    console.log(greenText(`** 版权所有方：万联智控团队 **`))
+    console.log(greenText(`** 版权持有公司：万联智控科技有限公司 **`))
     console.log(
       greenText(
-        `** 剔除授权标识需购买商用授权：https://gin-vue-admin.com/empower/index.html **`
+        `** 商用授权请联系：contact@wanlian-iot.com **`
       )
     )
     console.log('\n')

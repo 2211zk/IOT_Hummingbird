@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GoORMHelperCache">
+    <option name="schemaMapping">
+      <map>
+        <entry key="ApiResponse">
+          <value>
+            <set>
+              <option value="file://$USER_HOME$/Desktop/1/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="CategoryTemplate">
+          <value>
+            <set>
+              <option value="file://$USER_HOME$/Desktop/1/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="ResponseData">
+          <value>
+            <set>
+              <option value="file://$USER_HOME$/Desktop/1/main.go" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="scannedPathMapping">
+      <map>
+        <entry key="file://$USER_HOME$/Desktop/1/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753415360622" />
+              <option name="schema">
+                <list>
+                  <option value="ApiResponse" />
+                  <option value="ResponseData" />
+                  <option value="CategoryTemplate" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753405785181" />
+            </ScannedPath>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableStructMapping">
+      <map>
+        <entry key="api_response" value="ApiResponse" />
+        <entry key="category_template" value="CategoryTemplate" />
+        <entry key="response_data" value="ResponseData" />
+      </map>
+    </option>
+  </component>
+</project>
