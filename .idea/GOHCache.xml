@@ -2610,7 +2610,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728837" />
+              <option name="lastModified" value="1753368090097" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -2876,7 +2876,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/driver_cards.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753349089029" />
+              <option name="lastModified" value="1753368090097" />
               <option name="schema">
                 <list>
                   <option value="DriverCardsApi" />
@@ -2888,7 +2888,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728865" />
+              <option name="lastModified" value="1753368090102" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -2912,7 +2912,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_driver/wl_drivers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753361633815" />
+              <option name="lastModified" value="1753368090102" />
               <option name="schema">
                 <list>
                   <option value="WlDriversApi" />
@@ -2948,7 +2948,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548872" />
+              <option name="lastModified" value="1753368090102" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -3438,7 +3438,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/global/global.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548872" />
+              <option name="lastModified" value="1753368090102" />
             </ScannedPath>
           </value>
         </entry>
@@ -3483,7 +3483,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728837" />
+              <option name="lastModified" value="1753368090102" />
             </ScannedPath>
           </value>
         </entry>
@@ -3649,7 +3649,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728865" />
+              <option name="lastModified" value="1753368090102" />
             </ScannedPath>
           </value>
         </entry>
@@ -3692,7 +3692,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548873" />
+              <option name="lastModified" value="1753368090107" />
             </ScannedPath>
           </value>
         </entry>
@@ -4435,7 +4435,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/driver_cards.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753347496882" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="DriverCards" />
@@ -4447,7 +4447,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/request/driver_cards.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753347502223" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="DriverCardsSearch" />
@@ -4483,7 +4483,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/request/wl_drivers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728865" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="WlDriversSearch" />
@@ -4543,7 +4543,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_driver/wl_drivers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753362403753" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="WlDrivers" />
@@ -4700,7 +4700,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_equipment.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501575" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="WlEquipment" />
@@ -5063,7 +5063,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728866" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -5291,7 +5291,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/driver_cards.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753347633140" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="DriverCardsRouter" />
@@ -5303,7 +5303,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728865" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -5363,7 +5363,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548873" />
+              <option name="lastModified" value="1753368090107" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -5812,7 +5812,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/system/sys_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548874" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="MenuService" />
@@ -5872,7 +5872,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/driver_cards.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753348896973" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="DriverCardsService" />
@@ -5884,7 +5884,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728866" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="ServiceGroup" />
@@ -5920,7 +5920,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_driver/wl_drivers.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753358728865" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="WlDriversService" />
@@ -5956,7 +5956,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548874" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="ServiceGroup" />
@@ -6076,7 +6076,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/authorities_menus.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548875" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="initMenuAuthority" />
@@ -6112,7 +6112,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/casbin.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548875" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="initCasbin" />
@@ -6172,7 +6172,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342548876" />
+              <option name="lastModified" value="1753368090112" />
               <option name="schema">
                 <list>
                   <option value="initMenu" />
@@ -6844,7 +6844,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/api/dashboard/v1/dashboard.pb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501690" />
+              <option name="lastModified" value="1753368090133" />
               <option name="schema">
                 <list>
                   <option value="OverviewRequest" />
@@ -6864,7 +6864,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/api/dashboard/v1/dashboard_grpc.pb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501690" />
+              <option name="lastModified" value="1753368090133" />
               <option name="schema">
                 <list>
                   <option value="dashboardClient" />
@@ -6877,7 +6877,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/api/dashboard/v1/dashboard_http.pb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501690" />
+              <option name="lastModified" value="1753368090133" />
               <option name="schema">
                 <list>
                   <option value="DashboardHTTPClientImpl" />
@@ -6940,7 +6940,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/api/user/v1/user.pb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501692" />
+              <option name="lastModified" value="1753368090136" />
               <option name="schema">
                 <list>
                   <option value="WlUser" />
@@ -6957,7 +6957,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/api/user/v1/user_grpc.pb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501692" />
+              <option name="lastModified" value="1753368090136" />
               <option name="schema">
                 <list>
                   <option value="userClient" />
@@ -6970,7 +6970,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/api/user/v1/user_http.pb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501692" />
+              <option name="lastModified" value="1753368090136" />
               <option name="schema">
                 <list>
                   <option value="UserHTTPClientImpl" />
@@ -6982,42 +6982,42 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501692" />
+              <option name="lastModified" value="1753368090136" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/root.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501693" />
+              <option name="lastModified" value="1753368090138" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/wire.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501693" />
+              <option name="lastModified" value="1753368090138" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/kratos_end/cmd/IOT_Hummingbird_back_end/wire_gen.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501693" />
+              <option name="lastModified" value="1753368090138" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501694" />
+              <option name="lastModified" value="1753368090138" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/dashboard.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501694" />
+              <option name="lastModified" value="1753368090138" />
               <option name="schema">
                 <list>
                   <option value="DashboardUsecase" />
@@ -7029,7 +7029,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/greeter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501694" />
+              <option name="lastModified" value="1753368090138" />
               <option name="schema">
                 <list>
                   <option value="Greeter" />
@@ -7042,7 +7042,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/model/wl_alarm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501695" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="WlAlarm" />
@@ -7054,7 +7054,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/model/wl_device_message.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501695" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="WlDeviceMessage" />
@@ -7066,7 +7066,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/model/wl_driver.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501695" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="WlDrivers" />
@@ -7078,7 +7078,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/model/wl_equipment.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501695" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="WlEquipment" />
@@ -7090,7 +7090,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/model/wl_product.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501695" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="WlProducts" />
@@ -7102,7 +7102,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/biz/user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501696" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="WlUser" />
@@ -7115,7 +7115,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/conf/conf.pb.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501696" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="Bootstrap" />
@@ -7135,7 +7135,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/data/data.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501696" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="Data" />
@@ -7147,7 +7147,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/data/greeter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501697" />
+              <option name="lastModified" value="1753368090143" />
               <option name="schema">
                 <list>
                   <option value="greeterRepo" />
@@ -7159,7 +7159,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/data/user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501697" />
+              <option name="lastModified" value="1753368090148" />
               <option name="schema">
                 <list>
                   <option value="userRepo" />
@@ -7171,14 +7171,14 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/server/grpc.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501697" />
+              <option name="lastModified" value="1753368090148" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/server/http.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501697" />
+              <option name="lastModified" value="1753368090148" />
             </ScannedPath>
           </value>
         </entry>
@@ -7192,7 +7192,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/service/dashboard.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501698" />
+              <option name="lastModified" value="1753368090148" />
               <option name="schema">
                 <list>
                   <option value="DashboardService" />
@@ -7204,7 +7204,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/service/greeter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501698" />
+              <option name="lastModified" value="1753368090148" />
               <option name="schema">
                 <list>
                   <option value="GreeterService" />
@@ -7223,7 +7223,7 @@
         <entry key="file://$PROJECT_DIR$/kratos_end/internal/service/user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753342501698" />
+              <option name="lastModified" value="1753368090148" />
               <option name="schema">
                 <list>
                   <option value="UserService" />
