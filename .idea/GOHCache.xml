@@ -17,10 +17,80 @@
             </set>
           </value>
         </entry>
+        <entry key="EquipmentService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/service/equipment.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="GreeterUsecase">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/biz/equipment.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="ResponseData">
           <value>
             <set>
               <option value="file://$USER_HOME$/Desktop/1/main.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../user/internal/biz/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="UserService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../user/internal/biz/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlProducts">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/biz/equipment.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlProductsService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/biz/equipment.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="userRepo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../user/internal/data/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="userRerpo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/../user/internal/data/user.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="wlProducts">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/data/equipment.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="wlProductsRepo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/data/equipment.go" />
             </set>
           </value>
         </entry>
@@ -42,10 +112,86 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/biz/biz.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753433441263" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/biz/equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753438231531" />
+              <option name="schema">
+                <list>
+                  <option value="WlProducts" />
+                  <option value="WlProductsService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/data/equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753434206137" />
+              <option name="schema">
+                <list>
+                  <option value="wlProductsRepo" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/service/equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753433315275" />
+              <option name="schema">
+                <list>
+                  <option value="EquipmentService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/service/service.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753432614252" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go">
           <value>
             <ScannedPath>
               <option name="lastModified" value="1753405785181" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../user/internal/biz/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753438231557" />
+              <option name="schema">
+                <list>
+                  <option value="User" />
+                  <option value="UserService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/../user/internal/data/user.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753434020283" />
+              <option name="schema">
+                <list>
+                  <option value="userRepo" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -55,7 +201,16 @@
       <map>
         <entry key="api_response" value="ApiResponse" />
         <entry key="category_template" value="CategoryTemplate" />
+        <entry key="equipment_service" value="EquipmentService" />
+        <entry key="greeter_usecase" value="GreeterUsecase" />
         <entry key="response_data" value="ResponseData" />
+        <entry key="user" value="User" />
+        <entry key="user_repo" value="userRepo" />
+        <entry key="user_rerpo" value="userRerpo" />
+        <entry key="user_service" value="UserService" />
+        <entry key="wl_products" value="WlProducts" />
+        <entry key="wl_products_repo" value="wlProductsRepo" />
+        <entry key="wl_products_service" value="WlProductsService" />
       </map>
     </option>
   </component>
