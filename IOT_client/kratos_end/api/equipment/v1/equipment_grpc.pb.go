@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.19.4
-// source: equipment.proto
+// source: equipment/v1/equipment.proto
 
 package v1
 
@@ -123,5 +123,5 @@ var Equipment_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "equipment.proto",
+	Metadata: "equipment/v1/equipment.proto",
 }

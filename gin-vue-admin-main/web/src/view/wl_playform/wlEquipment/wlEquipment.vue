@@ -338,12 +338,8 @@ import {
 
 // 导入产品API
 import { getWlProductsList } from '@/api/wl_playform/wlProducts'
-// 导入驱动API
-import { getWlDriversList } from '@/api/wl_driver/wlDrivers'
-
 // 导入驱动相关API
 import { getWlDriversList } from '@/api/wl_driver/wlDrivers'
-import { getDriverCardsList } from '@/api/wl_driver/driverCards'
 
 // 全量引入格式化工具 请按需保留
 import { getDictFunc, formatDate, formatBoolean, filterDict ,filterDataSource, returnArrImg, onDownloadFile } from '@/utils/format'
