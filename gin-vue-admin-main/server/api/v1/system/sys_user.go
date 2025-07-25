@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
+	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/request"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
@@ -54,6 +55,8 @@ func (b *BaseApi) Login(c *gin.Context) {
 		user, err := userService.Login(u)
 		if err != nil {
 			global.GVA_LOG.Error("登陆失败! 用户名不存在或者密码错误!", zap.Error(err))
+			// 记录登录失败日志
+			middleware.RecordLoginFailure(l.Username, c.ClientIP(), c.Request.UserAgent(), "用户名不存在或者密码错误")
 			// 验证码次数+1
 			global.BlackCache.Increment(key, 1)
 			response.FailWithMessage("用户名不存在或者密码错误", c)
@@ -61,14 +64,20 @@ func (b *BaseApi) Login(c *gin.Context) {
 		}
 		if user.Enable != 1 {
 			global.GVA_LOG.Error("登陆失败! 用户被禁止登录!")
+			// 记录登录失败日志
+			middleware.RecordLoginFailure(l.Username, c.ClientIP(), c.Request.UserAgent(), "用户被禁止登录")
 			// 验证码次数+1
 			global.BlackCache.Increment(key, 1)
 			response.FailWithMessage("用户被禁止登录", c)
 			return
 		}
+		// 记录登录成功日志
+		middleware.RecordLoginSuccess(user.Username, c.ClientIP(), c.Request.UserAgent())
 		b.TokenNext(c, *user)
 		return
 	}
+	// 记录登录失败日志
+	middleware.RecordLoginFailure(l.Username, c.ClientIP(), c.Request.UserAgent(), "验证码错误")
 	// 验证码次数+1
 	global.BlackCache.Increment(key, 1)
 	response.FailWithMessage("验证码错误", c)
