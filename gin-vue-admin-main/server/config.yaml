@@ -133,7 +133,7 @@ pgsql:
     engine: ""
     singular: false
 oracle:
-    path: ""`
+    path: ""
     port: ""
     config: ""
     db-name: ""
