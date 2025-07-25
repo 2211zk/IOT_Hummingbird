@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package equipment.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "kratos_end/api/equipment/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.equipment.v1";
+
+
+// The greeting service definition.
+service Equipment {
+  // Sends a greeting
+  rpc ProductsList (ProductsListReq) returns (ProductsListResp) {
+    option (google.api.http) = {
+      post:"/v1/ProductsList"
+      body:"*"
+    };
+  }
+}
+
+message ProductsListReq {
+}
+
+message ProductsListResp {
+  string greet = 1;
+}

@@ -62,6 +62,12 @@ all:
 	make config;
 	make generate;
 
+#.PHONY: api
+#api:
+#	@echo "Generating API code..."
+#	kratos proto client ./api/...  # 根据实际路径修改
+#	kratos proto server ./api/... --path=internal/service
+
 # show help
 help:
 	@echo ''
