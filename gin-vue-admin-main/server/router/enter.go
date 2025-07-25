@@ -16,4 +16,5 @@ type RouterGroup struct {
 	Wl_playform wl_playform.RouterGroup
 	Dashboard   dashboard.RouterGroup
 	Wl_driver   wl_driver.RouterGroup
+	// Wl_user     wl_user.RouterGroup // 已删除，避免未定义报错
 }

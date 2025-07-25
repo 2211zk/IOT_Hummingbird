@@ -166,7 +166,10 @@
             </el-select>
           </el-form-item>
           
+<<<<<<< HEAD
+=======
 
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="driveId">
             <el-select v-model="formData.driveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
@@ -174,7 +177,10 @@
             </el-select>
           </el-form-item>
           
+<<<<<<< HEAD
+=======
 
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
           <!-- 设备坐标 -->
           <el-form-item label="设备坐标" prop="eqCoordinate">
             <el-input 
@@ -206,14 +212,21 @@
             </el-select>
           </el-form-item>
           
+<<<<<<< HEAD
+=======
 
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
           <!-- 关联驱动 -->
           <el-form-item label="关联驱动" prop="batchDriveId" required>
             <el-select v-model="formData.batchDriveId" placeholder="请选择关联驱动" style="width:100%" filterable :clearable="true">
               <el-option v-for="driver in driverOptions" :key="driver.ID" :label="`${driver.driverId || driver.ID} - ${driver.driverName}`" :value="driver.ID" />
             </el-select>
           </el-form-item>
+<<<<<<< HEAD
+          
+=======
 
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
           <!-- 上传设备表 -->
           <el-form-item label="上传设备表" prop="batchFile" required>
             <el-upload
@@ -590,6 +603,10 @@ const getProductName = (productId) => {
   return product ? product.prName : '-'
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
 // 获取驱动名称 - 根据驱动ID查找对应的驱动名称
 // 功能：在表格中显示驱动ID和名称，提升用户体验
 const getDriverName = (driverId) => {
@@ -676,10 +693,15 @@ const getDriverOptions = async () => {
 const setOptions = async () =>{
     // 获取所有产品列表
     await getProductOptions()
+<<<<<<< HEAD
+    // 获取所有驱动列表
+    await getDriverOptions()
+=======
 
     // 获取所有驱动列表
     await getDriverOptions()
 
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
 }
 
 // 初始化产品选项
