@@ -2,12 +2,14 @@ package initialize
 
 import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
+	"github.com/flipped-aurora/gin-vue-admin/server/model/wl_driver"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/wl_playform"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/wl_driver"
 )
 
 func bizModel() error {
 	db := global.GVA_DB
+<<<<<<< HEAD
 	err := db.AutoMigrate(
 		wl_playform.WlProducts{}, 
 		wl_playform.WlScenes{}, 
@@ -18,6 +20,9 @@ func bizModel() error {
 		wl_playform.WlCaFunction{},
 		wl_driver.WlDrivers{},
 	)
+=======
+	err := db.AutoMigrate(wl_playform.WlProducts{}, wl_playform.WlEquipment{}, wl_playform.WlCategory{}, wl_playform.WlCaFunction{}, wl_driver.DriverCards{}, wl_driver.WlDrivers{})
+>>>>>>> kai
 	if err != nil {
 		return err
 	}
