@@ -8,6 +8,12 @@ import (
 
 func bizModel() error {
 	db := global.GVA_DB
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	err := db.AutoMigrate(wl_playform.WlProducts{}, wl_playform.WlScenes{}, wl_playform.WlEngineRules{}, wl_playform.WlResources{}, wl_playform.WlEquipment{}, wl_playform.WlCategory{}, wl_playform.WlCaFunction{}, wl_driver.WlDrivers{}, wl_playform.WlAlarm{})
+=======
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
 	err := db.AutoMigrate(
 		wl_playform.WlProducts{},
 		wl_playform.WlScenes{},
@@ -18,7 +24,12 @@ func bizModel() error {
 		wl_playform.WlCaFunction{},
 		wl_driver.DriverCards{},
 		wl_driver.WlDrivers{},
+		wl_driver.DriverCards{},
 	)
+<<<<<<< HEAD
+=======
+>>>>>>> 538e42a4863302292bcdecf856a6196bb9c093b0
+>>>>>>> bd532373303d0055a09cdc9e982af00d97395b5d
 	if err != nil {
 		return err
 	}

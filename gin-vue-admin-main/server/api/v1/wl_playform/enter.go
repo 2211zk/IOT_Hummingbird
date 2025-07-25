@@ -10,6 +10,7 @@ type ApiGroup struct {
 	WlEquipmentApi
 	WlCategoryApi
 	WlCaFunctionApi
+	WlAlarmApi
 }
 
 var (
@@ -20,4 +21,5 @@ var (
 	wlEquipmentService   = service.ServiceGroupApp.Wl_playformServiceGroup.WlEquipmentService
 	wlCategoryService    = service.ServiceGroupApp.Wl_playformServiceGroup.WlCategoryService
 	wlCaFunctionService  = service.ServiceGroupApp.Wl_playformServiceGroup.WlCaFunctionService
+	wlAlarmService       = service.ServiceGroupApp.Wl_playformServiceGroup.WlAlarmService
 )
