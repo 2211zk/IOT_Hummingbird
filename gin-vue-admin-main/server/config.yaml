@@ -104,15 +104,15 @@ captcha:
 mysql:
     prefix: ""
     port: "3306"
-    config: charset=utf8mb4&parseTime=True&loc=Local
+    config: charset=utf8mb4&parseTime=True&loc=Local&timeout=10s&readTimeout=30s&writeTimeout=30s
     db-name: wl_playform
     username: root
     password: 82AF916059F13E331E633AC0B8A8191B
     path: 14.103.143.229
     engine: ""
     log-mode: error
-    max-idle-conns: 10
-    max-open-conns: 100
+    max-idle-conns: 5
+    max-open-conns: 50
     singular: false
     log-zap: false
 

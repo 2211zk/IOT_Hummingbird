@@ -8,7 +8,6 @@ import (
 
 func bizModel() error {
 	db := global.GVA_DB
-
 	err := db.AutoMigrate(
 		wl_playform.WlProducts{},
 		wl_playform.WlScenes{},
@@ -18,10 +17,8 @@ func bizModel() error {
 		wl_playform.WlCategory{},
 		wl_playform.WlCaFunction{},
 		wl_driver.WlDrivers{},
+		wl_driver.DriverCards{},
 	)
-
-	err = db.AutoMigrate(wl_playform.WlProducts{}, wl_playform.WlEquipment{}, wl_playform.WlCategory{}, wl_playform.WlCaFunction{}, wl_driver.DriverCards{}, wl_driver.WlDrivers{})
-
 	if err != nil {
 		return err
 	}
