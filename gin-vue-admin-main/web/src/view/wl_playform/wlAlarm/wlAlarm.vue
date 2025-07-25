@@ -19,6 +19,10 @@
         </div>
       </div>
     </div>
+    <!-- 新增按钮 -->
+    <div style="margin-bottom: 12px;">
+      <el-button type="primary" icon="plus" @click="openDialog">新增</el-button>
+    </div>
     <!-- 查询区 -->
     <div class="gva-search-box">
       <el-form ref="elSearchFormRef" :inline="true" :model="searchInfo" class="demo-form-inline" @keyup.enter="onSubmit">

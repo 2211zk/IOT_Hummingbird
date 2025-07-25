@@ -16,4 +16,15 @@ var (
 	OldAuthorityVerify     = Rules{"OldAuthorityId": {NotEmpty()}}
 	ChangePasswordVerify   = Rules{"Password": {NotEmpty()}, "NewPassword": {NotEmpty()}}
 	SetUserAuthorityVerify = Rules{"AuthorityId": {NotEmpty()}}
+	WlDriversVerify        = Rules{
+		"DriverNum":      {NotEmpty()},
+		"DriverName":     {NotEmpty()},
+		"Version":        {NotEmpty()},
+		"DriverType":     {NotEmpty()},
+		"Status":         {NotEmpty()},
+		"CreatedTime":    {NotEmpty()},
+		"UpdateTime":     {NotEmpty()},
+		"ProtocolType":   {NotEmpty()},
+		"DeviceCategory": {NotEmpty()},
+	}
 )

@@ -9,26 +9,6 @@
       </el-card>
     </div>
 
-    <!-- 设备驱动卡片区（轮播） -->
-    <el-card class="card-area" shadow="never">
-      <el-carousel :interval="5000" arrow="always" height="120px" indicator-position="outside">
-        <el-carousel-item v-for="(item, idx) in cardList" :key="idx">
-          <div class="card-item" :class="{ offline: item.status === '离线' }">
-            <div class="card-title">
-              <span>{{ item.title }}</span>
-              <el-tag v-if="item.status === '在线'" type="success" size="small">在线</el-tag>
-              <el-tag v-else type="info" size="small">离线</el-tag>
-            </div>
-            <div class="card-device">设备数：{{ item.deviceCount }}个</div>
-            <div class="card-status">
-              <span class="online">在线：{{ item.onlineCount }}个</span>
-              <span class="offline">离线：{{ item.offlineCount }}个</span>
-            </div>
-          </div>
-        </el-carousel-item>
-      </el-carousel>
-    </el-card>
-
     <!-- 消息趋势区（ECharts 折线图） -->
     <el-card class="trend-card" shadow="never">
       <div class="trend-title">消息趋势</div>
@@ -72,9 +52,6 @@ const topStats = ref([
   { title: '驱动总数', value: 0, desc: '已注册驱动数量', color: '#E6A23C' }
 ])
 
-// 设备驱动卡片
-const cardList = ref([])
-
 // 获取统计数据和驱动轮播数据
 const getOverviewStats = async () => {
   try {
@@ -97,23 +74,6 @@ const getOverviewStats = async () => {
       { title: '报警数', value: 0, desc: '今日报警次数', color: '#F56C6C' },
       { title: '驱动总数', value: totalDrivers, desc: '已注册驱动数量', color: '#E6A23C' }
     ]
-    // 构建驱动轮播数据（如设备表无driverId字段则用模拟数据）
-    cardList.value = drivers.map((driver, idx) => ({
-      title: driver.driverName || `驱动-${driver.driverNum || idx + 1}`,
-      status: driver.status === 'online' ? '在线' : '离线',
-      deviceCount: Math.floor(Math.random() * 10) + 1, // 模拟设备数量
-      onlineCount: Math.floor(Math.random() * 5), // 模拟在线设备数量
-      offlineCount: Math.floor(Math.random() * 5) + 1 // 模拟离线设备数量
-    }))
-    if (drivers.length === 0) {
-      cardList.value = [
-        { title: 'mqtt测试驱动2.7版本-30593142', status: '在线', deviceCount: 3, onlineCount: 2, offlineCount: 1 },
-        { title: 'GB28181协议驱动-31747985', status: '离线', deviceCount: 1, onlineCount: 0, offlineCount: 1 },
-        { title: 'mqtt-ca-48654311', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 },
-        { title: 'rtu驱动-48849713', status: '在线', deviceCount: 4, onlineCount: 3, offlineCount: 1 },
-        { title: 'TCP协议驱动-53703706', status: '在线', deviceCount: 2, onlineCount: 1, offlineCount: 1 }
-      ]
-    }
   } catch (error) {
     ElMessage.error('获取驱动概述数据失败')
   }

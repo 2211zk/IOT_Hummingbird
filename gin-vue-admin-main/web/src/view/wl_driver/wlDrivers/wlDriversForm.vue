@@ -99,6 +99,33 @@ const formData = ref({
         })
 // 验证规则
 const rule = reactive({
+  driverNum: [
+    { required: true, message: '驱动编号不能为空', trigger: ['blur', 'input'] }
+  ],
+  driverName: [
+    { required: true, message: '驱动名称不能为空', trigger: ['blur', 'input'] }
+  ],
+  version: [
+    { required: true, message: '版本不能为空', trigger: ['blur', 'input'] }
+  ],
+  driverType: [
+    { required: true, message: '驱动类型不能为空', trigger: ['change', 'blur'] }
+  ],
+  status: [
+    { required: true, message: '状态不能为空', trigger: ['change', 'blur'] }
+  ],
+  createdTime: [
+    { required: true, message: '创建时间不能为空', trigger: ['change', 'blur'] }
+  ],
+  updateTime: [
+    { required: true, message: '更新时间不能为空', trigger: ['change', 'blur'] }
+  ],
+  protocolType: [
+    { required: true, message: '协议类型不能为空', trigger: ['blur', 'input'] }
+  ],
+  deviceCategory: [
+    { required: true, message: '设备类型不能为空', trigger: ['blur', 'input'] }
+  ]
 })
 
 const elFormRef = ref()
