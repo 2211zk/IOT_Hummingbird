@@ -2590,6 +2590,7 @@
         <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/api/equipment/v1/equipment_grpc.pb.go">
           <value>
             <ScannedPath>
+<<<<<<< HEAD
               <option name="lastModified" value="1753446340020" />
               <option name="schema">
                 <list>
@@ -2667,6 +2668,9 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1753446340020" />
+=======
+              <option name="lastModified" value="1753454358887" />
+>>>>>>> 5399bdc1372bf098c16f4524e2b18380f606a95d
               <option name="schema">
                 <list>
                   <option value="User" />
