@@ -12,83 +12,93 @@
     <!-- 查询与分类Tab -->
     <el-card class="filter-card" shadow="never">
       <div class="tab-search-row">
-        <el-tabs v-model="activeTab" class="custom-tabs">
-          <el-tab-pane label="驱动市场" name="market" />
-          <el-tab-pane label="自定义" name="custom" />
-        </el-tabs>
-        <div class="filter-row">
-          <el-input v-model="searchInfo.name" placeholder="名称" style="width: 200px; margin-right: 10px;" />
-          <el-button type="primary" @click="onSubmit">查询</el-button>
-          <el-button @click="onReset">重置</el-button>
+        <div class="category-tabs-custom">
+          <span
+            v-for="cat in categories"
+            :key="cat.value"
+            :class="['category-tab-item', { active: categoryTab === cat.value }]"
+            @click="categoryTab = cat.value"
+          >
+            {{ cat.label }}
+          </span>
         </div>
-        <el-tabs v-model="categoryTab" class="category-tabs" style="margin-top: 10px;">
-          <el-tab-pane label="官方协议" name="official" />
-          <el-tab-pane label="网关" name="gateway" />
-          <el-tab-pane label="摄像头" name="camera" />
-          <el-tab-pane label="作业器" name="actuator" />
-          <el-tab-pane label="开关" name="switch" />
-          <el-tab-pane label="门禁" name="access" />
-          <el-tab-pane label="探测器" name="detector" />
-          <el-tab-pane label="水电表" name="meter" />
-          <el-tab-pane label="检测仪" name="tester" />
-        </el-tabs>
       </div>
     </el-card>
 
-    <!-- 内容区 -->
-    <div v-if="categoryTab === 'official'">
-      <!-- 官方协议：图片卡片 -->
-      <el-row :gutter="20" class="driver-card-list" style="margin-top: 20px;">
-        <el-col :span="6" v-for="item in tableData" :key="item.ID">
-          <el-card class="driver-card" shadow="hover">
-            <div class="card-header">
-              <img :src="item.img" class="driver-icon" v-if="item.img" />
-              <div v-else class="driver-icon-placeholder">{{ item.name?.[0] }}</div>
-            </div>
-            <div class="driver-title">{{ item.name }}</div>
-            <div class="driver-tags">
-              <el-tag v-if="item.tags" size="small">{{ item.tags }}</el-tag>
-            </div>
-            <div class="driver-desc">{{ item.description }}</div>
-            <div class="driver-actions">
-              <el-button type="text" @click="getDetails(item)">手册</el-button>
-              <el-button type="text">下载</el-button>
-            </div>
-          </el-card>
-        </el-col>
-      </el-row>
-    </div>
-    <div v-else>
-      <!-- 其他tab：空数据提示 -->
-      <el-empty description="暂无数据" />
-    </div>
+    <!-- 卡片区 -->
+    <el-row :gutter="20" class="driver-card-list" style="margin-top: 20px;">
+      <el-col :span="6" v-for="item in tableData" :key="item.ID">
+        <el-card class="driver-card" shadow="hover">
+          <div class="card-header">
+            <img :src="item.img" class="driver-icon" v-if="item.img" />
+            <div v-else class="driver-icon-placeholder">{{ item.name?.[0] }}</div>
+          </div>
+          <div class="driver-title">{{ item.name }}</div>
+          <div class="driver-tags">
+            <el-tag v-if="item.downloaded === true" size="small" type="info">已下载</el-tag>
+            <el-tag v-else size="small" type="info">未下载</el-tag>
+            <el-tag v-if="item.pay === true" size="small" type="warning">付费</el-tag>
+            <el-tag v-if="item.openSource === true" size="small" type="success">开源</el-tag>
+            <el-tag v-if="item.version" size="small" type="success">{{ item.version }}版本</el-tag>
+            <el-tag v-if="item.tags" size="small">{{ item.tags }}</el-tag>
+          </div>
+          <div class="driver-desc">{{ item.description }}</div>
+          <div class="driver-actions">
+            <el-button type="text" @click="getDetails(item)">手册</el-button>
+            <el-button type="text">下载</el-button>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { getDriverCardsList, findDriverCards } from '@/api/wl_driver/driverCards'
 import { ElMessage } from 'element-plus'
 
+const categories = [
+  { label: '官方协议', value: 'official' },
+  { label: '网关', value: 'gateway' },
+  { label: '摄像头', value: 'camera' },
+  { label: '作业器', value: 'actuator' },
+  { label: '开关', value: 'switch' },
+  { label: '门禁', value: 'access' },
+  { label: '探测器', value: 'detector' },
+  { label: '水电表', value: 'meter' },
+  { label: '检测仪', value: 'tester' }
+]
 const activeTab = ref('market')
 const categoryTab = ref('official')
-const searchInfo = ref({})
+const searchInfo = ref({ name: '', tags: '', description: '' })
 const tableData = ref([])
 
 const onSubmit = () => {
   getTableData()
 }
 const onReset = () => {
-  searchInfo.value = {}
+  searchInfo.value = { name: '', tags: '', description: '' }
   getTableData()
 }
 
 const getTableData = async () => {
-  const table = await getDriverCardsList({ ...searchInfo.value })
-  if (table.code === 0) {
-    tableData.value = table.data.list
+  const params = { ...searchInfo.value }
+  // 联动类型筛选
+  if (categoryTab.value) {
+    params.driverType = categoryTab.value
+  }
+  const res = await getDriverCardsList(params)
+  if (res.code === 0) {
+    tableData.value = res.data.list
   }
 }
+
+// 监听类型切换自动筛选
+watch(categoryTab, () => {
+  getTableData()
+})
+
 getTableData()
 
 const getDetails = async (item) => {
@@ -111,4 +121,34 @@ const getDetails = async (item) => {
 .driver-tags { margin-bottom: 8px; }
 .driver-desc { color: #888; font-size: 13px; margin-bottom: 8px; text-align: center; }
 .driver-actions { display: flex; gap: 8px; }
+.category-tabs-custom {
+  display: flex;
+  gap: 32px;
+  border-bottom: 2px solid #f0f0f0;
+  margin: 10px 0 0 0;
+  padding-left: 4px;
+}
+.category-tab-item {
+  font-size: 16px;
+  color: #222;
+  padding: 6px 8px 8px 8px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+.category-tab-item.active {
+  color: #409EFF;
+  font-weight: bold;
+}
+.category-tab-item.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 3px;
+  background: #409EFF;
+  border-radius: 2px 2px 0 0;
+}
 </style>
