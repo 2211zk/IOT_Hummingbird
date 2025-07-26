@@ -3,6 +3,13 @@
   <component name="GoORMHelperCache">
     <option name="schemaMapping">
       <map>
+        <entry key="EquipmentService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/service/equipment.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="User">
           <value>
             <set>
@@ -21,6 +28,25 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/service/equipment.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753492328892" />
+              <option name="schema">
+                <list>
+                  <option value="EquipmentService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/internal/service/service.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753492328903" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go">
           <value>
             <ScannedPath>
@@ -31,7 +57,7 @@
         <entry key="file://$PROJECT_DIR$/../user/internal/biz/user.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753454358887" />
+              <option name="lastModified" value="1753492406898" />
               <option name="schema">
                 <list>
                   <option value="User" />
@@ -45,6 +71,7 @@
     </option>
     <option name="tableStructMapping">
       <map>
+        <entry key="equipment_service" value="EquipmentService" />
         <entry key="user" value="User" />
         <entry key="user_service" value="UserService" />
       </map>
