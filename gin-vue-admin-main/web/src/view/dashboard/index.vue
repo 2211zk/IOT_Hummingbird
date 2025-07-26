@@ -42,31 +42,20 @@
       <div class="quick-entry-card" style="background-color: #0f172a !important; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border: 1px solid #334155; color: white;">
         <h3>快捷入口</h3>
         <div class="quick-entry-grid">
-          <div class="quick-entry-item" @click="handleQuickEntry('addProduct')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
-            <div class="quick-entry-icon">📦</div>
-            <div class="quick-entry-label">添加产品</div>
+          <div 
+            v-for="entryType in quickEntryTypes" 
+            :key="entryType"
+            class="quick-entry-item" 
+            :class="{ 'loading': quickEntryLoading[entryType] }"
+            @click="handleQuickEntry(entryType)" 
+            :title="getQuickEntryTooltip(entryType)"
+          >
+            <div class="quick-entry-icon" v-if="!quickEntryLoading[entryType]">
+              {{ getQuickEntryIcon(entryType) }}
+            </div>
+            <div class="quick-entry-loading" v-else>⏳</div>
+            <div class="quick-entry-label">{{ getQuickEntryLabel(entryType) }}</div>
           </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('addDevice')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
-            <div class="quick-entry-icon">📱</div>
-            <div class="quick-entry-label">添加设备</div>
-          </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('serviceMonitor')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
-            <div class="quick-entry-icon">🖥️</div>
-            <div class="quick-entry-label">服务监控</div>
-          </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('ruleEngine')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
-            <div class="quick-entry-icon">⚙️</div>
-            <div class="quick-entry-label">规则引擎</div>
-          </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('alarmCenter')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
-            <div class="quick-entry-icon">🔔</div>
-            <div class="quick-entry-label">告警中心</div>
-          </div>
-          <div class="quick-entry-item" @click="handleQuickEntry('dataCenter')" style="background-color: #1890ff !important; color: white; border: 1px solid #1890ff; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
-            <div class="quick-entry-icon">💾</div>
-            <div class="quick-entry-label">数据中心</div>
-          </div>
-
         </div>
       </div>
     </div>
@@ -166,8 +155,10 @@
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
+import { useRouterStore } from '@/pinia/modules/router'
 import * as echarts from 'echarts'
 import { getDashboardData } from '@/api/dashboard/dashboard'
+import { ElMessage } from 'element-plus'
 
 defineOptions({
   name: 'Dashboard'
@@ -243,6 +234,67 @@ const messageChart = ref(null)
 
 // 获取路由实例
 const router = useRouter()
+const routerStore = useRouterStore()
+
+// 快捷入口加载状态
+const quickEntryLoading = ref({})
+
+// 快捷入口配置
+const quickEntryConfig = {
+  'addProduct': {
+    name: 'wlProducts',
+    label: '产品管理',
+    icon: '📦',
+    description: '管理物联网产品信息'
+  },
+  'addDevice': {
+    name: 'wlEquipment', 
+    label: '设备管理',
+    icon: '📱',
+    description: '管理物联网设备信息'
+  },
+  'serviceMonitor': {
+    name: 'state',
+    label: '系统监控',
+    icon: '🖥️',
+    description: '监控系统运行状态'
+  },
+  'ruleEngine': {
+    name: 'wlEngineRules',
+    label: '引擎规则',
+    icon: '⚙️',
+    description: '配置业务规则引擎'
+  },
+  'alarmCenter': {
+    name: 'wlAlarm',
+    label: '告警中心',
+    icon: '🔔',
+    description: '查看和处理系统告警'
+  },
+  'dataCenter': {
+    name: 'state',
+    label: '服务器状态',
+    icon: '💾',
+    description: '查看服务器运行状态'
+  }
+}
+
+// 快捷入口类型列表
+const quickEntryTypes = ['addProduct', 'addDevice', 'serviceMonitor', 'ruleEngine', 'alarmCenter', 'dataCenter']
+
+// 获取快捷入口显示信息的方法
+const getQuickEntryIcon = (entryType) => {
+  return quickEntryConfig[entryType]?.icon || '📄'
+}
+
+const getQuickEntryLabel = (entryType) => {
+  return quickEntryConfig[entryType]?.label || '未知功能'
+}
+
+const getQuickEntryTooltip = (entryType) => {
+  const config = quickEntryConfig[entryType]
+  return config?.description || `点击跳转到${config?.label || '未知功能'}页面`
+}
 
 // 图表实例
 let cpuChartInstance = null
@@ -253,73 +305,58 @@ let alarmChartInstance = null
 let messageChartInstance = null
 
 // 快捷入口处理
-const handleQuickEntry = (type) => {
+const handleQuickEntry = async (type) => {
   console.log('快捷入口点击:', type)
-  console.log('当前路由:', router.currentRoute.value)
   
-  switch (type) {
-    case 'addProduct':
-      // 跳转到产品管理页面
-      console.log('尝试跳转到产品管理页面')
-      try {
-        router.push('/layout/wlProducts')
-      } catch (error) {
-        console.error('跳转失败，尝试跳转到设备接入页面:', error)
-        router.push('/layout/deviceAccess')
-      }
-      break
-    case 'addDevice':
-      // 跳转到设备管理页面
-      console.log('尝试跳转到设备管理页面')
-      try {
-        router.push('/layout/wlEquipment')
-      } catch (error) {
-        console.error('跳转失败，尝试跳转到设备接入页面:', error)
-        router.push('/layout/deviceAccess')
-      }
-      break
-    case 'serviceMonitor':
-      // 跳转到服务监控页面
-      console.log('尝试跳转到服务监控页面')
-      try {
-        router.push('/layout/state')
-      } catch (error) {
-        console.error('跳转失败，尝试跳转到服务器状态页面:', error)
-        router.push('/layout/state')
-      }
-      break
-    case 'ruleEngine':
-      // 跳转到引擎规则页面
-      console.log('尝试跳转到引擎规则页面')
-      try {
-        router.push('/layout/wlEngineRules')
-      } catch (error) {
-        console.error('跳转失败，尝试跳转到设备接入页面:', error)
-        router.push('/layout/deviceAccess')
-      }
-      break
-    case 'alarmCenter':
-      // 跳转到告警中心页面
-      console.log('尝试跳转到告警中心页面')
-      try {
-        router.push('/layout/wlResources')
-      } catch (error) {
-        console.error('跳转失败，尝试跳转到资源管理页面:', error)
-        router.push('/layout/wlResources')
-      }
-      break
-    case 'dataCenter':
-      // 跳转到数据中心页面
-      console.log('尝试跳转到数据中心页面')
-      try {
-        router.push('/layout/state')
-      } catch (error) {
-        console.error('跳转失败，尝试跳转到服务器状态页面:', error)
-        router.push('/layout/state')
-      }
-      break
-    default:
-      console.log('未知的快捷入口类型:', type)
+  // 防止重复点击
+  if (quickEntryLoading.value[type]) {
+    return
+  }
+
+  const config = quickEntryConfig[type]
+  if (!config) {
+    ElMessage.error('功能暂未开放')
+    return
+  }
+
+  try {
+    // 设置加载状态
+    quickEntryLoading.value[type] = true
+    
+    console.log(`正在跳转到${config.label}页面...`)
+    console.log(`路由名称: ${config.name}`)
+    console.log(`当前路由:`, router.currentRoute.value)
+    
+    // 检查路由是否存在
+    if (routerStore && routerStore.routeMap) {
+      console.log(`路由映射:`, Object.keys(routerStore.routeMap))
+      console.log(`目标路由是否存在:`, !!routerStore.routeMap[config.name])
+    }
+    
+    // 执行路由跳转
+    await router.push({ name: config.name })
+    
+    console.log(`成功跳转到${config.label}页面`)
+    
+    // 显示成功提示
+    ElMessage.success(`已跳转到${config.label}`)
+    
+  } catch (error) {
+    console.error(`跳转失败:`, error)
+    console.error(`错误详情:`, error.message)
+    
+    // 错误处理
+    if (error.message && error.message.includes('No match')) {
+      ElMessage.error(`${config.label}页面不存在或暂未配置`)
+    } else {
+      ElMessage.error(`跳转到${config.label}失败，请稍后重试`)
+    }
+    
+  } finally {
+    // 清除加载状态
+    setTimeout(() => {
+      quickEntryLoading.value[type] = false
+    }, 500)
   }
 }
 
@@ -666,6 +703,11 @@ const initCharts = async () => {
   }
 }
 
+// 预加载常用快捷入口组件（暂时禁用）
+// const preloadQuickEntryComponents = async () => {
+//   // 预加载逻辑暂时禁用
+// }
+
 // 组件挂载后初始化
 onMounted(() => {
   // 初始化时获取数据
@@ -676,6 +718,20 @@ onMounted(() => {
   // 添加悬停效果
   nextTick(() => {
     addHoverEffect()
+  })
+  
+  // 调试路由信息
+  nextTick(() => {
+    console.log('=== 路由调试信息 ===')
+    console.log('Router实例:', router)
+    console.log('RouterStore实例:', routerStore)
+    console.log('当前路由:', router.currentRoute.value)
+    
+    if (routerStore && routerStore.routeMap) {
+      console.log('可用路由:', Object.keys(routerStore.routeMap))
+    } else {
+      console.warn('RouterStore或routeMap未初始化')
+    }
   })
   
   // 监听窗口大小变化，重新调整图表大小
@@ -725,13 +781,64 @@ setInterval(() => {
   font-weight: bold !important;
   cursor: pointer !important;
   transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  padding: 16px 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 80px !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 .dashboard-container .quick-entry-item:hover {
   background-color: #40a9ff !important;
   border-color: #40a9ff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 16px rgba(24, 144, 255, 0.4) !important;
+}
+
+.dashboard-container .quick-entry-item:active {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3) !important;
+}
+
+.dashboard-container .quick-entry-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.dashboard-container .quick-entry-item:hover::before {
+  left: 100%;
+}
+
+.dashboard-container .quick-entry-item.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.dashboard-container .quick-entry-item.loading:hover {
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3) !important;
+}
+
+.quick-entry-loading {
+  font-size: 24px;
+  margin-bottom: 8px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .status-item {
@@ -832,8 +939,11 @@ setInterval(() => {
 }
 
 .quick-entry-label {
-  font-size: 10px;
-  color: #ccc;
+  font-size: 12px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
 }
 
 .alarm-legend-item {
@@ -966,8 +1076,13 @@ setInterval(() => {
 }
 
 .quick-entry-icon {
-  font-size: 20px;
-  margin-bottom: 6px;
+  font-size: 24px;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-container .quick-entry-item:hover .quick-entry-icon {
+  transform: scale(1.1);
 }
 
 .alarm-chart-container {
