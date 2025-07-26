@@ -141,21 +141,53 @@ export const useRouterStore = defineStore('router', () => {
     sessionStorage.setItem('topActive', name)
     topActive.value = name
     leftMenu.value = []
+    
     if (menuMap[name]?.children) {
       leftMenu.value = menuMap[name].children
     }
+    
+    // 触发菜单更新事件，通知侧边栏组件
+    emitter.emit('menuStateChanged', {
+      activeTopMenu: name,
+      leftMenuItems: leftMenu.value,
+      timestamp: Date.now()
+    })
+    
+    console.log(`菜单状态已更新: ${name}`, {
+      activeTopMenu: name,
+      leftMenuCount: leftMenu.value.length
+    })
+    
     return menuMap[name]?.children
   }
 
   const findTopActive = (menuMap, routeName) => {
     for (let topName in menuMap) {
       const topItem = menuMap[topName];
+      
+      // 直接匹配顶级菜单
+      if (topItem.name === routeName) {
+        return topName;
+      }
+      
+      // 检查子菜单
       if (topItem.children?.some(item => item.name === routeName)) {
         return topName;
       }
-      const foundName = findTopActive(topItem.children || {}, routeName);
-      if (foundName) {
-        return topName;
+      
+      // 递归检查嵌套子菜单
+      if (topItem.children) {
+        const childMenuMap = {};
+        topItem.children.forEach(child => {
+          if (child.children) {
+            childMenuMap[child.name] = child;
+          }
+        });
+        
+        const foundName = findTopActive(childMenuMap, routeName);
+        if (foundName) {
+          return topName;
+        }
       }
     }
     return null;
@@ -254,6 +286,34 @@ export const useRouterStore = defineStore('router', () => {
     return true
   }
 
+  // 强制更新菜单状态
+  const forceUpdateMenuState = (routeName) => {
+    const topMenuName = findTopActive(menuMap, routeName)
+    if (topMenuName) {
+      setLeftMenu(topMenuName)
+      return true
+    }
+    return false
+  }
+
+  // 获取当前激活的菜单路径
+  const getActiveMenuPath = (routeName) => {
+    const topMenuName = findTopActive(menuMap, routeName)
+    if (!topMenuName) return []
+    
+    const path = [topMenuName]
+    const topMenu = menuMap[topMenuName]
+    
+    if (topMenu?.children) {
+      const childMenu = topMenu.children.find(child => child.name === routeName)
+      if (childMenu) {
+        path.push(childMenu.name)
+      }
+    }
+    
+    return path
+  }
+
   return {
     topActive,
     setLeftMenu,
@@ -263,6 +323,9 @@ export const useRouterStore = defineStore('router', () => {
     keepAliveRouters,
     asyncRouterFlag,
     SetAsyncRouter,
-    routeMap
+    routeMap,
+    forceUpdateMenuState,
+    getActiveMenuPath,
+    menuMap: () => menuMap
   }
 })
