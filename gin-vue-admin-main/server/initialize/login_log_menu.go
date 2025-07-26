@@ -46,16 +46,20 @@ func InitLoginLogMenu() {
 	apis := []system.SysApi{
 		{Path: "/loginLog/getLoginLogList", Description: "获取登录日志列表", ApiGroup: "登录日志", Method: "POST"},
 		{Path: "/loginLog/findLoginLog", Description: "获取登录日志详情", ApiGroup: "登录日志", Method: "GET"},
+		{Path: "/loginLog/deleteLoginLog", Description: "删除登录日志", ApiGroup: "登录日志", Method: "DELETE"},
+		{Path: "/loginLog/deleteLoginLogByIds", Description: "批量删除登录日志", ApiGroup: "登录日志", Method: "DELETE"},
+		{Path: "/loginLog/updateLoginLog", Description: "更新登录日志", ApiGroup: "登录日志", Method: "PUT"},
+		{Path: "/loginLog/createLoginLog", Description: "创建登录日志", ApiGroup: "登录日志", Method: "POST"},
 		{Path: "/loginLog/exportLoginLog", Description: "导出登录日志", ApiGroup: "登录日志", Method: "POST"},
+		{Path: "/loginLog/cleanExpiredLogs", Description: "清理过期日志", ApiGroup: "登录日志", Method: "POST"},
 		{Path: "/loginLog/getLoginStatistics", Description: "获取登录统计", ApiGroup: "登录日志", Method: "GET"},
 		{Path: "/loginLog/getRecentLoginLogs", Description: "获取最近登录日志", ApiGroup: "登录日志", Method: "GET"},
 		{Path: "/loginLog/getTopLoginIPs", Description: "获取热门登录IP", ApiGroup: "登录日志", Method: "GET"},
-		{Path: "/loginLog/cleanExpiredLogs", Description: "清理过期日志", ApiGroup: "登录日志", Method: "POST"},
+		{Path: "/loginLog/exportLoginStatistics", Description: "导出登录统计", ApiGroup: "登录日志", Method: "GET"},
 		{Path: "/loginLog/getCleanupStatistics", Description: "获取清理统计", ApiGroup: "登录日志", Method: "GET"},
 		{Path: "/loginLog/getLogRetentionPolicy", Description: "获取日志保留策略", ApiGroup: "登录日志", Method: "GET"},
 		{Path: "/loginLog/setLogRetentionPolicy", Description: "设置日志保留策略", ApiGroup: "登录日志", Method: "POST"},
 		{Path: "/loginLog/getFailedLoginAttempts", Description: "获取失败登录尝试", ApiGroup: "登录日志", Method: "GET"},
-		{Path: "/loginLog/exportLoginStatistics", Description: "导出登录统计", ApiGroup: "登录日志", Method: "GET"},
 	}
 
 	// 为所有管理员角色分配菜单和API权限

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录日志测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .search-form {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .form-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .form-item label {
+            font-weight: bold;
+            color: #333;
+        }
+        .form-item input, .form-item select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 150px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .btn-primary { background: #409eff; color: white; }
+        .btn-success { background: #67c23a; color: white; }
+        .btn-warning { background: #e6a23c; color: white; }
+        .btn-danger { background: #f56c6c; color: white; }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f5f7fa;
+            cursor: pointer;
+        }
+        .status-success {
+            color: #67c23a;
+            font-weight: bold;
+        }
+        .status-error {
+            color: #f56c6c;
+            font-weight: bold;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .page-btn {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .page-btn.active {
+            background: #409eff;
+            color: white;
+            border-color: #409eff;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .close {
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        .detail-label {
+            font-weight: bold;
+            width: 120px;
+            color: #666;
+        }
+        .detail-value {
+            flex: 1;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>登录日志管理</h1>
+            <p>登录日志功能测试页面 - 验证界面样式和功能</p>
+        </div>
+
+        <!-- 搜索表单 -->
+        <div class="search-form">
+            <div class="form-item">
+                <label>用户名</label>
+                <input type="text" id="userName" placeholder="请输入用户名">
+            </div>
+            <div class="form-item">
+                <label>登录IP</label>
+                <input type="text" id="loginAddress" placeholder="请输入登录IP">
+            </div>
+            <div class="form-item">
+                <label>登录地点</label>
+                <input type="text" id="loginLocation" placeholder="请输入登录地点">
+            </div>
+            <div class="form-item">
+                <label>登录状态</label>
+                <select id="loginStatus">
+                    <option value="">请选择状态</option>
+                    <option value="成功">成功</option>
+                    <option value="失败">失败</option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label>时间范围</label>
+                <input type="datetime-local" id="startTime">
+                <input type="datetime-local" id="endTime">
+            </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="searchLogs()">查询</button>
+            <button class="btn btn-success" onclick="resetSearch()">重置</button>
+            <button class="btn btn-warning" onclick="exportData()">导出Excel</button>
+            <button class="btn btn-danger" onclick="cleanLogs()">清理日志</button>
+        </div>
+
+        <!-- 数据表格 -->
+        <div class="table-container">
+            <table id="logTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll" onchange="toggleSelectAll()"></th>
+                        <th>访问编号</th>
+                        <th>用户名称</th>
+                        <th>登录地址</th>
+                        <th>登录地点</th>
+                        <th>浏览器</th>
+                        <th>操作系统</th>
+                        <th>登录状态</th>
+                        <th>操作信息</th>
+                        <th>登录时间</th>
+                    </tr>
+                </thead>
+                <tbody id="logTableBody">
+                    <!-- 示例数据 -->
+                    <tr onclick="showDetail(1001)">
+                        <td><input type="checkbox" name="logSelect" value="1"></td>
+                        <td>1001</td>
+                        <td>admin</td>
+                        <td>127.0.0.1</td>
+                        <td>本地</td>
+                        <td>Chrome 120.0.0</td>
+                        <td>Windows 10</td>
+                        <td><span class="status-success">成功</span></td>
+                        <td>管理员登录</td>
+                        <td>2025-01-26 14:30:15</td>
+                    </tr>
+                    <tr onclick="showDetail(1002)">
+                        <td><input type="checkbox" name="logSelect" value="2"></td>
+                        <td>1002</td>
+                        <td>user1</td>
+                        <td>192.168.1.100</td>
+                        <td>内网</td>
+                        <td>Safari 17.0</td>
+                        <td>macOS 14</td>
+                        <td><span class="status-success">成功</span></td>
+                        <td>用户登录</td>
+                        <td>2025-01-26 13:30:15</td>
+                    </tr>
+                    <tr onclick="showDetail(1003)">
+                        <td><input type="checkbox" name="logSelect" value="3"></td>
+                        <td>1003</td>
+                        <td>user2</td>
+                        <td>192.168.1.101</td>
+                        <td>内网</td>
+                        <td>Firefox 119.0</td>
+                        <td>Ubuntu 22.04</td>
+                        <td><span class="status-error">失败</span></td>
+                        <td>密码错误</td>
+                        <td>2025-01-26 12:30:15</td>
+                    </tr>
+                    <tr onclick="showDetail(1004)">
+                        <td><input type="checkbox" name="logSelect" value="4"></td>
+                        <td>1004</td>
+                        <td>admin</td>
+                        <td>127.0.0.1</td>
+                        <td>本地</td>
+                        <td>Edge 119.0</td>
+                        <td>Windows 11</td>
+                        <td><span class="status-success">成功</span></td>
+                        <td>管理员登录</td>
+                        <td>2025-01-26 11:30:15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <button class="page-btn">上一页</button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">下一页</button>
+        </div>
+    </div>
+
+    <!-- 详情弹窗 -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>登录日志详情</h2>
+                <span class="close" onclick="closeDetail()">&times;</span>
+            </div>
+            <div id="detailContent">
+                <!-- 详情内容将通过JavaScript填充 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 示例数据
+        const sampleData = [
+            {
+                id: 1,
+                accessNumber: 1001,
+                userName: 'admin',
+                loginAddress: '127.0.0.1',
+                loginLocation: '本地',
+                browser: 'Chrome 120.0.0',
+                operatingSystem: 'Windows 10',
+                loginStatus: '成功',
+                operationalInfo: '管理员登录',
+                loginTime: '2025-01-26 14:30:15'
+            },
+            {
+                id: 2,
+                accessNumber: 1002,
+                userName: 'user1',
+                loginAddress: '192.168.1.100',
+                loginLocation: '内网',
+                browser: 'Safari 17.0',
+                operatingSystem: 'macOS 14',
+                loginStatus: '成功',
+                operationalInfo: '用户登录',
+                loginTime: '2025-01-26 13:30:15'
+            },
+            {
+                id: 3,
+                accessNumber: 1003,
+                userName: 'user2',
+                loginAddress: '192.168.1.101',
+                loginLocation: '内网',
+                browser: 'Firefox 119.0',
+                operatingSystem: 'Ubuntu 22.04',
+                loginStatus: '失败',
+                operationalInfo: '密码错误',
+                loginTime: '2025-01-26 12:30:15'
+            },
+            {
+                id: 4,
+                accessNumber: 1004,
+                userName: 'admin',
+                loginAddress: '127.0.0.1',
+                loginLocation: '本地',
+                browser: 'Edge 119.0',
+                operatingSystem: 'Windows 11',
+                loginStatus: '成功',
+                operationalInfo: '管理员登录',
+                loginTime: '2025-01-26 11:30:15'
+            }
+        ];
+
+        function searchLogs() {
+            alert('搜索功能 - 在实际应用中会调用API');
+        }
+
+        function resetSearch() {
+            document.getElementById('userName').value = '';
+            document.getElementById('loginAddress').value = '';
+            document.getElementById('loginLocation').value = '';
+            document.getElementById('loginStatus').value = '';
+            document.getElementById('startTime').value = '';
+            document.getElementById('endTime').value = '';
+        }
+
+        function exportData() {
+            alert('导出功能 - 在实际应用中会下载Excel文件');
+        }
+
+        function cleanLogs() {
+            if (confirm('确定要清理过期日志吗？此操作不可恢复！')) {
+                alert('清理功能 - 在实际应用中会调用清理API');
+            }
+        }
+
+        function toggleSelectAll() {
+            const selectAll = document.getElementById('selectAll');
+            const checkboxes = document.querySelectorAll('input[name="logSelect"]');
+            checkboxes.forEach(cb => cb.checked = selectAll.checked);
+        }
+
+        function showDetail(accessNumber) {
+            const data = sampleData.find(item => item.accessNumber === accessNumber);
+            if (!data) {
+                alert('未找到对应的日志记录');
+                return;
+            }
+
+            const detailContent = document.getElementById('detailContent');
+            detailContent.innerHTML = `
+                <div class="detail-item">
+                    <div class="detail-label">访问编号:</div>
+                    <div class="detail-value">${data.accessNumber}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">用户名称:</div>
+                    <div class="detail-value">${data.userName}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">登录地址:</div>
+                    <div class="detail-value">${data.loginAddress}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">登录地点:</div>
+                    <div class="detail-value">${data.loginLocation}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">浏览器:</div>
+                    <div class="detail-value">${data.browser}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">操作系统:</div>
+                    <div class="detail-value">${data.operatingSystem}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">登录状态:</div>
+                    <div class="detail-value">
+                        <span class="${data.loginStatus === '成功' ? 'status-success' : 'status-error'}">
+                            ${data.loginStatus}
+                        </span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">操作信息:</div>
+                    <div class="detail-value">${data.operationalInfo}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">登录时间:</div>
+                    <div class="detail-value">${data.loginTime}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">记录ID:</div>
+                    <div class="detail-value">${data.id}</div>
+                </div>
+            `;
+
+            document.getElementById('detailModal').style.display = 'block';
+        }
+
+        function closeDetail() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('detailModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -11,6 +11,7 @@ type RouterGroup struct {
 	WlCategoryRouter
 	WlCaFunctionRouter
 	WlAlarmRouter
+	WlDepartmentRouter
 }
 
 var (
@@ -22,4 +23,5 @@ var (
 	wlCategoryApi    = api.ApiGroupApp.Wl_playformApiGroup.WlCategoryApi
 	wlCaFunctionApi  = api.ApiGroupApp.Wl_playformApiGroup.WlCaFunctionApi
 	wlAlarmApi       = api.ApiGroupApp.Wl_playformApiGroup.WlAlarmApi
+	wlDepartmentApi  = api.ApiGroupApp.Wl_playformApiGroup.WlDepartmentApi
 )

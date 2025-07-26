@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/mark3labs/mcp-go/server"
+	// "github.com/mark3labs/mcp-go/server" // 临时注释以解决Go版本兼容性问题
 
 	"github.com/gin-gonic/gin"
 	"github.com/qiniu/qmgo"
@@ -38,9 +38,9 @@ var (
 	GVA_Concurrency_Control             = &singleflight.Group{}
 	GVA_ROUTERS             gin.RoutesInfo
 	GVA_ACTIVE_DBNAME       *string
-	GVA_MCP_SERVER          *server.MCPServer
-	BlackCache              local_cache.Cache
-	lock                    sync.RWMutex
+	// GVA_MCP_SERVER          *server.MCPServer // 临时注释以解决Go版本兼容性问题
+	BlackCache local_cache.Cache
+	lock       sync.RWMutex
 )
 
 // GetGlobalDBByDBName 通过名称获取db list中的db

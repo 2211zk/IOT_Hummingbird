@@ -109,6 +109,51 @@
     
     console.log('找到的菜单:', { productMenu, equipmentMenu, resourcesMenu, scenesMenu, engineRulesMenu })
     
+    // 创建系统管理父菜单 - 直接添加到现有系统管理菜单中
+    const systemManagementMenu = processedItems.find(item => item.name === 'superAdmin')
+    
+    // 如果找到系统管理菜单，添加部门管理子菜单
+    if (systemManagementMenu) {
+      // 确保children数组存在
+      if (!systemManagementMenu.children) {
+        systemManagementMenu.children = []
+      }
+      
+      // 检查是否已经存在部门管理菜单
+      const existingDeptMenu = systemManagementMenu.children.find(child => child.name === 'DepartmentManagement')
+      if (!existingDeptMenu) {
+        // 添加部门管理子菜单
+        systemManagementMenu.children.push({
+          name: 'DepartmentManagement',
+          path: 'system/department',
+          component: 'view/system/department/index.vue',
+          meta: {
+            title: '部门管理',
+            icon: 'office-building',
+            keepAlive: true
+          },
+          hidden: false
+        })
+      }
+      
+      // 检查是否已经存在设备管理菜单
+      const existingDeviceMenu = systemManagementMenu.children.find(child => child.name === 'DeviceManagement')
+      if (!existingDeviceMenu) {
+        // 添加设备管理子菜单
+        systemManagementMenu.children.push({
+          name: 'DeviceManagement',
+          path: 'system/device',
+          component: 'view/system/device/index.vue',
+          meta: {
+            title: '设备管理',
+            icon: 'monitor',
+            keepAlive: true
+          },
+          hidden: false
+        })
+      }
+    }
+    
     // 创建高级能力父菜单
     const advancedCapabilitiesMenu = {
       name: 'advancedCapabilities',

@@ -75,9 +75,12 @@ func RegisterTables() {
 		global.GVA_LOG.Error("register biz_table failed", zap.Error(err))
 		os.Exit(0)
 	}
-	
+
 	// 修复权限问题
 	FixPermissions()
-	
+
+	// 初始化部门相关表
+	InitWlDepartmentTables()
+
 	global.GVA_LOG.Info("register table success")
 }

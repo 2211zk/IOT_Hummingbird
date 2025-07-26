@@ -937,6 +937,9 @@
             />
           </el-form-item>
         </el-tab-pane>
+        <el-tab-pane label="部门管理" name="department-manage" class="mt-3.5">
+          <DepartmentManage />
+        </el-tab-pane>
       </el-tabs>
     </el-form>
     <div class="mt-4">
@@ -953,6 +956,7 @@
   import { Minus, Plus } from '@element-plus/icons-vue'
   import { emailTest } from '@/api/email'
   import { CreateUUID } from '@/utils/format'
+  import DepartmentManage from '@/view/system/departmentManage/index.vue'
 
   defineOptions({
     name: 'Config'

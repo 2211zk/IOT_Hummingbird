@@ -2,7 +2,7 @@ module github.com/flipped-aurora/gin-vue-admin/server
 
 go 1.23
 
-toolchain go1.23.9
+toolchain go1.24.4
 
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v3.0.2+incompatible
@@ -19,7 +19,7 @@ require (
 	github.com/gookit/color v1.5.4
 	github.com/huaweicloud/huaweicloud-sdk-go-obs v3.24.9+incompatible
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
-	github.com/mark3labs/mcp-go v0.31.0
+	github.com/mark3labs/mcp-go v0.27.0
 	github.com/mholt/archives v0.1.1
 	github.com/minio/minio-go/v7 v7.0.84
 	github.com/mojocn/base64Captcha v1.3.8

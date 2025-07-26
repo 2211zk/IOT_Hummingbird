@@ -4,7 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/mark3labs/mcp-go/mcp"
+
+	// "github.com/mark3labs/mcp-go/mcp" // 临时注释以解决Go版本兼容性问题
 	"time"
 )
 

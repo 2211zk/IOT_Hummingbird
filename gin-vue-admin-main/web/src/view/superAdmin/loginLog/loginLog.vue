@@ -41,20 +41,34 @@
         <el-button type="primary" icon="Download" @click="exportData">导出Excel</el-button>
         <el-button type="warning" icon="Delete" @click="showCleanDialog">清理日志</el-button>
         <el-button type="info" icon="DataAnalysis" @click="showStatistics">统计信息</el-button>
+        <el-button 
+          type="danger" 
+          icon="Delete" 
+          :disabled="multipleSelection.length === 0"
+          @click="batchDelete"
+        >
+          批量删除 ({{ multipleSelection.length }})
+        </el-button>
       </div>
       
       <el-table 
+        ref="multipleTable"
         :data="tableData" 
-        @row-click="showDetail"
+        @selection-change="handleSelectionChange"
         row-key="ID"
-        style="cursor: pointer"
         v-loading="loading"
         :row-class-name="tableRowClassName"
         :empty-text="tableData.length === 0 && !loading ? '暂无登录日志数据' : ''"
+        style="width: 100%"
       >
-        <el-table-column align="left" label="ID" min-width="60" prop="ID" />
-        <el-table-column align="left" label="用户名" min-width="120" prop="userName" />
-        <el-table-column align="left" label="登录IP" min-width="140" prop="loginAddress" />
+        <el-table-column type="selection" width="55" />
+        <el-table-column align="left" label="访问编号" min-width="100">
+          <template #default="scope">
+            {{ scope.row.accessNumber || scope.row.ID || '-' }}
+          </template>
+        </el-table-column>
+        <el-table-column align="left" label="用户名称" min-width="120" prop="userName" />
+        <el-table-column align="left" label="登录地址" min-width="140" prop="loginAddress" />
         <el-table-column align="left" label="登录地点" min-width="150" prop="loginLocation" />
         <el-table-column align="left" label="浏览器" min-width="120" prop="browser" />
         <el-table-column align="left" label="操作系统" min-width="120" prop="operatingSystem" />
@@ -69,6 +83,13 @@
         <el-table-column align="left" label="登录时间" min-width="180">
           <template #default="scope">
             {{ formatTime(scope.row.loginTime) }}
+          </template>
+        </el-table-column>
+        <el-table-column align="center" label="操作" min-width="100" fixed="right">
+          <template #default="scope">
+            <el-button type="primary" size="small" @click="showDetail(scope.row)">
+              详情
+            </el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -87,21 +108,26 @@
     </div>
 
     <!-- 详情弹窗 -->
-    <el-dialog v-model="detailVisible" title="登录日志详情" width="600px">
+    <el-dialog v-model="detailVisible" title="登录日志详情" width="700px">
       <el-descriptions :column="2" border>
-        <el-descriptions-item label="用户名">{{ currentDetail.userName }}</el-descriptions-item>
-        <el-descriptions-item label="登录IP">{{ currentDetail.loginAddress }}</el-descriptions-item>
-        <el-descriptions-item label="登录地点">{{ currentDetail.loginLocation }}</el-descriptions-item>
-        <el-descriptions-item label="浏览器">{{ currentDetail.browser }}</el-descriptions-item>
-        <el-descriptions-item label="操作系统">{{ currentDetail.operatingSystem }}</el-descriptions-item>
+        <el-descriptions-item label="访问编号">{{ currentDetail.accessNumber || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="用户名称">{{ currentDetail.userName || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="登录地址">{{ currentDetail.loginAddress || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="登录地点">{{ currentDetail.loginLocation || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="浏览器">{{ currentDetail.browser || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="操作系统">{{ currentDetail.operatingSystem || '-' }}</el-descriptions-item>
         <el-descriptions-item label="登录状态">
           <el-tag :type="currentDetail.loginStatus === '成功' ? 'success' : 'danger'">
-            {{ currentDetail.loginStatus }}
+            {{ currentDetail.loginStatus || '-' }}
           </el-tag>
         </el-descriptions-item>
-        <el-descriptions-item label="操作信息" :span="2">{{ currentDetail.operationalInfo }}</el-descriptions-item>
-        <el-descriptions-item label="登录时间" :span="2">{{ formatTime(currentDetail.loginTime) }}</el-descriptions-item>
+        <el-descriptions-item label="登录时间">{{ formatTime(currentDetail.loginTime) }}</el-descriptions-item>
+        <el-descriptions-item label="操作信息" :span="2">{{ currentDetail.operationalInfo || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="记录ID" :span="2">{{ currentDetail.ID || currentDetail.id || '-' }}</el-descriptions-item>
       </el-descriptions>
+      <template #footer>
+        <el-button @click="detailVisible = false">关闭</el-button>
+      </template>
     </el-dialog>
 
     <!-- 清理日志弹窗 -->
@@ -173,7 +199,8 @@ import {
   cleanExpiredLogs,
   getLoginStatistics,
   getTopLoginIPs,
-  getRecentLoginLogs
+  getRecentLoginLogs,
+  deleteLoginLogByIds
 } from '@/api/loginLog'
 
 // 响应式数据
@@ -206,6 +233,10 @@ const statistics = ref({})
 const topIPs = ref([])
 const recentLogs = ref([])
 
+// 多选相关
+const multipleSelection = ref([])
+const multipleTable = ref()
+
 // 方法
 const getTableData = async () => {
   loading.value = true
@@ -220,12 +251,18 @@ const getTableData = async () => {
       total.value = table.data.total || 0
       page.value = table.data.page || 1
       pageSize.value = table.data.pageSize || 10
+      
+      // 调试信息：检查数据结构
+      if (tableData.value.length > 0) {
+        console.log('登录日志数据示例:', tableData.value[0])
+      }
     } else {
       ElMessage.error(table.msg || '获取数据失败')
       tableData.value = []
       total.value = 0
     }
   } catch (error) {
+    console.error('获取登录日志失败:', error)
     ElMessage.error('获取数据失败')
     tableData.value = []
     total.value = 0
@@ -269,10 +306,62 @@ const handleSizeChange = (val) => {
 }
 
 const showDetail = async (row) => {
-  const res = await getLoginLogDetail(row.ID)
-  if (res.code === 0) {
-    currentDetail.value = res.data.loginLog
-    detailVisible.value = true
+  // 确保row有ID字段，如果没有则使用id字段
+  const id = row.ID || row.id
+  if (!id) {
+    ElMessage.error('无法获取日志详情：ID不存在')
+    return
+  }
+  
+  try {
+    const res = await getLoginLogDetail(id)
+    if (res.code === 0) {
+      currentDetail.value = res.data.loginLog
+      detailVisible.value = true
+    } else {
+      ElMessage.error(res.msg || '获取详情失败')
+    }
+  } catch (error) {
+    ElMessage.error('获取详情失败')
+  }
+}
+
+// 处理多选变化
+const handleSelectionChange = (val) => {
+  multipleSelection.value = val
+}
+
+// 批量删除
+const batchDelete = async () => {
+  if (multipleSelection.value.length === 0) {
+    ElMessage.warning('请选择要删除的记录')
+    return
+  }
+
+  try {
+    await ElMessageBox.confirm(
+      `确定要删除选中的 ${multipleSelection.value.length} 条记录吗？此操作不可恢复！`,
+      '警告',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }
+    )
+    
+    const ids = multipleSelection.value.map(item => item.ID || item.id)
+    const res = await deleteLoginLogByIds({ IDs: ids })
+    if (res.code === 0) {
+      ElMessage.success('删除成功')
+      getTableData()
+      multipleSelection.value = []
+    } else {
+      ElMessage.error(res.msg || '删除失败')
+    }
+  } catch (error) {
+    if (error !== 'cancel') {
+      ElMessage.error('删除失败')
+    }
   }
 }
 

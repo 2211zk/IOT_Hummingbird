@@ -9,4 +9,5 @@ type ServiceGroup struct {
 	WlCategoryService
 	WlCaFunctionService
 	WlAlarmService
+	WlDepartmentService
 }

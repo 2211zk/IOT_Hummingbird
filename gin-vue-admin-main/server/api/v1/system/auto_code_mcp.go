@@ -2,12 +2,13 @@ package system
 
 import (
 	"fmt"
+
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/mcp/client"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/common/response"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/system/request"
 	"github.com/gin-gonic/gin"
-	"github.com/mark3labs/mcp-go/mcp"
+	// "github.com/mark3labs/mcp-go/mcp" // 临时注释以解决Go版本兼容性问题
 )
 
 // Create
@@ -50,28 +51,42 @@ func (a *AutoCodeTemplateApi) MCPList(c *gin.Context) {
 	baseUrl := fmt.Sprintf("http://127.0.0.1:%d%s", global.GVA_CONFIG.System.Addr, global.GVA_CONFIG.MCP.SSEPath)
 
 	testClient, err := client.NewClient(baseUrl, "testClient", "v1.0.0", global.GVA_CONFIG.MCP.Name)
-	defer testClient.Close()
-	toolsRequest := mcp.ListToolsRequest{}
-
-	list, err := testClient.ListTools(c.Request.Context(), toolsRequest)
-
 	if err != nil {
-		response.FailWithMessage("创建失败", c)
-		global.GVA_LOG.Error(err.Error())
+		response.FailWithMessage("创建MCP客户端失败: "+err.Error(), c)
 		return
 	}
+	defer func() {
+		if testClient != nil {
+			if closer, ok := testClient.(interface{ Close() }); ok {
+				closer.Close()
+			}
+		}
+	}()
 
-	mcpServerConfig := map[string]interface{}{
-		"mcpServers": map[string]interface{}{
-			global.GVA_CONFIG.MCP.Name: map[string]string{
-				"url": baseUrl,
+	// 临时禁用MCP功能
+	response.FailWithMessage("MCP功能暂时禁用", c)
+	return
+
+	// 以下代码暂时注释掉，因为MCP功能被禁用
+	/*
+		if err != nil {
+			response.FailWithMessage("创建失败", c)
+			global.GVA_LOG.Error(err.Error())
+			return
+		}
+
+		mcpServerConfig := map[string]interface{}{
+			"mcpServers": map[string]interface{}{
+				global.GVA_CONFIG.MCP.Name: map[string]string{
+					"url": baseUrl,
+				},
 			},
-		},
-	}
-	response.OkWithData(gin.H{
-		"mcpServerConfig": mcpServerConfig,
-		"list":            list,
-	}, c)
+		}
+		response.OkWithData(gin.H{
+			"mcpServerConfig": mcpServerConfig,
+			"list":            list,
+		}, c)
+	*/
 }
 
 // Create
@@ -103,42 +118,15 @@ func (a *AutoCodeTemplateApi) MCPTest(c *gin.Context) {
 		response.FailWithMessage("创建MCP客户端失败:"+err.Error(), c)
 		return
 	}
-	defer testClient.Close()
+	defer func() {
+		if testClient != nil {
+			if closer, ok := testClient.(interface{ Close() }); ok {
+				closer.Close()
+			}
+		}
+	}()
 
-	ctx := c.Request.Context()
-
-	// 初始化MCP连接
-	initRequest := mcp.InitializeRequest{}
-	initRequest.Params.ProtocolVersion = mcp.LATEST_PROTOCOL_VERSION
-	initRequest.Params.ClientInfo = mcp.Implementation{
-		Name:    "testClient",
-		Version: "v1.0.0",
-	}
-
-	_, err = testClient.Initialize(ctx, initRequest)
-	if err != nil {
-		response.FailWithMessage("初始化MCP连接失败:"+err.Error(), c)
-		return
-	}
-
-	// 构建工具调用请求
-	request := mcp.CallToolRequest{}
-	request.Params.Name = testRequest.Name
-	request.Params.Arguments = testRequest.Arguments
-
-	// 调用工具
-	result, err := testClient.CallTool(ctx, request)
-	if err != nil {
-		response.FailWithMessage("工具调用失败:"+err.Error(), c)
-		return
-	}
-
-	// 处理响应结果
-	if len(result.Content) == 0 {
-		response.FailWithMessage("工具未返回任何内容", c)
-		return
-	}
-
-	// 返回结果
-	response.OkWithData(result.Content, c)
+	// 临时禁用MCP功能
+	response.FailWithMessage("MCP功能暂时禁用", c)
+	return
 }
