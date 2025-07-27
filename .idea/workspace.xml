@@ -48,7 +48,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" url="file://D:/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.4.windows-amd64" />
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.4.windows-amd64" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
