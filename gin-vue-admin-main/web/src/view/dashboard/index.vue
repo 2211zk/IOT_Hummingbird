@@ -254,7 +254,7 @@ const quickEntryConfig = {
     description: '管理物联网设备信息'
   },
   'serviceMonitor': {
-    name: 'state',
+    name: 'wlMonitor',
     label: '系统监控',
     icon: '🖥️',
     description: '监控系统运行状态'
@@ -325,31 +325,52 @@ const handleQuickEntry = async (type) => {
     
     console.log(`正在跳转到${config.label}页面...`)
     console.log(`路由名称: ${config.name}`)
-    console.log(`当前路由:`, router.currentRoute.value)
     
-    // 检查路由是否存在
-    if (routerStore && routerStore.routeMap) {
-      console.log(`路由映射:`, Object.keys(routerStore.routeMap))
-      console.log(`目标路由是否存在:`, !!routerStore.routeMap[config.name])
+    // 简化的路由跳转逻辑
+    let targetRoute = config.name
+    
+    // 检查路由是否存在并尝试备用路由
+    if (routerStore?.routeMap) {
+      console.log(`可用路由:`, Object.keys(routerStore.routeMap))
+      
+      if (!routerStore.routeMap[config.name]) {
+        // 尝试备用路由
+        const fallbacks = {
+          'wlProducts': ['WlProducts', 'wlProducts'],
+          'wlEquipment': ['WlEquipment', 'wlEquipment'], 
+          'wlMonitor': ['WlMonitor', 'state', 'State'],
+          'wlEngineRules': ['WlEngineRules', 'wlEngineRules'],
+          'wlAlarm': ['WlAlarm', 'wlAlarm'],
+          'state': ['State', 'state']
+        }
+        
+        const alternatives = fallbacks[config.name] || []
+        for (const alt of alternatives) {
+          if (routerStore.routeMap[alt]) {
+            targetRoute = alt
+            console.log(`使用备用路由: ${alt}`)
+            break
+          }
+        }
+      }
     }
     
     // 执行路由跳转
-    await router.push({ name: config.name })
+    await router.push({ name: targetRoute })
     
     console.log(`成功跳转到${config.label}页面`)
-    
-    // 显示成功提示
     ElMessage.success(`已跳转到${config.label}`)
     
   } catch (error) {
     console.error(`跳转失败:`, error)
-    console.error(`错误详情:`, error.message)
     
-    // 错误处理
-    if (error.message && error.message.includes('No match')) {
-      ElMessage.error(`${config.label}页面不存在或暂未配置`)
+    // 简化的错误处理
+    if (error.message?.includes('No match')) {
+      ElMessage.error(`${config.label}页面不存在`)
+    } else if (error.message?.includes('Avoided redundant navigation')) {
+      ElMessage.info(`您已经在${config.label}页面了`)
     } else {
-      ElMessage.error(`跳转到${config.label}失败，请稍后重试`)
+      ElMessage.error(`跳转失败，请稍后重试`)
     }
     
   } finally {
@@ -720,17 +741,19 @@ onMounted(() => {
     addHoverEffect()
   })
   
-  // 调试路由信息
+  // 简化的路由调试信息
   nextTick(() => {
-    console.log('=== 路由调试信息 ===')
-    console.log('Router实例:', router)
-    console.log('RouterStore实例:', routerStore)
-    console.log('当前路由:', router.currentRoute.value)
+    console.log('=== 快捷入口调试 ===')
+    console.log('当前路由:', router.currentRoute.value.name)
     
-    if (routerStore && routerStore.routeMap) {
-      console.log('可用路由:', Object.keys(routerStore.routeMap))
-    } else {
-      console.warn('RouterStore或routeMap未初始化')
+    if (routerStore?.routeMap) {
+      console.log('可用路由数量:', Object.keys(routerStore.routeMap).length)
+      
+      // 验证快捷入口路由
+      Object.entries(quickEntryConfig).forEach(([key, config]) => {
+        const exists = !!routerStore.routeMap[config.name]
+        console.log(`${config.label}: ${exists ? '✅' : '❌'}`)
+      })
     }
   })
   
