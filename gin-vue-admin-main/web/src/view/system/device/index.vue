@@ -13,7 +13,7 @@
       <el-form :model="searchForm" :inline="true" class="search-form">
         <el-form-item>
           <el-input
-            v-model="searchForm.deviceName"
+            v-model="searchForm.eqName"
             placeholder="请输入设备名称"
             clearable
             style="width: 200px"
@@ -22,8 +22,8 @@
         </el-form-item>
         <el-form-item>
           <el-input
-            v-model="searchForm.productName"
-            placeholder="请输入产品名称"
+            v-model="searchForm.productsId"
+            placeholder="请输入产品ID"
             clearable
             style="width: 200px"
             @keyup.enter="handleSearch"
@@ -63,10 +63,10 @@
         v-loading="loading"
         style="width: 100%"
       >
-        <el-table-column prop="deviceName" label="设备名称" min-width="150" />
-        <el-table-column prop="productName" label="产品名称" min-width="150">
+        <el-table-column prop="eqName" label="设备名称" min-width="150" />
+        <el-table-column prop="productsId" label="产品ID" min-width="150">
           <template #default="{ row }">
-            <span>{{ row.productName || '-' }}</span>
+            <span>{{ row.productsId || '-' }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="status" label="状态" width="100">
@@ -145,8 +145,8 @@ const currentDeviceId = ref(null)
 
 // 搜索表单
 const searchForm = reactive({
-  deviceName: '',
-  productName: '',
+  eqName: '',
+  productsId: '',
   status: ''
 })
 
@@ -192,8 +192,8 @@ const handleSearch = () => {
 
 // 重置
 const handleReset = () => {
-  searchForm.deviceName = ''
-  searchForm.productName = ''
+  searchForm.eqName = ''
+  searchForm.productsId = ''
   searchForm.status = ''
   pagination.page = 1
   getTableData()

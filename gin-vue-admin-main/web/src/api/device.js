@@ -7,13 +7,13 @@ import service from '@/utils/request'
  * @param {Object} params - 查询参数
  * @param {number} params.page - 页码
  * @param {number} params.pageSize - 每页数量
- * @param {string} params.deviceName - 设备名称
- * @param {string} params.productName - 产品名称
+ * @param {string} params.eqName - 设备名称
+ * @param {string} params.productsId - 产品ID
  * @param {string} params.status - 状态
  */
 export function getDeviceList(params) {
   return service({
-    url: '/device/list',
+    url: '/wlEquipment/getWlEquipmentList',
     method: 'get',
     params
   })
@@ -25,21 +25,22 @@ export function getDeviceList(params) {
  */
 export function getDeviceDetail(id) {
   return service({
-    url: `/device/${id}`,
-    method: 'get'
+    url: `/wlEquipment/findWlEquipment`,
+    method: 'get',
+    params: { ID: id }
   })
 }
 
 /**
  * 创建设备
  * @param {Object} data - 设备数据
- * @param {string} data.deviceName - 设备名称
- * @param {string} data.productName - 产品名称
- * @param {string} data.status - 状态
+ * @param {string} data.eqName - 设备名称
+ * @param {string} data.productsId - 产品ID
+ * @param {string} data.eqInfo - 设备描述
  */
 export function createDevice(data) {
   return service({
-    url: '/device/create',
+    url: '/wlEquipment/createWlEquipment',
     method: 'post',
     data
   })
@@ -48,14 +49,14 @@ export function createDevice(data) {
 /**
  * 更新设备
  * @param {Object} data - 设备数据
- * @param {number} data.id - 设备ID
- * @param {string} data.deviceName - 设备名称
- * @param {string} data.productName - 产品名称
- * @param {string} data.status - 状态
+ * @param {number} data.ID - 设备ID
+ * @param {string} data.eqName - 设备名称
+ * @param {string} data.productsId - 产品ID
+ * @param {string} data.eqInfo - 设备描述
  */
 export function updateDevice(data) {
   return service({
-    url: '/device/update',
+    url: '/wlEquipment/updateWlEquipment',
     method: 'put',
     data
   })
@@ -68,9 +69,9 @@ export function updateDevice(data) {
  */
 export function deleteDevice(data) {
   return service({
-    url: '/device/delete',
+    url: '/wlEquipment/deleteWlEquipment',
     method: 'delete',
-    data
+    params: { ID: data.id }
   })
 }
 
