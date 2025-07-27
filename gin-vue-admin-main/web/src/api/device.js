@@ -35,7 +35,7 @@ export function getDeviceDetail(id) {
  * 创建设备
  * @param {Object} data - 设备数据
  * @param {string} data.eqName - 设备名称
- * @param {string} data.productsId - 产品ID
+ * @param {number} data.productsId - 产品ID
  * @param {string} data.eqInfo - 设备描述
  */
 export function createDevice(data) {
@@ -51,7 +51,7 @@ export function createDevice(data) {
  * @param {Object} data - 设备数据
  * @param {number} data.ID - 设备ID
  * @param {string} data.eqName - 设备名称
- * @param {string} data.productsId - 产品ID
+ * @param {number} data.productsId - 产品ID
  * @param {string} data.eqInfo - 设备描述
  */
 export function updateDevice(data) {
