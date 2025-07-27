@@ -60,6 +60,15 @@ func (driverCardsService *DriverCardsService) GetDriverCardsInfoList(ctx context
 	if len(info.CreatedAtRange) == 2 {
 		db = db.Where("created_at BETWEEN ? AND ?", info.CreatedAtRange[0], info.CreatedAtRange[1])
 	}
+	if info.Name != "" {
+		db = db.Where("name LIKE ?", "%"+info.Name+"%")
+	}
+	if info.Tags != "" {
+		db = db.Where("tags LIKE ?", "%"+info.Tags+"%")
+	}
+	if info.Description != "" {
+		db = db.Where("description LIKE ?", "%"+info.Description+"%")
+	}
 	err = db.Count(&total).Error
 	if err != nil {
 		return

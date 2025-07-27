@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	pb "kratos_end/api/equipment/v1"
+	pb "kratos/api/equipment/v1"
 )
 
 type EquipmentService struct {

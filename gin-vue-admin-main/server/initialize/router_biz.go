@@ -22,12 +22,17 @@ func initBizRouter(routers ...*gin.RouterGroup) {
 		wl_playformRouter.InitWlEquipmentRouter(privateGroup, publicGroup)
 		wl_playformRouter.InitWlCategoryRouter(privateGroup, publicGroup)
 		wl_playformRouter.InitWlCaFunctionRouter(privateGroup, publicGroup)
+<<<<<<< HEAD
 		wl_playformRouter.InitWlAlarmRouter(privateGroup, publicGroup)
 		wl_playformRouter.InitWlDepartmentRouter(privateGroup, publicGroup) // 占位方法，保证文件可以正确加载，避免go空变量检测报错，请勿删除。
 	}
 	{
 		wl_departmentRouter := router.RouterGroupApp.Wl_department
 		wl_departmentRouter.InitWlDepartmentRouter(privateGroup)
+=======
+		wl_playformRouter.InitWlAlarmRouter(privateGroup, publicGroup) // 占位方法，保证文件可以正确加载，避免go空变量检测报错，请勿删除。
+		wl_playformRouter.InitWlUserRouter(privateGroup, publicGroup)
+>>>>>>> fe0580938f3ae84e1be270b92a56b14cc5c0357a
 	}
 	{
 		dashboardRouter := router.RouterGroupApp.Dashboard

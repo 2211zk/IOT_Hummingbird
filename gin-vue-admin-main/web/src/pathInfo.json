@@ -72,6 +72,7 @@
   "/src/view/system/device/components/DeviceDialog.vue": "DeviceDialog",
   "/src/view/system/device/index.vue": "Index",
   "/src/view/system/state.vue": "State",
+  "/src/view/system/sysSet.vue": "SysSet",
   "/src/view/system/userManage/index.vue": "Index",
   "/src/view/systemTools/autoCode/component/fieldDialog.vue": "FieldDialog",
   "/src/view/systemTools/autoCode/component/previewCodeDialog.vue": "PreviewCodeDialog",
@@ -111,6 +112,8 @@
   "/src/view/wl_playform/wlResources/wlResourcesForm.vue": "WlResourcesForm",
   "/src/view/wl_playform/wlScenes/wlScenes.vue": "WlScenes",
   "/src/view/wl_playform/wlScenes/wlScenesForm.vue": "WlScenesForm",
+  "/src/view/wl_playform/wlUser/wlUser.vue": "WlUser",
+  "/src/view/wl_playform/wlUser/wlUserForm.vue": "WlUserForm",
   "/src/plugin/announcement/form/info.vue": "InfoForm",
   "/src/plugin/announcement/view/info.vue": "Info",
   "/src/plugin/email/view/index.vue": "Email"
