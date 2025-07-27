@@ -6,18 +6,19 @@ import (
 
 	"kratos/internal/conf"
 
-	"github.com/go-kratos/kratos/contrib/registry/nacos/v2"
+	// "github.com/go-kratos/kratos/contrib/registry/nacos/v2" // 暂时关闭nacos
+
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/middleware/tracing"
-	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	httpx "github.com/go-kratos/kratos/v2/transport/http"
-	"github.com/nacos-group/nacos-sdk-go/clients"
-	"github.com/nacos-group/nacos-sdk-go/common/constant"
-	"github.com/nacos-group/nacos-sdk-go/vo"
+
+	// "github.com/nacos-group/nacos-sdk-go/clients" // 暂时关闭nacos
+	// "github.com/nacos-group/nacos-sdk-go/common/constant" // 暂时关闭nacos
+	// "github.com/nacos-group/nacos-sdk-go/vo" // 暂时关闭nacos
 
 	_ "go.uber.org/automaxprocs"
 )
@@ -38,7 +39,7 @@ func init() {
 	flag.StringVar(&flagconf, "conf", "../../configs", "config path, eg: -conf config.yaml")
 }
 
-func newApp(logger log.Logger, gs *grpc.Server, hs *httpx.Server, r registry.Registrar) *kratos.App {
+func newApp(logger log.Logger, gs *grpc.Server, hs *httpx.Server) *kratos.App {
 	return kratos.New(
 		kratos.ID(id),
 		kratos.Name(Name),
@@ -49,7 +50,7 @@ func newApp(logger log.Logger, gs *grpc.Server, hs *httpx.Server, r registry.Reg
 			gs,
 			hs,
 		),
-		kratos.Registrar(r),
+		// kratos.Registrar(r), // 暂时关闭nacos注册
 	)
 }
 
@@ -80,32 +81,34 @@ func main() {
 		panic(err)
 	}
 
-	// nacos注册中心初始化
-	nacosConf := bc.Data.Nacos
-	nacosServerConfigs := []constant.ServerConfig{{
-		IpAddr: nacosConf.Addr,
-		Port:   nacosConf.Port,
-	}}
-	nacosClientConfig := constant.ClientConfig{
-		NamespaceId:         nacosConf.NamespaceId,
-		Username:            nacosConf.Username,
-		Password:            nacosConf.Password,
-		NotLoadCacheAtStart: true,
-		LogDir:              "./nacos/log",
-		CacheDir:            "./nacos/cache",
-	}
-	namingClient, err := clients.NewNamingClient(
-		vo.NacosClientParam{
-			ClientConfig:  &nacosClientConfig,
-			ServerConfigs: nacosServerConfigs,
-		},
-	)
-	if err != nil {
-		panic(err)
-	}
-	reg := nacos.New(namingClient)
+	// nacos注册中心初始化 - 暂时关闭
+	/*
+		nacosConf := bc.Data.Nacos
+		nacosServerConfigs := []constant.ServerConfig{{
+			IpAddr: nacosConf.Addr,
+			Port:   nacosConf.Port,
+		}}
+		nacosClientConfig := constant.ClientConfig{
+			NamespaceId:         nacosConf.NamespaceId,
+			Username:            nacosConf.Username,
+			Password:            nacosConf.Password,
+			NotLoadCacheAtStart: true,
+			LogDir:              "./nacos/log",
+			CacheDir:            "./nacos/cache",
+		}
+		namingClient, err := clients.NewNamingClient(
+			vo.NacosClientParam{
+				ClientConfig:  &nacosClientConfig,
+				ServerConfigs: nacosServerConfigs,
+			},
+		)
+		if err != nil {
+			panic(err)
+		}
+		reg := nacos.New(namingClient)
+	*/
 
-	app, cleanup, err := wireApp(bc.Server, bc.Data, logger, reg)
+	app, cleanup, err := wireApp(bc.Server, bc.Data, logger)
 	if err != nil {
 		panic(err)
 	}
