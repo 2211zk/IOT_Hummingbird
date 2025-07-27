@@ -19,11 +19,12 @@
               @keyup.enter="handleSearch"
             />
           </el-form-item>
-          <el-form-item label="产品名称">
+          <el-form-item label="产品ID">
             <el-input
-              v-model="searchForm.productName"
-              placeholder="请输入产品名称"
+              v-model="searchForm.productId"
+              placeholder="请输入产品ID"
               clearable
+              type="number"
               style="width: 200px"
               @keyup.enter="handleSearch"
             />
@@ -151,7 +152,7 @@
 <script setup>
 import { ref, reactive, computed, watch, nextTick } from 'vue'
 import { ElMessage } from 'element-plus'
-import { getAvailableDevices } from '@/api/wlDepartment'
+import { getDeviceList } from '@/api/device'
 
 // Props
 const props = defineProps({
@@ -183,7 +184,7 @@ const selectedForRemoval = ref([])
 // 搜索表单
 const searchForm = reactive({
   deviceName: '',
-  productName: ''
+  productId: ''
 })
 
 // 分页数据
@@ -219,7 +220,7 @@ const initializeData = () => {
 // 重置数据
 const resetData = () => {
   searchForm.deviceName = ''
-  searchForm.productName = ''
+  searchForm.productId = ''
   pagination.page = 1
   pagination.pageSize = 10
   pagination.total = 0
@@ -235,14 +236,20 @@ const loadAvailableDevices = async () => {
     const params = {
       page: pagination.page,
       pageSize: pagination.pageSize,
-      deviceName: searchForm.deviceName,
-      productName: searchForm.productName,
-      departmentId: props.departmentId // 排除已关联当前部门的设备
+      eqName: searchForm.deviceName,
+      productsId: searchForm.productId ? parseInt(searchForm.productId) : undefined
     }
     
-    const response = await getAvailableDevices(params)
+    // 使用设备管理API获取设备列表
+    const response = await getDeviceList(params)
     if (response.code === 0) {
-      availableDevices.value = response.data.list || []
+      // 转换数据格式以匹配组件期望的格式
+      availableDevices.value = (response.data.list || []).map(device => ({
+        id: device.ID,
+        deviceName: device.eqName,
+        productName: device.productsId ? `产品ID: ${device.productsId}` : '-',
+        status: device.status || '启用'
+      }))
       pagination.total = response.data.total || 0
       
       // 清除之前的选择状态
@@ -269,7 +276,7 @@ const handleSearch = () => {
 // 重置搜索
 const handleReset = () => {
   searchForm.deviceName = ''
-  searchForm.productName = ''
+  searchForm.productId = ''
   pagination.page = 1
   loadAvailableDevices()
 }

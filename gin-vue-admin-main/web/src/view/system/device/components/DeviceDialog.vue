@@ -14,9 +14,9 @@
       label-width="100px"
       label-position="right"
     >
-      <el-form-item label="设备名称" prop="deviceName">
+      <el-form-item label="设备名称" prop="eqName">
         <el-input
-          v-model="formData.deviceName"
+          v-model="formData.eqName"
           placeholder="请输入设备名称"
           :disabled="mode === 'view'"
           maxlength="100"
@@ -24,12 +24,23 @@
         />
       </el-form-item>
       
-      <el-form-item label="产品名称" prop="productName">
+      <el-form-item label="产品ID" prop="productsId">
         <el-input
-          v-model="formData.productName"
-          placeholder="请输入产品名称"
+          v-model.number="formData.productsId"
+          placeholder="请输入产品ID"
           :disabled="mode === 'view'"
-          maxlength="100"
+          type="number"
+        />
+      </el-form-item>
+      
+      <el-form-item label="设备描述" prop="eqInfo">
+        <el-input
+          v-model="formData.eqInfo"
+          placeholder="请输入设备描述"
+          :disabled="mode === 'view'"
+          type="textarea"
+          :rows="3"
+          maxlength="150"
           show-word-limit
         />
       </el-form-item>
@@ -110,20 +121,25 @@ const dialogTitle = computed(() => {
 
 // 表单数据
 const formData = reactive({
-  id: null,
-  deviceName: '',
-  productName: '',
+  ID: null,
+  eqName: '',
+  productsId: '',
+  eqInfo: '',
   status: '启用'
 })
 
 // 表单验证规则
 const formRules = reactive({
-  deviceName: [
+  eqName: [
     { required: true, message: '请输入设备名称', trigger: 'blur' },
-    { min: 1, max: 100, message: '设备名称长度在 1 到 100 个字符', trigger: 'blur' }
+    { min: 1, max: 20, message: '设备名称长度在 1 到 20 个字符', trigger: 'blur' }
   ],
-  productName: [
-    { max: 100, message: '产品名称长度不能超过 100 个字符', trigger: 'blur' }
+  productsId: [
+    { required: true, message: '请输入产品ID', trigger: 'blur' },
+    { type: 'number', message: '产品ID必须为数字', trigger: 'blur' }
+  ],
+  eqInfo: [
+    { max: 150, message: '设备描述长度不能超过 150 个字符', trigger: 'blur' }
   ]
 })
 
@@ -147,9 +163,10 @@ const loadDeviceDetail = async () => {
     if (response.code === 0) {
       const data = response.data
       Object.assign(formData, {
-        id: data.id,
-        deviceName: data.deviceName || '',
-        productName: data.productName || '',
+        ID: data.ID,
+        eqName: data.eqName || '',
+        productsId: data.productsId || '',
+        eqInfo: data.eqInfo || '',
         status: data.status || '启用'
       })
     } else {
@@ -164,9 +181,10 @@ const loadDeviceDetail = async () => {
 // 重置表单
 const resetForm = () => {
   Object.assign(formData, {
-    id: null,
-    deviceName: '',
-    productName: '',
+    ID: null,
+    eqName: '',
+    productsId: '',
+    eqInfo: '',
     status: '启用'
   })
   

@@ -22,9 +22,10 @@
         </el-form-item>
         <el-form-item>
           <el-input
-            v-model="searchForm.productsId"
+            v-model.number="searchForm.productsId"
             placeholder="请输入产品ID"
             clearable
+            type="number"
             style="width: 200px"
             @keyup.enter="handleSearch"
           />
@@ -72,13 +73,13 @@
         <el-table-column prop="status" label="状态" width="100">
           <template #default="{ row }">
             <el-tag :type="getStatusType(row.status)">
-              {{ row.status }}
+              {{ row.status || '启用' }}
             </el-tag>
           </template>
         </el-table-column>
         <el-table-column prop="createdAt" label="创建时间" width="160">
           <template #default="{ row }">
-            <span>{{ formatDateTime(row.createdAt) }}</span>
+            <span>{{ formatDateTime(row.CreatedAt) }}</span>
           </template>
         </el-table-column>
         <el-table-column label="操作" width="200" fixed="right">
@@ -209,7 +210,7 @@ const handleAdd = () => {
 // 编辑
 const handleEdit = (row) => {
   dialogMode.value = 'edit'
-  currentDeviceId.value = row.id
+  currentDeviceId.value = row.ID
   dialogVisible.value = true
 }
 
@@ -217,7 +218,7 @@ const handleEdit = (row) => {
 const handleDelete = async (row) => {
   try {
     await ElMessageBox.confirm(
-      `确定要删除设备"${row.deviceName}"吗？`,
+      `确定要删除设备"${row.eqName || '未命名设备'}"吗？`,
       '删除确认',
       {
         confirmButtonText: '确定',
@@ -226,7 +227,7 @@ const handleDelete = async (row) => {
       }
     )
     
-    const response = await deleteDevice({ id: row.id })
+    const response = await deleteDevice({ id: row.ID })
     if (response.code === 0) {
       ElMessage.success('删除成功')
       getTableData()
