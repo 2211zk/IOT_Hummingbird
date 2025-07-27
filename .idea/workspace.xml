@@ -1,122 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="20a1c5d9-3fce-406b-a3ab-a2c1bcec33f0" name="更改" comment="Initial commit">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/.idea/GOHCache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GOHCache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" afterDir="false" />
->>>>>>> kai
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/pathInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_driver/wlOverview/overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_driver/wlOverview/overview.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlEquipment/wlEquipment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlEquipment/wlEquipment.vue" afterDir="false" />
->>>>>>> kai
-    </list>
+    <list default="true" id="567c6953-e7ed-438b-91f6-a1f75454462a" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../go/pkg/mod/golang.org/toolchain@v0.0.1-go1.24.4.windows-amd64" />
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="2dXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="30Sak6H33ZO3uNhFIsKq4yfx6xc" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> kai
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Go 构建.go build github.com/flipped-aurora/gin-vue-admin/server.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.GoLinterPluginOnboarding": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "main",
-=======
-    "git-widget-placeholder": "kai",
->>>>>>> kai
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "D:/gowork/src/Hummingbird",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "go.sdk",
-<<<<<<< HEAD
-    "ts.external.directory.path": "D:\\GoLand 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+    "last_opened_file_path": "C:/Users/35202",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-=======
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Go 构建.go build github.com/flipped-aurora/gin-vue-admin/server.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/gowork/src/Hummingbird&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;go.sdk&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\GoLand 2025.1.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
->>>>>>> kai
-=======
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\GoLand 2025.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
->>>>>>> kai
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server" />
-    </key>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-467a64f6477e-ee0e143be2ee-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.14475.35" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-GO-251.26927.50" />
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="b97b7231-c509-4e57-bf77-1bcc61d5a88d" name="更改" comment="" />
-      <created>1753233302479</created>
+      <changelist id="567c6953-e7ed-438b-91f6-a1f75454462a" name="更改" comment="" />
+      <created>1753623570919</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1753233302479</updated>
+      <updated>1753623570919</updated>
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

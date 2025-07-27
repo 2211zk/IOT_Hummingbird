@@ -51,6 +51,13 @@
             </set>
           </value>
         </entry>
+        <entry key="AssignDevicesRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_department.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AuthorityApi">
           <value>
             <set>
@@ -191,6 +198,20 @@
             </set>
           </value>
         </entry>
+        <entry key="AvailableDevicesReq">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/request/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="AvailableDevicesResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/response/wl_department.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="AwsS3">
           <value>
             <set>
@@ -252,6 +273,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/config/cors.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="CacheItem">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_department/cache.go" />
             </set>
           </value>
         </entry>
@@ -366,6 +394,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/utils/server.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="CreateDepartmentRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_department.go" />
             </set>
           </value>
         </entry>
@@ -529,6 +564,76 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/request/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentCache">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_department/cache.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentDetailResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/response/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentDevice">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentDevicesReq">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/request/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentDevicesRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentListResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/response/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentTreeNode">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/response/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DepartmentTreeReq">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/request/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Device">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="DeviceResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/response/wl_department.go" />
             </set>
           </value>
         </entry>
@@ -1380,6 +1485,7 @@
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/system/enter.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_department/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_driver/enter.go" />
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go" />
             </set>
@@ -1911,6 +2017,13 @@
             </set>
           </value>
         </entry>
+        <entry key="UpdateDepartmentRequest">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_department.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="UpdateUserReply">
           <value>
             <set>
@@ -2107,6 +2220,14 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/wl_department.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDepartmentApi">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_department.go" />
             </set>
           </value>
         </entry>
@@ -2117,10 +2238,39 @@
             </set>
           </value>
         </entry>
+        <entry key="WlDepartmentApiTestSuite">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_department/wl_department_test.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDepartmentData">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDepartmentDevice">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDepartmentRouter">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_department.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="WlDepartmentSearch">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/request/wl_department.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_department.go" />
             </set>
           </value>
         </entry>
@@ -2128,6 +2278,21 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_department/wl_department.go" />
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_department.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDepartmentServiceTestSuite">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_department/wl_department_test.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="WlDevice">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/wl_department.go" />
             </set>
           </value>
         </entry>
@@ -2883,21 +3048,21 @@
         <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/cmd/kratos/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253612" />
+              <option name="lastModified" value="1753618963627" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/cmd/kratos/wire.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753429791763" />
+              <option name="lastModified" value="1753618963637" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/IOT_client/kratos_end/cmd/kratos/wire_gen.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253613" />
+              <option name="lastModified" value="1753618963642" />
             </ScannedPath>
           </value>
         </entry>
@@ -3227,7 +3392,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/system/auto_code_mcp.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840307" />
+              <option name="lastModified" value="1753618963645" />
             </ScannedPath>
           </value>
         </entry>
@@ -3481,10 +3646,22 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_department/wl_department.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253660" />
+              <option name="lastModified" value="1753618963645" />
               <option name="schema">
                 <list>
                   <option value="WlDepartmentApiStruct" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_department/wl_department_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963646" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartmentApiTestSuite" />
                 </list>
               </option>
             </ScannedPath>
@@ -3529,7 +3706,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253680" />
+              <option name="lastModified" value="1753618963656" />
               <option name="schema">
                 <list>
                   <option value="ApiGroup" />
@@ -3569,6 +3746,18 @@
               <option name="schema">
                 <list>
                   <option value="WlCategoryApi" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/api/v1/wl_playform/wl_department.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963656" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartmentApi" />
                 </list>
               </option>
             </ScannedPath>
@@ -4055,7 +4244,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/global/global.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753260206855" />
+              <option name="lastModified" value="1753618963658" />
             </ScannedPath>
           </value>
         </entry>
@@ -4068,6 +4257,13 @@
                   <option value="GVA_MODEL" />
                 </list>
               </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/db_init.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963659" />
             </ScannedPath>
           </value>
         </entry>
@@ -4100,14 +4296,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253713" />
+              <option name="lastModified" value="1753618963659" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/gorm_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503735144" />
+              <option name="lastModified" value="1753618963667" />
             </ScannedPath>
           </value>
         </entry>
@@ -4192,7 +4388,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/login_log_menu.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253720" />
+              <option name="lastModified" value="1753618963667" />
             </ScannedPath>
           </value>
         </entry>
@@ -4206,7 +4402,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/mcp.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840402" />
+              <option name="lastModified" value="1753618963667" />
             </ScannedPath>
           </value>
         </entry>
@@ -4275,7 +4471,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253720" />
+              <option name="lastModified" value="1753618963668" />
               <option name="schema">
                 <list>
                   <option value="justFilesFilesystem" />
@@ -4287,7 +4483,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/initialize/router_biz.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253725" />
+              <option name="lastModified" value="1753618963678" />
             </ScannedPath>
           </value>
         </entry>
@@ -4330,14 +4526,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253726" />
+              <option name="lastModified" value="1753619523136" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/client/client.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840415" />
+              <option name="lastModified" value="1753618963679" />
             </ScannedPath>
           </value>
         </entry>
@@ -4351,7 +4547,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/current_time.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840417" />
+              <option name="lastModified" value="1753618963679" />
               <option name="schema">
                 <list>
                   <option value="CurrentTime" />
@@ -4363,14 +4559,14 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840418" />
+              <option name="lastModified" value="1753618963680" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/mcp/get_nickname.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840419" />
+              <option name="lastModified" value="1753618963680" />
               <option name="schema">
                 <list>
                   <option value="GetNickname" />
@@ -4404,6 +4600,13 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1753232840422" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/middleware/error_handler.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963680" />
             </ScannedPath>
           </value>
         </entry>
@@ -4487,7 +4690,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/request/common.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840431" />
+              <option name="lastModified" value="1753618963680" />
               <option name="schema">
                 <list>
                   <option value="PageInfo" />
@@ -4515,7 +4718,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/common/response/response.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753232840433" />
+              <option name="lastModified" value="1753618963681" />
               <option name="schema">
                 <list>
                   <option value="Response" />
@@ -5030,7 +5233,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/system/sys_login_log.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253726" />
+              <option name="lastModified" value="1753618963681" />
               <option name="schema">
                 <list>
                   <option value="SysLoginLog" />
@@ -5121,13 +5324,32 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/request/wl_department.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253727" />
+              <option name="lastModified" value="1753618963681" />
               <option name="schema">
                 <list>
                   <option value="WlDepartmentSearch" />
                   <option value="CreateWlDepartmentReq" />
                   <option value="UpdateWlDepartmentReq" />
                   <option value="DeleteWlDepartmentReq" />
+                  <option value="DepartmentTreeReq" />
+                  <option value="AvailableDevicesReq" />
+                  <option value="DepartmentDevicesReq" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/response/wl_department.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963681" />
+              <option name="schema">
+                <list>
+                  <option value="DepartmentTreeNode" />
+                  <option value="DepartmentListResponse" />
+                  <option value="DepartmentDetailResponse" />
+                  <option value="DeviceResponse" />
+                  <option value="AvailableDevicesResponse" />
                 </list>
               </option>
             </ScannedPath>
@@ -5136,10 +5358,12 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_department/wl_department.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253727" />
+              <option name="lastModified" value="1753618963682" />
               <option name="schema">
                 <list>
                   <option value="WlDepartment" />
+                  <option value="WlDevice" />
+                  <option value="WlDepartmentDevice" />
                 </list>
               </option>
             </ScannedPath>
@@ -5224,6 +5448,22 @@
               <option name="schema">
                 <list>
                   <option value="WlCategorySearch" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_department.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963682" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartmentSearch" />
+                  <option value="CreateDepartmentRequest" />
+                  <option value="UpdateDepartmentRequest" />
+                  <option value="AssignDevicesRequest" />
+                  <option value="DepartmentDevicesRequest" />
                 </list>
               </option>
             </ScannedPath>
@@ -5333,6 +5573,20 @@
               <option name="schema">
                 <list>
                   <option value="WlCategory" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_department.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963682" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartment" />
+                  <option value="Device" />
+                  <option value="DepartmentDevice" />
                 </list>
               </option>
             </ScannedPath>
@@ -5776,7 +6030,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253780" />
+              <option name="lastModified" value="1753618963682" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -6013,10 +6267,22 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_department/enter.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963682" />
+              <option name="schema">
+                <list>
+                  <option value="RouterGroup" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_department/wl_department.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253782" />
+              <option name="lastModified" value="1753618963682" />
             </ScannedPath>
           </value>
         </entry>
@@ -6059,7 +6325,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253793" />
+              <option name="lastModified" value="1753618963693" />
               <option name="schema">
                 <list>
                   <option value="RouterGroup" />
@@ -6099,6 +6365,18 @@
               <option name="schema">
                 <list>
                   <option value="WlCategoryRouter" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/router/wl_playform/wl_department.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963693" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartmentRouter" />
                 </list>
               </option>
             </ScannedPath>
@@ -6615,13 +6893,38 @@
             </ScannedPath>
           </value>
         </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_department/cache.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963693" />
+              <option name="schema">
+                <list>
+                  <option value="DepartmentCache" />
+                  <option value="CacheItem" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_department/wl_department.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253815" />
+              <option name="lastModified" value="1753618963693" />
               <option name="schema">
                 <list>
                   <option value="WlDepartmentService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_department/wl_department_test.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963695" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartmentServiceTestSuite" />
                 </list>
               </option>
             </ScannedPath>
@@ -6666,7 +6969,7 @@
         <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/enter.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1753503253829" />
+              <option name="lastModified" value="1753618963703" />
               <option name="schema">
                 <list>
                   <option value="ServiceGroup" />
@@ -6706,6 +7009,18 @@
               <option name="schema">
                 <list>
                   <option value="WlCategoryService" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_department.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963703" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartmentService" />
                 </list>
               </option>
             </ScannedPath>
@@ -6922,6 +7237,18 @@
               <option name="schema">
                 <list>
                   <option value="initUser" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/gin-vue-admin-main/server/source/system/wl_department.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1753618963703" />
+              <option name="schema">
+                <list>
+                  <option value="WlDepartmentData" />
                 </list>
               </option>
             </ScannedPath>
@@ -7631,6 +7958,7 @@
         <entry key="api_service" value="ApiService" />
         <entry key="app" value="App" />
         <entry key="args" value="args" />
+        <entry key="assign_devices_request" value="AssignDevicesRequest" />
         <entry key="authority_api" value="AuthorityApi" />
         <entry key="authority_btn_api" value="AuthorityBtnApi" />
         <entry key="authority_btn_router" value="AuthorityBtnRouter" />
@@ -7660,6 +7988,8 @@
         <entry key="auto_func" value="AutoFunc" />
         <entry key="auto_mcp_tool" value="AutoMcpTool" />
         <entry key="autocode" value="Autocode" />
+        <entry key="available_devices_req" value="AvailableDevicesReq" />
+        <entry key="available_devices_response" value="AvailableDevicesResponse" />
         <entry key="aws_s3" value="AwsS3" />
         <entry key="base" value="Base" />
         <entry key="base_api" value="BaseApi" />
@@ -7667,6 +7997,7 @@
         <entry key="base_menu_service" value="BaseMenuService" />
         <entry key="base_router" value="BaseRouter" />
         <entry key="bootstrap" value="Bootstrap" />
+        <entry key="cache_item" value="CacheItem" />
         <entry key="captcha" value="Captcha" />
         <entry key="casbin_api" value="CasbinApi" />
         <entry key="casbin_in_receive" value="CasbinInReceive" />
@@ -7685,6 +8016,7 @@
         <entry key="cors" value="CORS" />
         <entry key="cors_whitelist" value="CORSWhitelist" />
         <entry key="cpu" value="Cpu" />
+        <entry key="create_department_request" value="CreateDepartmentRequest" />
         <entry key="create_login_log_req" value="CreateLoginLogReq" />
         <entry key="create_wl_department_req" value="CreateWlDepartmentReq" />
         <entry key="current_time" value="CurrentTime" />
@@ -7707,6 +8039,16 @@
         <entry key="delete_user_reply" value="DeleteUserReply" />
         <entry key="delete_user_request" value="DeleteUserRequest" />
         <entry key="delete_wl_department_req" value="DeleteWlDepartmentReq" />
+        <entry key="department_cache" value="DepartmentCache" />
+        <entry key="department_detail_response" value="DepartmentDetailResponse" />
+        <entry key="department_device" value="DepartmentDevice" />
+        <entry key="department_devices_req" value="DepartmentDevicesReq" />
+        <entry key="department_devices_request" value="DepartmentDevicesRequest" />
+        <entry key="department_list_response" value="DepartmentListResponse" />
+        <entry key="department_tree_node" value="DepartmentTreeNode" />
+        <entry key="department_tree_req" value="DepartmentTreeReq" />
+        <entry key="device" value="Device" />
+        <entry key="device_response" value="DeviceResponse" />
         <entry key="dictionary_api" value="DictionaryApi" />
         <entry key="dictionary_detail_api" value="DictionaryDetailApi" />
         <entry key="dictionary_detail_router" value="DictionaryDetailRouter" />
@@ -7927,6 +8269,7 @@
         <entry key="unimplemented_equipment_server" value="UnimplementedEquipmentServer" />
         <entry key="unimplemented_greeter_server" value="UnimplementedGreeterServer" />
         <entry key="unimplemented_user_service_server" value="UnimplementedUserServiceServer" />
+        <entry key="update_department_request" value="UpdateDepartmentRequest" />
         <entry key="update_user_reply" value="UpdateUserReply" />
         <entry key="update_user_request" value="UpdateUserRequest" />
         <entry key="update_wl_department_req" value="UpdateWlDepartmentReq" />
@@ -7958,9 +8301,16 @@
         <entry key="wl_category_search" value="WlCategorySearch" />
         <entry key="wl_category_service" value="WlCategoryService" />
         <entry key="wl_department" value="WlDepartment" />
+        <entry key="wl_department_api" value="WlDepartmentApi" />
         <entry key="wl_department_api_struct" value="WlDepartmentApiStruct" />
+        <entry key="wl_department_api_test_suite" value="WlDepartmentApiTestSuite" />
+        <entry key="wl_department_data" value="WlDepartmentData" />
+        <entry key="wl_department_device" value="WlDepartmentDevice" />
+        <entry key="wl_department_router" value="WlDepartmentRouter" />
         <entry key="wl_department_search" value="WlDepartmentSearch" />
         <entry key="wl_department_service" value="WlDepartmentService" />
+        <entry key="wl_department_service_test_suite" value="WlDepartmentServiceTestSuite" />
+        <entry key="wl_device" value="WlDevice" />
         <entry key="wl_drivers" value="WlDrivers" />
         <entry key="wl_drivers_api" value="WlDriversApi" />
         <entry key="wl_drivers_router" value="WlDriversRouter" />
@@ -8003,6 +8353,6 @@
         <entry key="zap_core" value="ZapCore" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1753504085641" />
+    <option name="lastTimeChecked" value="1753623588810" />
   </component>
 </project>
