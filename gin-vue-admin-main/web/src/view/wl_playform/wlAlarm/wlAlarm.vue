@@ -36,9 +36,6 @@
             v-model="searchInfo.createdAtRange"
             class="w-[380px]"
             type="datetimerange"
-            range-separator="至"
-            start-placeholder="开始时间"
-            end-placeholder="结束时间"
           />
        </el-form-item>
       

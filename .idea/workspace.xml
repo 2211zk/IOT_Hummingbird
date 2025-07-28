@@ -5,43 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="543fdd8c-40d2-4b98-a080-7383b4417955" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/gin-vue-admin-main/add_status_to_wl_equipment.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gin-vue-admin-main/check_device_data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gin-vue-admin-main/test_device_api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gin-vue-admin-main/test_device_selector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gin-vue-admin-main/设备管理修复说明.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gin-vue-admin-main/设备选择器修复说明.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/GOHCache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GOHCache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/IOT_Hummingbird.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/IOT_Hummingbird.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MarsCodeWorkspaceAppSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/protoeditor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/thriftCompilerAssist.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/department-management/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/department-management/requirements.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/department-management/tasks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/dynamic-form-engine-rules/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/dynamic-form-engine-rules/requirements.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/dynamic-form-engine-rules/tasks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/login-log-management/design.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/login-log-management/requirements.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.kiro/specs/login-log-management/tasks.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/internal/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/internal/app/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IOT_client/kratos_end/cobra-script-center/internal/database/connection.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_equipment.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/request/wl_equipment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_equipment.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/model/wl_playform/wl_equipment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_equipment.go" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/server/service/wl_playform/wl_equipment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/api/device.js" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/api/device.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/system/department/components/DeviceSelector.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/system/department/components/DeviceSelector.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/system/device/components/DeviceDialog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/system/device/components/DeviceDialog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/system/device/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/system/device/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlAlarm/wlAlarm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/gin-vue-admin-main/web/src/view/wl_playform/wlAlarm/wlAlarm.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +24,12 @@
     &quot;assignee&quot;: &quot;liyutao210461925&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/2211zk/IOT_Hummingbird.git&quot;,
-    &quot;accountId&quot;: &quot;f8e281e2-fd60-4637-9bf1-5bfdc2d9c6e5&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/2211zk/IOT_Hummingbird.git",
+    "accountId": "d22c4ae3-cd8b-4d6a-a97d-4525132f2289"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -73,29 +39,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Go 构建.go build github.com/flipped-aurora/gin-vue-admin/server.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.GoLinterPluginOnboarding&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.GoLinterPluginStorageMigration&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/21046&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;go.vgo&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Go 构建.go build github.com/flipped-aurora/gin-vue-admin/server.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.GoLinterPluginOnboarding": "true",
+    "RunOnceActivity.GoLinterPluginStorageMigration": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "C:/Users/Administrator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "go.vgo",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\GoLand 2025.1.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="go build github.com/flipped-aurora/gin-vue-admin/server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="IOT_Hummingbird" />
@@ -115,8 +82,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-3b128438d3f6-4b567d62c776-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-251.26094.127" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-GO-251.26094.127" />
+        <option value="bundled-gosdk-3b128438d3f6-07d2d2d66b1e-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-251.26927.50" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-GO-251.26927.50" />
       </set>
     </attachedChunks>
   </component>
